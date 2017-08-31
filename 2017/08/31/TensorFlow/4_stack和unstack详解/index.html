@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="张量Tensor介绍一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。Data type: 包括常用的整型、实数型、复数型等。rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。shape:不同rank不同shape，rank0为[]，rank1为[D0]，rank2为[D0, D1]，rank3为[D0,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爱 wifi 游戏">
+<meta property="og:url" content="http://iwifigame.com/2017/08/31/TensorFlow/4_stack和unstack详解/index.html">
+<meta property="og:site_name" content="爱 wifi 游戏">
+<meta property="og:description" content="张量Tensor介绍一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。Data type: 包括常用的整型、实数型、复数型等。rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。shape:不同rank不同shape，rank0为[]，rank1为[D0]，rank2为[D0, D1]，rank3为[D0,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://iwifigame.com/2017/08/31/TensorFlow/4_stack和unstack详解/4_1.png">
+<meta property="og:updated_time" content="2017-08-30T11:45:22.426Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="爱 wifi 游戏">
+<meta name="twitter:description" content="张量Tensor介绍一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。Data type: 包括常用的整型、实数型、复数型等。rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。shape:不同rank不同shape，rank0为[]，rank1为[D0]，rank2为[D0, D1]，rank3为[D0,">
+<meta name="twitter:image" content="http://iwifigame.com/2017/08/31/TensorFlow/4_stack和unstack详解/4_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://iwifigame.com/2017/08/31/TensorFlow/4_stack和unstack详解/"/>
+
+
+
+
+
+  <title> | 爱 wifi 游戏</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">爱 wifi 游戏</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/2017/08/31/TensorFlow/4_stack和unstack详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iwifigame">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱 wifi 游戏">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-31T17:25:25+08:00">
+                2017-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="张量Tensor介绍"><a href="#张量Tensor介绍" class="headerlink" title="张量Tensor介绍"></a>张量Tensor介绍</h2><p>一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。<br>Data type: 包括常用的整型、实数型、复数型等。<br>rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。<br>shape:不同rank不同shape，rank0为[]，rank1为[D0]，rank2为[D0, D1]，rank3为[D0, D1, D2]以此类推，rankn为[D0, D1, …Dn-1]。rank0表示标题，rank1表示一维向量，rank2表示二维矩阵，rank3表示3维空间，rank4表示4维，rank5表示5维等等。<br>shape的读取技巧是看最外层中括号里，有几个元素(被中括号括起来的算一个元素)被逗号分开，假设数量为n1,则shape的第一个元素就为n1.再依次递归看前面被中括号括起来的元素中，被逗号分开的元素个数，假设为n2，则shape的第二个元素就是n2，形状就是[n1,n2]。一直这样看，直到元素全是由逗号分开，没有中括号为止。举例如下。<br><img src="4_1.png" alt="(4_1.png)"></p>
+<h2 id="tensorflow-函数介绍"><a href="#tensorflow-函数介绍" class="headerlink" title="tensorflow 函数介绍"></a>tensorflow 函数介绍</h2><h3 id="tf-stack"><a href="#tf-stack" class="headerlink" title="tf.stack()"></a>tf.stack()</h3><p><strong>tf.stack(values, axis=0, name=’stack’)</strong><br><strong>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。</strong></p>
+<p>假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。<br>如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。<br>如果轴axis=1，则转变后的张量的形状为(A, N, B, C)。<br>如果轴axis=2，则转变后的张量的形状为(A, B, N, C)。其它情况依次类推。  </p>
+<p>举例如下：<br>‘x’ is [1, 4]， 形状是(2)，维度为1<br>‘y’ is [2, 5]， 形状是(2)，维度为1<br>‘z’ is [3, 6]， 形状是(2)，维度为1<br>stack([x, y, z]) =&gt; [[1, 4], [2, 5], [3, 6]]  # axis的值默认为0。输出的形状为(3, 2)<br>stack([x, y, z], axis=1) =&gt; [[1, 2, 3], [4, 5, 6]] # axis的值为1。输出的形状为(2, 3)</p>
+<p>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]]，形状是(3,4)，维度为2<br>‘y’ is [[4,4,4,4],[5,5,5,5],[6,6,6,6]]，形状是(3,4)，维度为2<br>stack([x,y]) =&gt; [[[1,1,1,1],[2,2,2,2],[3,3,3,3]], [[4,4,4,4],[5,5,5,5],[6,6,6,6]]] # axis的值默认为0。输出的形状为(2, 3, 4)<br>stack([x,y],axis=1) =&gt; [[[1,1,1,1],[4,4,4,4]],[[2,2,2,2],[5,5,5,5]],[[3,3,3,3],[6,6,6,6]]] # axis的值为1。输出的形状为(3, 2, 4)<br>stack([x,y],axis=2) =&gt; [[[1,4],[1,4],[1,4],[1,4]],[[2,5],[2,5],[2,5],[2,5]],[[3,6],[3,6],[3,6],[3,6]]]# axis的值为2。输出的形状为(3, 4, 2)  </p>
+<p><strong>axis可这样理解：stack就是要将一组相同形状的张量提高一个维度。axis就是这些张量里，将axis指定的维度用所有这些张量数组代替。如axis=2，表示指定在第2个维度，原来的元素用整个张量数组里的元素代替，即从(A, B, C)转变为(A, B, N, C)</strong></p>
+<p>参数:</p>
+<p>values: 一个有相同形状与数据类型的张量数组。<br>axis: 以轴axis为中心来转变的整数。默认是第一个维度即axis=0。支持负数。取值范围为[-(R+1), R+1)<br>name: 这个操作的名字（可选）  </p>
+<p>返回:  </p>
+<p>输出: A stacked Tensor with the same type as values.<br>异常: ValueError: 如果轴axis超出范围[-(R+1), R+1).  </p>
+<h3 id="tf-unstack"><a href="#tf-unstack" class="headerlink" title="tf.unstack()"></a>tf.unstack()</h3><p><strong>tf.unstack(value, num=None, axis=0, name=’unstack’)<br>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R-1的张量。即将一组张量以指定的轴，减少一个维度。正好和stack()相反。</strong></p>
+<p>将张量value分割成num个张量数组。如果num没有指定，则是根据张量value的形状来指定。如果value.shape[axis]不存在，则抛出ValueError的异常。</p>
+<p>假如一个张量的形状是(A, B, C, D)。<br>如果axis == 0，则输出的张量是value[i, :, :, :],i取值为[0,A)，每个输出的张量的形状为(B,C,D)。<br>如果axis == 1，则输出的张量是value[:, i, :, :],i取值为[0,B)，每个输出的张量的形状为(A,C,D)。<br>如果axis == 2，则输出的张量是value[:, :, i, :],i取值为[0,C)，每个输出的张量的形状为(A,B,D)。依次类推。  </p>
+<p>举例如下：<br>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]] # 形状是(3,4)，维度为2<br>unstack(x,axis=0) =&gt;以指定的维度0为轴，转变成3个形状为(4)张量[1,1,1,1],[2,2,2,2],[3,3,3,3]<br>unstack(x,axis=1) =&gt;以指定的维度1为轴，转变成4个形状为(3)张量[1,2,3],[1,2,3],[1,2,4],[1,2,3]  </p>
+<p><strong>axis可这样理解：unstack就是要将一个张量降低为低一个维度的张量数组。axis就是将axis指定的维度，用所有这个张量里同维度的数据代替。 </strong></p>
+<p>参数:</p>
+<p>value: 一个将要被降维的维度大于0的张量。<br>num: 整数。指定的维度axis的长度。如果设置为None(默认值),将自动求值。<br>axis: 整数.以轴axis指定的维度来转变 默认是第一个维度即axis=0。支持负数。取值范围为[-R, R)<br>name: 这个操作的名字（可选）  </p>
+<p>返回:</p>
+<p>从张量value降维后的张量数组。</p>
+<p>异常:</p>
+<p>ValueError: 如果num没有指定并且无法求出来。<br>ValueError: 如果axis超出范围 [-R, R)。  </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/31/TensorFlow/3_constant详解/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/31/TensorFlow/5_lstm详解/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">iwifigame</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#张量Tensor介绍"><span class="nav-number">1.</span> <span class="nav-text">张量Tensor介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tensorflow-函数介绍"><span class="nav-number">2.</span> <span class="nav-text">tensorflow 函数介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-stack"><span class="nav-number">2.1.</span> <span class="nav-text">tf.stack()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-unstack"><span class="nav-number">2.2.</span> <span class="nav-text">tf.unstack()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iwifigame</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
