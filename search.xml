@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title></title>
+      <url>/2017/08/31/markdown/</url>
+      <content type="html"><![CDATA[<h1 id="MarkDown-语法样本"><a href="#MarkDown-语法样本" class="headerlink" title="MarkDown 语法样本"></a><center>MarkDown 语法样本</center></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt; &lt;/center&gt; &lt;br/&gt;</div><div class="line">如果另起一行，只需在当前行结尾加 2 个空格</div><div class="line">如果是要起一个新段落，只需要空出一行即可。</div></pre></td></tr></table></figure>
+<h4 id="1-标题语法"><a href="#1-标题语法" class="headerlink" title="1. 标题语法"></a>1. 标题语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">== 一级标题</div><div class="line">-- 二级标题</div></pre></td></tr></table></figure>
+<p> <strong><em>标题=-的数量必须大于等于2个</em></strong></p>
+<h4 id="2-加粗"><a href="#2-加粗" class="headerlink" title="2. 加粗"></a>2. 加粗</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 一级加粗</div><div class="line">## 二级加粗</div><div class="line">### 三级加粗</div><div class="line">#### 四级加粗</div><div class="line">##### 五级加粗</div><div class="line">###### 六级加粗</div></pre></td></tr></table></figure>
+<p><strong><em>很多语法前都可以加入加粗标记,来设置文字大小</em></strong></p>
+<h4 id="3-粗斜体标亮"><a href="#3-粗斜体标亮" class="headerlink" title="3. 粗斜体标亮"></a>3. 粗斜体标亮</h4><p> 以*或者_来标记.二者是等价的.下面以*为例说明.<br> 一个*号(*)是斜体.两个*号(**)是粗体,三个*号(***)是粗斜体<br> <em>斜体文本</em>    <em>斜体文本</em><br> <strong>粗体文本</strong>    <strong>粗体文本</strong><br> <strong><em>粗斜体文本</em></strong>    <strong><em>粗斜体文本</em></strong><br> <code>标亮</code></p>
+<h4 id="4-列表"><a href="#4-列表" class="headerlink" title="4. 列表"></a>4. 列表</h4><p>无序列表以<em>,+,-开头,有序列表以1.开头.序号与内容中间必须有空格.有序列表的数 字,当前面没有加粗符号时,没有用,它自动从1开始递增(chrome markdown preview plus).<br>无序列表可以用星号</em>、加号+或者连字符-<br>无序列表</p>
+<ul>
+<li>1</li>
+</ul>
+<ul>
+<li>2</li>
+</ul>
+<ul>
+<li>3</li>
+</ul>
+<p>有序表</p>
+<ol>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+</ol>
+<h5 id="5-引用"><a href="#5-引用" class="headerlink" title="5. 引用"></a>5. 引用</h5><p> 引用:行首以&gt;开头.效果如下.</p>
+<blockquote>
+<p>一盏灯， 一片昏黄； 一简书， 一杯淡茶。 守着那一份淡定， 品读属于自己的寂寞。 保持淡定， 才能欣赏到最美丽的风景！ 保持淡定， 人生从此不再寂寞。</p>
+<h4 id="6-代码"><a href="#6-代码" class="headerlink" title="6. 代码"></a>6. 代码</h4><p>单行代码以`code`表示.<br>多行代码以```code```表示.```必须独占一行.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int main() &#123;</div><div class="line">    printf(&quot;Hello, markdown!&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="7-链接"><a href="#7-链接" class="headerlink" title="7. 链接"></a>7. 链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[网页链接](http://www.baidu.com)&lt;br/&gt;</div><div class="line">![图片链接](http://ww4.sinaimg.cn/bmiddle/aa397b7fjw1dzplsgpdw5j.jpg)</div></pre></td></tr></table></figure>
+<h4 id="8-横线"><a href="#8-横线" class="headerlink" title="8. 横线"></a>8. 横线</h4><p>下面所有的效果一样,全是横线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">* * *</div><div class="line">***</div><div class="line">****</div><div class="line">*****</div><div class="line">- - -</div><div class="line">---</div><div class="line">____---</div><div class="line">---------------------</div><div class="line">_ _ _</div><div class="line">_ _ _____</div></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="9-表格"><a href="#9-表格" class="headerlink" title="9. 表格"></a>9. 表格</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| Tables        | Are           | Cool  |</div><div class="line">| ------------- |:-------------:| -----:|</div><div class="line">| col 3 is      | right-aligned | 1600 |</div><div class="line">| col 2 is      | centered      |   12 |</div><div class="line">| zebra stripes | are neat      |    1 |</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th style="text-align:center">Are</th>
+<th style="text-align:right">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>col 3 is</td>
+<td style="text-align:center">right-aligned</td>
+<td style="text-align:right">1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td style="text-align:center">centered</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td>zebra stripes</td>
+<td style="text-align:center">are neat</td>
+<td style="text-align:right">1</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2017/08/31/%E4%B8%AD%E5%8C%BB/%E6%B0%94/</url>
+      <content type="html"><![CDATA[<p>,###### 阴阳五行学说<br>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2017/08/31/%E4%B8%AD%E5%8C%BB/%E5%9F%BA%E7%A1%80/</url>
+      <content type="html"><![CDATA[<h2 id="阴阳五行学说"><a href="#阴阳五行学说" class="headerlink" title="阴阳五行学说"></a>阴阳五行学说</h2><p>精气是万事万物的本源.精是不是实体?气则是组成物质需要的其它东西,比如能量,催化剂等?<br>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
+<h2 id="中医发展原理"><a href="#中医发展原理" class="headerlink" title="中医发展原理"></a>中医发展原理</h2><p>中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2017/08/31/%E5%86%99%E4%BD%9C/1.Git%20%E5%AE%9E%E7%94%A8%E5%B9%B2%E8%B4%A7%E6%80%BB%E7%BB%93%EF%BC%88%E9%99%84%E5%BC%82%E5%9C%B0%E7%A7%81%E6%9C%89Git%E4%BB%93%E5%BA%93%E5%AE%9E%E7%8E%B0%E5%8A%9E%E6%B3%95%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h2 id="1-网盘-Git-实现异地、免费、安全、私有的版本管理"><a href="#1-网盘-Git-实现异地、免费、安全、私有的版本管理" class="headerlink" title="1. 网盘+Git 实现异地、免费、安全、私有的版本管理"></a>1. 网盘+Git 实现异地、免费、安全、私有的版本管理</h2><p>相信很多人都想拥有自己的私有版本管理平台，无论是文档管理还是代码管理，都是非常方<br>便的。如果用Github的私有仓库，每年的支出都是一笔不小的费用，而且Github有些地方网<br>络访问速度慢；而如果用Github的免费版本，那就私密安全性又得不到保证。 另外如果自己<br>搭建Git服务器，对于普通大众来说又没有必要，况且又耗时费力而不讨好。</p>
+<p>这里一种非常好的替代方法就是在网盘中创建Git仓库，然后利用网盘来进行仓库的同步。<br>从而实现多地、免费、安全、私有的版本管理。在使用的过程中，只要保证网盘的同步即可。<br>比如在工作的地方，把代码或文档更新到同步盘中；回到家中，打开同步盘，它会自动同步。<br>然后再用Git更新即可。这样就保证了各个地方的版本同步而且又方便安全。</p>
+<p>具体的操作方法如下：</p>
+<ol>
+<li><p>申请网盘。一定要申请那种带有<strong>同步盘</strong>功能的网盘。这里有几个大坑：</p>
+<ul>
+<li>有的网盘，它对于大量的小文件支持不是很好，即有时一些小文件它会同步不到，而Git<br>提交时，会生成大量的小文件，从而造成同步时Git仓库的损坏。</li>
+<li><p>有的网盘，并没有同步盘功能，或者同步盘功能是要收费的，则这些尽量不选择。</p>
+<p>对于网盘的选择，个人推荐<strong>微云</strong>。</p>
+</li>
+</ul>
+</li>
+<li><p>创建本地仓库。在网盘的同步盘中创建Git仓库（要利用网盘来实现异地同步）。命令如下<br>（注意在git bash中运行，下同）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init --bare</div></pre></td></tr></table></figure>
+</li>
+<li><p>克隆本地仓库。命令如下，注意斜杠与反斜杠：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone F:/weiyun/repo/test</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>通过上述步骤，一个异地、免费、安全、私有的版本管理系统就搭建好了。</p>
+<p>对于Git提交中生成很多小文件从而影响网盘同步效率的问题，可以在同步盘的Git仓库中执行<br>如下命令中的任何一个来解决：</p>
+<ul>
+<li><code>git repack -d</code> 命令,它会将git仓库中所有没有打包的碎片文件打包到一个大的文件中,<br>从而大大减少仓库下objects文件夹中碎片文件的数量。</li>
+<li><code>git repack -a -d</code> 命令，它会将所有的文件（包括已打包的）打包到一个文件中,这会生成<br>一个新的文件。这个命令要<strong>慎用</strong>,因为它会增加网盘的同步负担（已同步的文件相当于要重新同步）.</li>
+<li><code>git gc</code> 等价于 <code>git repack -a -d</code>。</li>
+</ul>
+<p>最后，给大家一个自动将所有Git仓库小文件打包的脚本（gitbat.bat）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">for /d %%i in (*) do @echo. &amp;&amp;@echo -------------------------------------------------------- &amp;&amp;@echo %%i &amp;&amp;@cd %cd%\%%i &amp;&amp;@git repack -d</div><div class="line">pause</div></pre></td></tr></table></figure></p>
+<p>比如在你的同步盘F:\weiyun\repo中，有很多你的Git仓库a、b、c…。那么在F:\weiyun\repo<br>中，创建gitbat.bat文件，然后把上面的内容复制到里面。以后每个月执行一下该脚本即可，<br>则所有以前提交生成的小文件都会利用命令<code>git repack -d</code>打包。</p>
+<h2 id="2-Git-Key-管理"><a href="#2-Git-Key-管理" class="headerlink" title="2. Git Key 管理"></a>2. Git Key 管理</h2><h4 id="2-1-ssh-key-生成。使用如下命令："><a href="#2-1-ssh-key-生成。使用如下命令：" class="headerlink" title="2.1 ssh key 生成。使用如下命令："></a>2.1 ssh key 生成。使用如下命令：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C iwifigame@126.com -f ~/.ssh/iwifigame</div><div class="line">ssh-keygen -t rsa -C liyongjin2009@gmail.com -f ~/.ssh/liyongjin</div></pre></td></tr></table></figure>
+<h4 id="2-2-Git-自动使用多个-ssh-key-以Github为例"><a href="#2-2-Git-自动使用多个-ssh-key-以Github为例" class="headerlink" title="2.2 Git 自动使用多个 ssh key(以Github为例)"></a>2.2 Git 自动使用多个 ssh key(以<strong>Github</strong>为例)</h4><ol>
+<li><p>生成ssh key.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C iwifigame@126.com -f ~/.ssh/iwifigame</div><div class="line">ssh-keygen -t rsa -C liyongjin2009@gmail.com -f ~/.ssh/liyongjin</div></pre></td></tr></table></figure>
+</li>
+<li><p>在Github中添加ssh key,具体方法可以百度搜索下，很简单。</p>
+</li>
+<li><p>在~/.ssh/目录下新建config文件，用于配置各个公私钥相对应的主机.内容如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Host liyongjin  </div><div class="line">Hostname github.com  </div><div class="line">User liyongjin  </div><div class="line">IdentityFile ~/.ssh/liyongjin  </div><div class="line">Host iwifigame  </div><div class="line">HostName github.com  </div><div class="line">User iwifigames    </div><div class="line">IdentityFile ~/.ssh/iwifigame</div></pre></td></tr></table></figure>
+</li>
+<li><p>测试连接情况(<strong>可跳过</strong>)。以<code>ssh -T git@Host</code>的形式测试。Host为上面config文件里定义的Host<br>名字。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -T git@liyongjin</div><div class="line">ssh -T git@iwifigame</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改<strong>git仓库地址</strong>。将@后的github.com改为config文件里Host定义的地址。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:iwifigame/vimrc.git    改为</div><div class="line">git clone git@iwifigame:iwifigame/vimrc.git</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Git会根据config中的配置，使用其中Hostname指定的服务器地址与dentityFile指定的<br>私钥来进行版本管理。从而达到使用多个 ssh key 的目的。</p>
+<ol>
+<li>其它配置。 如果你使用<strong>smartgit</strong>，则要在菜单edit/preference中，选中Authentication<br>选项下的Use system SSH clinet。才可以使用多个ssh key。其它Git软件应该也要做相应的处理，<br>才能使用系统默认的ssh client。</li>
+</ol>
+<h2 id="3-Git-版本管理"><a href="#3-Git-版本管理" class="headerlink" title="3. Git 版本管理"></a>3. Git 版本管理</h2><h4 id="3-1-远程版本提交撤销。有两个方法，如下。"><a href="#3-1-远程版本提交撤销。有两个方法，如下。" class="headerlink" title="3.1 远程版本提交撤销。有两个方法，如下。"></a>3.1 远程版本提交撤销。有两个方法，如下。</h4><ol>
+<li><p>撤销最后的一个版本(<strong>注意版本安全，可能引起别人版本错误</strong>)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD~1</div><div class="line">git push -f</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用revert命令（更安全的做法）。相当于重新提交一个指定版本的反修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git revert HEAD</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="3-2-只克隆最近的一个版本。"><a href="#3-2-只克隆最近的一个版本。" class="headerlink" title="3.2 只克隆最近的一个版本。"></a>3.2 只克隆最近的一个版本。</h4><p>对于大型仓库，这个命令能大大减少网络、硬盘、 <strong>时间</strong>等资源的使用。命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone --depth=1</div></pre></td></tr></table></figure></p>
+<h2 id="4-Git-常见问题处理"><a href="#4-Git-常见问题处理" class="headerlink" title="4. Git 常见问题处理"></a>4. Git 常见问题处理</h2><h4 id="4-1-文件换行符问题（LF转成CRLF错误）。有如下两种处理办法："><a href="#4-1-文件换行符问题（LF转成CRLF错误）。有如下两种处理办法：" class="headerlink" title="4.1 文件换行符问题（LF转成CRLF错误）。有如下两种处理办法："></a>4.1 文件换行符问题（LF转成CRLF错误）。有如下两种处理办法：</h4><ol>
+<li><p>一劳永逸的方法。打开  <strong>~/.gitconfig</strong> 文件，设置<strong>safecrlf</strong>为false。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[core]</div><div class="line">       autocrlf = input</div><div class="line">       safecrlf = false</div></pre></td></tr></table></figure>
+</li>
+<li><p>另一种方法。就是用vim打开该文件，<br>执行<code>set ff=dos</code> 或者 <code>set fileformat=dos</code>，这两个命令的区别只是一个是简写的形式。<br>它的作用是将文件的格式设置为dos格式，即windows下的格式。</p>
+</li>
+</ol>
+<h2 id="5-Git-其它"><a href="#5-Git-其它" class="headerlink" title="5. Git 其它"></a>5. Git 其它</h2><ul>
+<li>使用TortoiseGit，如果出现如下错误：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">isconnected no supported authentication methods available(server sent: publickey，</div><div class="line">keyboard interactive</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>则按如下的步骤解决：</p>
+<pre><code>1. 找到TortoiseGit -&gt; Settings -&gt; Network
+2. 将SSH client指向你的ssh程序。它的位置一般在C:\Program Files\Git\usr\bin\ssh.exe
+</code></pre><ul>
+<li>git pull = git fetch and git merge</li>
+<li>只克隆最近的几次提交。对于大型项目非常实用。<br>git clone git://xxoo –depth 1</li>
+</ul>
+<p>git@iwifigame:iwifigame/cocos2d-x.git</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2017/08/31/TensorFlow/tmp/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2017/08/31/TensorFlow/5_lstm%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias, input_size, state_is_tupe=Flase, activation=tanh)</div><div class="line">cell = tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias=1.0, input_size=None, state_is_tupe=Flase, activation=tanh)</div><div class="line">#num_units:图一中ht的维数，如果num_units=10,那么ht就是10维行向量</div><div class="line">#forget_bias：还不清楚这个是干嘛的</div><div class="line">#input_size:[batch_size, max_time, size]。假设要输入一句话，这句话的长度是不固定的，max_time就代表最长的那句话是多长，size表示你打算用多长的向量代表一个word，即embedding_size（embedding_size和size的值不一定要一样）</div><div class="line">#state_is_tuple:true的话，返回的状态是一个tuple:(c=array([[]]), h=array([[]]):其中c代表Ct的最后时间的输出，h代表Ht最后时间的输出，h是等于最后一个时间的output的</div><div class="line">#图三向上指的ht称为output</div><div class="line">#此函数返回一个lstm_cell，即图一中的一个A</div></pre></td></tr></table></figure>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2017/08/31/TensorFlow/4_stack%E5%92%8Cunstack%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h2 id="张量Tensor介绍"><a href="#张量Tensor介绍" class="headerlink" title="张量Tensor介绍"></a>张量Tensor介绍</h2><p>一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。<br>Data type: 包括常用的整型、实数型、复数型等。<br>rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。<br>shape:不同rank不同shape，rank0为[]，rank1为[D0]，rank2为[D0, D1]，rank3为[D0, D1, D2]以此类推，rankn为[D0, D1, …Dn-1]。rank0表示标题，rank1表示一维向量，rank2表示二维矩阵，rank3表示3维空间，rank4表示4维，rank5表示5维等等。<br>shape的读取技巧是看最外层中括号里，有几个元素(被中括号括起来的算一个元素)被逗号分开，假设数量为n1,则shape的第一个元素就为n1.再依次递归看前面被中括号括起来的元素中，被逗号分开的元素个数，假设为n2，则shape的第二个元素就是n2，形状就是[n1,n2]。一直这样看，直到元素全是由逗号分开，没有中括号为止。举例如下。<br><img src="4_1.png" alt="(4_1.png)"></p>
+<h2 id="tensorflow-函数介绍"><a href="#tensorflow-函数介绍" class="headerlink" title="tensorflow 函数介绍"></a>tensorflow 函数介绍</h2><h3 id="tf-stack"><a href="#tf-stack" class="headerlink" title="tf.stack()"></a>tf.stack()</h3><p><strong>tf.stack(values, axis=0, name=’stack’)</strong><br><strong>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。</strong></p>
+<p>假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。<br>如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。<br>如果轴axis=1，则转变后的张量的形状为(A, N, B, C)。<br>如果轴axis=2，则转变后的张量的形状为(A, B, N, C)。其它情况依次类推。  </p>
+<p>举例如下：<br>‘x’ is [1, 4]， 形状是(2)，维度为1<br>‘y’ is [2, 5]， 形状是(2)，维度为1<br>‘z’ is [3, 6]， 形状是(2)，维度为1<br>stack([x, y, z]) =&gt; [[1, 4], [2, 5], [3, 6]]  # axis的值默认为0。输出的形状为(3, 2)<br>stack([x, y, z], axis=1) =&gt; [[1, 2, 3], [4, 5, 6]] # axis的值为1。输出的形状为(2, 3)</p>
+<p>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]]，形状是(3,4)，维度为2<br>‘y’ is [[4,4,4,4],[5,5,5,5],[6,6,6,6]]，形状是(3,4)，维度为2<br>stack([x,y]) =&gt; [[[1,1,1,1],[2,2,2,2],[3,3,3,3]], [[4,4,4,4],[5,5,5,5],[6,6,6,6]]] # axis的值默认为0。输出的形状为(2, 3, 4)<br>stack([x,y],axis=1) =&gt; [[[1,1,1,1],[4,4,4,4]],[[2,2,2,2],[5,5,5,5]],[[3,3,3,3],[6,6,6,6]]] # axis的值为1。输出的形状为(3, 2, 4)<br>stack([x,y],axis=2) =&gt; [[[1,4],[1,4],[1,4],[1,4]],[[2,5],[2,5],[2,5],[2,5]],[[3,6],[3,6],[3,6],[3,6]]]# axis的值为2。输出的形状为(3, 4, 2)  </p>
+<p><strong>axis可这样理解：stack就是要将一组相同形状的张量提高一个维度。axis就是这些张量里，将axis指定的维度用所有这些张量数组代替。如axis=2，表示指定在第2个维度，原来的元素用整个张量数组里的元素代替，即从(A, B, C)转变为(A, B, N, C)</strong></p>
+<p>参数:</p>
+<p>values: 一个有相同形状与数据类型的张量数组。<br>axis: 以轴axis为中心来转变的整数。默认是第一个维度即axis=0。支持负数。取值范围为[-(R+1), R+1)<br>name: 这个操作的名字（可选）  </p>
+<p>返回:  </p>
+<p>输出: A stacked Tensor with the same type as values.<br>异常: ValueError: 如果轴axis超出范围[-(R+1), R+1).  </p>
+<h3 id="tf-unstack"><a href="#tf-unstack" class="headerlink" title="tf.unstack()"></a>tf.unstack()</h3><p><strong>tf.unstack(value, num=None, axis=0, name=’unstack’)<br>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R-1的张量。即将一组张量以指定的轴，减少一个维度。正好和stack()相反。</strong></p>
+<p>将张量value分割成num个张量数组。如果num没有指定，则是根据张量value的形状来指定。如果value.shape[axis]不存在，则抛出ValueError的异常。</p>
+<p>假如一个张量的形状是(A, B, C, D)。<br>如果axis == 0，则输出的张量是value[i, :, :, :],i取值为[0,A)，每个输出的张量的形状为(B,C,D)。<br>如果axis == 1，则输出的张量是value[:, i, :, :],i取值为[0,B)，每个输出的张量的形状为(A,C,D)。<br>如果axis == 2，则输出的张量是value[:, :, i, :],i取值为[0,C)，每个输出的张量的形状为(A,B,D)。依次类推。  </p>
+<p>举例如下：<br>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]] # 形状是(3,4)，维度为2<br>unstack(x,axis=0) =&gt;以指定的维度0为轴，转变成3个形状为(4)张量[1,1,1,1],[2,2,2,2],[3,3,3,3]<br>unstack(x,axis=1) =&gt;以指定的维度1为轴，转变成4个形状为(3)张量[1,2,3],[1,2,3],[1,2,4],[1,2,3]  </p>
+<p><strong>axis可这样理解：unstack就是要将一个张量降低为低一个维度的张量数组。axis就是将axis指定的维度，用所有这个张量里同维度的数据代替。 </strong></p>
+<p>参数:</p>
+<p>value: 一个将要被降维的维度大于0的张量。<br>num: 整数。指定的维度axis的长度。如果设置为None(默认值),将自动求值。<br>axis: 整数.以轴axis指定的维度来转变 默认是第一个维度即axis=0。支持负数。取值范围为[-R, R)<br>name: 这个操作的名字（可选）  </p>
+<p>返回:</p>
+<p>从张量value降维后的张量数组。</p>
+<p>异常:</p>
+<p>ValueError: 如果num没有指定并且无法求出来。<br>ValueError: 如果axis超出范围 [-R, R)。  </p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2017/08/31/TensorFlow/3_constant%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h1 id="constant-详解"><a href="#constant-详解" class="headerlink" title="constant 详解"></a>constant 详解</h1><h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p> 向量行列式,行开始,然后再是列.所以3x4表示3行4列</p>
+<h2 id="TensorFlow-中矩阵形式"><a href="#TensorFlow-中矩阵形式" class="headerlink" title="TensorFlow 中矩阵形式"></a>TensorFlow 中矩阵形式</h2><p>从内开始,一个[]表示一行,行中数据以”.”号表示数据结束.行之间以”,”分割.<br>[[3., 3.]]   一个1x2矩阵.<br>[[2.],[2.]]  一个2x1矩阵.</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2017/08/31/TensorFlow/2_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li>使用图 (graph) 来表示计算任务.</li>
+<li>在被称之为会话 (Session) 的上下文 (context) 中执行图.</li>
+<li>使用 tensor 表示数据.</li>
+<li>通过变量 (Variable) 维护状态.</li>
+<li>使用 feed 和 fetch 可以为任意的操作(arbitrary operation) 赋值或者从其中获取数据.</li>
+</ul>
+<h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>TensorFlow 是一个编程系统, 使用图来表示计算任务. 图中的节点被称之为op (operation 的缩写). 一个 op 获得 0 个或多个Tensor , 执行计算, 产生 0 个或多个Tensor . 每个 Tensor 是一个类型化的多维数组. 例 如, 你可以将一小组图像集表示为一个四维浮点数数组, 这四个维度分别是[batch, height, width, channels] .  一个 TensorFlow 图描述了计算的过程. 为了进行计算, 图必须在会话里被启动. 会话将图的 op 分发到 诸如 CPU 或 GPU 之类的设备上, 同时提供执行 op 的方法. 这些方法执行后, 将产生的 tensor 返回. 在 P ython 语言中, 返回的 tensor 是numpy ndarray 对象; 在 C 和 C++ 语言中, 返回的 tensor 是tensorflo w::Tensor 实例.<br><strong>TensorFlow,多维数组的流动。核心就是如何通过数组也就是数据的流动，来实现深入学习。就像是一张错综复杂的网，通过一个个结点控制网中数据的改变与流动，来实现深入学习。</strong></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2017/08/31/TensorFlow/1_%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<h1 id="TensorFlow-安装"><a href="#TensorFlow-安装" class="headerlink" title="TensorFlow 安装"></a>TensorFlow 安装</h1><h1 id="1-TensorFlow-官网无法访问解决方法"><a href="#1-TensorFlow-官网无法访问解决方法" class="headerlink" title="1. TensorFlow 官网无法访问解决方法"></a>1. TensorFlow 官网无法访问解决方法</h1><p>通过修改host文件解决.<br>打开C:\Windows\System32\drivers\etc中的host文件.<br>添加如下内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">64.233.188.121  www.tensorflow.org</div></pre></td></tr></table></figure></p>
+<p>ipconfig /flushdns      //清除DNS缓存内容.<br>ipconfig /displaydns    //显示DNS缓存内容</p>
+<h1 id="2-Linux-安装"><a href="#2-Linux-安装" class="headerlink" title="2. Linux 安装"></a>2. Linux 安装</h1><h2 id="1-安装环境"><a href="#1-安装环境" class="headerlink" title="1. 安装环境"></a>1. 安装环境</h2><p>Linux(Ubuntun) + python 2.7</p>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. sudo apt-get install python-pip python-dev</div><div class="line">2. pip install tensorflow</div></pre></td></tr></table></figure>
+<p>如果上面的命令无法安装，则执行下面的命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.0-cp27-none-linux_x86_64.whl</div><div class="line">2. sudo pip install --upgrade $TF_BINARY_URL</div></pre></td></tr></table></figure></p>
+<p>注意：在aliyun上，安装时，可能会提示找不到python.h文件，而执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install python-dev</div></pre></td></tr></table></figure></p>
+<p>时，可能会提示在源中找不到相关文件，这时执行下面的命令可以解决相关问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
+<p>update是更新软件列表，upgrade是更新软件。</p>
+<p>如果出现 AttributeError: type object ‘NewBase’ has no attribute ‘is_abstract’<br>这个问题，应该是six包安装有问题，可以卸载原有版本，重新安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo pip uninstall six</div><div class="line">$ sudo pip install six --upgrade</div></pre></td></tr></table></figure></p>
+<p>一般来说six包的安装位置是/usr/lib/python2.7/dist-packages，建议先试前者（工作站上也是前者），如果six版本还是没有改变，则指定安装位置，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo pip install six --upgrade --target=&quot;/usr/lib/python2.7/dist-packages&quot;</div></pre></td></tr></table></figure></p>
+<h1 id="3-Windows-安装"><a href="#3-Windows-安装" class="headerlink" title="3. Windows 安装"></a>3. Windows 安装</h1><p>尝试过docker与python3直接安装,都没有成功.以后再试吧.这就是一个坑.</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2017/08/31/Skynet/1.%20Skynet%20%E9%80%9A%E4%BF%A1%E7%A0%94%E7%A9%B6/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2017/08/31/Pomelo/1_loader%20Pomelo%20%E7%A0%94%E7%A9%B6/</url>
+      <content type="html"><![CDATA[<h2 id="基本类库"><a href="#基本类库" class="headerlink" title="基本类库"></a>基本类库</h2><ol>
+<li>should: test framework agnostic BDD-style assertions</li>
+<li>mocha: simple, flexible, fun test framework</li>
+<li>express: Fast, unopinionated, minimalist web framework</li>
+<li>connect: High performance middleware framework </li>
+<li>socket.io: node.js realtime framework server</li>
+<li>generic-pool: Generic resource pooling for Node.JS</li>
+<li>mysql: A node.js driver for mysql. It is written in JavaScript</li>
+<li>async:Higher-order functions and common patterns for asynchronous code</li>
+<li>socket.io-client:</li>
+<li>pomelo-aoi：pomelo-schedule is the aoi module used in the demo of pomelo.</li>
+<li>crc:Module for calculating Cyclic Redundancy Check (CRC) for Node.js and the Browser.</li>
+<li>pomelo-bt: pomelo-bt是pomelo项目中AI模块所依赖的行为树模块，提供了基本的行为树实现。</li>
+<li>pomelo-pathfinding: pomelo-pathfinding is the pathfinding module used in lord of pomelo.</li>
+<li>pomelo-collection: Pomelo-collection is the module for basic data structure in Node.JS.</li>
+<li>pomelo-logger</li>
+<li>pomelo-monitor: monitor the operating-system and process information</li>
+<li>pomelo-sync-plugin</li>
+<li>pomelo-masterha-plugin</li>
+<li>underscore: JavaScript’s functional programming helper library.</li>
+<li>node-zookeeper-client: A pure Javascript ZooKeeper client for Node.js.</li>
+<li>webkit-devtools-agent: Webkit devtools agent that leverages remote debugging and profiling of nodejs applications using the built-in webkit inspector.</li>
+</ol>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><h3 id="1-dao-模块"><a href="#1-dao-模块" class="headerlink" title="1. dao 模块"></a>1. dao 模块</h3><p>通过通用的sql语句,查询相关信息,再通过回调方法,返回调用函数.</p>
+]]></content>
+      
+        
+    </entry>
+    
+  
+  
+</search>
