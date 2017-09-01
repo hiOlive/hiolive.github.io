@@ -109,7 +109,7 @@
 <meta property="og:image" content="http://iwifigame.com/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_3.png">
 <meta property="og:image" content="http://iwifigame.com/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_4.png">
 <meta property="og:image" content="http://iwifigame.com/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_5.png">
-<meta property="og:updated_time" content="2017-09-01T03:26:00.917Z">
+<meta property="og:updated_time" content="2017-09-01T03:40:03.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程">
 <meta name="twitter:description" content="Hexo 简介Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。简单的说，就是Hexo可以根据你写的Markdown文章，生成一个个好看的静态网页。然后，你可以把这些静态网页托管在你的服务器（如github pages、阿里云等）或者Hexo中，别人就可以通过你配置的网址，访问你写的文章。 Hexo 安">
@@ -379,9 +379,9 @@
 <h2 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h2><p>安装 Hexo 需要安装下面两个程序。</p>
 <ul>
 <li>Node.js</li>
-<li>Git<br>安装完毕后，只要使用 npm 即可完成 Hexo 的安装。打开命令行界面，执行下面的命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure>
-</li>
+<li>Git</li>
 </ul>
+<p>安装完毕后，只要使用 npm 即可完成 Hexo 的安装。打开命令行界面，执行下面的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure></p>
 <p>如果npm安装的速度太慢，这是由于npm镜像在国外的缘故。可按如下方法解决：<br>npm config set key value 命令，设置npm指定的镜像地址,这里设置为淘宝的地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm config set registry https://registry.npm.taobao.org </div><div class="line">npm info underscore （这个只是为了检验上面的设置命令是否成功，若成功，会返回[指定包]的信息）</div></pre></td></tr></table></figure></p>
 <h2 id="Hexo-建站"><a href="#Hexo-建站" class="headerlink" title="Hexo 建站"></a>Hexo 建站</h2><p>Hexo 安装完成后，打开命令行，切换到要建站的文件夹必须是空的文件夹，要不命令出错。执行下列命令，将会建站一个基本的Hexo站点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
 <p>运行界面如下。如果出现 “Start blogging with Hexo!” 字样，就代表安装成功了。<br><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_0.png" alt=""><br>Hexo 安装成功后，文件夹结构如下。其中node_modules里面放的是node模块，基本不用去管；scaffolds里面放的是文章模版文件，当你使用Hexo新建文章时，将使用这些模版创建文件；source中放着所有你写的文章;themes中放置着网站的主题，主题负责整个网站的显示样式，可以在网上找到各种样式的主题，如Next,uno,yilia等。<br><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_1.png" alt=""><br>至此，Hexo 就建站完毕，非常简单。执行下面的两条命令，可以先预览一下建站效果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">hexo server</div></pre></td></tr></table></figure></p>
@@ -401,18 +401,17 @@
 <p>创建一个deploy脚本文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">cp -R public/* deploy</div><div class="line">cd deploy</div><div class="line">git add .</div><div class="line">git commit -m &quot;update&quot;</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
 <h2 id="github-自定义域名"><a href="#github-自定义域名" class="headerlink" title="github 自定义域名"></a>github 自定义域名</h2><h2 id="Hexo-写文章"><a href="#Hexo-写文章" class="headerlink" title="Hexo 写文章"></a>Hexo 写文章</h2><h4 id="写文章配置"><a href="#写文章配置" class="headerlink" title="写文章配置"></a>写文章配置</h4><p>打开站点配置文件，修改如下地方。<br>new_post_name: :year-:month-:day-:title.md # File name of new posts<br>post_asset_folder: true  # 在post中使用资源文件，在使用hexo n 文件时，会同步创建同名资源文件夹。</p>
-<h4 id="方便地插入图片"><a href="#方便地插入图片" class="headerlink" title="方便地插入图片"></a>方便地插入图片</h4><p>如何舒适的插入图片</p>
-<p>如果你用了一段时间，你会发现用<img src="" alt="">的方式插入的图片，和生成之后的网页总是很多别扭。在这里推荐一个hexo-asset-image库</p>
-<p>hexo-asset-image的安装</p>
-<p>首先确认 _config.yml 中有 post_asset_folder:true 。</p>
-<p>在 hexo 目录，执行</p>
-<p>1<br>npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">https://github.com/CodeFalling/hexo-asset-image</a> –save</p>
-<p>图片引用，将图片放在source/images文件下，例如，我放了一张图片1_4.png在source/images/Web/文件夹下，然后可以在markdown文件中，这样引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](1_4.png)</div></pre></td></tr></table></figure></p>
-<p>关于引用站内文章的链接，可以使用以下语法：</p>
-
-<p>markdown-learning-by-maxiang是你的文章名称。如果文章不存在，这段代码将会被直接忽略。<br>点击这里查看这篇文章是该链接的标题。如果置空，则自动提取文章的标题。<br>ps：这个功能跟主题无关。</p>
-<p>在写文章的过程中，有时候需要引用站内的其他文章。可以通过内置的标签插件的语法post_link来实现引用。<br> <br>举例 引用 Hello.md<br><br>或者<br></p>
-
+<h4 id="方便地插入图片"><a href="#方便地插入图片" class="headerlink" title="方便地插入图片"></a>方便地插入图片</h4><ol>
+<li><p>安装hexo-asset-image库，在Hexo目录下执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用hexo n 创建新文件，会在source/_posts同时创建相同名字的md文件与文件夹。</p>
+</li>
+<li>将要插入的图片放在第2步中创建的文件夹中，假设图片名字是a.png。</li>
+<li>在md文件中直接写上图片名字即可引用图片。如下。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](a.png)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="引用站内文章"><a href="#引用站内文章" class="headerlink" title="引用站内文章"></a>引用站内文章</h4>
       
     </div>
     
@@ -593,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-简介"><span class="nav-number">1.</span> <span class="nav-text">Hexo 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-安装"><span class="nav-number">2.</span> <span class="nav-text">Hexo 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-建站"><span class="nav-number">3.</span> <span class="nav-text">Hexo 建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-基本配置"><span class="nav-number">4.</span> <span class="nav-text">Hexo 基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-github-配置"><span class="nav-number">5.</span> <span class="nav-text">Hexo github 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github-自定义域名"><span class="nav-number">6.</span> <span class="nav-text">github 自定义域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-写文章"><span class="nav-number">7.</span> <span class="nav-text">Hexo 写文章</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写文章配置"><span class="nav-number">7.0.1.</span> <span class="nav-text">写文章配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方便地插入图片"><span class="nav-number">7.0.2.</span> <span class="nav-text">方便地插入图片</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-简介"><span class="nav-number">1.</span> <span class="nav-text">Hexo 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-安装"><span class="nav-number">2.</span> <span class="nav-text">Hexo 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-建站"><span class="nav-number">3.</span> <span class="nav-text">Hexo 建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-基本配置"><span class="nav-number">4.</span> <span class="nav-text">Hexo 基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-github-配置"><span class="nav-number">5.</span> <span class="nav-text">Hexo github 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github-自定义域名"><span class="nav-number">6.</span> <span class="nav-text">github 自定义域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-写文章"><span class="nav-number">7.</span> <span class="nav-text">Hexo 写文章</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写文章配置"><span class="nav-number">7.0.1.</span> <span class="nav-text">写文章配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方便地插入图片"><span class="nav-number">7.0.2.</span> <span class="nav-text">方便地插入图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用站内文章"><span class="nav-number">7.0.3.</span> <span class="nav-text">引用站内文章</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
