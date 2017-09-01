@@ -3,6 +3,83 @@
   
     
     <entry>
+      <title><![CDATA[Markdown 教程]]></title>
+      <url>/markdown/</url>
+      <content type="html"><![CDATA[<h1 id="MarkDown-语法样本"><a href="#MarkDown-语法样本" class="headerlink" title="MarkDown 语法样本"></a><center>MarkDown 语法样本</center></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt; &lt;/center&gt; &lt;br/&gt;</div><div class="line">如果另起一行，只需在当前行结尾加 2 个空格</div><div class="line">如果是要起一个新段落，只需要空出一行即可。</div></pre></td></tr></table></figure>
+<h4 id="1-标题语法"><a href="#1-标题语法" class="headerlink" title="1. 标题语法"></a>1. 标题语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">== 一级标题</div><div class="line">-- 二级标题</div></pre></td></tr></table></figure>
+<p> <strong><em>标题=-的数量必须大于等于2个</em></strong></p>
+<h4 id="2-加粗"><a href="#2-加粗" class="headerlink" title="2. 加粗"></a>2. 加粗</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 一级加粗</div><div class="line">## 二级加粗</div><div class="line">### 三级加粗</div><div class="line">#### 四级加粗</div><div class="line">##### 五级加粗</div><div class="line">###### 六级加粗</div></pre></td></tr></table></figure>
+<p><strong><em>很多语法前都可以加入加粗标记,来设置文字大小</em></strong></p>
+<h4 id="3-粗斜体标亮"><a href="#3-粗斜体标亮" class="headerlink" title="3. 粗斜体标亮"></a>3. 粗斜体标亮</h4><p> 以*或者_来标记.二者是等价的.下面以*为例说明.<br> 一个*号(*)是斜体.两个*号(**)是粗体,三个*号(***)是粗斜体<br> <em>斜体文本</em>    <em>斜体文本</em><br> <strong>粗体文本</strong>    <strong>粗体文本</strong><br> <strong><em>粗斜体文本</em></strong>    <strong><em>粗斜体文本</em></strong><br> <code>标亮</code></p>
+<h4 id="4-列表"><a href="#4-列表" class="headerlink" title="4. 列表"></a>4. 列表</h4><p>无序列表以<em>,+,-开头,有序列表以1.开头.序号与内容中间必须有空格.有序列表的数 字,当前面没有加粗符号时,没有用,它自动从1开始递增(chrome markdown preview plus).<br>无序列表可以用星号</em>、加号+或者连字符-<br>无序列表</p>
+<ul>
+<li>1</li>
+</ul>
+<ul>
+<li>2</li>
+</ul>
+<ul>
+<li>3</li>
+</ul>
+<p>有序表</p>
+<ol>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+</ol>
+<h5 id="5-引用"><a href="#5-引用" class="headerlink" title="5. 引用"></a>5. 引用</h5><p> 引用:行首以&gt;开头.效果如下.</p>
+<blockquote>
+<p>一盏灯， 一片昏黄； 一简书， 一杯淡茶。 守着那一份淡定， 品读属于自己的寂寞。 保持淡定， 才能欣赏到最美丽的风景！ 保持淡定， 人生从此不再寂寞。</p>
+<h4 id="6-代码"><a href="#6-代码" class="headerlink" title="6. 代码"></a>6. 代码</h4><p>单行代码以`code`表示.<br>多行代码以```code```表示.```必须独占一行.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int main() &#123;</div><div class="line">    printf(&quot;Hello, markdown!&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="7-链接"><a href="#7-链接" class="headerlink" title="7. 链接"></a>7. 链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[网页链接](http://www.baidu.com)&lt;br/&gt;</div><div class="line">![图片链接](http://ww4.sinaimg.cn/bmiddle/aa397b7fjw1dzplsgpdw5j.jpg)</div></pre></td></tr></table></figure>
+<h4 id="8-横线"><a href="#8-横线" class="headerlink" title="8. 横线"></a>8. 横线</h4><p>下面所有的效果一样,全是横线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">* * *</div><div class="line">***</div><div class="line">****</div><div class="line">*****</div><div class="line">- - -</div><div class="line">---</div><div class="line">____---</div><div class="line">---------------------</div><div class="line">_ _ _</div><div class="line">_ _ _____</div></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="9-表格"><a href="#9-表格" class="headerlink" title="9. 表格"></a>9. 表格</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| Tables        | Are           | Cool  |</div><div class="line">| ------------- |:-------------:| -----:|</div><div class="line">| col 3 is      | right-aligned | 1600 |</div><div class="line">| col 2 is      | centered      |   12 |</div><div class="line">| zebra stripes | are neat      |    1 |</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th style="text-align:center">Are</th>
+<th style="text-align:right">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>col 3 is</td>
+<td style="text-align:center">right-aligned</td>
+<td style="text-align:right">1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td style="text-align:center">centered</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td>zebra stripes</td>
+<td style="text-align:center">are neat</td>
+<td style="text-align:right">1</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      
+        <categories>
+            
+            <category> markdown </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Git 实用干货总结（附异地私有Git仓库实现办法）]]></title>
       <url>/git_private_repo_and_multi_ssh_key/</url>
       <content type="html"><![CDATA[<h2 id="网盘-Git-实现异地、免费、安全、私有的版本管理"><a href="#网盘-Git-实现异地、免费、安全、私有的版本管理" class="headerlink" title="网盘+Git 实现异地、免费、安全、私有的版本管理"></a>网盘+Git 实现异地、免费、安全、私有的版本管理</h2><p>相信很多人都想拥有自己的私有版本管理平台，无论是文档管理还是代码管理，都是非常方<br>便的。如果用Github的私有仓库，每年的支出都是一笔不小的费用，而且Github有些地方网<br>络访问速度慢；而如果用Github的免费版本，那就私密安全性又得不到保证。 另外如果自己<br>搭建Git服务器，对于普通大众来说又没有必要，况且又耗时费力而不讨好。</p>
@@ -21,61 +98,20 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init --bare</div></pre></td></tr></table></figure>
 </li>
 <li><p>克隆本地仓库。命令如下，注意斜杠与反斜杠：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone F:/weiyun/repo/test</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">git clone F:/weiyun/repo/test</div><div class="line">```  </div><div class="line">![](1.png)</div><div class="line"></div><div class="line">通过上述步骤，一个异地、免费、安全、私有的版本管理系统就搭建好了。</div><div class="line"></div><div class="line">对于Git提交中生成很多小文件从而影响网盘同步效率的问题，可以在同步盘的Git仓库中执行 如下命令中的任何一个来解决：</div><div class="line">* `git repack -d` 命令,它会将git仓库中所有没有打包的碎片文件打包到一个大的文件中,</div><div class="line">从而大大减少仓库下objects文件夹中碎片文件的数量。</div><div class="line">* `git repack -a -d` 命令，它会将所有的文件（包括已打包的）打包到一个文件中,这会生成</div><div class="line">一个新的文件。这个命令要**慎用**,因为它会增加网盘的同步负担（已同步的文件相当于要重新同步）.</div><div class="line">* `git gc` 等价于 `git repack -a -d`。</div><div class="line"></div><div class="line">最后，给大家一个自动将所有Git仓库小文件打包的脚本（[gitbat.bat](gitbat.bat)）：</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><img src="/git_private_repo_and_multi_ssh_key/1.png" alt=""></p>
-<p>通过上述步骤，一个异地、免费、安全、私有的版本管理系统就搭建好了。</p>
-<p>对于Git提交中生成很多小文件从而影响网盘同步效率的问题，可以在同步盘的Git仓库中执行 如下命令中的任何一个来解决：</p>
-<ul>
-<li><code>git repack -d</code> 命令,它会将git仓库中所有没有打包的碎片文件打包到一个大的文件中,<br>从而大大减少仓库下objects文件夹中碎片文件的数量。</li>
-<li><code>git repack -a -d</code> 命令，它会将所有的文件（包括已打包的）打包到一个文件中,这会生成<br>一个新的文件。这个命令要<strong>慎用</strong>,因为它会增加网盘的同步负担（已同步的文件相当于要重新同步）.</li>
-<li><code>git gc</code> 等价于 <code>git repack -a -d</code>。</li>
-</ul>
-<p>最后，给大家一个自动将所有Git仓库小文件打包的脚本（<a href="gitbat.bat">gitbat.bat</a>）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">for /d %%i in (*) do @echo. &amp;&amp;@echo -------------------------------------------------------- &amp;&amp;@echo %%i &amp;&amp;@cd %cd%\%%i &amp;&amp;@git repack -d</div><div class="line">pause</div></pre></td></tr></table></figure></p>
-<p>比如在你的同步盘F:\weiyun\repo中，有很多你的Git仓库a、b、c…。那么在F:\weiyun\repo 中，创建gitbat.bat文件，然后把上面的内容复制到里面。以后每个月执行一下该脚本即可， 则所有以前提交生成的小文件都会利用命令<code>git repack -d</code>打包。<br><img src="/git_private_repo_and_multi_ssh_key/2.png" alt=""></p>
-<h2 id="Git-Key-管理"><a href="#Git-Key-管理" class="headerlink" title="Git Key 管理"></a>Git Key 管理</h2><h4 id="ssh-key-生成。使用如下命令："><a href="#ssh-key-生成。使用如下命令：" class="headerlink" title="ssh key 生成。使用如下命令："></a>ssh key 生成。使用如下命令：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C iwifigame@126.com -f ~/.ssh/iwifigame</div><div class="line">ssh-keygen -t rsa -C liyongjin2009@gmail.com -f ~/.ssh/liyongjin</div></pre></td></tr></table></figure>
-<h4 id="Git-自动使用多个-ssh-key-以Github为例"><a href="#Git-自动使用多个-ssh-key-以Github为例" class="headerlink" title="Git 自动使用多个 ssh key(以Github为例)"></a>Git 自动使用多个 ssh key(以<strong>Github</strong>为例)</h4><ol>
-<li><p>生成ssh key.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C iwifigame@126.com -f ~/.ssh/iwifigame</div><div class="line">ssh-keygen -t rsa -C liyongjin2009@gmail.com -f ~/.ssh/liyongjin</div></pre></td></tr></table></figure>
-</li>
-<li><p>在Github中添加ssh key,具体方法可以百度搜索下，很简单。</p>
-</li>
-<li><p>在~/.ssh/目录下新建config文件，用于配置各个公私钥相对应的主机.内容如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Host liyongjin  </div><div class="line">Hostname github.com  </div><div class="line">User liyongjin  </div><div class="line">IdentityFile ~/.ssh/liyongjin  </div><div class="line">Host iwifigame  </div><div class="line">HostName github.com  </div><div class="line">User iwifigames    </div><div class="line">IdentityFile ~/.ssh/iwifigame</div></pre></td></tr></table></figure>
-</li>
-<li><p>测试连接情况(<strong>可跳过</strong>)。以<code>ssh -T git@Host</code>的形式测试。Host为上面config文件里定义的Host 名字。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -T git@liyongjin</div><div class="line">ssh -T git@iwifigame</div></pre></td></tr></table></figure>
-</li>
-<li><p>修改<strong>git仓库地址</strong>。将@后的github.com改为config文件里Host定义的地址。如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:iwifigame/vimrc.git    改为</div><div class="line">git clone git@iwifigame:iwifigame/vimrc.git</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>Git会根据config中的配置，使用其中Hostname指定的服务器地址与dentityFile指定的 私钥来进行版本管理。从而达到使用多个 ssh key 的目的。</p>
-<ol>
-<li>其它配置。如果你使用<strong>smartgit</strong>，则要在菜单edit/preference中，选中Authentication 选项下的Use system SSH clinet。才可以使用多个ssh key。其它Git软件应该也要做相应的处理， 才能使用系统默认的ssh client。<br><img src="/git_private_repo_and_multi_ssh_key/3.png" alt=""></li>
-</ol>
-<h2 id="Git-版本管理"><a href="#Git-版本管理" class="headerlink" title="Git 版本管理"></a>Git 版本管理</h2><h4 id="远程版本提交撤销。有两个方法，如下。"><a href="#远程版本提交撤销。有两个方法，如下。" class="headerlink" title="远程版本提交撤销。有两个方法，如下。"></a>远程版本提交撤销。有两个方法，如下。</h4><ol>
-<li><p>撤销最后的一个版本(<strong>注意版本安全，可能引起别人版本错误</strong>)。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD~1</div><div class="line">git push -f</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用revert命令（更安全的做法）。相当于重新提交一个指定版本的反修改。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git revert HEAD</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="只克隆最近的一个版本。"><a href="#只克隆最近的一个版本。" class="headerlink" title="只克隆最近的一个版本。"></a>只克隆最近的一个版本。</h4><p>对于大型仓库，这个命令能大大减少网络、硬盘、 <strong>时间</strong>等资源的使用。命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone --depth=1</div></pre></td></tr></table></figure></p>
-<h2 id="Git-常见问题处理"><a href="#Git-常见问题处理" class="headerlink" title="Git 常见问题处理"></a>Git 常见问题处理</h2><h4 id="文件换行符问题（LF转成CRLF错误）。有如下两种处理办法："><a href="#文件换行符问题（LF转成CRLF错误）。有如下两种处理办法：" class="headerlink" title="文件换行符问题（LF转成CRLF错误）。有如下两种处理办法："></a>文件换行符问题（LF转成CRLF错误）。有如下两种处理办法：</h4><ol>
-<li><p>一劳永逸的方法。打开  <strong>~/.gitconfig</strong> 文件，设置<strong>safecrlf</strong>为false。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[core]</div><div class="line">       autocrlf = input</div><div class="line">       safecrlf = false</div></pre></td></tr></table></figure>
-</li>
-<li><p>另一种方法。就是用vim打开该文件，<br>执行<code>set ff=dos</code> 或者 <code>set fileformat=dos</code>，这两个命令的区别只是一个是简写的形式。<br>它的作用是将文件的格式设置为dos格式，即windows下的格式。</p>
-</li>
-</ol>
-<h2 id="Git-其它"><a href="#Git-其它" class="headerlink" title="Git 其它"></a>Git 其它</h2><ul>
-<li>使用TortoiseGit，如果出现如下错误：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">isconnected no supported authentication methods available(server sent: publickey，</div><div class="line">keyboard interactive</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>则按如下的步骤解决：</p>
+<p>@echo off<br>for /d %%i in (*) do @echo. &amp;&amp;@echo ——————————————————– &amp;&amp;@echo %%i &amp;&amp;@cd %cd%\%%i &amp;&amp;@git repack -d<br>pause<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">比如在你的同步盘F:\weiyun\repo中，有很多你的Git仓库a、b、c...。那么在F:\weiyun\repo 中，创建gitbat.bat文件，然后把上面的内容复制到里面。以后每个月执行一下该脚本即可， 则所有以前提交生成的小文件都会利用命令`git repack -d`打包。</div><div class="line">![](2.png)</div><div class="line"></div><div class="line">## Git Key 管理</div><div class="line">#### ssh key 生成。使用如下命令：</div></pre></td></tr></table></figure></p>
+<p>ssh-keygen -t rsa -C iwifigame@126.com -f ~/.ssh/iwifigame<br>ssh-keygen -t rsa -C liyongjin2009@gmail.com -f ~/.ssh/liyongjin<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#### Git 自动使用多个 ssh key(以**Github**为例)</div><div class="line">1. 生成ssh key.</div></pre></td></tr></table></figure></p>
+<p>ssh-keygen -t rsa -C iwifigame@126.com -f ~/.ssh/iwifigame<br>ssh-keygen -t rsa -C liyongjin2009@gmail.com -f ~/.ssh/liyongjin<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2. 在Github中添加ssh key,具体方法可以百度搜索下，很简单。</div><div class="line">3. 在~/.ssh/目录下新建config文件，用于配置各个公私钥相对应的主机.内容如下:</div></pre></td></tr></table></figure></p>
+<p>Host liyongjin<br>Hostname github.com<br>User liyongjin<br>IdentityFile ~/.ssh/liyongjin<br>Host iwifigame<br>HostName github.com<br>User iwifigames<br>IdentityFile ~/.ssh/iwifigame<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4. 测试连接情况(**可跳过**)。以`ssh -T git@Host`的形式测试。Host为上面config文件里定义的Host 名字。如：</div></pre></td></tr></table></figure></p>
+<p>ssh -T git@liyongjin<br>ssh -T git@iwifigame<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">5. 修改**git仓库地址**。将@后的github.com改为config文件里Host定义的地址。如下：</div></pre></td></tr></table></figure></p>
+<p>git clone git@github.com:iwifigame/vimrc.git    改为<br>git clone git@iwifigame:iwifigame/vimrc.git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Git会根据config中的配置，使用其中Hostname指定的服务器地址与dentityFile指定的 私钥来进行版本管理。从而达到使用多个 ssh key 的目的。</div><div class="line">6. 其它配置。如果你使用**smartgit**，则要在菜单edit/preference中，选中Authentication 选项下的Use system SSH clinet。才可以使用多个ssh key。其它Git软件应该也要做相应的处理， 才能使用系统默认的ssh client。  </div><div class="line">![](3.png)</div><div class="line"></div><div class="line"></div><div class="line">## Git 版本管理</div><div class="line">#### 远程版本提交撤销。有两个方法，如下。</div><div class="line">1. 撤销最后的一个版本(**注意版本安全，可能引起别人版本错误**)。</div></pre></td></tr></table></figure></p>
+<p>git reset –hard HEAD~1<br>git push -f<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2. 使用revert命令（更安全的做法）。相当于重新提交一个指定版本的反修改。</div></pre></td></tr></table></figure></p>
+<p>git revert HEAD<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#### 只克隆最近的一个版本。</div><div class="line">对于大型仓库，这个命令能大大减少网络、硬盘、 **时间**等资源的使用。命令如下：</div></pre></td></tr></table></figure></p>
+<p>git clone –depth=1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">## Git 常见问题处理</div><div class="line">#### 文件换行符问题（LF转成CRLF错误）。有如下两种处理办法：</div><div class="line">1. 一劳永逸的方法。打开  **~/.gitconfig** 文件，设置**safecrlf**为false。</div></pre></td></tr></table></figure></p>
+<p>[core]<br>       autocrlf = input<br>       safecrlf = false<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">2. 另一种方法。就是用vim打开该文件，</div><div class="line">执行`set ff=dos` 或者 `set fileformat=dos`，这两个命令的区别只是一个是简写的形式。</div><div class="line">它的作用是将文件的格式设置为dos格式，即windows下的格式。</div><div class="line"></div><div class="line"></div><div class="line">## Git 其它</div><div class="line">* 使用TortoiseGit，如果出现如下错误：</div></pre></td></tr></table></figure></p>
+<p>isconnected no supported authentication methods available(server sent: publickey，<br>keyboard interactive<br>```<br>则按如下的步骤解决：</p>
 <pre><code>1. 找到TortoiseGit -&gt; Settings -&gt; Network
 2. 将SSH client指向你的ssh程序。它的位置一般在C:\Program Files\Git\usr\bin\ssh.exe
 </code></pre><ul>
@@ -152,7 +188,7 @@
 
 
 <p><a href="hexo_from_build_to_github_pages_and_domain"></a><br><br></p>
-]]></content>
+<h4 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h4>]]></content>
       
         <categories>
             
@@ -189,71 +225,6 @@
       <url>/undefined/</url>
       <content type="html"><![CDATA[<h2 id="阴阳五行学说"><a href="#阴阳五行学说" class="headerlink" title="阴阳五行学说"></a>阴阳五行学说</h2><p>精气是万事万物的本源.精是不是实体?气则是组成物质需要的其它东西,比如能量,催化剂等?<br>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
 <h2 id="中医发展原理"><a href="#中医发展原理" class="headerlink" title="中医发展原理"></a>中医发展原理</h2><p>中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。</p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>/undefined/</url>
-      <content type="html"><![CDATA[<h1 id="MarkDown-语法样本"><a href="#MarkDown-语法样本" class="headerlink" title="MarkDown 语法样本"></a><center>MarkDown 语法样本</center></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt; &lt;/center&gt; &lt;br/&gt;</div><div class="line">如果另起一行，只需在当前行结尾加 2 个空格</div><div class="line">如果是要起一个新段落，只需要空出一行即可。</div></pre></td></tr></table></figure>
-<h4 id="1-标题语法"><a href="#1-标题语法" class="headerlink" title="1. 标题语法"></a>1. 标题语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">== 一级标题</div><div class="line">-- 二级标题</div></pre></td></tr></table></figure>
-<p> <strong><em>标题=-的数量必须大于等于2个</em></strong></p>
-<h4 id="2-加粗"><a href="#2-加粗" class="headerlink" title="2. 加粗"></a>2. 加粗</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 一级加粗</div><div class="line">## 二级加粗</div><div class="line">### 三级加粗</div><div class="line">#### 四级加粗</div><div class="line">##### 五级加粗</div><div class="line">###### 六级加粗</div></pre></td></tr></table></figure>
-<p><strong><em>很多语法前都可以加入加粗标记,来设置文字大小</em></strong></p>
-<h4 id="3-粗斜体标亮"><a href="#3-粗斜体标亮" class="headerlink" title="3. 粗斜体标亮"></a>3. 粗斜体标亮</h4><p> 以*或者_来标记.二者是等价的.下面以*为例说明.<br> 一个*号(*)是斜体.两个*号(**)是粗体,三个*号(***)是粗斜体<br> <em>斜体文本</em>    <em>斜体文本</em><br> <strong>粗体文本</strong>    <strong>粗体文本</strong><br> <strong><em>粗斜体文本</em></strong>    <strong><em>粗斜体文本</em></strong><br> <code>标亮</code></p>
-<h4 id="4-列表"><a href="#4-列表" class="headerlink" title="4. 列表"></a>4. 列表</h4><p>无序列表以<em>,+,-开头,有序列表以1.开头.序号与内容中间必须有空格.有序列表的数 字,当前面没有加粗符号时,没有用,它自动从1开始递增(chrome markdown preview plus).<br>无序列表可以用星号</em>、加号+或者连字符-<br>无序列表</p>
-<ul>
-<li>1</li>
-</ul>
-<ul>
-<li>2</li>
-</ul>
-<ul>
-<li>3</li>
-</ul>
-<p>有序表</p>
-<ol>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ol>
-<h5 id="5-引用"><a href="#5-引用" class="headerlink" title="5. 引用"></a>5. 引用</h5><p> 引用:行首以&gt;开头.效果如下.</p>
-<blockquote>
-<p>一盏灯， 一片昏黄； 一简书， 一杯淡茶。 守着那一份淡定， 品读属于自己的寂寞。 保持淡定， 才能欣赏到最美丽的风景！ 保持淡定， 人生从此不再寂寞。</p>
-<h4 id="6-代码"><a href="#6-代码" class="headerlink" title="6. 代码"></a>6. 代码</h4><p>单行代码以`code`表示.<br>多行代码以```code```表示.```必须独占一行.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int main() &#123;</div><div class="line">    printf(&quot;Hello, markdown!&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="7-链接"><a href="#7-链接" class="headerlink" title="7. 链接"></a>7. 链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[网页链接](http://www.baidu.com)&lt;br/&gt;</div><div class="line">![图片链接](http://ww4.sinaimg.cn/bmiddle/aa397b7fjw1dzplsgpdw5j.jpg)</div></pre></td></tr></table></figure>
-<h4 id="8-横线"><a href="#8-横线" class="headerlink" title="8. 横线"></a>8. 横线</h4><p>下面所有的效果一样,全是横线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">* * *</div><div class="line">***</div><div class="line">****</div><div class="line">*****</div><div class="line">- - -</div><div class="line">---</div><div class="line">____---</div><div class="line">---------------------</div><div class="line">_ _ _</div><div class="line">_ _ _____</div></pre></td></tr></table></figure></p>
-<hr>
-<h4 id="9-表格"><a href="#9-表格" class="headerlink" title="9. 表格"></a>9. 表格</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| Tables        | Are           | Cool  |</div><div class="line">| ------------- |:-------------:| -----:|</div><div class="line">| col 3 is      | right-aligned | 1600 |</div><div class="line">| col 2 is      | centered      |   12 |</div><div class="line">| zebra stripes | are neat      |    1 |</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>col 3 is</td>
-<td style="text-align:center">right-aligned</td>
-<td style="text-align:right">1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td style="text-align:center">centered</td>
-<td style="text-align:right">12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td style="text-align:center">are neat</td>
-<td style="text-align:right">1</td>
-</tr>
-</tbody>
-</table>
 ]]></content>
       
         
