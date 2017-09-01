@@ -278,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -297,7 +297,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/" itemprop="url">Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程</a></h1>
+                <a class="post-title-link" href="/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/" itemprop="url">Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程</a></h1>
         
 
         <div class="post-meta">
@@ -371,44 +371,15 @@
       
         
           
-            <h2 id="Hexo-简介"><a href="#Hexo-简介" class="headerlink" title="Hexo 简介"></a>Hexo 简介</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br>简单的说，就是Hexo可以根据你写的Markdown文章，生成一个个好看的静态网页。然后，你可以把这些静态网页托管在你的服务器（如github pages、阿里云等）或者Hexo中，别人就可以通过你配置的网址，访问你写的文章。</p>
-<h2 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h2><p>安装 Hexo 需要安装下面两个程序。</p>
-<ul>
-<li>Node.js</li>
-<li>Git</li>
-</ul>
-<p>安装完毕后，只要使用 npm 即可完成 Hexo 的安装。打开命令行界面，执行下面的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure></p>
-<p>如果npm安装的速度太慢，这是由于npm镜像在国外的缘故。可按如下方法解决：<br>npm config set key value 命令，设置npm指定的镜像地址,这里设置为淘宝的地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm config set registry https://registry.npm.taobao.org </div><div class="line">npm info underscore （这个只是为了检验上面的设置命令是否成功，若成功，会返回[指定包]的信息）</div></pre></td></tr></table></figure></p>
-<h2 id="Hexo-建站"><a href="#Hexo-建站" class="headerlink" title="Hexo 建站"></a>Hexo 建站</h2><p>Hexo 安装完成后，打开命令行，切换到要建站的文件夹必须是空的文件夹，要不命令出错。执行下列命令，将会建站一个基本的Hexo站点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
-<p>运行界面如下。如果出现 “Start blogging with Hexo!” 字样，就代表安装成功了。<br><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_0.png" alt=""><br>Hexo 安装成功后，文件夹结构如下。其中node_modules里面放的是node模块，基本不用去管；scaffolds里面放的是文章模版文件，当你使用Hexo新建文章时，将使用这些模版创建文件；source中放着所有你写的文章;themes中放置着网站的主题，主题负责整个网站的显示样式，可以在网上找到各种样式的主题，如Next,uno,yilia等。<br><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_1.png" alt=""><br>至此，Hexo 就建站完毕，非常简单。执行下面的两条命令，可以先预览一下建站效果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">hexo server</div></pre></td></tr></table></figure></p>
-<p>这两条命令的执行效果如下，可以通过 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>访问建好的网站。<br><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_2.png" alt=""><br><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_3.png" alt=""></p>
-<h2 id="Hexo-基本配置"><a href="#Hexo-基本配置" class="headerlink" title="Hexo 基本配置"></a>Hexo 基本配置</h2><p>Hexo 的基本配置文件为你建站的文件夹中的_config.yml文件。在该文件中，可以设置网站的标题、语言（中文、英语等)、时区等；也可以设置网站的网址；还有其它如目录、文章、分类、标签、日期模式等。当然，比较重要的一个配置是设置Hexo的主题。<br>Hexo 的主题设置方法（以Next主题为例）如下。在Hexo网站文件夹下，执行命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
-<p>也可以直接下载Next文件，放在themes/next下。与所有 Hexo 主题启用的模式一样。 当 克隆/下载 完成后，打开 站点配置文件_config.yml， 找到 theme 字段，并将其值更改为 next。如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: next</div></pre></td></tr></table></figure></p>
-<p>到此，NexT 主题安装完成。最好使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo clean</div></pre></td></tr></table></figure></p>
-<p>来清除 Hexo 的缓存。最后，就可以通过执行下面两条命令，查看主题效果。在主题的配置文件/themes/next/_config.yml中，可以配置markdown中的代码样式（如代码采用黑色背景）、网站logo、导航栏样式与位置、百度统计等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">hexo server</div></pre></td></tr></table></figure></p>
-<p><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_4.png" alt=""><br>在_config.yml中，可以设置将Hexo生成的静态页面部署到指定的服务器中，如github。但是，在我的使用过程中，有各种奇怪的问题，因此，不推荐配置该选项，推荐使用本文中Hexo github 配置章节中的方法。</p>
-<h2 id="Hexo-github-配置"><a href="#Hexo-github-配置" class="headerlink" title="Hexo github 配置"></a>Hexo github 配置</h2><p>Hexo 建站完毕后，可以在本地服务器上查看自己写的文章，但是我们一般想随时随地随人都可以查看我们的文章。当然，我匀可以把Hexo托管到云服务器上，但是更方便的做法是把它托管到github pages上，既省钱又方便。过程如下。</p>
-<ol>
-<li>创建github pages。打开<a href="https://github.com/" target="_blank" rel="external">github官网</a>,注册账号。然后创建一个仓库，仓库的名字为username.github.io。username为你注册时的用户名。这个仓库是特殊约定的，因此就决定了每个帐号只能有一个仓库来创建github pages。创建完成后，你就可以通过<a href="http://username.github.io" target="_blank" rel="external">http://username.github.io</a> 来访问这个网站。<br><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_5.png" alt=""></li>
-<li>克隆github pages仓库到Hexo网站的deploy文件夹中。这里面用到了一个github多用户名技巧，当你有多个github账号时，非常实用，请参考我的另一篇文章<a href="">1. 网盘+Git 实现异地、免费、安全、私有的版本管理</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@hiOlive:hiOlive/hiolive.github.io.git deploy</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>将我们之前创建的repo克隆到本地，新建一个目录叫做.deploy用于存放克隆的代码。</p>
-<p>创建一个deploy脚本文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">cp -R public/* deploy</div><div class="line">cd deploy</div><div class="line">git add .</div><div class="line">git commit -m &quot;update&quot;</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-<h2 id="github-自定义域名"><a href="#github-自定义域名" class="headerlink" title="github 自定义域名"></a>github 自定义域名</h2><h2 id="Hexo-写文章"><a href="#Hexo-写文章" class="headerlink" title="Hexo 写文章"></a>Hexo 写文章</h2><h4 id="写文章配置"><a href="#写文章配置" class="headerlink" title="写文章配置"></a>写文章配置</h4><p>打开站点配置文件，修改如下地方。<br>new_post_name: :year-:month-:day-:title.md # File name of new posts<br>post_asset_folder: true  # 在post中使用资源文件，在使用hexo n 文件时，会同步创建同名资源文件夹。</p>
-<h4 id="方便地插入图片"><a href="#方便地插入图片" class="headerlink" title="方便地插入图片"></a>方便地插入图片</h4><ol>
-<li><p>安装hexo-asset-image库，在Hexo目录下执行命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用hexo n 创建新文件，会在source/_posts同时创建相同名字的md文件与文件夹。</p>
-</li>
-<li>将要插入的图片放在第2步中创建的文件夹中，假设图片名字是a.png。</li>
-<li>在md文件中直接写上图片名字即可引用图片。如下。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](a.png)</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="引用站内文章"><a href="#引用站内文章" class="headerlink" title="引用站内文章"></a>引用站内文章</h4>
-          
+          Hexo 简介Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。简单的说，就是Hexo可以根据你写的Markdown文章，生成一个个好看的静态网页。然后，你可以把这些静态网页托管在你的服务器（如githu
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -455,7 +426,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/2017/08/31/写作-1-Git-实用干货总结（附异地私有Git仓库实现办法）/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/写作-1-Git-实用干货总结（附异地私有Git仓库实现办法）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -474,7 +445,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/31/写作-1-Git-实用干货总结（附异地私有Git仓库实现办法）/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/写作-1-Git-实用干货总结（附异地私有Git仓库实现办法）/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -526,85 +497,15 @@
       
         
           
-            <h2 id="1-网盘-Git-实现异地、免费、安全、私有的版本管理"><a href="#1-网盘-Git-实现异地、免费、安全、私有的版本管理" class="headerlink" title="1. 网盘+Git 实现异地、免费、安全、私有的版本管理"></a>1. 网盘+Git 实现异地、免费、安全、私有的版本管理</h2><p>相信很多人都想拥有自己的私有版本管理平台，无论是文档管理还是代码管理，都是非常方<br>便的。如果用Github的私有仓库，每年的支出都是一笔不小的费用，而且Github有些地方网<br>络访问速度慢；而如果用Github的免费版本，那就私密安全性又得不到保证。 另外如果自己<br>搭建Git服务器，对于普通大众来说又没有必要，况且又耗时费力而不讨好。</p>
-<p>这里一种非常好的替代方法就是在网盘中创建Git仓库，然后利用网盘来进行仓库的同步。<br>从而实现多地、免费、安全、私有的版本管理。在使用的过程中，只要保证网盘的同步即可。<br>比如在工作的地方，把代码或文档更新到同步盘中；回到家中，打开同步盘，它会自动同步。<br>然后再用Git更新即可。这样就保证了各个地方的版本同步而且又方便安全。</p>
-<p>具体的操作方法如下：</p>
-<ol>
-<li><p>申请网盘。一定要申请那种带有<strong>同步盘</strong>功能的网盘。这里有几个大坑：</p>
-<ul>
-<li>有的网盘，它对于大量的小文件支持不是很好，即有时一些小文件它会同步不到，而Git<br>提交时，会生成大量的小文件，从而造成同步时Git仓库的损坏。</li>
-<li><p>有的网盘，并没有同步盘功能，或者同步盘功能是要收费的，则这些尽量不选择。</p>
-<p>对于网盘的选择，个人推荐<strong>微云</strong>。</p>
-</li>
-</ul>
-</li>
-<li><p>创建本地仓库。在网盘的同步盘中创建Git仓库（要利用网盘来实现异地同步）。命令如下<br>（注意在git bash中运行，下同）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init --bare</div></pre></td></tr></table></figure>
-</li>
-<li><p>克隆本地仓库。命令如下，注意斜杠与反斜杠：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone F:/weiyun/repo/test</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>通过上述步骤，一个异地、免费、安全、私有的版本管理系统就搭建好了。</p>
-<p>对于Git提交中生成很多小文件从而影响网盘同步效率的问题，可以在同步盘的Git仓库中执行<br>如下命令中的任何一个来解决：</p>
-<ul>
-<li><code>git repack -d</code> 命令,它会将git仓库中所有没有打包的碎片文件打包到一个大的文件中,<br>从而大大减少仓库下objects文件夹中碎片文件的数量。</li>
-<li><code>git repack -a -d</code> 命令，它会将所有的文件（包括已打包的）打包到一个文件中,这会生成<br>一个新的文件。这个命令要<strong>慎用</strong>,因为它会增加网盘的同步负担（已同步的文件相当于要重新同步）.</li>
-<li><code>git gc</code> 等价于 <code>git repack -a -d</code>。</li>
-</ul>
-<p>最后，给大家一个自动将所有Git仓库小文件打包的脚本（gitbat.bat）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">for /d %%i in (*) do @echo. &amp;&amp;@echo -------------------------------------------------------- &amp;&amp;@echo %%i &amp;&amp;@cd %cd%\%%i &amp;&amp;@git repack -d</div><div class="line">pause</div></pre></td></tr></table></figure></p>
-<p>比如在你的同步盘F:\weiyun\repo中，有很多你的Git仓库a、b、c…。那么在F:\weiyun\repo<br>中，创建gitbat.bat文件，然后把上面的内容复制到里面。以后每个月执行一下该脚本即可，<br>则所有以前提交生成的小文件都会利用命令<code>git repack -d</code>打包。</p>
-<h2 id="2-Git-Key-管理"><a href="#2-Git-Key-管理" class="headerlink" title="2. Git Key 管理"></a>2. Git Key 管理</h2><h4 id="2-1-ssh-key-生成。使用如下命令："><a href="#2-1-ssh-key-生成。使用如下命令：" class="headerlink" title="2.1 ssh key 生成。使用如下命令："></a>2.1 ssh key 生成。使用如下命令：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C iwifigame@126.com -f ~/.ssh/iwifigame</div><div class="line">ssh-keygen -t rsa -C liyongjin2009@gmail.com -f ~/.ssh/liyongjin</div></pre></td></tr></table></figure>
-<h4 id="2-2-Git-自动使用多个-ssh-key-以Github为例"><a href="#2-2-Git-自动使用多个-ssh-key-以Github为例" class="headerlink" title="2.2 Git 自动使用多个 ssh key(以Github为例)"></a>2.2 Git 自动使用多个 ssh key(以<strong>Github</strong>为例)</h4><ol>
-<li><p>生成ssh key.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C iwifigame@126.com -f ~/.ssh/iwifigame</div><div class="line">ssh-keygen -t rsa -C liyongjin2009@gmail.com -f ~/.ssh/liyongjin</div></pre></td></tr></table></figure>
-</li>
-<li><p>在Github中添加ssh key,具体方法可以百度搜索下，很简单。</p>
-</li>
-<li><p>在~/.ssh/目录下新建config文件，用于配置各个公私钥相对应的主机.内容如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Host liyongjin  </div><div class="line">Hostname github.com  </div><div class="line">User liyongjin  </div><div class="line">IdentityFile ~/.ssh/liyongjin  </div><div class="line">Host iwifigame  </div><div class="line">HostName github.com  </div><div class="line">User iwifigames    </div><div class="line">IdentityFile ~/.ssh/iwifigame</div></pre></td></tr></table></figure>
-</li>
-<li><p>测试连接情况(<strong>可跳过</strong>)。以<code>ssh -T git@Host</code>的形式测试。Host为上面config文件里定义的Host<br>名字。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -T git@liyongjin</div><div class="line">ssh -T git@iwifigame</div></pre></td></tr></table></figure>
-</li>
-<li><p>修改<strong>git仓库地址</strong>。将@后的github.com改为config文件里Host定义的地址。如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:iwifigame/vimrc.git    改为</div><div class="line">git clone git@iwifigame:iwifigame/vimrc.git</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>Git会根据config中的配置，使用其中Hostname指定的服务器地址与dentityFile指定的<br>私钥来进行版本管理。从而达到使用多个 ssh key 的目的。</p>
-<ol>
-<li>其它配置。 如果你使用<strong>smartgit</strong>，则要在菜单edit/preference中，选中Authentication<br>选项下的Use system SSH clinet。才可以使用多个ssh key。其它Git软件应该也要做相应的处理，<br>才能使用系统默认的ssh client。</li>
-</ol>
-<h2 id="3-Git-版本管理"><a href="#3-Git-版本管理" class="headerlink" title="3. Git 版本管理"></a>3. Git 版本管理</h2><h4 id="3-1-远程版本提交撤销。有两个方法，如下。"><a href="#3-1-远程版本提交撤销。有两个方法，如下。" class="headerlink" title="3.1 远程版本提交撤销。有两个方法，如下。"></a>3.1 远程版本提交撤销。有两个方法，如下。</h4><ol>
-<li><p>撤销最后的一个版本(<strong>注意版本安全，可能引起别人版本错误</strong>)。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD~1</div><div class="line">git push -f</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用revert命令（更安全的做法）。相当于重新提交一个指定版本的反修改。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git revert HEAD</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="3-2-只克隆最近的一个版本。"><a href="#3-2-只克隆最近的一个版本。" class="headerlink" title="3.2 只克隆最近的一个版本。"></a>3.2 只克隆最近的一个版本。</h4><p>对于大型仓库，这个命令能大大减少网络、硬盘、 <strong>时间</strong>等资源的使用。命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone --depth=1</div></pre></td></tr></table></figure></p>
-<h2 id="4-Git-常见问题处理"><a href="#4-Git-常见问题处理" class="headerlink" title="4. Git 常见问题处理"></a>4. Git 常见问题处理</h2><h4 id="4-1-文件换行符问题（LF转成CRLF错误）。有如下两种处理办法："><a href="#4-1-文件换行符问题（LF转成CRLF错误）。有如下两种处理办法：" class="headerlink" title="4.1 文件换行符问题（LF转成CRLF错误）。有如下两种处理办法："></a>4.1 文件换行符问题（LF转成CRLF错误）。有如下两种处理办法：</h4><ol>
-<li><p>一劳永逸的方法。打开  <strong>~/.gitconfig</strong> 文件，设置<strong>safecrlf</strong>为false。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[core]</div><div class="line">       autocrlf = input</div><div class="line">       safecrlf = false</div></pre></td></tr></table></figure>
-</li>
-<li><p>另一种方法。就是用vim打开该文件，<br>执行<code>set ff=dos</code> 或者 <code>set fileformat=dos</code>，这两个命令的区别只是一个是简写的形式。<br>它的作用是将文件的格式设置为dos格式，即windows下的格式。</p>
-</li>
-</ol>
-<h2 id="5-Git-其它"><a href="#5-Git-其它" class="headerlink" title="5. Git 其它"></a>5. Git 其它</h2><ul>
-<li>使用TortoiseGit，如果出现如下错误：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">isconnected no supported authentication methods available(server sent: publickey，</div><div class="line">keyboard interactive</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>则按如下的步骤解决：</p>
-<pre><code>1. 找到TortoiseGit -&gt; Settings -&gt; Network
-2. 将SSH client指向你的ssh程序。它的位置一般在C:\Program Files\Git\usr\bin\ssh.exe
-</code></pre><ul>
-<li>git pull = git fetch and git merge</li>
-<li>只克隆最近的几次提交。对于大型项目非常实用。<br>git clone git://xxoo –depth 1</li>
-</ul>
-<p>git@iwifigame:iwifigame/cocos2d-x.git</p>
-
-          
+          1. 网盘+Git 实现异地、免费、安全、私有的版本管理相信很多人都想拥有自己的私有版本管理平台，无论是文档管理还是代码管理，都是非常方便的。如果用Github的私有仓库，每年的支出都是一笔不小的费用，而且Github有些地方网络访问速度慢；而如果用Github的免费版本，那就私密安全性又得不到保证
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/写作-1-Git-实用干货总结（附异地私有Git仓库实现办法）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -651,7 +552,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/2017/08/31/中医-气/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/中医-气/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -670,7 +571,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/31/中医-气/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/中医-气/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -722,9 +623,16 @@
       
         
           
-            <p>,###### 阴阳五行学说<br>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
+          ,###### 阴阳五行学说金木水火土,相生相克.肝木,心火,脾土,肺金,肾水.
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/中医-气/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -771,7 +679,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/2017/08/31/中医-基础/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/中医-基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -790,7 +698,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/31/中医-基础/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/中医-基础/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -842,10 +750,16 @@
       
         
           
-            <h2 id="阴阳五行学说"><a href="#阴阳五行学说" class="headerlink" title="阴阳五行学说"></a>阴阳五行学说</h2><p>精气是万事万物的本源.精是不是实体?气则是组成物质需要的其它东西,比如能量,催化剂等?<br>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
-<h2 id="中医发展原理"><a href="#中医发展原理" class="headerlink" title="中医发展原理"></a>中医发展原理</h2><p>中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。</p>
-
-          
+          阴阳五行学说精气是万事万物的本源.精是不是实体?气则是组成物质需要的其它东西,比如能量,催化剂等?金木水火土,相生相克.肝木,心火,脾土,肺金,肾水.
+中医发展原理中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/中医-基础/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -892,7 +806,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/2017/08/31/markdown/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/markdown/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -911,7 +825,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/31/markdown/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/markdown/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -963,65 +877,18 @@
       
         
           
-            <h1 id="MarkDown-语法样本"><a href="#MarkDown-语法样本" class="headerlink" title="MarkDown 语法样本"></a><center>MarkDown 语法样本</center></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt; &lt;/center&gt; &lt;br/&gt;</div><div class="line">如果另起一行，只需在当前行结尾加 2 个空格</div><div class="line">如果是要起一个新段落，只需要空出一行即可。</div></pre></td></tr></table></figure>
-<h4 id="1-标题语法"><a href="#1-标题语法" class="headerlink" title="1. 标题语法"></a>1. 标题语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">== 一级标题</div><div class="line">-- 二级标题</div></pre></td></tr></table></figure>
-<p> <strong><em>标题=-的数量必须大于等于2个</em></strong></p>
-<h4 id="2-加粗"><a href="#2-加粗" class="headerlink" title="2. 加粗"></a>2. 加粗</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 一级加粗</div><div class="line">## 二级加粗</div><div class="line">### 三级加粗</div><div class="line">#### 四级加粗</div><div class="line">##### 五级加粗</div><div class="line">###### 六级加粗</div></pre></td></tr></table></figure>
-<p><strong><em>很多语法前都可以加入加粗标记,来设置文字大小</em></strong></p>
-<h4 id="3-粗斜体标亮"><a href="#3-粗斜体标亮" class="headerlink" title="3. 粗斜体标亮"></a>3. 粗斜体标亮</h4><p> 以*或者_来标记.二者是等价的.下面以*为例说明.<br> 一个*号(*)是斜体.两个*号(**)是粗体,三个*号(***)是粗斜体<br> <em>斜体文本</em>    <em>斜体文本</em><br> <strong>粗体文本</strong>    <strong>粗体文本</strong><br> <strong><em>粗斜体文本</em></strong>    <strong><em>粗斜体文本</em></strong><br> <code>标亮</code></p>
-<h4 id="4-列表"><a href="#4-列表" class="headerlink" title="4. 列表"></a>4. 列表</h4><p>无序列表以<em>,+,-开头,有序列表以1.开头.序号与内容中间必须有空格.有序列表的数 字,当前面没有加粗符号时,没有用,它自动从1开始递增(chrome markdown preview plus).<br>无序列表可以用星号</em>、加号+或者连字符-<br>无序列表</p>
-<ul>
-<li>1</li>
-</ul>
-<ul>
-<li>2</li>
-</ul>
-<ul>
-<li>3</li>
-</ul>
-<p>有序表</p>
-<ol>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ol>
-<h5 id="5-引用"><a href="#5-引用" class="headerlink" title="5. 引用"></a>5. 引用</h5><p> 引用:行首以&gt;开头.效果如下.</p>
-<blockquote>
-<p>一盏灯， 一片昏黄； 一简书， 一杯淡茶。 守着那一份淡定， 品读属于自己的寂寞。 保持淡定， 才能欣赏到最美丽的风景！ 保持淡定， 人生从此不再寂寞。</p>
-<h4 id="6-代码"><a href="#6-代码" class="headerlink" title="6. 代码"></a>6. 代码</h4><p>单行代码以`code`表示.<br>多行代码以```code```表示.```必须独占一行.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int main() &#123;</div><div class="line">    printf(&quot;Hello, markdown!&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="7-链接"><a href="#7-链接" class="headerlink" title="7. 链接"></a>7. 链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[网页链接](http://www.baidu.com)&lt;br/&gt;</div><div class="line">![图片链接](http://ww4.sinaimg.cn/bmiddle/aa397b7fjw1dzplsgpdw5j.jpg)</div></pre></td></tr></table></figure>
-<h4 id="8-横线"><a href="#8-横线" class="headerlink" title="8. 横线"></a>8. 横线</h4><p>下面所有的效果一样,全是横线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">* * *</div><div class="line">***</div><div class="line">****</div><div class="line">*****</div><div class="line">- - -</div><div class="line">---</div><div class="line">____---</div><div class="line">---------------------</div><div class="line">_ _ _</div><div class="line">_ _ _____</div></pre></td></tr></table></figure></p>
-<hr>
-<h4 id="9-表格"><a href="#9-表格" class="headerlink" title="9. 表格"></a>9. 表格</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| Tables        | Are           | Cool  |</div><div class="line">| ------------- |:-------------:| -----:|</div><div class="line">| col 3 is      | right-aligned | 1600 |</div><div class="line">| col 2 is      | centered      |   12 |</div><div class="line">| zebra stripes | are neat      |    1 |</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>col 3 is</td>
-<td style="text-align:center">right-aligned</td>
-<td style="text-align:right">1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td style="text-align:center">centered</td>
-<td style="text-align:right">12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td style="text-align:center">are neat</td>
-<td style="text-align:right">1</td>
-</tr>
-</tbody>
-</table>
-
-          
+          MarkDown 语法样本123&lt;center&gt; &lt;/center&gt; &lt;br/&gt;如果另起一行，只需在当前行结尾加 2 个空格如果是要起一个新段落，只需要空出一行即可。
+1. 标题语法12== 一级标题-- 二级标题
+ 标题=-的数量必须大于等于2个
+2. 加粗12
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/markdown/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1068,7 +935,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/2017/08/31/TensorFlow-tmp/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/TensorFlow-tmp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -1087,7 +954,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/31/TensorFlow-tmp/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/TensorFlow-tmp/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -1139,8 +1006,15 @@
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/TensorFlow-tmp/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1187,7 +1061,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/2017/08/31/TensorFlow-5-lstm详解/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/TensorFlow-5-lstm详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -1206,7 +1080,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/31/TensorFlow-5-lstm详解/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/TensorFlow-5-lstm详解/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -1258,9 +1132,15 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias, input_size, state_is_tupe=Flase, activation=tanh)</div><div class="line">cell = tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias=1.0, input_size=None, state_is_tupe=Flase, activation=tanh)</div><div class="line">#num_units:图一中ht的维数，如果num_units=10,那么ht就是10维行向量</div><div class="line">#forget_bias：还不清楚这个是干嘛的</div><div class="line">#input_size:[batch_size, max_time, size]。假设要输入一句话，这句话的长度是不固定的，max_time就代表最长的那句话是多长，size表示你打算用多长的向量代表一个word，即embedding_size（embedding_size和size的值不一定要一样）</div><div class="line">#state_is_tuple:true的话，返回的状态是一个tuple:(c=array([[]]), h=array([[]]):其中c代表Ct的最后时间的输出，h代表Ht最后时间的输出，h是等于最后一个时间的output的</div><div class="line">#图三向上指的ht称为output</div><div class="line">#此函数返回一个lstm_cell，即图一中的一个A</div></pre></td></tr></table></figure>
-
-          
+          12345678#tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias, input_size, state_is_tupe=Flase, activation=tanh)cell = tf.nn.rnn_cell.BasicLSTMCell(num
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/TensorFlow-5-lstm详解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1307,7 +1187,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/2017/08/31/TensorFlow-4-stack和unstack详解/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/TensorFlow-4-stack和unstack详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -1326,7 +1206,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/31/TensorFlow-4-stack和unstack详解/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/TensorFlow-4-stack和unstack详解/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -1378,29 +1258,15 @@
       
         
           
-            <h2 id="张量Tensor介绍"><a href="#张量Tensor介绍" class="headerlink" title="张量Tensor介绍"></a>张量Tensor介绍</h2><p>一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。<br>Data type: 包括常用的整型、实数型、复数型等。<br>rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。<br>shape:不同rank不同shape，rank0为[]，rank1为[D0]，rank2为[D0, D1]，rank3为[D0, D1, D2]以此类推，rankn为[D0, D1, …Dn-1]。rank0表示标题，rank1表示一维向量，rank2表示二维矩阵，rank3表示3维空间，rank4表示4维，rank5表示5维等等。<br>shape的读取技巧是看最外层中括号里，有几个元素(被中括号括起来的算一个元素)被逗号分开，假设数量为n1,则shape的第一个元素就为n1.再依次递归看前面被中括号括起来的元素中，被逗号分开的元素个数，假设为n2，则shape的第二个元素就是n2，形状就是[n1,n2]。一直这样看，直到元素全是由逗号分开，没有中括号为止。举例如下。<br><img src="/2017/08/31/TensorFlow-4-stack和unstack详解/4_1.png" alt="(4_1.png)"></p>
-<h2 id="tensorflow-函数介绍"><a href="#tensorflow-函数介绍" class="headerlink" title="tensorflow 函数介绍"></a>tensorflow 函数介绍</h2><h3 id="tf-stack"><a href="#tf-stack" class="headerlink" title="tf.stack()"></a>tf.stack()</h3><p><strong>tf.stack(values, axis=0, name=’stack’)</strong><br><strong>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。</strong></p>
-<p>假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。<br>如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。<br>如果轴axis=1，则转变后的张量的形状为(A, N, B, C)。<br>如果轴axis=2，则转变后的张量的形状为(A, B, N, C)。其它情况依次类推。  </p>
-<p>举例如下：<br>‘x’ is [1, 4]， 形状是(2)，维度为1<br>‘y’ is [2, 5]， 形状是(2)，维度为1<br>‘z’ is [3, 6]， 形状是(2)，维度为1<br>stack([x, y, z]) =&gt; [[1, 4], [2, 5], [3, 6]]  # axis的值默认为0。输出的形状为(3, 2)<br>stack([x, y, z], axis=1) =&gt; [[1, 2, 3], [4, 5, 6]] # axis的值为1。输出的形状为(2, 3)</p>
-<p>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]]，形状是(3,4)，维度为2<br>‘y’ is [[4,4,4,4],[5,5,5,5],[6,6,6,6]]，形状是(3,4)，维度为2<br>stack([x,y]) =&gt; [[[1,1,1,1],[2,2,2,2],[3,3,3,3]], [[4,4,4,4],[5,5,5,5],[6,6,6,6]]] # axis的值默认为0。输出的形状为(2, 3, 4)<br>stack([x,y],axis=1) =&gt; [[[1,1,1,1],[4,4,4,4]],[[2,2,2,2],[5,5,5,5]],[[3,3,3,3],[6,6,6,6]]] # axis的值为1。输出的形状为(3, 2, 4)<br>stack([x,y],axis=2) =&gt; [[[1,4],[1,4],[1,4],[1,4]],[[2,5],[2,5],[2,5],[2,5]],[[3,6],[3,6],[3,6],[3,6]]]# axis的值为2。输出的形状为(3, 4, 2)  </p>
-<p><strong>axis可这样理解：stack就是要将一组相同形状的张量提高一个维度。axis就是这些张量里，将axis指定的维度用所有这些张量数组代替。如axis=2，表示指定在第2个维度，原来的元素用整个张量数组里的元素代替，即从(A, B, C)转变为(A, B, N, C)</strong></p>
-<p>参数:</p>
-<p>values: 一个有相同形状与数据类型的张量数组。<br>axis: 以轴axis为中心来转变的整数。默认是第一个维度即axis=0。支持负数。取值范围为[-(R+1), R+1)<br>name: 这个操作的名字（可选）  </p>
-<p>返回:  </p>
-<p>输出: A stacked Tensor with the same type as values.<br>异常: ValueError: 如果轴axis超出范围[-(R+1), R+1).  </p>
-<h3 id="tf-unstack"><a href="#tf-unstack" class="headerlink" title="tf.unstack()"></a>tf.unstack()</h3><p><strong>tf.unstack(value, num=None, axis=0, name=’unstack’)<br>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R-1的张量。即将一组张量以指定的轴，减少一个维度。正好和stack()相反。</strong></p>
-<p>将张量value分割成num个张量数组。如果num没有指定，则是根据张量value的形状来指定。如果value.shape[axis]不存在，则抛出ValueError的异常。</p>
-<p>假如一个张量的形状是(A, B, C, D)。<br>如果axis == 0，则输出的张量是value[i, :, :, :],i取值为[0,A)，每个输出的张量的形状为(B,C,D)。<br>如果axis == 1，则输出的张量是value[:, i, :, :],i取值为[0,B)，每个输出的张量的形状为(A,C,D)。<br>如果axis == 2，则输出的张量是value[:, :, i, :],i取值为[0,C)，每个输出的张量的形状为(A,B,D)。依次类推。  </p>
-<p>举例如下：<br>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]] # 形状是(3,4)，维度为2<br>unstack(x,axis=0) =&gt;以指定的维度0为轴，转变成3个形状为(4)张量[1,1,1,1],[2,2,2,2],[3,3,3,3]<br>unstack(x,axis=1) =&gt;以指定的维度1为轴，转变成4个形状为(3)张量[1,2,3],[1,2,3],[1,2,4],[1,2,3]  </p>
-<p><strong>axis可这样理解：unstack就是要将一个张量降低为低一个维度的张量数组。axis就是将axis指定的维度，用所有这个张量里同维度的数据代替。 </strong></p>
-<p>参数:</p>
-<p>value: 一个将要被降维的维度大于0的张量。<br>num: 整数。指定的维度axis的长度。如果设置为None(默认值),将自动求值。<br>axis: 整数.以轴axis指定的维度来转变 默认是第一个维度即axis=0。支持负数。取值范围为[-R, R)<br>name: 这个操作的名字（可选）  </p>
-<p>返回:</p>
-<p>从张量value降维后的张量数组。</p>
-<p>异常:</p>
-<p>ValueError: 如果num没有指定并且无法求出来。<br>ValueError: 如果axis超出范围 [-R, R)。  </p>
-
-          
+          张量Tensor介绍一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。Data type: 包括常用的整型、实数型、复数型等。rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。shape:不同rank不同s
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/TensorFlow-4-stack和unstack详解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1447,7 +1313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/2017/08/31/TensorFlow-3-constant详解/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/TensorFlow-3-constant详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -1466,7 +1332,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/31/TensorFlow-3-constant详解/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/TensorFlow-3-constant详解/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -1518,10 +1384,17 @@
       
         
           
-            <h1 id="constant-详解"><a href="#constant-详解" class="headerlink" title="constant 详解"></a>constant 详解</h1><h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p> 向量行列式,行开始,然后再是列.所以3x4表示3行4列</p>
-<h2 id="TensorFlow-中矩阵形式"><a href="#TensorFlow-中矩阵形式" class="headerlink" title="TensorFlow 中矩阵形式"></a>TensorFlow 中矩阵形式</h2><p>从内开始,一个[]表示一行,行中数据以”.”号表示数据结束.行之间以”,”分割.<br>[[3., 3.]]   一个1x2矩阵.<br>[[2.],[2.]]  一个2x1矩阵.</p>
+          constant 详解线性代数 向量行列式,行开始,然后再是列.所以3x4表示3行4列
+TensorFlow 中矩阵形式从内开始,一个[]表示一行,行中数据以”.”号表示数据结束.行之间以”,”分割.[[3., 3.]]   一个1x2矩阵.[[2.],[2.]]  一个2x1矩阵.
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/TensorFlow-3-constant详解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1568,7 +1441,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/2017/08/31/TensorFlow-2-基本使用/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/TensorFlow-2-基本使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -1587,7 +1460,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/31/TensorFlow-2-基本使用/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/TensorFlow-2-基本使用/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -1639,16 +1512,20 @@
       
         
           
-            <h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
-<li>使用图 (graph) 来表示计算任务.</li>
-<li>在被称之为会话 (Session) 的上下文 (context) 中执行图.</li>
-<li>使用 tensor 表示数据.</li>
-<li>通过变量 (Variable) 维护状态.</li>
-<li>使用 feed 和 fetch 可以为任意的操作(arbitrary operation) 赋值或者从其中获取数据.</li>
-</ul>
-<h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>TensorFlow 是一个编程系统, 使用图来表示计算任务. 图中的节点被称之为op (operation 的缩写). 一个 op 获得 0 个或多个Tensor , 执行计算, 产生 0 个或多个Tensor . 每个 Tensor 是一个类型化的多维数组. 例 如, 你可以将一小组图像集表示为一个四维浮点数数组, 这四个维度分别是[batch, height, width, channels] .  一个 TensorFlow 图描述了计算的过程. 为了进行计算, 图必须在会话里被启动. 会话将图的 op 分发到 诸如 CPU 或 GPU 之类的设备上, 同时提供执行 op 的方法. 这些方法执行后, 将产生的 tensor 返回. 在 P ython 语言中, 返回的 tensor 是numpy ndarray 对象; 在 C 和 C++ 语言中, 返回的 tensor 是tensorflo w::Tensor 实例.<br><strong>TensorFlow,多维数组的流动。核心就是如何通过数组也就是数据的流动，来实现深入学习。就像是一张错综复杂的网，通过一个个结点控制网中数据的改变与流动，来实现深入学习。</strong></p>
-
-          
+          基本使用基本概念
+使用图 (graph) 来表示计算任务.
+在被称之为会话 (Session) 的上下文 (context) 中执行图.
+使用 tensor 表示数据.
+通过变量 (Variable) 维护状态.
+使用 feed 和 fetch 可以为任意的操作(arbitrary operatio
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/TensorFlow-2-基本使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

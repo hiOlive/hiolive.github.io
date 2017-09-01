@@ -95,16 +95,17 @@
 
 
 
-<meta name="description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
-<meta property="og:type" content="website">
+<meta name="description" content="constant 详解线性代数 向量行列式,行开始,然后再是列.所以3x4表示3行4列 TensorFlow 中矩阵形式从内开始,一个[]表示一行,行中数据以”.”号表示数据结束.行之间以”,”分割.[[3., 3.]]   一个1x2矩阵.[[2.],[2.]]  一个2x1矩阵.">
+<meta property="og:type" content="article">
 <meta property="og:title" content="爱 wifi 游戏">
-<meta property="og:url" content="http://iwifigame.com/archives/2017/09/index.html">
+<meta property="og:url" content="http://iwifigame.com/TensorFlow-3-constant详解/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta property="og:description" content="constant 详解线性代数 向量行列式,行开始,然后再是列.所以3x4表示3行4列 TensorFlow 中矩阵形式从内开始,一个[]表示一行,行中数据以”.”号表示数据结束.行之间以”,”分割.[[3., 3.]]   一个1x2矩阵.[[2.],[2.]]  一个2x1矩阵.">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-31T13:03:12.940Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爱 wifi 游戏">
-<meta name="twitter:description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta name="twitter:description" content="constant 详解线性代数 向量行列式,行开始,然后再是列.所以3x4表示3行4列 TensorFlow 中矩阵形式从内开始,一个[]表示一行,行中数据以”.”号表示数据结束.行之间以”,”分割.[[3., 3.]]   一个1x2矩阵.[[2.],[2.]]  一个2x1矩阵.">
 
 
 
@@ -134,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://iwifigame.com/archives/2017/09/"/>
+  <link rel="canonical" href="http://iwifigame.com/TensorFlow-3-constant详解/"/>
 
 
 
 
 
-  <title>归档 | 爱 wifi 游戏</title>
+  <title> | 爱 wifi 游戏</title>
   
 
 
@@ -169,7 +170,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -263,74 +264,146 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 13 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/TensorFlow-3-constant详解/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iwifigame">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱 wifi 游戏">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/" itemprop="url">
-              
-                <span itemprop="name">Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-01T11:12:50+08:00"
-              content="2017-09-01" >
-          09-01
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-31T21:03:12+08:00">
+                2017-08-31
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h1 id="constant-详解"><a href="#constant-详解" class="headerlink" title="constant 详解"></a>constant 详解</h1><h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p> 向量行列式,行开始,然后再是列.所以3x4表示3行4列</p>
+<h2 id="TensorFlow-中矩阵形式"><a href="#TensorFlow-中矩阵形式" class="headerlink" title="TensorFlow 中矩阵形式"></a>TensorFlow 中矩阵形式</h2><p>从内开始,一个[]表示一行,行中数据以”.”号表示数据结束.行之间以”,”分割.<br>[[3., 3.]]   一个1x2矩阵.<br>[[2.],[2.]]  一个2x1矩阵.</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/TensorFlow-2-基本使用/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/TensorFlow-4-stack和unstack详解/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -338,6 +411,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -358,8 +435,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -424,6 +510,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#constant-详解"><span class="nav-number">1.</span> <span class="nav-text">constant 详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线性代数"><span class="nav-number">1.1.</span> <span class="nav-text">线性代数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow-中矩阵形式"><span class="nav-number">1.2.</span> <span class="nav-text">TensorFlow 中矩阵形式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -551,6 +653,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 

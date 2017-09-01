@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="1. 网盘+Git 实现异地、免费、安全、私有的版本管理相信很多人都想拥有自己的私有版本管理平台，无论是文档管理还是代码管理，都是非常方便的。如果用Github的私有仓库，每年的支出都是一笔不小的费用，而且Github有些地方网络访问速度慢；而如果用Github的免费版本，那就私密安全性又得不到保证。 另外如果自己搭建Git服务器，对于普通大众来说又没有必要，况且又耗时费力而不讨好。 这里一种非常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爱 wifi 游戏">
+<meta property="og:url" content="http://iwifigame.com/写作-1-Git-实用干货总结（附异地私有Git仓库实现办法）/index.html">
+<meta property="og:site_name" content="爱 wifi 游戏">
+<meta property="og:description" content="1. 网盘+Git 实现异地、免费、安全、私有的版本管理相信很多人都想拥有自己的私有版本管理平台，无论是文档管理还是代码管理，都是非常方便的。如果用Github的私有仓库，每年的支出都是一笔不小的费用，而且Github有些地方网络访问速度慢；而如果用Github的免费版本，那就私密安全性又得不到保证。 另外如果自己搭建Git服务器，对于普通大众来说又没有必要，况且又耗时费力而不讨好。 这里一种非常">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-31T14:19:50.610Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="爱 wifi 游戏">
+<meta name="twitter:description" content="1. 网盘+Git 实现异地、免费、安全、私有的版本管理相信很多人都想拥有自己的私有版本管理平台，无论是文档管理还是代码管理，都是非常方便的。如果用Github的私有仓库，每年的支出都是一笔不小的费用，而且Github有些地方网络访问速度慢；而如果用Github的免费版本，那就私密安全性又得不到保证。 另外如果自己搭建Git服务器，对于普通大众来说又没有必要，况且又耗时费力而不讨好。 这里一种非常">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://iwifigame.com/写作-1-Git-实用干货总结（附异地私有Git仓库实现办法）/"/>
+
+
+
+
+
+  <title> | 爱 wifi 游戏</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79aef6896eb90dbc14242b196015b9e9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">爱 wifi 游戏</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/写作-1-Git-实用干货总结（附异地私有Git仓库实现办法）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iwifigame">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱 wifi 游戏">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-31T22:19:50+08:00">
+                2017-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-网盘-Git-实现异地、免费、安全、私有的版本管理"><a href="#1-网盘-Git-实现异地、免费、安全、私有的版本管理" class="headerlink" title="1. 网盘+Git 实现异地、免费、安全、私有的版本管理"></a>1. 网盘+Git 实现异地、免费、安全、私有的版本管理</h2><p>相信很多人都想拥有自己的私有版本管理平台，无论是文档管理还是代码管理，都是非常方<br>便的。如果用Github的私有仓库，每年的支出都是一笔不小的费用，而且Github有些地方网<br>络访问速度慢；而如果用Github的免费版本，那就私密安全性又得不到保证。 另外如果自己<br>搭建Git服务器，对于普通大众来说又没有必要，况且又耗时费力而不讨好。</p>
+<p>这里一种非常好的替代方法就是在网盘中创建Git仓库，然后利用网盘来进行仓库的同步。<br>从而实现多地、免费、安全、私有的版本管理。在使用的过程中，只要保证网盘的同步即可。<br>比如在工作的地方，把代码或文档更新到同步盘中；回到家中，打开同步盘，它会自动同步。<br>然后再用Git更新即可。这样就保证了各个地方的版本同步而且又方便安全。</p>
+<p>具体的操作方法如下：</p>
+<ol>
+<li><p>申请网盘。一定要申请那种带有<strong>同步盘</strong>功能的网盘。这里有几个大坑：</p>
+<ul>
+<li>有的网盘，它对于大量的小文件支持不是很好，即有时一些小文件它会同步不到，而Git<br>提交时，会生成大量的小文件，从而造成同步时Git仓库的损坏。</li>
+<li><p>有的网盘，并没有同步盘功能，或者同步盘功能是要收费的，则这些尽量不选择。</p>
+<p>对于网盘的选择，个人推荐<strong>微云</strong>。</p>
+</li>
+</ul>
+</li>
+<li><p>创建本地仓库。在网盘的同步盘中创建Git仓库（要利用网盘来实现异地同步）。命令如下<br>（注意在git bash中运行，下同）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init --bare</div></pre></td></tr></table></figure>
+</li>
+<li><p>克隆本地仓库。命令如下，注意斜杠与反斜杠：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone F:/weiyun/repo/test</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>通过上述步骤，一个异地、免费、安全、私有的版本管理系统就搭建好了。</p>
+<p>对于Git提交中生成很多小文件从而影响网盘同步效率的问题，可以在同步盘的Git仓库中执行<br>如下命令中的任何一个来解决：</p>
+<ul>
+<li><code>git repack -d</code> 命令,它会将git仓库中所有没有打包的碎片文件打包到一个大的文件中,<br>从而大大减少仓库下objects文件夹中碎片文件的数量。</li>
+<li><code>git repack -a -d</code> 命令，它会将所有的文件（包括已打包的）打包到一个文件中,这会生成<br>一个新的文件。这个命令要<strong>慎用</strong>,因为它会增加网盘的同步负担（已同步的文件相当于要重新同步）.</li>
+<li><code>git gc</code> 等价于 <code>git repack -a -d</code>。</li>
+</ul>
+<p>最后，给大家一个自动将所有Git仓库小文件打包的脚本（gitbat.bat）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">for /d %%i in (*) do @echo. &amp;&amp;@echo -------------------------------------------------------- &amp;&amp;@echo %%i &amp;&amp;@cd %cd%\%%i &amp;&amp;@git repack -d</div><div class="line">pause</div></pre></td></tr></table></figure></p>
+<p>比如在你的同步盘F:\weiyun\repo中，有很多你的Git仓库a、b、c…。那么在F:\weiyun\repo<br>中，创建gitbat.bat文件，然后把上面的内容复制到里面。以后每个月执行一下该脚本即可，<br>则所有以前提交生成的小文件都会利用命令<code>git repack -d</code>打包。</p>
+<h2 id="2-Git-Key-管理"><a href="#2-Git-Key-管理" class="headerlink" title="2. Git Key 管理"></a>2. Git Key 管理</h2><h4 id="2-1-ssh-key-生成。使用如下命令："><a href="#2-1-ssh-key-生成。使用如下命令：" class="headerlink" title="2.1 ssh key 生成。使用如下命令："></a>2.1 ssh key 生成。使用如下命令：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C iwifigame@126.com -f ~/.ssh/iwifigame</div><div class="line">ssh-keygen -t rsa -C liyongjin2009@gmail.com -f ~/.ssh/liyongjin</div></pre></td></tr></table></figure>
+<h4 id="2-2-Git-自动使用多个-ssh-key-以Github为例"><a href="#2-2-Git-自动使用多个-ssh-key-以Github为例" class="headerlink" title="2.2 Git 自动使用多个 ssh key(以Github为例)"></a>2.2 Git 自动使用多个 ssh key(以<strong>Github</strong>为例)</h4><ol>
+<li><p>生成ssh key.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C iwifigame@126.com -f ~/.ssh/iwifigame</div><div class="line">ssh-keygen -t rsa -C liyongjin2009@gmail.com -f ~/.ssh/liyongjin</div></pre></td></tr></table></figure>
+</li>
+<li><p>在Github中添加ssh key,具体方法可以百度搜索下，很简单。</p>
+</li>
+<li><p>在~/.ssh/目录下新建config文件，用于配置各个公私钥相对应的主机.内容如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Host liyongjin  </div><div class="line">Hostname github.com  </div><div class="line">User liyongjin  </div><div class="line">IdentityFile ~/.ssh/liyongjin  </div><div class="line">Host iwifigame  </div><div class="line">HostName github.com  </div><div class="line">User iwifigames    </div><div class="line">IdentityFile ~/.ssh/iwifigame</div></pre></td></tr></table></figure>
+</li>
+<li><p>测试连接情况(<strong>可跳过</strong>)。以<code>ssh -T git@Host</code>的形式测试。Host为上面config文件里定义的Host<br>名字。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -T git@liyongjin</div><div class="line">ssh -T git@iwifigame</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改<strong>git仓库地址</strong>。将@后的github.com改为config文件里Host定义的地址。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:iwifigame/vimrc.git    改为</div><div class="line">git clone git@iwifigame:iwifigame/vimrc.git</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Git会根据config中的配置，使用其中Hostname指定的服务器地址与dentityFile指定的<br>私钥来进行版本管理。从而达到使用多个 ssh key 的目的。</p>
+<ol>
+<li>其它配置。 如果你使用<strong>smartgit</strong>，则要在菜单edit/preference中，选中Authentication<br>选项下的Use system SSH clinet。才可以使用多个ssh key。其它Git软件应该也要做相应的处理，<br>才能使用系统默认的ssh client。</li>
+</ol>
+<h2 id="3-Git-版本管理"><a href="#3-Git-版本管理" class="headerlink" title="3. Git 版本管理"></a>3. Git 版本管理</h2><h4 id="3-1-远程版本提交撤销。有两个方法，如下。"><a href="#3-1-远程版本提交撤销。有两个方法，如下。" class="headerlink" title="3.1 远程版本提交撤销。有两个方法，如下。"></a>3.1 远程版本提交撤销。有两个方法，如下。</h4><ol>
+<li><p>撤销最后的一个版本(<strong>注意版本安全，可能引起别人版本错误</strong>)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD~1</div><div class="line">git push -f</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用revert命令（更安全的做法）。相当于重新提交一个指定版本的反修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git revert HEAD</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="3-2-只克隆最近的一个版本。"><a href="#3-2-只克隆最近的一个版本。" class="headerlink" title="3.2 只克隆最近的一个版本。"></a>3.2 只克隆最近的一个版本。</h4><p>对于大型仓库，这个命令能大大减少网络、硬盘、 <strong>时间</strong>等资源的使用。命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone --depth=1</div></pre></td></tr></table></figure></p>
+<h2 id="4-Git-常见问题处理"><a href="#4-Git-常见问题处理" class="headerlink" title="4. Git 常见问题处理"></a>4. Git 常见问题处理</h2><h4 id="4-1-文件换行符问题（LF转成CRLF错误）。有如下两种处理办法："><a href="#4-1-文件换行符问题（LF转成CRLF错误）。有如下两种处理办法：" class="headerlink" title="4.1 文件换行符问题（LF转成CRLF错误）。有如下两种处理办法："></a>4.1 文件换行符问题（LF转成CRLF错误）。有如下两种处理办法：</h4><ol>
+<li><p>一劳永逸的方法。打开  <strong>~/.gitconfig</strong> 文件，设置<strong>safecrlf</strong>为false。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[core]</div><div class="line">       autocrlf = input</div><div class="line">       safecrlf = false</div></pre></td></tr></table></figure>
+</li>
+<li><p>另一种方法。就是用vim打开该文件，<br>执行<code>set ff=dos</code> 或者 <code>set fileformat=dos</code>，这两个命令的区别只是一个是简写的形式。<br>它的作用是将文件的格式设置为dos格式，即windows下的格式。</p>
+</li>
+</ol>
+<h2 id="5-Git-其它"><a href="#5-Git-其它" class="headerlink" title="5. Git 其它"></a>5. Git 其它</h2><ul>
+<li>使用TortoiseGit，如果出现如下错误：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">isconnected no supported authentication methods available(server sent: publickey，</div><div class="line">keyboard interactive</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>则按如下的步骤解决：</p>
+<pre><code>1. 找到TortoiseGit -&gt; Settings -&gt; Network
+2. 将SSH client指向你的ssh程序。它的位置一般在C:\Program Files\Git\usr\bin\ssh.exe
+</code></pre><ul>
+<li>git pull = git fetch and git merge</li>
+<li>只克隆最近的几次提交。对于大型项目非常实用。<br>git clone git://xxoo –depth 1</li>
+</ul>
+<p>git@iwifigame:iwifigame/cocos2d-x.git</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/中医-气/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/" rel="prev" title="Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程">
+                Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.png"
+              alt="iwifigame" />
+          
+            <p class="site-author-name" itemprop="name">iwifigame</p>
+            <p class="site-description motion-element" itemprop="description">专注于棋牌游戏、人工智能、tensorflow、vim、中医。</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-网盘-Git-实现异地、免费、安全、私有的版本管理"><span class="nav-number">1.</span> <span class="nav-text">1. 网盘+Git 实现异地、免费、安全、私有的版本管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Git-Key-管理"><span class="nav-number">2.</span> <span class="nav-text">2. Git Key 管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-ssh-key-生成。使用如下命令："><span class="nav-number">2.0.1.</span> <span class="nav-text">2.1 ssh key 生成。使用如下命令：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Git-自动使用多个-ssh-key-以Github为例"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.2 Git 自动使用多个 ssh key(以Github为例)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Git-版本管理"><span class="nav-number">3.</span> <span class="nav-text">3. Git 版本管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-远程版本提交撤销。有两个方法，如下。"><span class="nav-number">3.0.1.</span> <span class="nav-text">3.1 远程版本提交撤销。有两个方法，如下。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-只克隆最近的一个版本。"><span class="nav-number">3.0.2.</span> <span class="nav-text">3.2 只克隆最近的一个版本。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Git-常见问题处理"><span class="nav-number">4.</span> <span class="nav-text">4. Git 常见问题处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-文件换行符问题（LF转成CRLF错误）。有如下两种处理办法："><span class="nav-number">4.0.1.</span> <span class="nav-text">4.1 文件换行符问题（LF转成CRLF错误）。有如下两种处理办法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Git-其它"><span class="nav-number">5.</span> <span class="nav-text">5. Git 其它</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iwifigame</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
