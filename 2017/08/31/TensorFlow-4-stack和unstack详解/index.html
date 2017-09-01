@@ -95,17 +95,19 @@
 
 
 
-<meta name="description" content="MarkDown 语法样本123&amp;lt;center&amp;gt; &amp;lt;/center&amp;gt; &amp;lt;br/&amp;gt;如果另起一行，只需在当前行结尾加 2 个空格如果是要起一个新段落，只需要空出一行即可。 1. 标题语法12== 一级标题-- 二级标题  标题=-的数量必须大于等于2个 2. 加粗123456# 一级加粗## 二级加粗### 三级加粗#### 四级加粗##### 五级加粗######">
+<meta name="description" content="张量Tensor介绍一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。Data type: 包括常用的整型、实数型、复数型等。rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。shape:不同rank不同shape，rank0为[]，rank1为[D0]，rank2为[D0, D1]，rank3为[D0,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爱 wifi 游戏">
-<meta property="og:url" content="http://iwifigame.com/2017/08/31/markdown/index.html">
+<meta property="og:url" content="http://iwifigame.com/2017/08/31/TensorFlow-4-stack和unstack详解/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="MarkDown 语法样本123&amp;lt;center&amp;gt; &amp;lt;/center&amp;gt; &amp;lt;br/&amp;gt;如果另起一行，只需在当前行结尾加 2 个空格如果是要起一个新段落，只需要空出一行即可。 1. 标题语法12== 一级标题-- 二级标题  标题=-的数量必须大于等于2个 2. 加粗123456# 一级加粗## 二级加粗### 三级加粗#### 四级加粗##### 五级加粗######">
+<meta property="og:description" content="张量Tensor介绍一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。Data type: 包括常用的整型、实数型、复数型等。rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。shape:不同rank不同shape，rank0为[]，rank1为[D0]，rank2为[D0, D1]，rank3为[D0,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-31T13:03:12.963Z">
+<meta property="og:image" content="http://iwifigame.com/2017/08/31/TensorFlow-4-stack和unstack详解/4_1.png">
+<meta property="og:updated_time" content="2017-08-31T13:03:12.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爱 wifi 游戏">
-<meta name="twitter:description" content="MarkDown 语法样本123&amp;lt;center&amp;gt; &amp;lt;/center&amp;gt; &amp;lt;br/&amp;gt;如果另起一行，只需在当前行结尾加 2 个空格如果是要起一个新段落，只需要空出一行即可。 1. 标题语法12== 一级标题-- 二级标题  标题=-的数量必须大于等于2个 2. 加粗123456# 一级加粗## 二级加粗### 三级加粗#### 四级加粗##### 五级加粗######">
+<meta name="twitter:description" content="张量Tensor介绍一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。Data type: 包括常用的整型、实数型、复数型等。rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。shape:不同rank不同shape，rank0为[]，rank1为[D0]，rank2为[D0, D1]，rank3为[D0,">
+<meta name="twitter:image" content="http://iwifigame.com/2017/08/31/TensorFlow-4-stack和unstack详解/4_1.png">
 
 
 
@@ -135,7 +137,7 @@
 
 
 
-  <link rel="canonical" href="http://iwifigame.com/2017/08/31/markdown/"/>
+  <link rel="canonical" href="http://iwifigame.com/2017/08/31/TensorFlow-4-stack和unstack详解/"/>
 
 
 
@@ -278,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/2017/08/31/markdown/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/2017/08/31/TensorFlow-4-stack和unstack详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -345,63 +347,27 @@
       
 
       
-        <h1 id="MarkDown-语法样本"><a href="#MarkDown-语法样本" class="headerlink" title="MarkDown 语法样本"></a><center>MarkDown 语法样本</center></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt; &lt;/center&gt; &lt;br/&gt;</div><div class="line">如果另起一行，只需在当前行结尾加 2 个空格</div><div class="line">如果是要起一个新段落，只需要空出一行即可。</div></pre></td></tr></table></figure>
-<h4 id="1-标题语法"><a href="#1-标题语法" class="headerlink" title="1. 标题语法"></a>1. 标题语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">== 一级标题</div><div class="line">-- 二级标题</div></pre></td></tr></table></figure>
-<p> <strong><em>标题=-的数量必须大于等于2个</em></strong></p>
-<h4 id="2-加粗"><a href="#2-加粗" class="headerlink" title="2. 加粗"></a>2. 加粗</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 一级加粗</div><div class="line">## 二级加粗</div><div class="line">### 三级加粗</div><div class="line">#### 四级加粗</div><div class="line">##### 五级加粗</div><div class="line">###### 六级加粗</div></pre></td></tr></table></figure>
-<p><strong><em>很多语法前都可以加入加粗标记,来设置文字大小</em></strong></p>
-<h4 id="3-粗斜体标亮"><a href="#3-粗斜体标亮" class="headerlink" title="3. 粗斜体标亮"></a>3. 粗斜体标亮</h4><p> 以*或者_来标记.二者是等价的.下面以*为例说明.<br> 一个*号(*)是斜体.两个*号(**)是粗体,三个*号(***)是粗斜体<br> <em>斜体文本</em>    <em>斜体文本</em><br> <strong>粗体文本</strong>    <strong>粗体文本</strong><br> <strong><em>粗斜体文本</em></strong>    <strong><em>粗斜体文本</em></strong><br> <code>标亮</code></p>
-<h4 id="4-列表"><a href="#4-列表" class="headerlink" title="4. 列表"></a>4. 列表</h4><p>无序列表以<em>,+,-开头,有序列表以1.开头.序号与内容中间必须有空格.有序列表的数 字,当前面没有加粗符号时,没有用,它自动从1开始递增(chrome markdown preview plus).<br>无序列表可以用星号</em>、加号+或者连字符-<br>无序列表</p>
-<ul>
-<li>1</li>
-</ul>
-<ul>
-<li>2</li>
-</ul>
-<ul>
-<li>3</li>
-</ul>
-<p>有序表</p>
-<ol>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ol>
-<h5 id="5-引用"><a href="#5-引用" class="headerlink" title="5. 引用"></a>5. 引用</h5><p> 引用:行首以&gt;开头.效果如下.</p>
-<blockquote>
-<p>一盏灯， 一片昏黄； 一简书， 一杯淡茶。 守着那一份淡定， 品读属于自己的寂寞。 保持淡定， 才能欣赏到最美丽的风景！ 保持淡定， 人生从此不再寂寞。</p>
-<h4 id="6-代码"><a href="#6-代码" class="headerlink" title="6. 代码"></a>6. 代码</h4><p>单行代码以`code`表示.<br>多行代码以```code```表示.```必须独占一行.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int main() &#123;</div><div class="line">    printf(&quot;Hello, markdown!&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="7-链接"><a href="#7-链接" class="headerlink" title="7. 链接"></a>7. 链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[网页链接](http://www.baidu.com)&lt;br/&gt;</div><div class="line">![图片链接](http://ww4.sinaimg.cn/bmiddle/aa397b7fjw1dzplsgpdw5j.jpg)</div></pre></td></tr></table></figure>
-<h4 id="8-横线"><a href="#8-横线" class="headerlink" title="8. 横线"></a>8. 横线</h4><p>下面所有的效果一样,全是横线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">* * *</div><div class="line">***</div><div class="line">****</div><div class="line">*****</div><div class="line">- - -</div><div class="line">---</div><div class="line">____---</div><div class="line">---------------------</div><div class="line">_ _ _</div><div class="line">_ _ _____</div></pre></td></tr></table></figure></p>
-<hr>
-<h4 id="9-表格"><a href="#9-表格" class="headerlink" title="9. 表格"></a>9. 表格</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| Tables        | Are           | Cool  |</div><div class="line">| ------------- |:-------------:| -----:|</div><div class="line">| col 3 is      | right-aligned | 1600 |</div><div class="line">| col 2 is      | centered      |   12 |</div><div class="line">| zebra stripes | are neat      |    1 |</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>col 3 is</td>
-<td style="text-align:center">right-aligned</td>
-<td style="text-align:right">1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td style="text-align:center">centered</td>
-<td style="text-align:right">12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td style="text-align:center">are neat</td>
-<td style="text-align:right">1</td>
-</tr>
-</tbody>
-</table>
+        <h2 id="张量Tensor介绍"><a href="#张量Tensor介绍" class="headerlink" title="张量Tensor介绍"></a>张量Tensor介绍</h2><p>一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。<br>Data type: 包括常用的整型、实数型、复数型等。<br>rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。<br>shape:不同rank不同shape，rank0为[]，rank1为[D0]，rank2为[D0, D1]，rank3为[D0, D1, D2]以此类推，rankn为[D0, D1, …Dn-1]。rank0表示标题，rank1表示一维向量，rank2表示二维矩阵，rank3表示3维空间，rank4表示4维，rank5表示5维等等。<br>shape的读取技巧是看最外层中括号里，有几个元素(被中括号括起来的算一个元素)被逗号分开，假设数量为n1,则shape的第一个元素就为n1.再依次递归看前面被中括号括起来的元素中，被逗号分开的元素个数，假设为n2，则shape的第二个元素就是n2，形状就是[n1,n2]。一直这样看，直到元素全是由逗号分开，没有中括号为止。举例如下。<br><img src="/2017/08/31/TensorFlow-4-stack和unstack详解/4_1.png" alt="(4_1.png)"></p>
+<h2 id="tensorflow-函数介绍"><a href="#tensorflow-函数介绍" class="headerlink" title="tensorflow 函数介绍"></a>tensorflow 函数介绍</h2><h3 id="tf-stack"><a href="#tf-stack" class="headerlink" title="tf.stack()"></a>tf.stack()</h3><p><strong>tf.stack(values, axis=0, name=’stack’)</strong><br><strong>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。</strong></p>
+<p>假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。<br>如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。<br>如果轴axis=1，则转变后的张量的形状为(A, N, B, C)。<br>如果轴axis=2，则转变后的张量的形状为(A, B, N, C)。其它情况依次类推。  </p>
+<p>举例如下：<br>‘x’ is [1, 4]， 形状是(2)，维度为1<br>‘y’ is [2, 5]， 形状是(2)，维度为1<br>‘z’ is [3, 6]， 形状是(2)，维度为1<br>stack([x, y, z]) =&gt; [[1, 4], [2, 5], [3, 6]]  # axis的值默认为0。输出的形状为(3, 2)<br>stack([x, y, z], axis=1) =&gt; [[1, 2, 3], [4, 5, 6]] # axis的值为1。输出的形状为(2, 3)</p>
+<p>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]]，形状是(3,4)，维度为2<br>‘y’ is [[4,4,4,4],[5,5,5,5],[6,6,6,6]]，形状是(3,4)，维度为2<br>stack([x,y]) =&gt; [[[1,1,1,1],[2,2,2,2],[3,3,3,3]], [[4,4,4,4],[5,5,5,5],[6,6,6,6]]] # axis的值默认为0。输出的形状为(2, 3, 4)<br>stack([x,y],axis=1) =&gt; [[[1,1,1,1],[4,4,4,4]],[[2,2,2,2],[5,5,5,5]],[[3,3,3,3],[6,6,6,6]]] # axis的值为1。输出的形状为(3, 2, 4)<br>stack([x,y],axis=2) =&gt; [[[1,4],[1,4],[1,4],[1,4]],[[2,5],[2,5],[2,5],[2,5]],[[3,6],[3,6],[3,6],[3,6]]]# axis的值为2。输出的形状为(3, 4, 2)  </p>
+<p><strong>axis可这样理解：stack就是要将一组相同形状的张量提高一个维度。axis就是这些张量里，将axis指定的维度用所有这些张量数组代替。如axis=2，表示指定在第2个维度，原来的元素用整个张量数组里的元素代替，即从(A, B, C)转变为(A, B, N, C)</strong></p>
+<p>参数:</p>
+<p>values: 一个有相同形状与数据类型的张量数组。<br>axis: 以轴axis为中心来转变的整数。默认是第一个维度即axis=0。支持负数。取值范围为[-(R+1), R+1)<br>name: 这个操作的名字（可选）  </p>
+<p>返回:  </p>
+<p>输出: A stacked Tensor with the same type as values.<br>异常: ValueError: 如果轴axis超出范围[-(R+1), R+1).  </p>
+<h3 id="tf-unstack"><a href="#tf-unstack" class="headerlink" title="tf.unstack()"></a>tf.unstack()</h3><p><strong>tf.unstack(value, num=None, axis=0, name=’unstack’)<br>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R-1的张量。即将一组张量以指定的轴，减少一个维度。正好和stack()相反。</strong></p>
+<p>将张量value分割成num个张量数组。如果num没有指定，则是根据张量value的形状来指定。如果value.shape[axis]不存在，则抛出ValueError的异常。</p>
+<p>假如一个张量的形状是(A, B, C, D)。<br>如果axis == 0，则输出的张量是value[i, :, :, :],i取值为[0,A)，每个输出的张量的形状为(B,C,D)。<br>如果axis == 1，则输出的张量是value[:, i, :, :],i取值为[0,B)，每个输出的张量的形状为(A,C,D)。<br>如果axis == 2，则输出的张量是value[:, :, i, :],i取值为[0,C)，每个输出的张量的形状为(A,B,D)。依次类推。  </p>
+<p>举例如下：<br>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]] # 形状是(3,4)，维度为2<br>unstack(x,axis=0) =&gt;以指定的维度0为轴，转变成3个形状为(4)张量[1,1,1,1],[2,2,2,2],[3,3,3,3]<br>unstack(x,axis=1) =&gt;以指定的维度1为轴，转变成4个形状为(3)张量[1,2,3],[1,2,3],[1,2,4],[1,2,3]  </p>
+<p><strong>axis可这样理解：unstack就是要将一个张量降低为低一个维度的张量数组。axis就是将axis指定的维度，用所有这个张量里同维度的数据代替。 </strong></p>
+<p>参数:</p>
+<p>value: 一个将要被降维的维度大于0的张量。<br>num: 整数。指定的维度axis的长度。如果设置为None(默认值),将自动求值。<br>axis: 整数.以轴axis指定的维度来转变 默认是第一个维度即axis=0。支持负数。取值范围为[-R, R)<br>name: 这个操作的名字（可选）  </p>
+<p>返回:</p>
+<p>从张量value降维后的张量数组。</p>
+<p>异常:</p>
+<p>ValueError: 如果num没有指定并且无法求出来。<br>ValueError: 如果axis超出范围 [-R, R)。  </p>
 
       
     </div>
@@ -426,7 +392,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/31/TensorFlow-tmp/" rel="next" title="">
+              <a href="/2017/08/31/TensorFlow-3-constant详解/" rel="next" title="">
                 <i class="fa fa-chevron-left"></i> 
               </a>
             
@@ -436,7 +402,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/31/中医-基础/" rel="prev" title="">
+              <a href="/2017/08/31/TensorFlow-5-lstm详解/" rel="prev" title="">
                  <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -575,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MarkDown-语法样本"><span class="nav-number">1.</span> <span class="nav-text">MarkDown 语法样本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-标题语法"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1. 标题语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-加粗"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2. 加粗</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-粗斜体标亮"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3. 粗斜体标亮</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-列表"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">4. 列表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-引用"><span class="nav-number">1.0.0.4.1.</span> <span class="nav-text">5. 引用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-代码"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">6. 代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-链接"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">7. 链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-横线"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">8. 横线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-表格"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">9. 表格</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#张量Tensor介绍"><span class="nav-number">1.</span> <span class="nav-text">张量Tensor介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tensorflow-函数介绍"><span class="nav-number">2.</span> <span class="nav-text">tensorflow 函数介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-stack"><span class="nav-number">2.1.</span> <span class="nav-text">tf.stack()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-unstack"><span class="nav-number">2.2.</span> <span class="nav-text">tf.unstack()</span></a></li></ol></li></ol></div>
             
 
           </div>

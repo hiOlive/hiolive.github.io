@@ -3,8 +3,71 @@
   
     
     <entry>
+      <title><![CDATA[Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程]]></title>
+      <url>/2017/09/01/Hexo%E4%B8%80%E6%9D%A1%E9%BE%99%EF%BC%9A%E4%BB%8E%E5%BB%BA%E7%AB%99%E5%88%B0%E6%89%98%E7%AE%A1%E5%88%B0Github-Pages%E5%88%B0%E6%9C%80%E5%90%8E%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A%E7%9A%84%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<h2 id="Hexo-简介"><a href="#Hexo-简介" class="headerlink" title="Hexo 简介"></a>Hexo 简介</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br>简单的说，就是Hexo可以根据你写的Markdown文章，生成一个个好看的静态网页。然后，你可以把这些静态网页托管在你的服务器（如github pages、阿里云等）或者Hexo中，别人就可以通过你配置的网址，访问你写的文章。</p>
+<h2 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h2><p>安装 Hexo 需要安装下面两个程序。</p>
+<ul>
+<li>Node.js</li>
+<li>Git<br>安装完毕后，只要使用 npm 即可完成 Hexo 的安装。打开命令行界面，执行下面的命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果npm安装的速度太慢，这是由于npm镜像在国外的缘故。可按如下方法解决：<br>npm config set key value 命令，设置npm指定的镜像地址,这里设置为淘宝的地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm config set registry https://registry.npm.taobao.org </div><div class="line">npm info underscore （这个只是为了检验上面的设置命令是否成功，若成功，会返回[指定包]的信息）</div></pre></td></tr></table></figure></p>
+<h2 id="Hexo-建站"><a href="#Hexo-建站" class="headerlink" title="Hexo 建站"></a>Hexo 建站</h2><p>Hexo 安装完成后，打开命令行，切换到要建站的文件夹必须是空的文件夹，要不命令出错。执行下列命令，将会建站一个基本的Hexo站点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<p>运行界面如下。如果出现 “Start blogging with Hexo!” 字样，就代表安装成功了。<br><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_0.png" alt=""><br>Hexo 安装成功后，文件夹结构如下。其中node_modules里面放的是node模块，基本不用去管；scaffolds里面放的是文章模版文件，当你使用Hexo新建文章时，将使用这些模版创建文件；source中放着所有你写的文章;themes中放置着网站的主题，主题负责整个网站的显示样式，可以在网上找到各种样式的主题，如Next,uno,yilia等。<br><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_1.png" alt=""><br>至此，Hexo 就建站完毕，非常简单。执行下面的两条命令，可以先预览一下建站效果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">hexo server</div></pre></td></tr></table></figure></p>
+<p>这两条命令的执行效果如下，可以通过 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>访问建好的网站。<br><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_2.png" alt=""><br><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_3.png" alt=""></p>
+<h2 id="Hexo-基本配置"><a href="#Hexo-基本配置" class="headerlink" title="Hexo 基本配置"></a>Hexo 基本配置</h2><p>Hexo 的基本配置文件为你建站的文件夹中的_config.yml文件。在该文件中，可以设置网站的标题、语言（中文、英语等)、时区等；也可以设置网站的网址；还有其它如目录、文章、分类、标签、日期模式等。当然，比较重要的一个配置是设置Hexo的主题。<br>Hexo 的主题设置方法（以Next主题为例）如下。在Hexo网站文件夹下，执行命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
+<p>也可以直接下载Next文件，放在themes/next下。与所有 Hexo 主题启用的模式一样。 当 克隆/下载 完成后，打开 站点配置文件_config.yml， 找到 theme 字段，并将其值更改为 next。如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: next</div></pre></td></tr></table></figure></p>
+<p>到此，NexT 主题安装完成。最好使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo clean</div></pre></td></tr></table></figure></p>
+<p>来清除 Hexo 的缓存。最后，就可以通过执行下面两条命令，查看主题效果。在主题的配置文件/themes/next/_config.yml中，可以配置markdown中的代码样式（如代码采用黑色背景）、网站logo、导航栏样式与位置、百度统计等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">hexo server</div></pre></td></tr></table></figure></p>
+<p><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_4.png" alt=""><br>在_config.yml中，可以设置将Hexo生成的静态页面部署到指定的服务器中，如github。但是，在我的使用过程中，有各种奇怪的问题，因此，不推荐配置该选项，推荐使用本文中Hexo github 配置章节中的方法。</p>
+<h2 id="Hexo-github-配置"><a href="#Hexo-github-配置" class="headerlink" title="Hexo github 配置"></a>Hexo github 配置</h2><p>Hexo 建站完毕后，可以在本地服务器上查看自己写的文章，但是我们一般想随时随地随人都可以查看我们的文章。当然，我匀可以把Hexo托管到云服务器上，但是更方便的做法是把它托管到github pages上，既省钱又方便。过程如下。</p>
+<ol>
+<li>创建github pages。打开<a href="https://github.com/" target="_blank" rel="external">github官网</a>,注册账号。然后创建一个仓库，仓库的名字为username.github.io。username为你注册时的用户名。这个仓库是特殊约定的，因此就决定了每个帐号只能有一个仓库来创建github pages。创建完成后，你就可以通过<a href="http://username.github.io" target="_blank" rel="external">http://username.github.io</a> 来访问这个网站。<br><img src="/2017/09/01/Hexo一条龙：从建站到托管到Github-Pages到最后域名绑定的详细教程/1_5.png" alt=""></li>
+<li>克隆github pages仓库到Hexo网站的deploy文件夹中。这里面用到了一个github多用户名技巧，当你有多个github账号时，非常实用，请参考我的另一篇文章<a href="">1. 网盘+Git 实现异地、免费、安全、私有的版本管理</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@hiOlive:hiOlive/hiolive.github.io.git deploy</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>将我们之前创建的repo克隆到本地，新建一个目录叫做.deploy用于存放克隆的代码。</p>
+<p>创建一个deploy脚本文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">cp -R public/* deploy</div><div class="line">cd deploy</div><div class="line">git add .</div><div class="line">git commit -m &quot;update&quot;</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<h2 id="github-自定义域名"><a href="#github-自定义域名" class="headerlink" title="github 自定义域名"></a>github 自定义域名</h2><h2 id="Hexo-写文章"><a href="#Hexo-写文章" class="headerlink" title="Hexo 写文章"></a>Hexo 写文章</h2><h4 id="写文章配置"><a href="#写文章配置" class="headerlink" title="写文章配置"></a>写文章配置</h4><p>打开站点配置文件，修改如下地方。<br>new_post_name: :year-:month-:day-:title.md # File name of new posts<br>post_asset_folder: true  # 在post中使用资源文件，在使用hexo n 文件时，会同步创建同名资源文件夹。</p>
+<h4 id="方便地插入图片"><a href="#方便地插入图片" class="headerlink" title="方便地插入图片"></a>方便地插入图片</h4><p>如何舒适的插入图片</p>
+<p>如果你用了一段时间，你会发现用<img src="" alt="">的方式插入的图片，和生成之后的网页总是很多别扭。在这里推荐一个hexo-asset-image库</p>
+<p>hexo-asset-image的安装</p>
+<p>首先确认 _config.yml 中有 post_asset_folder:true 。</p>
+<p>在 hexo 目录，执行</p>
+<p>1<br>npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">https://github.com/CodeFalling/hexo-asset-image</a> –save</p>
+<p>图片引用，将图片放在source/images文件下，例如，我放了一张图片1_4.png在source/images/Web/文件夹下，然后可以在markdown文件中，这样引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](1_4.png)</div></pre></td></tr></table></figure></p>
+<p>关于引用站内文章的链接，可以使用以下语法：</p>
+
+<p>markdown-learning-by-maxiang是你的文章名称。如果文章不存在，这段代码将会被直接忽略。<br>点击这里查看这篇文章是该链接的标题。如果置空，则自动提取文章的标题。<br>ps：这个功能跟主题无关。</p>
+<p>在写文章的过程中，有时候需要引用站内的其他文章。可以通过内置的标签插件的语法post_link来实现引用。<br> <br>举例 引用 Hello.md<br><br>或者<br></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Web </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> web </tag>
+            
+            <tag> git </tag>
+            
+            <tag> github </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title></title>
-      <url>/2017/08/31/%E5%86%99%E4%BD%9C/1.Git%20%E5%AE%9E%E7%94%A8%E5%B9%B2%E8%B4%A7%E6%80%BB%E7%BB%93%EF%BC%88%E9%99%84%E5%BC%82%E5%9C%B0%E7%A7%81%E6%9C%89Git%E4%BB%93%E5%BA%93%E5%AE%9E%E7%8E%B0%E5%8A%9E%E6%B3%95%EF%BC%89/</url>
+      <url>/2017/08/31/%E5%86%99%E4%BD%9C-1-Git-%E5%AE%9E%E7%94%A8%E5%B9%B2%E8%B4%A7%E6%80%BB%E7%BB%93%EF%BC%88%E9%99%84%E5%BC%82%E5%9C%B0%E7%A7%81%E6%9C%89Git%E4%BB%93%E5%BA%93%E5%AE%9E%E7%8E%B0%E5%8A%9E%E6%B3%95%EF%BC%89/</url>
       <content type="html"><![CDATA[<h2 id="1-网盘-Git-实现异地、免费、安全、私有的版本管理"><a href="#1-网盘-Git-实现异地、免费、安全、私有的版本管理" class="headerlink" title="1. 网盘+Git 实现异地、免费、安全、私有的版本管理"></a>1. 网盘+Git 实现异地、免费、安全、私有的版本管理</h2><p>相信很多人都想拥有自己的私有版本管理平台，无论是文档管理还是代码管理，都是非常方<br>便的。如果用Github的私有仓库，每年的支出都是一笔不小的费用，而且Github有些地方网<br>络访问速度慢；而如果用Github的免费版本，那就私密安全性又得不到保证。 另外如果自己<br>搭建Git服务器，对于普通大众来说又没有必要，况且又耗时费力而不讨好。</p>
 <p>这里一种非常好的替代方法就是在网盘中创建Git仓库，然后利用网盘来进行仓库的同步。<br>从而实现多地、免费、安全、私有的版本管理。在使用的过程中，只要保证网盘的同步即可。<br>比如在工作的地方，把代码或文档更新到同步盘中；回到家中，打开同步盘，它会自动同步。<br>然后再用Git更新即可。这样就保证了各个地方的版本同步而且又方便安全。</p>
 <p>具体的操作方法如下：</p>
@@ -88,25 +151,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>/2017/08/31/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
       <title></title>
-      <url>/2017/08/31/%E4%B8%AD%E5%8C%BB/%E6%B0%94/</url>
+      <url>/2017/08/31/%E4%B8%AD%E5%8C%BB-%E6%B0%94/</url>
       <content type="html"><![CDATA[<p>,###### 阴阳五行学说<br>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
 ]]></content>
       
@@ -115,7 +161,7 @@
     
     <entry>
       <title></title>
-      <url>/2017/08/31/%E4%B8%AD%E5%8C%BB/%E5%9F%BA%E7%A1%80/</url>
+      <url>/2017/08/31/%E4%B8%AD%E5%8C%BB-%E5%9F%BA%E7%A1%80/</url>
       <content type="html"><![CDATA[<h2 id="阴阳五行学说"><a href="#阴阳五行学说" class="headerlink" title="阴阳五行学说"></a>阴阳五行学说</h2><p>精气是万事万物的本源.精是不是实体?气则是组成物质需要的其它东西,比如能量,催化剂等?<br>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
 <h2 id="中医发展原理"><a href="#中医发展原理" class="headerlink" title="中医发展原理"></a>中医发展原理</h2><p>中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。</p>
 ]]></content>
@@ -190,7 +236,7 @@
     
     <entry>
       <title></title>
-      <url>/2017/08/31/TensorFlow/tmp/</url>
+      <url>/2017/08/31/TensorFlow-tmp/</url>
       <content type="html"></content>
       
         
@@ -198,7 +244,7 @@
     
     <entry>
       <title></title>
-      <url>/2017/08/31/TensorFlow/5_lstm%E8%AF%A6%E8%A7%A3/</url>
+      <url>/2017/08/31/TensorFlow-5-lstm%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias, input_size, state_is_tupe=Flase, activation=tanh)</div><div class="line">cell = tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias=1.0, input_size=None, state_is_tupe=Flase, activation=tanh)</div><div class="line">#num_units:图一中ht的维数，如果num_units=10,那么ht就是10维行向量</div><div class="line">#forget_bias：还不清楚这个是干嘛的</div><div class="line">#input_size:[batch_size, max_time, size]。假设要输入一句话，这句话的长度是不固定的，max_time就代表最长的那句话是多长，size表示你打算用多长的向量代表一个word，即embedding_size（embedding_size和size的值不一定要一样）</div><div class="line">#state_is_tuple:true的话，返回的状态是一个tuple:(c=array([[]]), h=array([[]]):其中c代表Ct的最后时间的输出，h代表Ht最后时间的输出，h是等于最后一个时间的output的</div><div class="line">#图三向上指的ht称为output</div><div class="line">#此函数返回一个lstm_cell，即图一中的一个A</div></pre></td></tr></table></figure>
 ]]></content>
       
@@ -207,8 +253,8 @@
     
     <entry>
       <title></title>
-      <url>/2017/08/31/TensorFlow/4_stack%E5%92%8Cunstack%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<h2 id="张量Tensor介绍"><a href="#张量Tensor介绍" class="headerlink" title="张量Tensor介绍"></a>张量Tensor介绍</h2><p>一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。<br>Data type: 包括常用的整型、实数型、复数型等。<br>rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。<br>shape:不同rank不同shape，rank0为[]，rank1为[D0]，rank2为[D0, D1]，rank3为[D0, D1, D2]以此类推，rankn为[D0, D1, …Dn-1]。rank0表示标题，rank1表示一维向量，rank2表示二维矩阵，rank3表示3维空间，rank4表示4维，rank5表示5维等等。<br>shape的读取技巧是看最外层中括号里，有几个元素(被中括号括起来的算一个元素)被逗号分开，假设数量为n1,则shape的第一个元素就为n1.再依次递归看前面被中括号括起来的元素中，被逗号分开的元素个数，假设为n2，则shape的第二个元素就是n2，形状就是[n1,n2]。一直这样看，直到元素全是由逗号分开，没有中括号为止。举例如下。<br><img src="4_1.png" alt="(4_1.png)"></p>
+      <url>/2017/08/31/TensorFlow-4-stack%E5%92%8Cunstack%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h2 id="张量Tensor介绍"><a href="#张量Tensor介绍" class="headerlink" title="张量Tensor介绍"></a>张量Tensor介绍</h2><p>一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。<br>Data type: 包括常用的整型、实数型、复数型等。<br>rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。<br>shape:不同rank不同shape，rank0为[]，rank1为[D0]，rank2为[D0, D1]，rank3为[D0, D1, D2]以此类推，rankn为[D0, D1, …Dn-1]。rank0表示标题，rank1表示一维向量，rank2表示二维矩阵，rank3表示3维空间，rank4表示4维，rank5表示5维等等。<br>shape的读取技巧是看最外层中括号里，有几个元素(被中括号括起来的算一个元素)被逗号分开，假设数量为n1,则shape的第一个元素就为n1.再依次递归看前面被中括号括起来的元素中，被逗号分开的元素个数，假设为n2，则shape的第二个元素就是n2，形状就是[n1,n2]。一直这样看，直到元素全是由逗号分开，没有中括号为止。举例如下。<br><img src="/2017/08/31/TensorFlow-4-stack和unstack详解/4_1.png" alt="(4_1.png)"></p>
 <h2 id="tensorflow-函数介绍"><a href="#tensorflow-函数介绍" class="headerlink" title="tensorflow 函数介绍"></a>tensorflow 函数介绍</h2><h3 id="tf-stack"><a href="#tf-stack" class="headerlink" title="tf.stack()"></a>tf.stack()</h3><p><strong>tf.stack(values, axis=0, name=’stack’)</strong><br><strong>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。</strong></p>
 <p>假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。<br>如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。<br>如果轴axis=1，则转变后的张量的形状为(A, N, B, C)。<br>如果轴axis=2，则转变后的张量的形状为(A, B, N, C)。其它情况依次类推。  </p>
 <p>举例如下：<br>‘x’ is [1, 4]， 形状是(2)，维度为1<br>‘y’ is [2, 5]， 形状是(2)，维度为1<br>‘z’ is [3, 6]， 形状是(2)，维度为1<br>stack([x, y, z]) =&gt; [[1, 4], [2, 5], [3, 6]]  # axis的值默认为0。输出的形状为(3, 2)<br>stack([x, y, z], axis=1) =&gt; [[1, 2, 3], [4, 5, 6]] # axis的值为1。输出的形状为(2, 3)</p>
@@ -236,7 +282,7 @@
     
     <entry>
       <title></title>
-      <url>/2017/08/31/TensorFlow/3_constant%E8%AF%A6%E8%A7%A3/</url>
+      <url>/2017/08/31/TensorFlow-3-constant%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<h1 id="constant-详解"><a href="#constant-详解" class="headerlink" title="constant 详解"></a>constant 详解</h1><h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p> 向量行列式,行开始,然后再是列.所以3x4表示3行4列</p>
 <h2 id="TensorFlow-中矩阵形式"><a href="#TensorFlow-中矩阵形式" class="headerlink" title="TensorFlow 中矩阵形式"></a>TensorFlow 中矩阵形式</h2><p>从内开始,一个[]表示一行,行中数据以”.”号表示数据结束.行之间以”,”分割.<br>[[3., 3.]]   一个1x2矩阵.<br>[[2.],[2.]]  一个2x1矩阵.</p>
 ]]></content>
@@ -246,7 +292,7 @@
     
     <entry>
       <title></title>
-      <url>/2017/08/31/TensorFlow/2_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+      <url>/2017/08/31/TensorFlow-2-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
 <li>使用图 (graph) 来表示计算任务.</li>
 <li>在被称之为会话 (Session) 的上下文 (context) 中执行图.</li>
@@ -262,7 +308,7 @@
     
     <entry>
       <title></title>
-      <url>/2017/08/31/TensorFlow/1_%E5%AE%89%E8%A3%85/</url>
+      <url>/2017/08/31/TensorFlow-1-%E5%AE%89%E8%A3%85/</url>
       <content type="html"><![CDATA[<h1 id="TensorFlow-安装"><a href="#TensorFlow-安装" class="headerlink" title="TensorFlow 安装"></a>TensorFlow 安装</h1><h1 id="1-TensorFlow-官网无法访问解决方法"><a href="#1-TensorFlow-官网无法访问解决方法" class="headerlink" title="1. TensorFlow 官网无法访问解决方法"></a>1. TensorFlow 官网无法访问解决方法</h1><p>通过修改host文件解决.<br>打开C:\Windows\System32\drivers\etc中的host文件.<br>添加如下内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">64.233.188.121  www.tensorflow.org</div></pre></td></tr></table></figure></p>
 <p>ipconfig /flushdns      //清除DNS缓存内容.<br>ipconfig /displaydns    //显示DNS缓存内容</p>
 <h1 id="2-Linux-安装"><a href="#2-Linux-安装" class="headerlink" title="2. Linux 安装"></a>2. Linux 安装</h1><h2 id="1-安装环境"><a href="#1-安装环境" class="headerlink" title="1. 安装环境"></a>1. 安装环境</h2><p>Linux(Ubuntun) + python 2.7</p>
@@ -281,7 +327,7 @@
     
     <entry>
       <title></title>
-      <url>/2017/08/31/Skynet/1.%20Skynet%20%E9%80%9A%E4%BF%A1%E7%A0%94%E7%A9%B6/</url>
+      <url>/2017/08/31/Skynet-1-Skynet-%E9%80%9A%E4%BF%A1%E7%A0%94%E7%A9%B6/</url>
       <content type="html"></content>
       
         
@@ -289,7 +335,7 @@
     
     <entry>
       <title></title>
-      <url>/2017/08/31/Pomelo/1_loader%20Pomelo%20%E7%A0%94%E7%A9%B6/</url>
+      <url>/2017/08/31/Pomelo-1-loader-Pomelo-%E7%A0%94%E7%A9%B6/</url>
       <content type="html"><![CDATA[<h2 id="基本类库"><a href="#基本类库" class="headerlink" title="基本类库"></a>基本类库</h2><ol>
 <li>should: test framework agnostic BDD-style assertions</li>
 <li>mocha: simple, flexible, fun test framework</li>
@@ -316,57 +362,6 @@
 <h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><h3 id="1-dao-模块"><a href="#1-dao-模块" class="headerlink" title="1. dao 模块"></a>1. dao 模块</h3><p>通过通用的sql语句,查询相关信息,再通过回调方法,返回调用函数.</p>
 ]]></content>
       
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hexo 教程]]></title>
-      <url>/2017/08/31/Web/1.Hexo%E6%95%99%E7%A8%8B/</url>
-      <content type="html"><![CDATA[<h2 id="Hexo-简介"><a href="#Hexo-简介" class="headerlink" title="Hexo 简介"></a>Hexo 简介</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br>简单的说，就是Hexo可以根据你写的Markdown文章，生成一个个好看的静态网页。然后，你可以把这些静态网页托管在你的服务器（如github pages、阿里云等）或者Hexo中，别人就可以通过你配置的网址，访问你写的文章。</p>
-<h2 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h2><p>安装 Hexo 需要安装下面两个程序。</p>
-<ul>
-<li>Node.js</li>
-<li>Git<br>安装完毕后，只要使用 npm 即可完成 Hexo 的安装。打开命令行界面，执行下面的命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>如果npm安装的速度太慢，这是由于npm镜像在国外的缘故。可按如下方法解决：<br>npm config set key value 命令，设置npm指定的镜像地址,这里设置为淘宝的地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm config set registry https://registry.npm.taobao.org </div><div class="line">npm info underscore （这个只是为了检验上面的设置命令是否成功，若成功，会返回[指定包]的信息）</div></pre></td></tr></table></figure></p>
-<h2 id="Hexo-建站"><a href="#Hexo-建站" class="headerlink" title="Hexo 建站"></a>Hexo 建站</h2><p>Hexo 安装完成后，打开命令行，切换到要建站的文件夹必须是空的文件夹，要不命令出错。执行下列命令，将会建站一个基本的Hexo站点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
-<p>运行界面如下。如果出现 “Start blogging with Hexo!” 字样，就代表安装成功了。<br><img src="/images/Web/1_0.png" alt=""><br>Hexo 安装成功后，文件夹结构如下。其中node_modules里面放的是node模块，基本不用去管；scaffolds里面放的是文章模版文件，当你使用Hexo新建文章时，将使用这些模版创建文件；source中放着所有你写的文章;themes中放置着网站的主题，主题负责整个网站的显示样式，可以在网上找到各种样式的主题，如Next,uno,yilia等。<br><img src="/images/Web/1_1.png" alt=""><br>至此，Hexo 就建站完毕，非常简单。执行下面的两条命令，可以先预览一下建站效果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">hexo server</div></pre></td></tr></table></figure></p>
-<p>这两条命令的执行效果如下，可以通过 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>访问建好的网站。<br><img src="/images/Web/1_2.png" alt=""><br><img src="/images/Web/1_3.png" alt=""></p>
-<h2 id="Hexo-基本配置"><a href="#Hexo-基本配置" class="headerlink" title="Hexo 基本配置"></a>Hexo 基本配置</h2><p>Hexo 的基本配置文件为你建站的文件夹中的_config.yml文件。在该文件中，可以设置网站的标题、语言（中文、英语等)、时区等；也可以设置网站的网址；还有其它如目录、文章、分类、标签、日期模式等。当然，比较重要的一个配置是设置Hexo的主题。<br>Hexo 的主题设置方法（以Next主题为例）如下。在Hexo网站文件夹下，执行命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
-<p>也可以直接下载Next文件，放在themes/next下。与所有 Hexo 主题启用的模式一样。 当 克隆/下载 完成后，打开 站点配置文件_config.yml， 找到 theme 字段，并将其值更改为 next。如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: next</div></pre></td></tr></table></figure></p>
-<p>到此，NexT 主题安装完成。最好使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo clean</div></pre></td></tr></table></figure></p>
-<p>来清除 Hexo 的缓存。最后，就可以通过执行下面两条命令，查看主题效果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">hexo server</div></pre></td></tr></table></figure></p>
-<p><img src="/images/Web/1_4.png" alt=""><br>在_config.yml中，可以设置将Hexo生成的静态页面部署到指定的服务器中，如github。但是，在我的使用过程中，有各种奇怪的问题，因此，不推荐配置该选项，推荐使用本文中Hexo github 配置章节中的方法。</p>
-<h2 id="Hexo-github-配置"><a href="#Hexo-github-配置" class="headerlink" title="Hexo github 配置"></a>Hexo github 配置</h2><p>Hexo 建站完毕后，可以在本地服务器上查看自己写的文章，但是我们一般想随时随地随人都可以查看我们的文章。当然，我匀可以把Hexo托管到云服务器上，但是更方便的做法是把它托管到github pages上，既省钱又方便。过程如下。</p>
-<ol>
-<li>创建github pages。打开<a href="https://github.com/" target="_blank" rel="external">github官网</a>,注册账号。然后创建一个仓库，仓库的名字为username.github.io。username为你注册时的用户名。这个仓库是特殊约定的，因此就决定了每个帐号只能有一个仓库来创建github pages。创建完成后，你就可以通过<a href="http://username.github.io" target="_blank" rel="external">http://username.github.io</a> 来访问这个网站。<br><img src="/images/Web/1_5.png" alt=""></li>
-<li>克隆github pages仓库到Hexo网站的deploy文件夹中。这里面用到了一个github多用户名技巧，当你有多个github账号时，非常实用，请参考我的另一篇文章<a href="">1. 网盘+Git 实现异地、免费、安全、私有的版本管理</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@hiOlive:hiOlive/hiolive.github.io.git deploy</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>将我们之前创建的repo克隆到本地，新建一个目录叫做.deploy用于存放克隆的代码。</p>
-<p>创建一个deploy脚本文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">cp -R public/* deploy</div><div class="line">cd deploy</div><div class="line">git add .</div><div class="line">git commit -m &quot;update&quot;</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-<h2 id="github-自定义域名"><a href="#github-自定义域名" class="headerlink" title="github 自定义域名"></a>github 自定义域名</h2><h2 id="Hexo-写文章"><a href="#Hexo-写文章" class="headerlink" title="Hexo 写文章"></a>Hexo 写文章</h2>]]></content>
-      
-        <categories>
-            
-            <category> Web </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-            <tag> web </tag>
-            
-            <tag> git </tag>
-            
-            <tag> github </tag>
-            
-        </tags>
         
     </entry>
     
