@@ -3,6 +3,74 @@
   
     
     <entry>
+      <title><![CDATA[中医之我思]]></title>
+      <url>/think_in_Chinese_medicine/</url>
+      <content type="html"><![CDATA[<h2 id="阴阳五行学说"><a href="#阴阳五行学说" class="headerlink" title="阴阳五行学说"></a>阴阳五行学说</h2><p>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
+<h2 id="中医发展原理"><a href="#中医发展原理" class="headerlink" title="中医发展原理"></a>中医发展原理</h2><p>中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。在这个由经验方法发展起来的中医体系中，人们为了解释其治病的机理，而想出了各种理论体系，像什么阴阳、八纲、六经、脏腑、经络、三焦、卫气营血等等。每个理论体系都很正确，因为他们由经验而总结而来，却不能准确得像西医那样。而每个人由于学习的经验不同，就又造成了每个人对同一个病人的治病方法又不同。随着科技的发展，中医肯定最终能发展如西医一样，用精确的解释来说明其治病的原理，而不像现在这样模模糊糊，形而上学。<br>中医以阴阳为根，这是一种很重要的思想。世间万物都可归结为阴阳。非阴即阳，非阳即阴。这是一个大的概念。如温度分高低，就就是阳、低就是阴；高度分高低，高就是阳，低就是阴；动静中，动即阳，静则阴，如此等等。它把事物分成两个对立变化的方面。这两个方面在变化的过程中，随着阴生阳长或阳生阴长而产生无数种中间状态。当然，根据常识，阴阳的最中间的状态也比较重要。像六经中的少阳、厥阴等。<br>八纲为阴阳、表里、寒热、虚实，也根于阴阳。它将人身体的状态从不同的方面来分阴阳。要注意这里的表里、寒热、虚实与普通的相似又不同的地方。</p>
+<h2 id="中医治病机理"><a href="#中医治病机理" class="headerlink" title="中医治病机理"></a>中医治病机理</h2><p>中医理论根由阴阳。治病则在药。经过几千年的发展，中医对药积累了无数的经验，经过组方，完成了方证对应。也对人体病的发展有了很多经验积累，病的传变、好坏。通过对这些经验的总结，而完成了中医的治病方法。因此，中医可以治病，关键是能不能在总结的经验中，找到或者推断出治那个病的理法方药。</p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>肺主气，在肺为气，在外为卫。心主血，在心为血，在外为营。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 中医 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 中医 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[loader Pomelo 研究]]></title>
+      <url>/loader_pomelo_study/</url>
+      <content type="html"><![CDATA[<h2 id="基本类库"><a href="#基本类库" class="headerlink" title="基本类库"></a>基本类库</h2><ol>
+<li>should: test framework agnostic BDD-style assertions</li>
+<li>mocha: simple, flexible, fun test framework</li>
+<li>express: Fast, unopinionated, minimalist web framework</li>
+<li>connect: High performance middleware framework </li>
+<li>socket.io: node.js realtime framework server</li>
+<li>generic-pool: Generic resource pooling for Node.JS</li>
+<li>mysql: A node.js driver for mysql. It is written in JavaScript</li>
+<li>async:Higher-order functions and common patterns for asynchronous code</li>
+<li>socket.io-client:</li>
+<li>pomelo-aoi：pomelo-schedule is the aoi module used in the demo of pomelo.</li>
+<li>crc:Module for calculating Cyclic Redundancy Check (CRC) for Node.js and the Browser.</li>
+<li>pomelo-bt: pomelo-bt是pomelo项目中AI模块所依赖的行为树模块，提供了基本的行为树实现。</li>
+<li>pomelo-pathfinding: pomelo-pathfinding is the pathfinding module used in lord of pomelo.</li>
+<li>pomelo-collection: Pomelo-collection is the module for basic data structure in Node.JS.</li>
+<li>pomelo-logger</li>
+<li>pomelo-monitor: monitor the operating-system and process information</li>
+<li>pomelo-sync-plugin</li>
+<li>pomelo-masterha-plugin</li>
+<li>underscore: JavaScript’s functional programming helper library.</li>
+<li>node-zookeeper-client: A pure Javascript ZooKeeper client for Node.js.</li>
+<li>webkit-devtools-agent: Webkit devtools agent that leverages remote debugging and profiling of nodejs applications using the built-in webkit inspector.</li>
+</ol>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><h3 id="1-dao-模块"><a href="#1-dao-模块" class="headerlink" title="1. dao 模块"></a>1. dao 模块</h3><p>通过通用的sql语句,查询相关信息,再通过回调方法,返回调用函数.</p>
+]]></content>
+      
+        <categories>
+            
+            <category> pomelo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> pomelo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Markdown 教程]]></title>
       <url>/markdown/</url>
       <content type="html"><![CDATA[<h1 id="MarkDown-语法样本"><a href="#MarkDown-语法样本" class="headerlink" title="MarkDown 语法样本"></a><center>MarkDown 语法样本</center></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt; &lt;/center&gt; &lt;br/&gt;</div><div class="line">如果另起一行，只需在当前行结尾加 2 个空格</div><div class="line">如果是要起一个新段落，只需要空出一行即可。</div></pre></td></tr></table></figure>
@@ -30,8 +98,8 @@
 <h5 id="5-引用"><a href="#5-引用" class="headerlink" title="5. 引用"></a>5. 引用</h5><p> 引用:行首以&gt;开头.效果如下.</p>
 <blockquote>
 <p>一盏灯， 一片昏黄； 一简书， 一杯淡茶。 守着那一份淡定， 品读属于自己的寂寞。 保持淡定， 才能欣赏到最美丽的风景！ 保持淡定， 人生从此不再寂寞。</p>
-<h4 id="6-代码"><a href="#6-代码" class="headerlink" title="6. 代码"></a>6. 代码</h4><p>单行代码以`code`表示.<br>多行代码以```code```表示.```必须独占一行.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int main() &#123;</div><div class="line">    printf(&quot;Hello, markdown!&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 </blockquote>
+<h4 id="6-代码"><a href="#6-代码" class="headerlink" title="6. 代码"></a>6. 代码</h4><p>单行代码以`code`表示.<br>多行代码以```code```表示.```必须独占一行.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int main() &#123;</div><div class="line">    printf(&quot;Hello, markdown!&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="7-链接"><a href="#7-链接" class="headerlink" title="7. 链接"></a>7. 链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[网页链接](http://www.baidu.com)&lt;br/&gt;</div><div class="line">![图片链接](http://ww4.sinaimg.cn/bmiddle/aa397b7fjw1dzplsgpdw5j.jpg)</div></pre></td></tr></table></figure>
 <h4 id="8-横线"><a href="#8-横线" class="headerlink" title="8. 横线"></a>8. 横线</h4><p>下面所有的效果一样,全是横线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">* * *</div><div class="line">***</div><div class="line">****</div><div class="line">*****</div><div class="line">- - -</div><div class="line">---</div><div class="line">____---</div><div class="line">---------------------</div><div class="line">_ _ _</div><div class="line">_ _ _____</div></pre></td></tr></table></figure></p>
 <hr>
@@ -223,8 +291,10 @@
     <entry>
       <title></title>
       <url>/undefined/</url>
-      <content type="html"><![CDATA[<h2 id="阴阳五行学说"><a href="#阴阳五行学说" class="headerlink" title="阴阳五行学说"></a>阴阳五行学说</h2><p>精气是万事万物的本源.精是不是实体?气则是组成物质需要的其它东西,比如能量,催化剂等?<br>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
-<h2 id="中医发展原理"><a href="#中医发展原理" class="headerlink" title="中医发展原理"></a>中医发展原理</h2><p>中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。</p>
+      <content type="html"><![CDATA[<h2 id="阴阳五行学说"><a href="#阴阳五行学说" class="headerlink" title="阴阳五行学说"></a>阴阳五行学说</h2><p>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
+<h2 id="中医发展原理"><a href="#中医发展原理" class="headerlink" title="中医发展原理"></a>中医发展原理</h2><p>中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。在这个由经验方法发展起来的中医体系中，人们为了解释其治病的机理，而想出了各种理论体系，像什么阴阳、八纲、六经、脏腑、经络、三焦、卫气营血等等。每个理论体系都很正确，因为他们由经验而总结而来，却不能准确得像西医那样。而每个人由于学习的经验不同，就又造成了每个人对同一个病人的治病方法又不同。随着科技的发展，中医肯定最终能发展如西医一样，用精确的解释来说明其治病的原理，而不像现在这样模模糊糊，形而上学。<br>中医以阴阳为根，这是一种很重要的思想。世间万物都可归结为阴阳。非阴即阳，非阳即阴。这是一个大的概念。如温度分高低，就就是阳、低就是阴；高度分高低，高就是阳，低就是阴；动静中，动即阳，静则阴，如此等等。它把事物分成两个对立变化的方面。这两个方面在变化的过程中，随着阴生阳长或阳生阴长而产生无数种中间状态。当然，根据常识，阴阳的最中间的状态也比较重要。像六经中的少阳、厥阴等。<br>八纲为阴阳、表里、寒热、虚实，也根于阴阳。它将人身体的状态从不同的方面来分阴阳。要注意这里的表里、寒热、虚实与普通的相似又不同的地方。</p>
+<h2 id="中医治病机理"><a href="#中医治病机理" class="headerlink" title="中医治病机理"></a>中医治病机理</h2><p>中医理论根由阴阳。治病则在药。经过几千年的发展，中医对药积累了无数的经验，经过组方，完成了方证对应。也对人体病的发展有了很多经验积累，病的传变、好坏。通过对这些经验的总结，而完成了中医的治病方法。因此，中医可以治病，关键是能不能在总结的经验中，找到或者推断出治那个病的理法方药。</p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>肺主气，在肺为气，在外为卫。心主血，在心为血，在外为营。</p>
 ]]></content>
       
         
@@ -325,38 +395,6 @@
       <title></title>
       <url>/undefined/</url>
       <content type="html"></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>/undefined/</url>
-      <content type="html"><![CDATA[<h2 id="基本类库"><a href="#基本类库" class="headerlink" title="基本类库"></a>基本类库</h2><ol>
-<li>should: test framework agnostic BDD-style assertions</li>
-<li>mocha: simple, flexible, fun test framework</li>
-<li>express: Fast, unopinionated, minimalist web framework</li>
-<li>connect: High performance middleware framework </li>
-<li>socket.io: node.js realtime framework server</li>
-<li>generic-pool: Generic resource pooling for Node.JS</li>
-<li>mysql: A node.js driver for mysql. It is written in JavaScript</li>
-<li>async:Higher-order functions and common patterns for asynchronous code</li>
-<li>socket.io-client:</li>
-<li>pomelo-aoi：pomelo-schedule is the aoi module used in the demo of pomelo.</li>
-<li>crc:Module for calculating Cyclic Redundancy Check (CRC) for Node.js and the Browser.</li>
-<li>pomelo-bt: pomelo-bt是pomelo项目中AI模块所依赖的行为树模块，提供了基本的行为树实现。</li>
-<li>pomelo-pathfinding: pomelo-pathfinding is the pathfinding module used in lord of pomelo.</li>
-<li>pomelo-collection: Pomelo-collection is the module for basic data structure in Node.JS.</li>
-<li>pomelo-logger</li>
-<li>pomelo-monitor: monitor the operating-system and process information</li>
-<li>pomelo-sync-plugin</li>
-<li>pomelo-masterha-plugin</li>
-<li>underscore: JavaScript’s functional programming helper library.</li>
-<li>node-zookeeper-client: A pure Javascript ZooKeeper client for Node.js.</li>
-<li>webkit-devtools-agent: Webkit devtools agent that leverages remote debugging and profiling of nodejs applications using the built-in webkit inspector.</li>
-</ol>
-<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><h3 id="1-dao-模块"><a href="#1-dao-模块" class="headerlink" title="1. dao 模块"></a>1. dao 模块</h3><p>通过通用的sql语句,查询相关信息,再通过回调方法,返回调用函数.</p>
-]]></content>
       
         
     </entry>
