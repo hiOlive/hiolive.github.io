@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta name="description" content="TensorFlow 安装1. TensorFlow 官网无法访问解决方法通过修改host文件解决.打开C:\Windows\System32\drivers\etc中的host文件.添加如下内容:164.233.188.121  www.tensorflow.org ipconfig /flushdns      //清除DNS缓存内容.ipconfig /displaydns    //显示D">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爱 wifi 游戏">
 <meta property="og:url" content="http://iwifigame.com/undefined/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta property="og:description" content="TensorFlow 安装1. TensorFlow 官网无法访问解决方法通过修改host文件解决.打开C:\Windows\System32\drivers\etc中的host文件.添加如下内容:164.233.188.121  www.tensorflow.org ipconfig /flushdns      //清除DNS缓存内容.ipconfig /displaydns    //显示D">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-31T13:03:12.934Z">
+<meta property="og:updated_time" content="2017-08-31T13:03:12.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爱 wifi 游戏">
-<meta name="twitter:description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta name="twitter:description" content="TensorFlow 安装1. TensorFlow 官网无法访问解决方法通过修改host文件解决.打开C:\Windows\System32\drivers\etc中的host文件.添加如下内容:164.233.188.121  www.tensorflow.org ipconfig /flushdns      //清除DNS缓存内容.ipconfig /displaydns    //显示D">
 
 
 
@@ -345,7 +345,18 @@
       
 
       
-        
+        <h1 id="TensorFlow-安装"><a href="#TensorFlow-安装" class="headerlink" title="TensorFlow 安装"></a>TensorFlow 安装</h1><h1 id="1-TensorFlow-官网无法访问解决方法"><a href="#1-TensorFlow-官网无法访问解决方法" class="headerlink" title="1. TensorFlow 官网无法访问解决方法"></a>1. TensorFlow 官网无法访问解决方法</h1><p>通过修改host文件解决.<br>打开C:\Windows\System32\drivers\etc中的host文件.<br>添加如下内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">64.233.188.121  www.tensorflow.org</div></pre></td></tr></table></figure></p>
+<p>ipconfig /flushdns      //清除DNS缓存内容.<br>ipconfig /displaydns    //显示DNS缓存内容</p>
+<h1 id="2-Linux-安装"><a href="#2-Linux-安装" class="headerlink" title="2. Linux 安装"></a>2. Linux 安装</h1><h2 id="1-安装环境"><a href="#1-安装环境" class="headerlink" title="1. 安装环境"></a>1. 安装环境</h2><p>Linux(Ubuntun) + python 2.7</p>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. sudo apt-get install python-pip python-dev</div><div class="line">2. pip install tensorflow</div></pre></td></tr></table></figure>
+<p>如果上面的命令无法安装，则执行下面的命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.0-cp27-none-linux_x86_64.whl</div><div class="line">2. sudo pip install --upgrade $TF_BINARY_URL</div></pre></td></tr></table></figure></p>
+<p>注意：在aliyun上，安装时，可能会提示找不到python.h文件，而执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install python-dev</div></pre></td></tr></table></figure></p>
+<p>时，可能会提示在源中找不到相关文件，这时执行下面的命令可以解决相关问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
+<p>update是更新软件列表，upgrade是更新软件。</p>
+<p>如果出现 AttributeError: type object ‘NewBase’ has no attribute ‘is_abstract’<br>这个问题，应该是six包安装有问题，可以卸载原有版本，重新安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo pip uninstall six</div><div class="line">$ sudo pip install six --upgrade</div></pre></td></tr></table></figure></p>
+<p>一般来说six包的安装位置是/usr/lib/python2.7/dist-packages，建议先试前者（工作站上也是前者），如果six版本还是没有改变，则指定安装位置，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo pip install six --upgrade --target=&quot;/usr/lib/python2.7/dist-packages&quot;</div></pre></td></tr></table></figure></p>
+<h1 id="3-Windows-安装"><a href="#3-Windows-安装" class="headerlink" title="3. Windows 安装"></a>3. Windows 安装</h1><p>尝试过docker与python3直接安装,都没有成功.以后再试吧.这就是一个坑.</p>
+
       
     </div>
     
@@ -429,8 +440,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -448,7 +468,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -495,6 +515,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TensorFlow-安装"><span class="nav-number">1.</span> <span class="nav-text">TensorFlow 安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-TensorFlow-官网无法访问解决方法"><span class="nav-number">2.</span> <span class="nav-text">1. TensorFlow 官网无法访问解决方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Linux-安装"><span class="nav-number">3.</span> <span class="nav-text">2. Linux 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装环境"><span class="nav-number">3.1.</span> <span class="nav-text">1. 安装环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装"><span class="nav-number">3.2.</span> <span class="nav-text">2. 安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Windows-安装"><span class="nav-number">4.</span> <span class="nav-text">3. Windows 安装</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
