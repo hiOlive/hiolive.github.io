@@ -109,7 +109,12 @@
 <meta property="og:image" content="http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/1_3.png">
 <meta property="og:image" content="http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/1_4.png">
 <meta property="og:image" content="http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/1_5.png">
-<meta property="og:updated_time" content="2017-09-01T13:39:07.220Z">
+<meta property="og:image" content="http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/1_6.png">
+<meta property="og:image" content="http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/1_7.png">
+<meta property="og:image" content="http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/1_10.png">
+<meta property="og:image" content="http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/1_9.png">
+<meta property="og:image" content="http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/1_8.png">
+<meta property="og:updated_time" content="2017-09-02T14:36:32.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程">
 <meta name="twitter:description" content="Hexo 简介Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。简单的说，就是Hexo可以根据你写的Markdown文章，生成一个个好看的静态网页。然后，你可以把这些静态网页托管在你的服务器（如github pages、阿里云等）或者Hexo中，别人就可以通过你配置的网址，访问你写的文章。 Hexo 安">
@@ -425,6 +430,18 @@
 </ol>
 <h4 id="站内文章英文地址"><a href="#站内文章英文地址" class="headerlink" title="站内文章英文地址"></a>站内文章英文地址</h4><p>网站文章最好是英文址。英文地址设置方法如下。<br>修改_config.yml中的permalink如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">permalink: :url/</div></pre></td></tr></table></figure></p>
 <p>同时在写的文章中插入url属性，如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">layout: post</div><div class="line">title: Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程</div><div class="line">date: 2017-09-01 11:12:50</div><div class="line">url: hexo_from_build_to_github_pages_and_domain</div><div class="line">tags: [Hexo, web, git, github]</div><div class="line">categories: [Web]</div><div class="line">---</div></pre></td></tr></table></figure></p>
+<h4 id="添加文章阅读次数-LeanCloud"><a href="#添加文章阅读次数-LeanCloud" class="headerlink" title="添加文章阅读次数 LeanCloud"></a>添加文章阅读次数 LeanCloud</h4><p>首先注册LeanCloud账号。官网地址为<a href="https://leancloud.cn" target="_blank" rel="external">LeanClound 官网</a></p>
+<ol>
+<li>创建应用。<br><img src="/hexo_from_build_to_github_pages_and_domain/1_6.png" alt=""></li>
+<li>点击新创建的应用。<br><img src="/hexo_from_build_to_github_pages_and_domain/1_7.png" alt=""></li>
+<li>点击左边的存储，然后点击新建Class,新建名为Counter的Class。如下图。<br><img src="/hexo_from_build_to_github_pages_and_domain/1_10.png" alt=""><br><img src="/hexo_from_build_to_github_pages_and_domain/1_9.png" alt=""></li>
+<li>然后点击左边的设置，点开应用Key。就可以看到App ID与App Key。如下图。<br><img src="/hexo_from_build_to_github_pages_and_domain/1_8.png" alt=""></li>
+<li><p>修改next theme的配置文件_config.yml，在themes\next文件夹下。找到如下内容，把第4步中的ID与Key写入如下位置即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># You can visit https://leancloud.cn get AppID and AppKey.</div><div class="line">leancloud_visitors:</div><div class="line">  enable: true</div><div class="line">  app_id: Ju0g9TyWNmr28UUi493xOsxG-gzGzoHss </div><div class="line">  app_key: p5CLocEvdKWa1SAXkH9Lcd6z</div></pre></td></tr></table></figure>
+</li>
+<li><p>利用命令 hexo g 重新生成网站文章，即可以网站中，看到阅读统计。</p>
+</li>
+</ol>
 <h4 id="引用站内文章"><a href="#引用站内文章" class="headerlink" title="引用站内文章"></a>引用站内文章</h4>
 
 
@@ -614,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-简介"><span class="nav-number">1.</span> <span class="nav-text">Hexo 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-安装"><span class="nav-number">2.</span> <span class="nav-text">Hexo 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-建站"><span class="nav-number">3.</span> <span class="nav-text">Hexo 建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-基本配置"><span class="nav-number">4.</span> <span class="nav-text">Hexo 基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-github-配置"><span class="nav-number">5.</span> <span class="nav-text">Hexo github 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github-自定义域名"><span class="nav-number">6.</span> <span class="nav-text">github 自定义域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-写文章"><span class="nav-number">7.</span> <span class="nav-text">Hexo 写文章</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写文章配置"><span class="nav-number">7.0.1.</span> <span class="nav-text">写文章配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方便地插入图片"><span class="nav-number">7.0.2.</span> <span class="nav-text">方便地插入图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#站内文章英文地址"><span class="nav-number">7.0.3.</span> <span class="nav-text">站内文章英文地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用站内文章"><span class="nav-number">7.0.4.</span> <span class="nav-text">引用站内文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打赏"><span class="nav-number">7.0.5.</span> <span class="nav-text">打赏</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-简介"><span class="nav-number">1.</span> <span class="nav-text">Hexo 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-安装"><span class="nav-number">2.</span> <span class="nav-text">Hexo 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-建站"><span class="nav-number">3.</span> <span class="nav-text">Hexo 建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-基本配置"><span class="nav-number">4.</span> <span class="nav-text">Hexo 基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-github-配置"><span class="nav-number">5.</span> <span class="nav-text">Hexo github 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github-自定义域名"><span class="nav-number">6.</span> <span class="nav-text">github 自定义域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-写文章"><span class="nav-number">7.</span> <span class="nav-text">Hexo 写文章</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写文章配置"><span class="nav-number">7.0.1.</span> <span class="nav-text">写文章配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方便地插入图片"><span class="nav-number">7.0.2.</span> <span class="nav-text">方便地插入图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#站内文章英文地址"><span class="nav-number">7.0.3.</span> <span class="nav-text">站内文章英文地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加文章阅读次数-LeanCloud"><span class="nav-number">7.0.4.</span> <span class="nav-text">添加文章阅读次数 LeanCloud</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用站内文章"><span class="nav-number">7.0.5.</span> <span class="nav-text">引用站内文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打赏"><span class="nav-number">7.0.6.</span> <span class="nav-text">打赏</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

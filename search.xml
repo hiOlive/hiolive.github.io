@@ -282,6 +282,18 @@
 </ol>
 <h4 id="站内文章英文地址"><a href="#站内文章英文地址" class="headerlink" title="站内文章英文地址"></a>站内文章英文地址</h4><p>网站文章最好是英文址。英文地址设置方法如下。<br>修改_config.yml中的permalink如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">permalink: :url/</div></pre></td></tr></table></figure></p>
 <p>同时在写的文章中插入url属性，如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">layout: post</div><div class="line">title: Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程</div><div class="line">date: 2017-09-01 11:12:50</div><div class="line">url: hexo_from_build_to_github_pages_and_domain</div><div class="line">tags: [Hexo, web, git, github]</div><div class="line">categories: [Web]</div><div class="line">---</div></pre></td></tr></table></figure></p>
+<h4 id="添加文章阅读次数-LeanCloud"><a href="#添加文章阅读次数-LeanCloud" class="headerlink" title="添加文章阅读次数 LeanCloud"></a>添加文章阅读次数 LeanCloud</h4><p>首先注册LeanCloud账号。官网地址为<a href="https://leancloud.cn" target="_blank" rel="external">LeanClound 官网</a></p>
+<ol>
+<li>创建应用。<br><img src="/hexo_from_build_to_github_pages_and_domain/1_6.png" alt=""></li>
+<li>点击新创建的应用。<br><img src="/hexo_from_build_to_github_pages_and_domain/1_7.png" alt=""></li>
+<li>点击左边的存储，然后点击新建Class,新建名为Counter的Class。如下图。<br><img src="/hexo_from_build_to_github_pages_and_domain/1_10.png" alt=""><br><img src="/hexo_from_build_to_github_pages_and_domain/1_9.png" alt=""></li>
+<li>然后点击左边的设置，点开应用Key。就可以看到App ID与App Key。如下图。<br><img src="/hexo_from_build_to_github_pages_and_domain/1_8.png" alt=""></li>
+<li><p>修改next theme的配置文件_config.yml，在themes\next文件夹下。找到如下内容，把第4步中的ID与Key写入如下位置即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># You can visit https://leancloud.cn get AppID and AppKey.</div><div class="line">leancloud_visitors:</div><div class="line">  enable: true</div><div class="line">  app_id: Ju0g9TyWNmr28UUi493xOsxG-gzGzoHss </div><div class="line">  app_key: p5CLocEvdKWa1SAXkH9Lcd6z</div></pre></td></tr></table></figure>
+</li>
+<li><p>利用命令 hexo g 重新生成网站文章，即可以网站中，看到阅读统计。</p>
+</li>
+</ol>
 <h4 id="引用站内文章"><a href="#引用站内文章" class="headerlink" title="引用站内文章"></a>引用站内文章</h4>
 
 
