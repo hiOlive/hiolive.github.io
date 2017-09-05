@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="爱 wifi 游戏">
 <meta property="og:description" content="1. TensorFlow 官网无法访问解决方法通过修改host文件解决. 打开C:\Windows\System32\drivers\etc中的host文件. 添加如下内容:164.233.188.121  www.tensorflow.org 其它可能能到的命令。12ipconfig /flushdns      //清除DNS缓存内容.  ipconfig /displaydns    //">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-02T02:51:55.426Z">
+<meta property="og:updated_time" content="2017-09-03T22:33:21.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tensorflow安装">
 <meta name="twitter:description" content="1. TensorFlow 官网无法访问解决方法通过修改host文件解决. 打开C:\Windows\System32\drivers\etc中的host文件. 添加如下内容:164.233.188.121  www.tensorflow.org 其它可能能到的命令。12ipconfig /flushdns      //清除DNS缓存内容.  ipconfig /displaydns    //">
@@ -390,7 +390,10 @@
 <p>update是更新软件列表，upgrade是更新软件。</p>
 <p>如果出现 AttributeError: type object ‘NewBase’ has no attribute ‘is_abstract’<br>这个问题，应该是six包安装有问题，可以卸载原有版本，重新安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo pip uninstall six</div><div class="line">$ sudo pip install six --upgrade</div></pre></td></tr></table></figure></p>
 <p>一般来说six包的安装位置是/usr/lib/python2.7/dist-packages，建议先试前者（工作站上也是前者），如果six版本还是没有改变，则指定安装位置，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo pip install six --upgrade --target=&quot;/usr/lib/python2.7/dist-packages&quot;</div></pre></td></tr></table></figure></p>
-<h2 id="3-Windows-安装"><a href="#3-Windows-安装" class="headerlink" title="3. Windows 安装"></a>3. Windows 安装</h2>
+<h2 id="3-Windows-安装"><a href="#3-Windows-安装" class="headerlink" title="3. Windows 安装"></a>3. Windows 安装</h2><p>TensorFlow现在在windows上只支持64位的 python 3.5.打开<a href="https://www.python.org/downloads/release/python-352/" target="_blank" rel="external">python 3.5下载官网</a>，下载合适版本。<br>TensorFlow 分两个版本，分别是是否支持GPU。支持GPU的版本则学习的时候速度更快，但必须显卡支持，这样的显卡通常是nvidia英伟达显卡。如果没有明确支持TensorFlow的显卡，则安装CPU版本的，学习一般足够了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># CPU 版本。 这两个版本的安装选一个就可以了。</div><div class="line">pip install --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-0.12.0rc1-cp35-cp35m-win_amd64.whl</div><div class="line"># GPU 版本</div><div class="line">pip install --upgrade https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-0.12.0rc1-cp35-cp35m-win_amd64.whl</div></pre></td></tr></table></figure></p>
+<p>如果在使用的过程中，出现“No module named “_pywrap_tensorflow” and/or DLL load failed”，则要安装[Visual C++ 2015 redistributable (x64 version)]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://www.microsoft.com/en-us/download/details.aspx?id=53587</div></pre></td></tr></table></figure></p>
+<h2 id="4-测试安装"><a href="#4-测试安装" class="headerlink" title="4. 测试安装"></a>4. 测试安装</h2><p>打开命令行，输入如下命令，如果运行正常，则代表安装正确。<br>$ python<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">&gt;&gt;&gt; import tensorflow as tf</div><div class="line">&gt;&gt;&gt; hello = tf.constant(&apos;Hello, TensorFlow!&apos;)</div><div class="line">&gt;&gt;&gt; sess = tf.Session()</div><div class="line">&gt;&gt;&gt; print(sess.run(hello))</div><div class="line">Hello, TensorFlow!</div><div class="line">&gt;&gt;&gt; a = tf.constant(10)</div><div class="line">&gt;&gt;&gt; b = tf.constant(32)</div><div class="line">&gt;&gt;&gt; print(sess.run(a + b))</div><div class="line">42</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -476,6 +479,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/tensorflow_basic_understanding/" rel="prev" title="TensorFlow之基本理解">
+                TensorFlow之基本理解 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -612,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-TensorFlow-官网无法访问解决方法"><span class="nav-number">1.</span> <span class="nav-text">1. TensorFlow 官网无法访问解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Linux-安装"><span class="nav-number">2.</span> <span class="nav-text">2. Linux 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装环境"><span class="nav-number">2.1.</span> <span class="nav-text">1. 安装环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装"><span class="nav-number">2.2.</span> <span class="nav-text">2. 安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Windows-安装"><span class="nav-number">3.</span> <span class="nav-text">3. Windows 安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-TensorFlow-官网无法访问解决方法"><span class="nav-text">1. TensorFlow 官网无法访问解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Linux-安装"><span class="nav-text">2. Linux 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装环境"><span class="nav-text">1. 安装环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装"><span class="nav-text">2. 安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Windows-安装"><span class="nav-text">3. Windows 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-测试安装"><span class="nav-text">4. 测试安装</span></a></li></ol></div>
             
 
           </div>

@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="TensorFlow," />
 
 
 
@@ -95,16 +95,20 @@
 
 
 
-<meta name="description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="爱 wifi 游戏">
-<meta property="og:url" content="http://iwifigame.com/page/2/index.html">
+<meta name="description" content="1. TensorFlow 名词解释 Tensor 是数据在TensorFlow中的约定的表示形式。就如图片在硬盘上有jpg，png等特定的表示形式一样。Tensor被设计成可以表示任何数据，它的内部实际上是一个多维数组，可以根据需要来设计。就如图片你可以是4维的数组[batch, height, width, channels]，也可以是2维的[width, height]。数据的形式完全由你自">
+<meta name="keywords" content="TensorFlow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow之基本理解">
+<meta property="og:url" content="http://iwifigame.com/tensorflow_basic_understanding/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta property="og:description" content="1. TensorFlow 名词解释 Tensor 是数据在TensorFlow中的约定的表示形式。就如图片在硬盘上有jpg，png等特定的表示形式一样。Tensor被设计成可以表示任何数据，它的内部实际上是一个多维数组，可以根据需要来设计。就如图片你可以是4维的数组[batch, height, width, channels]，也可以是2维的[width, height]。数据的形式完全由你自">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://iwifigame.com/tensorflow_basic_understanding/tensors_flowing.gif">
+<meta property="og:updated_time" content="2017-09-05T00:35:07.672Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爱 wifi 游戏">
-<meta name="twitter:description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta name="twitter:title" content="TensorFlow之基本理解">
+<meta name="twitter:description" content="1. TensorFlow 名词解释 Tensor 是数据在TensorFlow中的约定的表示形式。就如图片在硬盘上有jpg，png等特定的表示形式一样。Tensor被设计成可以表示任何数据，它的内部实际上是一个多维数组，可以根据需要来设计。就如图片你可以是4维的数组[batch, height, width, channels]，也可以是2维的[width, height]。数据的形式完全由你自">
+<meta name="twitter:image" content="http://iwifigame.com/tensorflow_basic_understanding/tensors_flowing.gif">
 
 
 
@@ -134,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://iwifigame.com/page/2/"/>
+  <link rel="canonical" href="http://iwifigame.com/tensorflow_basic_understanding/"/>
 
 
 
 
 
-  <title>爱 wifi 游戏</title>
+  <title>TensorFlow之基本理解 | 爱 wifi 游戏</title>
   
 
 
@@ -170,8 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -264,9 +267,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -279,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/tensorflow_basic_understanding/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -296,9 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/undefined/" itemprop="url">未命名</a></h1>
+          <h1 class="post-title" itemprop="name headline">TensorFlow之基本理解</h1>
         
 
         <div class="post-meta">
@@ -310,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-31T21:03:12+08:00">
-                2017-08-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-04T10:18:07+08:00">
+                2017-09-04
               </time>
             
 
@@ -321,6 +322,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index">
+                    <span itemprop="name">TensorFlow</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -328,7 +351,7 @@
 
           
           
-             <span id="/undefined/" class="leancloud_visitors" data-flag-title="">
+             <span id="/tensorflow_basic_understanding/" class="leancloud_visitors" data-flag-title="TensorFlow之基本理解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -359,18 +382,20 @@
       
 
       
-        
-          
-          张量Tensor介绍一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。Data type: 包括常用的整型、实数型、复数型等。rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。shape:不同rank不同s
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/undefined/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h2 id="1-TensorFlow-名词解释"><a href="#1-TensorFlow-名词解释" class="headerlink" title="1. TensorFlow 名词解释"></a>1. TensorFlow 名词解释</h2><ol>
+<li>Tensor 是数据在TensorFlow中的约定的表示形式。就如图片在硬盘上有jpg，png等特定的表示形式一样。Tensor被设计成可以表示任何数据，它的内部实际上是一个多维数组，可以根据需要来设计。就如图片你可以是4维的数组[batch, height, width, channels]，也可以是2维的[width, height]。数据的形式完全由你自己根据需要来定，自由度非常大。</li>
+<li>Flow 代表流动，在TensorFlow中则表示Tensor即数据的流动。</li>
+<li>TensorFlow 因此就表示为数据流动。深度学习的本质在这里就表示通过一种特定的机制，不断地控制数据的流动，使其输出我们想要的结果。</li>
+</ol>
+<p><strong>TensorFlow,多维数组的流动。核心就是如何通过数组也就是数据的流动，来实现深入学习。就像是一张错综复杂的网，通过一个个结点控制网中数据的改变与流动，来实现深入学习。</strong></p>
+<h2 id="2-TensorFlow-运行机制详解"><a href="#2-TensorFlow-运行机制详解" class="headerlink" title="2. TensorFlow 运行机制详解"></a>2. TensorFlow 运行机制详解</h2><p>TensorFlow运行机制如下图所示。<br><img src="/tensorflow_basic_understanding/tensors_flowing.gif" alt="TensorFlow 概念图"></p>
+<ol>
+<li>输入input。在这个图中，输入结节在图片的最下方，一个标示为input的椭圆形结点。在这里，你要设计输入的数据格式，即Tensor的样式。</li>
+<li>数据流动。整个图的中间部分，都是数据的流动。有各种预定的处理算法来操作这些数据。通过这些操作，使其输出自己想要的结果。在这里，你要设计如何组合某些特定的操作来达到你的目的，就像图中的一样。</li>
+<li>根据输出与预期结果的差异，更新数据流动中的参数。在这个图的最上方，会根据差异来更新第2步中的W和b参数。在这里要明确的一点是，这些控制参数W、b不是一个两个，而是几千个，上万个，甚至上亿、亿亿…深度学习的目的就是要求出这些参数，当以后有一个新的任务要计算时，直接可以利用这些参数，求出结果。</li>
+</ol>
+<h2 id="3-深度学习原理"><a href="#3-深度学习原理" class="headerlink" title="3. 深度学习原理"></a>3. 深度学习原理</h2><p> 深度学习的过程，就是要设计这样一种机制，在这种机制下，通过不断的提供学习的数据，使其从这种机制中流过，然后通过比较输出的结果与预期结果的差异来不断地调整这个机制中的参数，从而使得最终的输出离我们预定的输出越来越近，也就是越来越正确，从而达到了学习的目的。  它与普通的不是深度学习的编程的基本不同点是，不再需要为某个复杂而又有某种规律的任务来编写特定的规则，这咱规则可能极其不好用代码来表达，甚至这里面的规则太多，要全部表达而基本不可能。深度学习只要你设计好了学习的机制，这种机制，相对普通编程来说，极其简单而又好理解，然后喂给它大量的数据，它自己就会从中学到规律，很好的完成指定的任务。<br>深度学习是以前常用编码的一次飞越。它为我们解决某些特定的问题提供了一种新的机制。当然，也不是说深度学习对所有编码都可以用它，它们各自有其适用性，至少目前看来是如此。比如我们要写一个程序，判断一个数是不是偶数，普通编码就非常快。深度学习目前来看，擅长的领域为图像识别、语音识别等。</p>
+
       
     </div>
     
@@ -380,158 +405,92 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢，您的支持是我过坑的动力！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
 
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="iwifigame WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="iwifigame Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    iwifigame
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://iwifigame.com/tensorflow_basic_understanding/" title="TensorFlow之基本理解">http://iwifigame.com/tensorflow_basic_understanding/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/undefined/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="iwifigame">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱 wifi 游戏">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/undefined/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-31T21:03:12+08:00">
-                2017-08-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
           
-            
-          
-
-          
-          
-             <span id="/undefined/" class="leancloud_visitors" data-flag-title="">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          constant 详解线性代数 向量行列式,行开始,然后再是列.所以3x4表示3行4列
-TensorFlow 中矩阵形式从内开始,一个[]表示一行,行中数据以”.”号表示数据结束.行之间以”,”分割.[[3., 3.]]   一个1x2矩阵.[[2.],[2.]]  一个2x1矩阵.
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/undefined/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/tensorflow_install/" rel="next" title="Tensorflow安装">
+                <i class="fa fa-chevron-left"></i> Tensorflow安装
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/tensorflow_data_summary/" rel="prev" title="TensorFlow数据总结">
+                TensorFlow数据总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -541,14 +500,11 @@ TensorFlow 中矩阵形式从内开始,一个[]表示一行,行中数据以”.�
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -556,6 +512,10 @@ TensorFlow 中矩阵形式从内开始,一个[]表示一行,行中数据以”.�
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -576,8 +536,17 @@ TensorFlow 中矩阵形式从内开始,一个[]表示一行,行中数据以”.�
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -642,6 +611,22 @@ TensorFlow 中矩阵形式从内开始,一个[]表示一行,行中数据以”.�
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-TensorFlow-名词解释"><span class="nav-text">1. TensorFlow 名词解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-TensorFlow-运行机制详解"><span class="nav-text">2. TensorFlow 运行机制详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-深度学习原理"><span class="nav-text">3. 深度学习原理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -769,6 +754,10 @@ TensorFlow 中矩阵形式从内开始,一个[]表示一行,行中数据以”.�
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 

@@ -3,6 +3,62 @@
   
     
     <entry>
+      <title><![CDATA[TensorFlow数据总结]]></title>
+      <url>/tensorflow_data_summary/</url>
+      <content type="html"><![CDATA[<p>TensorFlow中的数据叫做Tensor,中文名叫做张量。由于张量要表示任意类型的数据，如照片、语音等等，那么普通的简单数据类型如整型、浮点数等一般很难满足这个需求。自然而然的，就想到了组合型数据类型，如一维数组、多维数组、哈希表、字符串。理论上，这些组合型数据都可以满足表示任何数据的要求，唯一的不同只是谁更适合而以。TensorFlow其内部运行机制（要进行大量矩阵运算）决定了它的数据类型为多维数组。多维数组与矩阵天然的相似性，为计算提供了诸多方便。<br>下面分别介绍TensorFlow常用的几种数据类型：常量、变量、占位变量。它们都不是单个的数据，如一个整数，而是指多维数组，如数据类型为整数的2行2列的多维数组。</p>
+<h2 id="TensorFlow-常量"><a href="#TensorFlow-常量" class="headerlink" title="TensorFlow 常量"></a>TensorFlow 常量</h2><p>常量就是不可更改的数据。要注意，这里的数据不是单个的数据，是指多维数组。其初始化方法如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tf.constant(value, dtype=None, shape=None, name=&apos;Const&apos;, verify_shape=False)</div></pre></td></tr></table></figure></p>
+<p>参数:<br>value: 一个数据类型为dtype的常数值或者常数列表。<br>dtype: 常量的数据类型（可选）。<br>shape: 常量的维度（可选）。<br>name: 张量的名字（可选）。<br>verify_shape: 张量的形状是否可更改。<br>举例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 以一个整数数组初始化的1维整型张量常量</div><div class="line">tensor = tf.constant([1, 2, 3, 4, 5, 6, 7]) =&gt; [1 2 3 4 5 6 7]</div><div class="line"></div><div class="line"># 2维2行3列的浮点型张量常量，以一个浮点数-1.0填充</div><div class="line">tensor = tf.constant(-1.0, shape=[2, 3]) =&gt; [[-1. -1. -1.]</div><div class="line">                                             [-1. -1. -1.]]</div></pre></td></tr></table></figure></p>
+<h2 id="TensorFlow-变量"><a href="#TensorFlow-变量" class="headerlink" title="TensorFlow 变量"></a>TensorFlow 变量</h2><h2 id="TensorFlow-占位变量"><a href="#TensorFlow-占位变量" class="headerlink" title="TensorFlow 占位变量"></a>TensorFlow 占位变量</h2><h2 id="TensorFlow-阶、形状、数据类型shape详解"><a href="#TensorFlow-阶、形状、数据类型shape详解" class="headerlink" title="TensorFlow 阶、形状、数据类型shape详解"></a>TensorFlow 阶、形状、数据类型shape详解</h2>]]></content>
+      
+        <categories>
+            
+            <category> TensorFlow </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> TensorFlow </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[TensorFlow之基本理解]]></title>
+      <url>/tensorflow_basic_understanding/</url>
+      <content type="html"><![CDATA[<h2 id="1-TensorFlow-名词解释"><a href="#1-TensorFlow-名词解释" class="headerlink" title="1. TensorFlow 名词解释"></a>1. TensorFlow 名词解释</h2><ol>
+<li>Tensor 是数据在TensorFlow中的约定的表示形式。就如图片在硬盘上有jpg，png等特定的表示形式一样。Tensor被设计成可以表示任何数据，它的内部实际上是一个多维数组，可以根据需要来设计。就如图片你可以是4维的数组[batch, height, width, channels]，也可以是2维的[width, height]。数据的形式完全由你自己根据需要来定，自由度非常大。</li>
+<li>Flow 代表流动，在TensorFlow中则表示Tensor即数据的流动。</li>
+<li>TensorFlow 因此就表示为数据流动。深度学习的本质在这里就表示通过一种特定的机制，不断地控制数据的流动，使其输出我们想要的结果。</li>
+</ol>
+<p><strong>TensorFlow,多维数组的流动。核心就是如何通过数组也就是数据的流动，来实现深入学习。就像是一张错综复杂的网，通过一个个结点控制网中数据的改变与流动，来实现深入学习。</strong></p>
+<h2 id="2-TensorFlow-运行机制详解"><a href="#2-TensorFlow-运行机制详解" class="headerlink" title="2. TensorFlow 运行机制详解"></a>2. TensorFlow 运行机制详解</h2><p>TensorFlow运行机制如下图所示。<br><img src="/tensorflow_basic_understanding/tensors_flowing.gif" alt="TensorFlow 概念图"></p>
+<ol>
+<li>输入input。在这个图中，输入结节在图片的最下方，一个标示为input的椭圆形结点。在这里，你要设计输入的数据格式，即Tensor的样式。</li>
+<li>数据流动。整个图的中间部分，都是数据的流动。有各种预定的处理算法来操作这些数据。通过这些操作，使其输出自己想要的结果。在这里，你要设计如何组合某些特定的操作来达到你的目的，就像图中的一样。</li>
+<li>根据输出与预期结果的差异，更新数据流动中的参数。在这个图的最上方，会根据差异来更新第2步中的W和b参数。在这里要明确的一点是，这些控制参数W、b不是一个两个，而是几千个，上万个，甚至上亿、亿亿…深度学习的目的就是要求出这些参数，当以后有一个新的任务要计算时，直接可以利用这些参数，求出结果。</li>
+</ol>
+<h2 id="3-深度学习原理"><a href="#3-深度学习原理" class="headerlink" title="3. 深度学习原理"></a>3. 深度学习原理</h2><p> 深度学习的过程，就是要设计这样一种机制，在这种机制下，通过不断的提供学习的数据，使其从这种机制中流过，然后通过比较输出的结果与预期结果的差异来不断地调整这个机制中的参数，从而使得最终的输出离我们预定的输出越来越近，也就是越来越正确，从而达到了学习的目的。  它与普通的不是深度学习的编程的基本不同点是，不再需要为某个复杂而又有某种规律的任务来编写特定的规则，这咱规则可能极其不好用代码来表达，甚至这里面的规则太多，要全部表达而基本不可能。深度学习只要你设计好了学习的机制，这种机制，相对普通编程来说，极其简单而又好理解，然后喂给它大量的数据，它自己就会从中学到规律，很好的完成指定的任务。<br>深度学习是以前常用编码的一次飞越。它为我们解决某些特定的问题提供了一种新的机制。当然，也不是说深度学习对所有编码都可以用它，它们各自有其适用性，至少目前看来是如此。比如我们要写一个程序，判断一个数是不是偶数，普通编码就非常快。深度学习目前来看，擅长的领域为图像识别、语音识别等。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> TensorFlow </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> TensorFlow </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Tensorflow安装]]></title>
       <url>/tensorflow_install/</url>
       <content type="html"><![CDATA[<h2 id="1-TensorFlow-官网无法访问解决方法"><a href="#1-TensorFlow-官网无法访问解决方法" class="headerlink" title="1. TensorFlow 官网无法访问解决方法"></a>1. TensorFlow 官网无法访问解决方法</h2><p>通过修改host文件解决. 打开C:\Windows\System32\drivers\etc中的host文件. 添加如下内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">64.233.188.121  www.tensorflow.org</div></pre></td></tr></table></figure></p>
@@ -15,7 +71,10 @@
 <p>update是更新软件列表，upgrade是更新软件。</p>
 <p>如果出现 AttributeError: type object ‘NewBase’ has no attribute ‘is_abstract’<br>这个问题，应该是six包安装有问题，可以卸载原有版本，重新安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo pip uninstall six</div><div class="line">$ sudo pip install six --upgrade</div></pre></td></tr></table></figure></p>
 <p>一般来说six包的安装位置是/usr/lib/python2.7/dist-packages，建议先试前者（工作站上也是前者），如果six版本还是没有改变，则指定安装位置，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo pip install six --upgrade --target=&quot;/usr/lib/python2.7/dist-packages&quot;</div></pre></td></tr></table></figure></p>
-<h2 id="3-Windows-安装"><a href="#3-Windows-安装" class="headerlink" title="3. Windows 安装"></a>3. Windows 安装</h2>]]></content>
+<h2 id="3-Windows-安装"><a href="#3-Windows-安装" class="headerlink" title="3. Windows 安装"></a>3. Windows 安装</h2><p>TensorFlow现在在windows上只支持64位的 python 3.5.打开<a href="https://www.python.org/downloads/release/python-352/" target="_blank" rel="external">python 3.5下载官网</a>，下载合适版本。<br>TensorFlow 分两个版本，分别是是否支持GPU。支持GPU的版本则学习的时候速度更快，但必须显卡支持，这样的显卡通常是nvidia英伟达显卡。如果没有明确支持TensorFlow的显卡，则安装CPU版本的，学习一般足够了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># CPU 版本。 这两个版本的安装选一个就可以了。</div><div class="line">pip install --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-0.12.0rc1-cp35-cp35m-win_amd64.whl</div><div class="line"># GPU 版本</div><div class="line">pip install --upgrade https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-0.12.0rc1-cp35-cp35m-win_amd64.whl</div></pre></td></tr></table></figure></p>
+<p>如果在使用的过程中，出现“No module named “_pywrap_tensorflow” and/or DLL load failed”，则要安装[Visual C++ 2015 redistributable (x64 version)]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://www.microsoft.com/en-us/download/details.aspx?id=53587</div></pre></td></tr></table></figure></p>
+<h2 id="4-测试安装"><a href="#4-测试安装" class="headerlink" title="4. 测试安装"></a>4. 测试安装</h2><p>打开命令行，输入如下命令，如果运行正常，则代表安装正确。<br>$ python<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">&gt;&gt;&gt; import tensorflow as tf</div><div class="line">&gt;&gt;&gt; hello = tf.constant(&apos;Hello, TensorFlow!&apos;)</div><div class="line">&gt;&gt;&gt; sess = tf.Session()</div><div class="line">&gt;&gt;&gt; print(sess.run(hello))</div><div class="line">Hello, TensorFlow!</div><div class="line">&gt;&gt;&gt; a = tf.constant(10)</div><div class="line">&gt;&gt;&gt; b = tf.constant(32)</div><div class="line">&gt;&gt;&gt; print(sess.run(a + b))</div><div class="line">42</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure></p>
+]]></content>
       
         <categories>
             
@@ -379,41 +438,6 @@
       <url>/undefined/</url>
       <content type="html"><![CDATA[<h1 id="constant-详解"><a href="#constant-详解" class="headerlink" title="constant 详解"></a>constant 详解</h1><h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p> 向量行列式,行开始,然后再是列.所以3x4表示3行4列</p>
 <h2 id="TensorFlow-中矩阵形式"><a href="#TensorFlow-中矩阵形式" class="headerlink" title="TensorFlow 中矩阵形式"></a>TensorFlow 中矩阵形式</h2><p>从内开始,一个[]表示一行,行中数据以”.”号表示数据结束.行之间以”,”分割.<br>[[3., 3.]]   一个1x2矩阵.<br>[[2.],[2.]]  一个2x1矩阵.</p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>/undefined/</url>
-      <content type="html"><![CDATA[<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
-<li>使用图 (graph) 来表示计算任务.</li>
-<li>在被称之为会话 (Session) 的上下文 (context) 中执行图.</li>
-<li>使用 tensor 表示数据.</li>
-<li>通过变量 (Variable) 维护状态.</li>
-<li>使用 feed 和 fetch 可以为任意的操作(arbitrary operation) 赋值或者从其中获取数据.</li>
-</ul>
-<h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>TensorFlow 是一个编程系统, 使用图来表示计算任务. 图中的节点被称之为op (operation 的缩写). 一个 op 获得 0 个或多个Tensor , 执行计算, 产生 0 个或多个Tensor . 每个 Tensor 是一个类型化的多维数组. 例 如, 你可以将一小组图像集表示为一个四维浮点数数组, 这四个维度分别是[batch, height, width, channels] .  一个 TensorFlow 图描述了计算的过程. 为了进行计算, 图必须在会话里被启动. 会话将图的 op 分发到 诸如 CPU 或 GPU 之类的设备上, 同时提供执行 op 的方法. 这些方法执行后, 将产生的 tensor 返回. 在 P ython 语言中, 返回的 tensor 是numpy ndarray 对象; 在 C 和 C++ 语言中, 返回的 tensor 是tensorflo w::Tensor 实例.<br><strong>TensorFlow,多维数组的流动。核心就是如何通过数组也就是数据的流动，来实现深入学习。就像是一张错综复杂的网，通过一个个结点控制网中数据的改变与流动，来实现深入学习。</strong></p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>/undefined/</url>
-      <content type="html"><![CDATA[<h1 id="TensorFlow-安装"><a href="#TensorFlow-安装" class="headerlink" title="TensorFlow 安装"></a>TensorFlow 安装</h1><h1 id="1-TensorFlow-官网无法访问解决方法"><a href="#1-TensorFlow-官网无法访问解决方法" class="headerlink" title="1. TensorFlow 官网无法访问解决方法"></a>1. TensorFlow 官网无法访问解决方法</h1><p>通过修改host文件解决.<br>打开C:\Windows\System32\drivers\etc中的host文件.<br>添加如下内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">64.233.188.121  www.tensorflow.org</div></pre></td></tr></table></figure></p>
-<p>ipconfig /flushdns      //清除DNS缓存内容.<br>ipconfig /displaydns    //显示DNS缓存内容</p>
-<h1 id="2-Linux-安装"><a href="#2-Linux-安装" class="headerlink" title="2. Linux 安装"></a>2. Linux 安装</h1><h2 id="1-安装环境"><a href="#1-安装环境" class="headerlink" title="1. 安装环境"></a>1. 安装环境</h2><p>Linux(Ubuntun) + python 2.7</p>
-<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. sudo apt-get install python-pip python-dev</div><div class="line">2. pip install tensorflow</div></pre></td></tr></table></figure>
-<p>如果上面的命令无法安装，则执行下面的命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.0-cp27-none-linux_x86_64.whl</div><div class="line">2. sudo pip install --upgrade $TF_BINARY_URL</div></pre></td></tr></table></figure></p>
-<p>注意：在aliyun上，安装时，可能会提示找不到python.h文件，而执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install python-dev</div></pre></td></tr></table></figure></p>
-<p>时，可能会提示在源中找不到相关文件，这时执行下面的命令可以解决相关问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
-<p>update是更新软件列表，upgrade是更新软件。</p>
-<p>如果出现 AttributeError: type object ‘NewBase’ has no attribute ‘is_abstract’<br>这个问题，应该是six包安装有问题，可以卸载原有版本，重新安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo pip uninstall six</div><div class="line">$ sudo pip install six --upgrade</div></pre></td></tr></table></figure></p>
-<p>一般来说six包的安装位置是/usr/lib/python2.7/dist-packages，建议先试前者（工作站上也是前者），如果six版本还是没有改变，则指定安装位置，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo pip install six --upgrade --target=&quot;/usr/lib/python2.7/dist-packages&quot;</div></pre></td></tr></table></figure></p>
-<h1 id="3-Windows-安装"><a href="#3-Windows-安装" class="headerlink" title="3. Windows 安装"></a>3. Windows 安装</h1><p>尝试过docker与python3直接安装,都没有成功.以后再试吧.这就是一个坑.</p>
 ]]></content>
       
         
