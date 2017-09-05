@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+    
+  <url>
+    <loc>http://iwifigame.com/tensorflow_data_summary/</loc>
+    <lastmod>2017-09-05T08:19:51.789Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow数据总结</title>
+        <pubTime>2017-09-05T00:34:25.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/undefined/</loc>
+    <lastmod>2017-09-05T02:57:29.950Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2017-08-31T13:03:12.944Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/tensorflow_basic_understanding/</loc>
+    <lastmod>2017-09-05T00:35:07.672Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow之基本理解</title>
+        <pubTime>2017-09-04T02:18:07.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/tensorflow_install/</loc>
+    <lastmod>2017-09-03T22:33:21.702Z</lastmod>
+    <data>
+        <display>
+        <title>Tensorflow安装</title>
+        <pubTime>2017-09-02T02:46:24.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/</loc>
+    <lastmod>2017-09-03T09:58:54.723Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程</title>
+        <pubTime>2017-09-01T03:12:50.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+        <tag>github</tag>
+         
+        <tag>Hexo</tag>
+         
+        <tag>web</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web" url="http://iwifigame.com/categories/Web/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/think_in_Chinese_medicine/</loc>
+    <lastmod>2017-09-02T02:40:45.428Z</lastmod>
+    <data>
+        <display>
+        <title>中医之我思</title>
+        <pubTime>2017-09-02T02:39:17.000Z</pubTime>
+        
+        <tag>中医</tag>
+         
+         
+           
+             
+              <breadCrumb title="中医" url="http://iwifigame.com/categories/%E4%B8%AD%E5%8C%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/loader_pomelo_study/</loc>
+    <lastmod>2017-09-02T01:55:09.741Z</lastmod>
+    <data>
+        <display>
+        <title>loader Pomelo 研究</title>
+        <pubTime>2017-09-02T01:52:19.000Z</pubTime>
+        
+        <tag>pomelo</tag>
+         
+         
+           
+             
+              <breadCrumb title="pomelo" url="http://iwifigame.com/categories/pomelo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/markdown/</loc>
+    <lastmod>2017-09-01T13:53:43.739Z</lastmod>
+    <data>
+        <display>
+        <title>Markdown 教程</title>
+        <pubTime>2017-09-01T13:39:59.000Z</pubTime>
+        
+        <tag>markdown</tag>
+         
+         
+           
+             
+              <breadCrumb title="markdown" url="http://iwifigame.com/categories/markdown/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/git_private_repo_and_multi_ssh_key/</loc>
+    <lastmod>2017-09-01T13:37:25.661Z</lastmod>
+    <data>
+        <display>
+        <title>Git 实用干货总结（附异地私有Git仓库实现办法）</title>
+        <pubTime>2017-09-01T13:04:45.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+        <tag>github</tag>
+         
+        <tag>ssh key</tag>
+         
+        <tag>网盘</tag>
+         
+         
+           
+             
+              <breadCrumb title="git" url="http://iwifigame.com/categories/git/"/>
+          
+             
+              <breadCrumb title="github" url="http://iwifigame.com/categories/git/github/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://iwifigame.com/undefined/</loc>
+    <lastmod>2017-08-31T13:03:12.948Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2017-08-31T13:03:12.948Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/undefined/</loc>
+    <lastmod>2017-08-31T13:03:12.947Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2017-08-31T13:03:12.946Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/undefined/</loc>
+    <lastmod>2017-08-31T13:03:12.940Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2017-08-31T13:03:12.939Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+</urlset>
