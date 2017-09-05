@@ -3,6 +3,31 @@
 
 
     
+  <url>
+    <loc>http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/</loc>
+    <lastmod>2017-09-05T09:30:27.165Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程</title>
+        <pubTime>2017-09-01T03:12:50.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+        <tag>github</tag>
+         
+        <tag>Hexo</tag>
+         
+        <tag>web</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web" url="http://iwifigame.com/categories/Web/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://iwifigame.com/tensorflow_data_summary/</loc>
@@ -73,32 +98,6 @@
            
              
               <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/</loc>
-    <lastmod>2017-09-03T09:58:54.723Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程</title>
-        <pubTime>2017-09-01T03:12:50.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-        <tag>github</tag>
-         
-        <tag>Hexo</tag>
-         
-        <tag>web</tag>
-         
-         
-           
-             
-              <breadCrumb title="Web" url="http://iwifigame.com/categories/Web/"/>
           
         </display>
     </data>
