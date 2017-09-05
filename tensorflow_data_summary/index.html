@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="TensorFlow中的数据叫做Tensor,中文名叫做张量。由于张量要表示任意类型的数据，如照片、语音等等，那么普通的简单数据类型如整型、浮点数等一般很难满足这个需求。自然而然的，就想到了组合型数据类型，如一维数组、多维数组、哈希表、字符串。理论上，这些组合型数据都可以满足表示任何数据的要求，唯一的不同只是谁更适合而以。TensorFlow其内部运行机制（要进行大量矩阵运算）决定了它的数据类型为">
+<meta name="description" content="TensorFlow中的数据叫做Tensor,中文名叫做张量。由于张量要表示任意类型的数据，如照片、语音等，那么普通的简单数据类型如整型、浮点数等就很难满足需求。自然而然就想到了组合型数据类型，如一维数组、多维数组、哈希表、字符串。理论上，这些组合型数据都可以满足表示任何数据的要求，唯一的不同只是谁更适合而以。TensorFlow其内部的运行机制（要进行大量矩阵运算）决定了它的数据类型为多维数">
 <meta name="keywords" content="TensorFlow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow数据总结">
 <meta property="og:url" content="http://iwifigame.com/tensorflow_data_summary/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="TensorFlow中的数据叫做Tensor,中文名叫做张量。由于张量要表示任意类型的数据，如照片、语音等等，那么普通的简单数据类型如整型、浮点数等一般很难满足这个需求。自然而然的，就想到了组合型数据类型，如一维数组、多维数组、哈希表、字符串。理论上，这些组合型数据都可以满足表示任何数据的要求，唯一的不同只是谁更适合而以。TensorFlow其内部运行机制（要进行大量矩阵运算）决定了它的数据类型为">
+<meta property="og:description" content="TensorFlow中的数据叫做Tensor,中文名叫做张量。由于张量要表示任意类型的数据，如照片、语音等，那么普通的简单数据类型如整型、浮点数等就很难满足需求。自然而然就想到了组合型数据类型，如一维数组、多维数组、哈希表、字符串。理论上，这些组合型数据都可以满足表示任何数据的要求，唯一的不同只是谁更适合而以。TensorFlow其内部的运行机制（要进行大量矩阵运算）决定了它的数据类型为多维数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-05T01:16:31.321Z">
+<meta property="og:updated_time" content="2017-09-05T08:19:51.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow数据总结">
-<meta name="twitter:description" content="TensorFlow中的数据叫做Tensor,中文名叫做张量。由于张量要表示任意类型的数据，如照片、语音等等，那么普通的简单数据类型如整型、浮点数等一般很难满足这个需求。自然而然的，就想到了组合型数据类型，如一维数组、多维数组、哈希表、字符串。理论上，这些组合型数据都可以满足表示任何数据的要求，唯一的不同只是谁更适合而以。TensorFlow其内部运行机制（要进行大量矩阵运算）决定了它的数据类型为">
+<meta name="twitter:description" content="TensorFlow中的数据叫做Tensor,中文名叫做张量。由于张量要表示任意类型的数据，如照片、语音等，那么普通的简单数据类型如整型、浮点数等就很难满足需求。自然而然就想到了组合型数据类型，如一维数组、多维数组、哈希表、字符串。理论上，这些组合型数据都可以满足表示任何数据的要求，唯一的不同只是谁更适合而以。TensorFlow其内部的运行机制（要进行大量矩阵运算）决定了它的数据类型为多维数">
 
 
 
@@ -380,10 +380,25 @@
       
 
       
-        <p>TensorFlow中的数据叫做Tensor,中文名叫做张量。由于张量要表示任意类型的数据，如照片、语音等等，那么普通的简单数据类型如整型、浮点数等一般很难满足这个需求。自然而然的，就想到了组合型数据类型，如一维数组、多维数组、哈希表、字符串。理论上，这些组合型数据都可以满足表示任何数据的要求，唯一的不同只是谁更适合而以。TensorFlow其内部运行机制（要进行大量矩阵运算）决定了它的数据类型为多维数组。多维数组与矩阵天然的相似性，为计算提供了诸多方便。<br>下面分别介绍TensorFlow常用的几种数据类型：常量、变量、占位变量。它们都不是单个的数据，如一个整数，而是指多维数组，如数据类型为整数的2行2列的多维数组。</p>
-<h2 id="TensorFlow-常量"><a href="#TensorFlow-常量" class="headerlink" title="TensorFlow 常量"></a>TensorFlow 常量</h2><p>常量就是不可更改的数据。要注意，这里的数据不是单个的数据，是指多维数组。其初始化方法如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tf.constant(value, dtype=None, shape=None, name=&apos;Const&apos;, verify_shape=False)</div></pre></td></tr></table></figure></p>
-<p>参数:<br>value: 一个数据类型为dtype的常数值或者常数列表。<br>dtype: 常量的数据类型（可选）。<br>shape: 常量的维度（可选）。<br>name: 张量的名字（可选）。<br>verify_shape: 张量的形状是否可更改。<br>举例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 以一个整数数组初始化的1维整型张量常量</div><div class="line">tensor = tf.constant([1, 2, 3, 4, 5, 6, 7]) =&gt; [1 2 3 4 5 6 7]</div><div class="line"></div><div class="line"># 2维2行3列的浮点型张量常量，以一个浮点数-1.0填充</div><div class="line">tensor = tf.constant(-1.0, shape=[2, 3]) =&gt; [[-1. -1. -1.]</div><div class="line">                                             [-1. -1. -1.]]</div></pre></td></tr></table></figure></p>
-<h2 id="TensorFlow-变量"><a href="#TensorFlow-变量" class="headerlink" title="TensorFlow 变量"></a>TensorFlow 变量</h2><h2 id="TensorFlow-占位变量"><a href="#TensorFlow-占位变量" class="headerlink" title="TensorFlow 占位变量"></a>TensorFlow 占位变量</h2><h2 id="TensorFlow-阶、形状、数据类型shape详解"><a href="#TensorFlow-阶、形状、数据类型shape详解" class="headerlink" title="TensorFlow 阶、形状、数据类型shape详解"></a>TensorFlow 阶、形状、数据类型shape详解</h2>
+        <p>　　TensorFlow中的数据叫做Tensor,中文名叫做张量。由于张量要表示任意类型的数据，如照片、语音等，那么普通的简单数据类型如整型、浮点数等就很难满足需求。自然而然就想到了组合型数据类型，如一维数组、多维数组、哈希表、字符串。理论上，这些组合型数据都可以满足表示任何数据的要求，唯一的不同只是谁更适合而以。TensorFlow其内部的运行机制（要进行大量矩阵运算）决定了它的数据类型为多维数组。多维数组与矩阵天然的相似性，为数值计算提供了诸多方便。<br>　　下面分别介绍TensorFlow常用的几种数据类型：常量、变量、占位变量。它们都不是单个的数据，如一个整数，而是指多维数组，如数据类型为整数的2行2列的多维数组。</p>
+<h2 id="1-Tensor-表示形式"><a href="#1-Tensor-表示形式" class="headerlink" title="1. Tensor 表示形式"></a>1. Tensor 表示形式</h2><p>　　Tensor张量的通用的简单表示形式为[T1,T2,T3…Tn]或者T1，其中T可以是TensorFlow指定的数据类型中的数字，或者由中括号括起来的元素。如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">3 特殊情况，标量张量</div><div class="line">[1,2,3] 这里的T1为1，T2为2，T3为3</div><div class="line">[[1,2,3],[4,5,6]] 这里的T1则为[1,2,3]，T2则为[4,5,6]</div><div class="line">[[[1,2,3],[1,2,3]],[[4,5,6],[4,5,6]],[[7,8,9],[7,8,9]]]</div></pre></td></tr></table></figure></p>
+<h2 id="2-Tensor-维数、形状详解"><a href="#2-Tensor-维数、形状详解" class="headerlink" title="2. Tensor 维数、形状详解"></a>2. Tensor 维数、形状详解</h2><p>　　张量有维度(rank)、形状(shape)这两个属性。容易引起混淆与不理解。现解释如下。</p>
+<ol>
+<li><p>rank:张量的维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2，一个3维空间向量矩阵的维度为3维等等。</p>
+</li>
+<li><p>shape:张量的形状。形状以[D0, D1, … Dn-1]的形式表示。其中的D0、D1、Dn为任意正整数1、2、3…，它的取值代表该维度中拥有的数据数量。如[2,3]表示第一维有2个元素，第二维有3个元素，即表示一个2行3列的矩阵。<br>　　在形状的中括号中有多少个数字，就代表这个张量是多少维的张量。反之亦然，多少维的张量，则中括号中就有多少个数字。如rank0的形状为[]，rank1的形状为[D0]，rank2形状为[D0, D1]，rank3的形状为[D0, D1, D2]，以此类推，rankn为[D0, D1, …Dn-1]。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">3 维度为0，标量。形状为[]</div><div class="line">[1,2,3] 维度为1，一维向量。形状为[3]</div><div class="line">[[1,2,3],[4,5,6]] 维度为2，二维矩阵。形状为[2,3]</div><div class="line">[[[1,2,3],[1,2,3]],[[4,5,6],[4,5,6]],[[7,8,9],[7,8,9]]] 维度为3，3维空间矩阵。形状为[3,2,3]</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>　　维度的读取技巧是看张量的最左边有多少个左中括号，假设为n，则这个张量就是n维张量。如上例。<br>　　形状的读取技巧是看张量的最左边的第一个中括号中，有几个元素(被一对内部中括号括起来的所有数据算一个元素)被逗号分开，假设数量为n1,则形状的第一个元素就为n1。再依次看最左边的每二个中括号中，被逗号分开的元素个数，假设为n2，则shape的第二个元素就是n2。一直这样看，直到不是左中括号[是数字为止。如上例。</p>
+<h2 id="3-TensorFlow-常量"><a href="#3-TensorFlow-常量" class="headerlink" title="3. TensorFlow 常量"></a>3. TensorFlow 常量</h2><p>　　常量就是不可更改的数据。要注意，这里的数据不是单个的数据，是指多维数组。其初始化方法如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tf.constant(value, dtype=None, shape=None, name=&apos;Const&apos;, verify_shape=False)</div></pre></td></tr></table></figure></p>
+<p>　　参数:<br>value: 一个数据类型为dtype的常数值或者常数列表。<br>dtype: 常量的数据类型（可选）。<br>shape: 常量的维度（可选）。<br>name: 张量的名字（可选）。<br>verify_shape: 张量的形状是否可更改。<br>　　举例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 以一个整数数组初始化的1维整型张量常量</div><div class="line">tensor = tf.constant([1, 2, 3, 4, 5, 6, 7]) =&gt; 得到张量 [1,2,3,4,5,6,7]</div><div class="line"></div><div class="line"># 2维2行3列的浮点型张量常量，以一个浮点数-1.0填充</div><div class="line">tensor = tf.constant(-1.0, shape=[2, 3]) =&gt; 得到张量 [[-1,-1,-1,],</div><div class="line">                                                      [-1,-1,-1,]]</div></pre></td></tr></table></figure></p>
+<p>tf.zeros(shape, dtype=tf.float32, name=None)<br>tf.zeros([3, 4], tf.int32) ==&gt; [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]<br>tf.zeros_like(tensor, dtype=None, name=None, optimize=True)</p>
+<h1 id="‘tensor’-is-1-2-3-4-5-6"><a href="#‘tensor’-is-1-2-3-4-5-6" class="headerlink" title="‘tensor’ is [[1, 2, 3], [4, 5, 6]]"></a>‘tensor’ is [[1, 2, 3], [4, 5, 6]]</h1><p>tf.zeros_like(tensor) ==&gt; [[0, 0, 0], [0, 0, 0]]<br>tf.ones(shape, dtype=tf.float32, name=None)<br>tf.ones([2, 3], tf.int32) ==&gt; [[1, 1, 1], [1, 1, 1]]<br>tf.ones_like(tensor, dtype=None, name=None, optimize=True)</p>
+<h1 id="‘tensor’-is-1-2-3-4-5-6-1"><a href="#‘tensor’-is-1-2-3-4-5-6-1" class="headerlink" title="‘tensor’ is [[1, 2, 3], [4, 5, 6]]"></a>‘tensor’ is [[1, 2, 3], [4, 5, 6]]</h1><p>tf.ones_like(tensor) ==&gt; [[1, 1, 1], [1, 1, 1]]<br>tf.fill(dims, value, name=None)</p>
+<h1 id="Output-tensor-has-shape-2-3"><a href="#Output-tensor-has-shape-2-3" class="headerlink" title="Output tensor has shape [2, 3]."></a>Output tensor has shape [2, 3].</h1><p>fill([2, 3], 9) ==&gt; [[9, 9, 9]<br>                     [9, 9, 9]]</p>
+<p>序列张量<br>tf.linspace(start, stop, num, name=None)<br>tf.range(start, limit=None, delta=1, dtype=None, name=’range’)<br>随机张量<br>tf.random_normal(shape, mean=0.0, stddev=1.0, dtype=tf.float32, seed=None, name=None)<br>tf.truncated_normal(shape, mean=0.0, stddev=1.0, dtype=tf.float32, seed=None, name=None)<br>tf.random_uniform(shape, minval=0, maxval=None, dtype=tf.float32, seed=None, name=None)<br>tf.random_shuffle(value, seed=None, name=None)<br>tf.random_crop(value, size, seed=None, name=None)<br>tf.multinomial(logits, num_samples, seed=None, name=None)<br>tf.random_gamma(shape, alpha, beta=None, dtype=tf.float32, seed=None, name=None)<br>tf.set_random_seed(seed)</p>
+<h2 id="4-TensorFlow-变量"><a href="#4-TensorFlow-变量" class="headerlink" title="4. TensorFlow 变量"></a>4. TensorFlow 变量</h2><h2 id="5-TensorFlow-占位变量"><a href="#5-TensorFlow-占位变量" class="headerlink" title="5. TensorFlow 占位变量"></a>5. TensorFlow 占位变量</h2>
       
     </div>
     
@@ -605,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow-常量"><span class="nav-text">TensorFlow 常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow-变量"><span class="nav-text">TensorFlow 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow-占位变量"><span class="nav-text">TensorFlow 占位变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow-阶、形状、数据类型shape详解"><span class="nav-text">TensorFlow 阶、形状、数据类型shape详解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Tensor-表示形式"><span class="nav-text">1. Tensor 表示形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Tensor-维数、形状详解"><span class="nav-text">2. Tensor 维数、形状详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-TensorFlow-常量"><span class="nav-text">3. TensorFlow 常量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘tensor’-is-1-2-3-4-5-6"><span class="nav-text">‘tensor’ is [[1, 2, 3], [4, 5, 6]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘tensor’-is-1-2-3-4-5-6-1"><span class="nav-text">‘tensor’ is [[1, 2, 3], [4, 5, 6]]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Output-tensor-has-shape-2-3"><span class="nav-text">Output tensor has shape [2, 3].</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-TensorFlow-变量"><span class="nav-text">4. TensorFlow 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-TensorFlow-占位变量"><span class="nav-text">5. TensorFlow 占位变量</span></a></li></ol></div>
             
 
           </div>

@@ -361,7 +361,8 @@
       
         
           
-          张量Tensor介绍一个张量有以下几种属性：数据类型(data type)，维度(rank)， 形状(shape)。Data type: 包括常用的整型、实数型、复数型等。rank:rank即维度。一个标量的维度为0，一个一维向量的维度为1，一个2维矩阵的维度为2等等。shape:不同rank不同s
+          tensorflow 函数介绍tf.stack()tf.stack(values, axis=0, name=’stack’)以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。
+假设要转变的张量数组的长度为N,其中的每个张量的形状为(A,
           ...
           <!--noindex-->
           <div class="post-button text-center">
