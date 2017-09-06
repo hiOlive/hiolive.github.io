@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://iwifigame.com/tensorflow_data_summary/</loc>
+    <lastmod>2017-09-06T02:57:35.508Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow(二) 数据总结</title>
+        <pubTime>2017-09-05T00:34:25.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://iwifigame.com/tensorflow_basic_understanding/</loc>
     <lastmod>2017-09-06T01:27:54.004Z</lastmod>
     <data>
@@ -37,26 +57,6 @@
            
              
               <breadCrumb title="skynet" url="http://iwifigame.com/categories/skynet/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iwifigame.com/tensorflow_data_summary/</loc>
-    <lastmod>2017-09-05T14:27:45.906Z</lastmod>
-    <data>
-        <display>
-        <title>TensorFlow数据总结</title>
-        <pubTime>2017-09-05T00:34:25.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-         
-           
-             
-              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
           
         </display>
     </data>
@@ -237,21 +237,6 @@
         <display>
         <title></title>
         <pubTime>2017-08-31T13:03:12.946Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iwifigame.com/undefined/</loc>
-    <lastmod>2017-08-31T13:03:12.940Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2017-08-31T13:03:12.939Z</pubTime>
         
          
            

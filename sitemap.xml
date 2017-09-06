@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://iwifigame.com/tensorflow_data_summary/</loc>
+    
+    <lastmod>2017-09-06T02:57:35.508Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://iwifigame.com/tensorflow_basic_understanding/</loc>
     
     <lastmod>2017-09-06T01:27:54.004Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://iwifigame.com/skynet_bootstrap/</loc>
     
     <lastmod>2017-09-06T01:27:35.596Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/tensorflow_data_summary/</loc>
-    
-    <lastmod>2017-09-05T14:27:45.906Z</lastmod>
     
   </url>
   
@@ -96,13 +96,6 @@
     <loc>http://iwifigame.com/undefined/</loc>
     
     <lastmod>2017-08-31T13:03:12.947Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/undefined/</loc>
-    
-    <lastmod>2017-08-31T13:03:12.940Z</lastmod>
     
   </url>
   
