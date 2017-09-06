@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/</loc>
+    
+    <lastmod>2017-09-06T08:26:00.796Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://iwifigame.com/tensorflow_data_summary/</loc>
     
     <lastmod>2017-09-06T02:57:35.508Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://iwifigame.com/skynet_bootstrap/</loc>
     
     <lastmod>2017-09-06T01:27:35.596Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/</loc>
-    
-    <lastmod>2017-09-05T09:30:27.165Z</lastmod>
     
   </url>
   
