@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="skynet," />
 
 
 
@@ -95,17 +95,18 @@
 
 
 
-<meta name="description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://iwifigame.com/categories/index.html">
+<meta name="description" content="skynet 结点skynet 启动流程skynet 配置文件skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。 skynet 节点通过运行 skynet 主程序启动，必须在启动命令行传入一个 Config 文件名作为启动参数。skynet 会读取这个 config 文件获得启动需要的参数。 第一个启动的服务是 logger ，它">
+<meta name="keywords" content="skynet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="skynet(一) 启动">
+<meta property="og:url" content="http://iwifigame.com/skynet_bootstrap/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta property="og:description" content="skynet 结点skynet 启动流程skynet 配置文件skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。 skynet 节点通过运行 skynet 主程序启动，必须在启动命令行传入一个 Config 文件名作为启动参数。skynet 会读取这个 config 文件获得启动需要的参数。 第一个启动的服务是 logger ，它">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-31T13:03:12.973Z">
+<meta property="og:updated_time" content="2017-09-06T01:27:35.596Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
-<meta name="twitter:description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta name="twitter:title" content="skynet(一) 启动">
+<meta name="twitter:description" content="skynet 结点skynet 启动流程skynet 配置文件skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。 skynet 节点通过运行 skynet 主程序启动，必须在启动命令行传入一个 Config 文件名作为启动参数。skynet 会读取这个 config 文件获得启动需要的参数。 第一个启动的服务是 logger ，它">
 
 
 
@@ -135,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://iwifigame.com/categories/"/>
+  <link rel="canonical" href="http://iwifigame.com/skynet_bootstrap/"/>
 
 
 
 
 
-  <title>分类 | 爱 wifi 游戏</title>
+  <title>skynet(一) 启动 | 爱 wifi 游戏</title>
   
 
 
@@ -267,40 +268,273 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/skynet_bootstrap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iwifigame">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱 wifi 游戏">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 8 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TensorFlow/">TensorFlow</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/git/github/">github</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/pomelo/">pomelo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skynet/">skynet</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/中医/">中医</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">skynet(一) 启动</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-06T06:47:43+08:00">
+                2017-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skynet/" itemprop="url" rel="index">
+                    <span itemprop="name">skynet</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/skynet_bootstrap/" class="leancloud_visitors" data-flag-title="skynet(一) 启动">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="skynet-结点"><a href="#skynet-结点" class="headerlink" title="skynet 结点"></a>skynet 结点</h2><h2 id="skynet-启动流程"><a href="#skynet-启动流程" class="headerlink" title="skynet 启动流程"></a>skynet 启动流程</h2><h2 id="skynet-配置文件"><a href="#skynet-配置文件" class="headerlink" title="skynet 配置文件"></a>skynet 配置文件</h2><p>skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。</p>
+<p>skynet 节点通过运行 skynet 主程序启动，必须在启动命令行传入一个 Config 文件名作为启动参数。skynet 会读取这个 config 文件获得启动需要的参数。</p>
+<p>第一个启动的服务是 logger ，它负责记录之后的服务中的 log 输出。logger 是一个简单的 C 服务，skynet_error 这个 C API 会把字符串发送给它。在 config 文件中，logger 配置项可以配置 log 输出的文件名，默认是 nil ，表示输出到标准输出。</p>
+<p>bootstrap 这个配置项关系着 skynet 运行的第二个服务。通常通过这个服务把整个系统启动起来。默认的 bootstrap 配置项为 “snlua bootstrap” ，这意味着，skynet 会启动 snlua 这个服务，并将 bootstrap 作为参数传给它。snlua 是 lua 沙盒服务，bootstrap 会根据配置的 luaservice 匹配到最终的 lua 脚本。如果按默认配置，这个脚本应该是 service/bootstrap.lua 。</p>
+<p>如无必要，你不需要更改 bootstrap 配置项，让默认的 bootstrap 脚本工作。目前的 bootstrap 脚本如下：</p>
+<p>local skynet = require “skynet”<br>local harbor = require “skynet.harbor”</p>
+<p>skynet.start(function()<br>    local standalone = skynet.getenv “standalone”</p>
+<pre><code>local launcher = assert(skynet.launch(&quot;snlua&quot;,&quot;launcher&quot;))
+skynet.name(&quot;.launcher&quot;, launcher)
+
+local harbor_id = tonumber(skynet.getenv &quot;harbor&quot;)
+if harbor_id == 0 then
+    assert(standalone ==  nil)
+    standalone = true
+    skynet.setenv(&quot;standalone&quot;, &quot;true&quot;)
+
+    local ok, slave = pcall(skynet.newservice, &quot;cdummy&quot;)
+    if not ok then
+        skynet.abort()
+    end
+    skynet.name(&quot;.slave&quot;, slave)
+
+else
+    if standalone then
+        if not pcall(skynet.newservice,&quot;cmaster&quot;) then
+            skynet.abort()
+        end
+    end
+
+    local ok, slave = pcall(skynet.newservice, &quot;cslave&quot;)
+    if not ok then
+        skynet.abort()
+    end
+    skynet.name(&quot;.slave&quot;, slave)
+end
+
+if standalone then
+    local datacenter = skynet.newservice &quot;datacenterd&quot;
+    skynet.name(&quot;DATACENTER&quot;, datacenter)
+end
+skynet.newservice &quot;service_mgr&quot;
+pcall(skynet.newservice,skynet.getenv &quot;start&quot; or &quot;main&quot;)
+skynet.exit()
+</code></pre><p>end)<br>这段脚本通常会根据 standalone 配置项判断你启动的是一个 master 节点还是 slave 节点。如果是 master 节点还会进一步的通过 harbor 是否配置为 0 来判断你是否启动的是一个单节点 skynet 网络。</p>
+<p>单节点模式下，是不需要通过内置的 harbor 机制做节点间通讯的。但为了兼容（因为你还是有可能注册全局名字），需要启动一个叫做 cdummy 的服务，它负责拦截对外广播的全局名字变更。</p>
+<p>如果是多节点模式，对于 master 节点，需要启动 cmaster 服务作节点调度用。此外，每个节点（包括 master 节点自己）都需要启动 cslave 服务，用于节点间的消息转发，以及同步全局名字。</p>
+<p>接下来在 master 节点上，还需要启动 DataCenter 服务。</p>
+<p>然后，启动用于 UniqueService 管理的 service_mgr 。</p>
+<p>最后，它从 config 中读取 start 这个配置项，作为用户定义的服务启动入口脚本运行。成功后，把自己退出。</p>
+<p>这个 start 配置项，才是用户定义的启动脚本，默认值为 “main” 。如果你只是试玩一下 skynet ，可能有多份不同的启动脚本，那么建议你多写几份 config 文件，在里面配置不同的 start 项。examples 目录下有很多这样的例子。</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢，您的支持是我过坑的动力！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="iwifigame WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="iwifigame Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    iwifigame
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://iwifigame.com/skynet_bootstrap/" title="skynet(一) 启动">http://iwifigame.com/skynet_bootstrap/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/skynet/" rel="tag"># skynet</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/tensorflow_data_summary/" rel="next" title="TensorFlow数据总结">
+                <i class="fa fa-chevron-left"></i> TensorFlow数据总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -309,6 +543,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -329,8 +567,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -395,6 +642,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#skynet-结点"><span class="nav-text">skynet 结点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#skynet-启动流程"><span class="nav-text">skynet 启动流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#skynet-配置文件"><span class="nav-text">skynet 配置文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -522,6 +785,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 
