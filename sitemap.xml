@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://iwifigame.com/tensorflow_stack_and_unstack/</loc>
+    
+    <lastmod>2017-09-08T23:08:22.939Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/tensorflow_curve_fitting/</loc>
+    
+    <lastmod>2017-09-08T14:59:08.128Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://iwifigame.com/tensorflow_code_struct/</loc>
     
     <lastmod>2017-09-07T12:16:14.647Z</lastmod>

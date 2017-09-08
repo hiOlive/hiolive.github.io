@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="中医," />
+  <meta name="keywords" content="TensorFlow," />
 
 
 
@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="阴阳五行学说金木水火土,相生相克.肝木,心火,脾土,肺金,肾水. 中医发展原理中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。">
-<meta name="keywords" content="中医">
+<meta name="description" content="tf.stack()tf.stack(values, axis=0, name=’stack’)以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。 假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。如果轴axis=1，则转变后的张量的形状为(A,">
+<meta name="keywords" content="TensorFlow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="中医之我思">
-<meta property="og:url" content="http://iwifigame.com/think_in_Chinese_medicine/index.html">
+<meta property="og:title" content="TensorFlow stack 与 unstack 详细介绍">
+<meta property="og:url" content="http://iwifigame.com/tensorflow_stack_and_unstack/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="阴阳五行学说金木水火土,相生相克.肝木,心火,脾土,肺金,肾水. 中医发展原理中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。">
+<meta property="og:description" content="tf.stack()tf.stack(values, axis=0, name=’stack’)以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。 假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。如果轴axis=1，则转变后的张量的形状为(A,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-02T02:40:45.428Z">
+<meta property="og:updated_time" content="2017-09-08T23:08:22.939Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="中医之我思">
-<meta name="twitter:description" content="阴阳五行学说金木水火土,相生相克.肝木,心火,脾土,肺金,肾水. 中医发展原理中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。">
+<meta name="twitter:title" content="TensorFlow stack 与 unstack 详细介绍">
+<meta name="twitter:description" content="tf.stack()tf.stack(values, axis=0, name=’stack’)以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。 假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。如果轴axis=1，则转变后的张量的形状为(A,">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://iwifigame.com/think_in_Chinese_medicine/"/>
+  <link rel="canonical" href="http://iwifigame.com/tensorflow_stack_and_unstack/"/>
 
 
 
 
 
-  <title>中医之我思 | 爱 wifi 游戏</title>
+  <title>TensorFlow stack 与 unstack 详细介绍 | 爱 wifi 游戏</title>
   
 
 
@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/think_in_Chinese_medicine/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/tensorflow_stack_and_unstack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">中医之我思</h1>
+          <h1 class="post-title" itemprop="name headline">TensorFlow stack 与 unstack 详细介绍</h1>
         
 
         <div class="post-meta">
@@ -309,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-02T10:39:17+08:00">
-                2017-09-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T06:58:00+08:00">
+                2017-09-09
               </time>
             
 
@@ -332,8 +332,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/中医/" itemprop="url" rel="index">
-                    <span itemprop="name">中医</span>
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index">
+                    <span itemprop="name">TensorFlow</span>
                   </a>
                 </span>
 
@@ -349,7 +349,7 @@
 
           
           
-             <span id="/think_in_Chinese_medicine/" class="leancloud_visitors" data-flag-title="中医之我思">
+             <span id="/tensorflow_stack_and_unstack/" class="leancloud_visitors" data-flag-title="TensorFlow stack 与 unstack 详细介绍">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -380,10 +380,22 @@
       
 
       
-        <h2 id="阴阳五行学说"><a href="#阴阳五行学说" class="headerlink" title="阴阳五行学说"></a>阴阳五行学说</h2><p>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
-<h2 id="中医发展原理"><a href="#中医发展原理" class="headerlink" title="中医发展原理"></a>中医发展原理</h2><p>中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。在这个由经验方法发展起来的中医体系中，人们为了解释其治病的机理，而想出了各种理论体系，像什么阴阳、八纲、六经、脏腑、经络、三焦、卫气营血等等。每个理论体系都很正确，因为他们由经验而总结而来，却不能准确得像西医那样。而每个人由于学习的经验不同，就又造成了每个人对同一个病人的治病方法又不同。随着科技的发展，中医肯定最终能发展如西医一样，用精确的解释来说明其治病的原理，而不像现在这样模模糊糊，形而上学。<br>中医以阴阳为根，这是一种很重要的思想。世间万物都可归结为阴阳。非阴即阳，非阳即阴。这是一个大的概念。如温度分高低，就就是阳、低就是阴；高度分高低，高就是阳，低就是阴；动静中，动即阳，静则阴，如此等等。它把事物分成两个对立变化的方面。这两个方面在变化的过程中，随着阴生阳长或阳生阴长而产生无数种中间状态。当然，根据常识，阴阳的最中间的状态也比较重要。像六经中的少阳、厥阴等。<br>八纲为阴阳、表里、寒热、虚实，也根于阴阳。它将人身体的状态从不同的方面来分阴阳。要注意这里的表里、寒热、虚实与普通的相似又不同的地方。</p>
-<h2 id="中医治病机理"><a href="#中医治病机理" class="headerlink" title="中医治病机理"></a>中医治病机理</h2><p>中医理论根由阴阳。治病则在药。经过几千年的发展，中医对药积累了无数的经验，经过组方，完成了方证对应。也对人体病的发展有了很多经验积累，病的传变、好坏。通过对这些经验的总结，而完成了中医的治病方法。因此，中医可以治病，关键是能不能在总结的经验中，找到或者推断出治那个病的理法方药。</p>
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>肺主气，在肺为气，在外为卫。心主血，在心为血，在外为营。</p>
+        <h2 id="tf-stack"><a href="#tf-stack" class="headerlink" title="tf.stack()"></a>tf.stack()</h2><p><strong>tf.stack(values, axis=0, name=’stack’)</strong><br><strong>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。</strong></p>
+<p>假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。<br>如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。<br>如果轴axis=1，则转变后的张量的形状为(A, N, B, C)。<br>如果轴axis=2，则转变后的张量的形状为(A, B, N, C)。其它情况依次类推。  </p>
+<p>举例如下：<br>‘x’ is [1, 4]， 形状是(2)，维度为1<br>‘y’ is [2, 5]， 形状是(2)，维度为1<br>‘z’ is [3, 6]， 形状是(2)，维度为1<br>stack([x, y, z]) =&gt; [[1, 4], [2, 5], [3, 6]]  # axis的值默认为0。输出的形状为(3, 2)<br>stack([x, y, z], axis=1) =&gt; [[1, 2, 3], [4, 5, 6]] # axis的值为1。输出的形状为(2, 3)</p>
+<p>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]]，形状是(3,4)，维度为2<br>‘y’ is [[4,4,4,4],[5,5,5,5],[6,6,6,6]]，形状是(3,4)，维度为2<br>stack([x,y]) =&gt; [[[1,1,1,1],[2,2,2,2],[3,3,3,3]], [[4,4,4,4],[5,5,5,5],[6,6,6,6]]] # axis的值默认为0。输出的形状为(2, 3, 4)<br>stack([x,y],axis=1) =&gt; [[[1,1,1,1],[4,4,4,4]],[[2,2,2,2],[5,5,5,5]],[[3,3,3,3],[6,6,6,6]]] # axis的值为1。输出的形状为(3, 2, 4)<br>stack([x,y],axis=2) =&gt; [[[1,4],[1,4],[1,4],[1,4]],[[2,5],[2,5],[2,5],[2,5]],[[3,6],[3,6],[3,6],[3,6]]]# axis的值为2。输出的形状为(3, 4, 2)  </p>
+<p><strong>axis可这样理解：stack就是要将一组相同形状的张量提高一个维度。axis就是这些张量里，将axis指定的维度用所有这些张量数组代替。如axis=2，表示指定在第2个维度，原来的元素用整个张量数组里的元素代替，即从(A, B, C)转变为(A, B, N, C)</strong></p>
+<p><strong>参数:</strong><br>values: 一个有相同形状与数据类型的张量数组。<br>axis: 以轴axis为中心来转变的整数。默认是第一个维度即axis=0。支持负数。取值范围为[-(R+1), R+1)<br>name: 这个操作的名字（可选）  </p>
+<p><strong>返回:</strong><br>被提高一个维度后的张量。<br><strong>异常:</strong><br>ValueError: 如果轴axis超出范围[-(R+1), R+1).  </p>
+<hr>
+<h2 id="tf-unstack"><a href="#tf-unstack" class="headerlink" title="tf.unstack()"></a>tf.unstack()</h2><p><strong>tf.unstack(value, num=None, axis=0, name=’unstack’)<br>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R-1的张量。即将一组张量以指定的轴，减少一个维度。正好和stack()相反。</strong></p>
+<p>将张量value分割成num个张量数组。如果num没有指定，则是根据张量value的形状来指定。如果value.shape[axis]不存在，则抛出ValueError的异常。</p>
+<p>假如一个张量的形状是(A, B, C, D)。<br>如果axis == 0，则输出的张量是value[i, :, :, :],i取值为[0,A)，每个输出的张量的形状为(B,C,D)。<br>如果axis == 1，则输出的张量是value[:, i, :, :],i取值为[0,B)，每个输出的张量的形状为(A,C,D)。<br>如果axis == 2，则输出的张量是value[:, :, i, :],i取值为[0,C)，每个输出的张量的形状为(A,B,D)。依次类推。  </p>
+<p>举例如下：<br>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]] # 形状是(3,4)，维度为2<br>unstack(x,axis=0) =&gt;以指定的维度0为轴，转变成3个形状为(4)张量[1,1,1,1],[2,2,2,2],[3,3,3,3]<br>unstack(x,axis=1) =&gt;以指定的维度1为轴，转变成4个形状为(3)张量[1,2,3],[1,2,3],[1,2,4],[1,2,3]  </p>
+<p><strong>axis可这样理解：unstack就是要将一个张量降低为低一个维度的张量数组。axis就是将axis指定的维度，用所有这个张量里同维度的数据代替。 </strong></p>
+<p><strong>参数:</strong><br>value: 一个将要被降维的维度大于0的张量。<br>num: 整数。指定的维度axis的长度。如果设置为None(默认值),将自动求值。<br>axis: 整数.以轴axis指定的维度来转变 默认是第一个维度即axis=0。支持负数。取值范围为[-R, R)<br>name: 这个操作的名字（可选）  </p>
+<p><strong>返回:</strong><br>从张量value降维后的张量数组。</p>
+<p><strong>异常:</strong><br>ValueError: 如果num没有指定并且无法求出来。<br>ValueError: 如果axis超出范围 [-R, R)。  </p>
 
       
     </div>
@@ -433,7 +445,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://iwifigame.com/think_in_Chinese_medicine/" title="中医之我思">http://iwifigame.com/think_in_Chinese_medicine/</a>
+    <a href="http://iwifigame.com/tensorflow_stack_and_unstack/" title="TensorFlow stack 与 unstack 详细介绍">http://iwifigame.com/tensorflow_stack_and_unstack/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -448,7 +460,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/中医/" rel="tag"># 中医</a>
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
           
         </div>
       
@@ -461,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/loader_pomelo_study/" rel="next" title="loader Pomelo 研究">
-                <i class="fa fa-chevron-left"></i> loader Pomelo 研究
+              <a href="/tensorflow_curve_fitting/" rel="next" title="TensorFlow(四) 曲线拟合">
+                <i class="fa fa-chevron-left"></i> TensorFlow(四) 曲线拟合
               </a>
             
           </div>
@@ -470,10 +482,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/tensorflow_install/" rel="prev" title="Tensorflow安装">
-                Tensorflow安装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -612,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#阴阳五行学说"><span class="nav-text">阴阳五行学说</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中医发展原理"><span class="nav-text">中医发展原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中医治病机理"><span class="nav-text">中医治病机理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-text">其它</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tf-stack"><span class="nav-text">tf.stack()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tf-unstack"><span class="nav-text">tf.unstack()</span></a></li></ol></div>
             
 
           </div>

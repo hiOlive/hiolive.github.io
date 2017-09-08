@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="TensorFlow," />
 
 
 
@@ -95,16 +95,18 @@
 
 
 
-<meta name="description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="爱 wifi 游戏">
-<meta property="og:url" content="http://iwifigame.com/categories/markdown/index.html">
+<meta name="description" content="前面几篇文章尽量用通俗的语言讲了TensorFlow的基本理解、数据总结、深入理解。接下来，将从一个个实例代码来说明TensorFlow的程序结构是什么样的，应该怎么样来写智能程序。相信我，从目前来看，对于大部分要通过学习来完成的事情，用机器学习来写比硬编码所有情况，真是简单太多了。 本文从比较简单的曲线拟合的例子说起。选它是因为数据好生成，训练结果可直接用图清晰直观地表达。 数据生成数据显示与保">
+<meta name="keywords" content="TensorFlow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow(四) 曲线拟合">
+<meta property="og:url" content="http://iwifigame.com/tensorflow_curve_fitting/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta property="og:description" content="前面几篇文章尽量用通俗的语言讲了TensorFlow的基本理解、数据总结、深入理解。接下来，将从一个个实例代码来说明TensorFlow的程序结构是什么样的，应该怎么样来写智能程序。相信我，从目前来看，对于大部分要通过学习来完成的事情，用机器学习来写比硬编码所有情况，真是简单太多了。 本文从比较简单的曲线拟合的例子说起。选它是因为数据好生成，训练结果可直接用图清晰直观地表达。 数据生成数据显示与保">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-08T14:59:08.128Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爱 wifi 游戏">
-<meta name="twitter:description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta name="twitter:title" content="TensorFlow(四) 曲线拟合">
+<meta name="twitter:description" content="前面几篇文章尽量用通俗的语言讲了TensorFlow的基本理解、数据总结、深入理解。接下来，将从一个个实例代码来说明TensorFlow的程序结构是什么样的，应该怎么样来写智能程序。相信我，从目前来看，对于大部分要通过学习来完成的事情，用机器学习来写比硬编码所有情况，真是简单太多了。 本文从比较简单的曲线拟合的例子说起。选它是因为数据好生成，训练结果可直接用图清晰直观地表达。 数据生成数据显示与保">
 
 
 
@@ -134,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://iwifigame.com/categories/markdown/"/>
+  <link rel="canonical" href="http://iwifigame.com/tensorflow_curve_fitting/"/>
 
 
 
 
 
-  <title>分类: markdown | 爱 wifi 游戏</title>
+  <title>TensorFlow(四) 曲线拟合 | 爱 wifi 游戏</title>
   
 
 
@@ -170,7 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -264,55 +266,232 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>markdown<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/tensorflow_curve_fitting/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iwifigame">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱 wifi 游戏">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/markdown/" itemprop="url">
-              
-                <span itemprop="name">Markdown 教程</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">TensorFlow(四) 曲线拟合</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-01T21:39:59+08:00"
-              content="2017-09-01" >
-          09-01
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T19:05:12+08:00">
+                2017-09-08
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index">
+                    <span itemprop="name">TensorFlow</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/tensorflow_curve_fitting/" class="leancloud_visitors" data-flag-title="TensorFlow(四) 曲线拟合">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <p>前面几篇文章尽量用通俗的语言讲了TensorFlow的基本理解、数据总结、深入理解。接下来，将从一个个实例代码来说明TensorFlow的程序结构是什么样的，应该怎么样来写智能程序。相信我，从目前来看，对于大部分要通过学习来完成的事情，用机器学习来写比硬编码所有情况，真是简单太多了。</p>
+<p>本文从比较简单的曲线拟合的例子说起。选它是因为数据好生成，训练结果可直接用图清晰直观地表达。</p>
+<h2 id="数据生成"><a href="#数据生成" class="headerlink" title="数据生成"></a>数据生成</h2><h2 id="数据显示与保存"><a href="#数据显示与保存" class="headerlink" title="数据显示与保存"></a>数据显示与保存</h2><h2 id="训练过程设计"><a href="#训练过程设计" class="headerlink" title="训练过程设计"></a>训练过程设计</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢，您的支持是我过坑的动力！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="iwifigame WeChat Pay"/>
+        <p>微信打赏</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="iwifigame Alipay"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    iwifigame
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://iwifigame.com/tensorflow_curve_fitting/" title="TensorFlow(四) 曲线拟合">http://iwifigame.com/tensorflow_curve_fitting/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/tensorflow_code_struct/" rel="next" title="TensorFlow(三) 深入理解">
+                <i class="fa fa-chevron-left"></i> TensorFlow(三) 深入理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/tensorflow_stack_and_unstack/" rel="prev" title="TensorFlow stack 与 unstack 详细介绍">
+                TensorFlow stack 与 unstack 详细介绍 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -320,6 +499,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDY5OC83MjUz"></div>
+    
+  </div>
+
 
         </div>
         
@@ -340,8 +525,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -406,6 +600,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据生成"><span class="nav-text">数据生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据显示与保存"><span class="nav-text">数据显示与保存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练过程设计"><span class="nav-text">训练过程设计</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -535,6 +745,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 
@@ -563,6 +777,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
