@@ -3,29 +3,10 @@
 
 
     
-  <url>
-    <loc>http://iwifigame.com/tensorflow_stack_and_unstack/</loc>
-    <lastmod>2017-09-08T23:10:51.651Z</lastmod>
-    <data>
-        <display>
-        <title>TensorFlow stack 与 unstack 详细介绍</title>
-        <pubTime>2017-09-08T22:58:00.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-         
-           
-             
-              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://iwifigame.com/tensorflow_curve_fitting/</loc>
-    <lastmod>2017-09-08T14:59:08.128Z</lastmod>
+    <lastmod>2017-09-11T12:20:46.609Z</lastmod>
     <data>
         <display>
         <title>TensorFlow(四) 曲线拟合</title>
@@ -44,15 +25,40 @@
 
     
   <url>
-    <loc>http://iwifigame.com/tensorflow_code_struct/</loc>
-    <lastmod>2017-09-07T12:16:14.647Z</lastmod>
+    <loc>http://iwifigame.com/tensorflow_deep_understanding/</loc>
+    <lastmod>2017-09-11T12:20:18.969Z</lastmod>
     <data>
         <display>
         <title>TensorFlow(三) 深入理解</title>
         <pubTime>2017-09-06T10:47:48.000Z</pubTime>
         
+        <tag>TensorFlow</tag>
+         
          
            
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/tensorflow_stack_and_unstack/</loc>
+    <lastmod>2017-09-08T23:10:51.651Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow stack 与 unstack 详细介绍</title>
+        <pubTime>2017-09-08T22:58:00.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
         </display>
     </data>
     </url>

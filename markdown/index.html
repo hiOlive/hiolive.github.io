@@ -188,7 +188,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <h1 class="site-subtitle" itemprop="description"></h1>
       
   </div>
 
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Markdown 教程</h1>
+          <h2 class="post-title" itemprop="name headline">Markdown 教程</h2>
         
 
         <div class="post-meta">
@@ -380,10 +380,10 @@
       
 
       
-        <h1 id="MarkDown-语法样本"><a href="#MarkDown-语法样本" class="headerlink" title="MarkDown 语法样本"></a><center>MarkDown 语法样本</center></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt; &lt;/center&gt; &lt;br/&gt;</div><div class="line">如果另起一行，只需在当前行结尾加 2 个空格</div><div class="line">如果是要起一个新段落，只需要空出一行即可。</div></pre></td></tr></table></figure>
-<h4 id="1-标题语法"><a href="#1-标题语法" class="headerlink" title="1. 标题语法"></a>1. 标题语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">== 一级标题</div><div class="line">-- 二级标题</div></pre></td></tr></table></figure>
+        <h1 id="MarkDown-语法样本"><a href="#MarkDown-语法样本" class="headerlink" title="MarkDown 语法样本"></a><center>MarkDown 语法样本</center></h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span> <span class="tag">&lt;/<span class="name">center</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>/&gt;</span></div><div class="line">如果另起一行，只需在当前行结尾加 2 个空格</div><div class="line">如果是要起一个新段落，只需要空出一行即可。</div></pre></td></tr></table></figure>
+<h4 id="1-标题语法"><a href="#1-标题语法" class="headerlink" title="1. 标题语法"></a>1. 标题语法</h4><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="section">== 一级标题</span></div><div class="line"><span class="bullet">-- </span>二级标题</div></pre></td></tr></table></figure>
 <p> <strong><em>标题=-的数量必须大于等于2个</em></strong></p>
-<h4 id="2-加粗"><a href="#2-加粗" class="headerlink" title="2. 加粗"></a>2. 加粗</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 一级加粗</div><div class="line">## 二级加粗</div><div class="line">### 三级加粗</div><div class="line">#### 四级加粗</div><div class="line">##### 五级加粗</div><div class="line">###### 六级加粗</div></pre></td></tr></table></figure>
+<h4 id="2-加粗"><a href="#2-加粗" class="headerlink" title="2. 加粗"></a>2. 加粗</h4><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 一级加粗</div><div class="line">## 二级加粗</div><div class="line">### 三级加粗</div><div class="line">#### 四级加粗</div><div class="line">##### 五级加粗</div><div class="line">###### 六级加粗</div></pre></td></tr></table></figure>
 <p><strong><em>很多语法前都可以加入加粗标记,来设置文字大小</em></strong></p>
 <h4 id="3-粗斜体标亮"><a href="#3-粗斜体标亮" class="headerlink" title="3. 粗斜体标亮"></a>3. 粗斜体标亮</h4><p> 以*或者_来标记.二者是等价的.下面以*为例说明.<br> 一个*号(*)是斜体.两个*号(**)是粗体,三个*号(***)是粗斜体<br> <em>斜体文本</em>    <em>斜体文本</em><br> <strong>粗体文本</strong>    <strong>粗体文本</strong><br> <strong><em>粗斜体文本</em></strong>    <strong><em>粗斜体文本</em></strong><br> <code>标亮</code></p>
 <h4 id="4-列表"><a href="#4-列表" class="headerlink" title="4. 列表"></a>4. 列表</h4><p>无序列表以<em>,+,-开头,有序列表以1.开头.序号与内容中间必须有空格.有序列表的数 字,当前面没有加粗符号时,没有用,它自动从1开始递增(chrome markdown preview plus).<br>无序列表可以用星号</em>、加号+或者连字符-<br>无序列表</p>
@@ -406,11 +406,11 @@
 <blockquote>
 <p>一盏灯， 一片昏黄； 一简书， 一杯淡茶。 守着那一份淡定， 品读属于自己的寂寞。 保持淡定， 才能欣赏到最美丽的风景！ 保持淡定， 人生从此不再寂寞。</p>
 </blockquote>
-<h4 id="6-代码"><a href="#6-代码" class="headerlink" title="6. 代码"></a>6. 代码</h4><p>单行代码以`code`表示.<br>多行代码以```code```表示.```必须独占一行.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int main() &#123;</div><div class="line">    printf(&quot;Hello, markdown!&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="7-链接"><a href="#7-链接" class="headerlink" title="7. 链接"></a>7. 链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[网页链接](http://www.baidu.com)&lt;br/&gt;</div><div class="line">![图片链接](http://ww4.sinaimg.cn/bmiddle/aa397b7fjw1dzplsgpdw5j.jpg)</div></pre></td></tr></table></figure>
-<h4 id="8-横线"><a href="#8-横线" class="headerlink" title="8. 横线"></a>8. 横线</h4><p>下面所有的效果一样,全是横线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">* * *</div><div class="line">***</div><div class="line">****</div><div class="line">*****</div><div class="line">- - -</div><div class="line">---</div><div class="line">____---</div><div class="line">---------------------</div><div class="line">_ _ _</div><div class="line">_ _ _____</div></pre></td></tr></table></figure></p>
+<h4 id="6-代码"><a href="#6-代码" class="headerlink" title="6. 代码"></a>6. 代码</h4><p>单行代码以`code`表示.<br>多行代码以```code```表示.```必须独占一行.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, markdown!"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="7-链接"><a href="#7-链接" class="headerlink" title="7. 链接"></a>7. 链接</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="string">网页链接</span>](<span class="link">http://www.baidu.com</span>)<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></div><div class="line">![<span class="string">图片链接</span>](<span class="link">http://ww4.sinaimg.cn/bmiddle/aa397b7fjw1dzplsgpdw5j.jpg</span>)</div></pre></td></tr></table></figure>
+<h4 id="8-横线"><a href="#8-横线" class="headerlink" title="8. 横线"></a>8. 横线</h4><p>下面所有的效果一样,全是横线<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="string">*</span> <span class="string">*</span> <span class="string">*</span></div><div class="line"><span class="string">***</span></div><div class="line"><span class="string">****</span></div><div class="line"><span class="string">*****</span></div><div class="line"><span class="bullet">-</span> <span class="bullet">-</span> <span class="bullet">-</span></div><div class="line"><span class="meta">---</span></div><div class="line"><span class="string">____---</span></div><div class="line"><span class="bullet">-</span><span class="bullet">--------------------</span></div><div class="line"><span class="string">_</span> <span class="string">_</span> <span class="string">_</span></div><div class="line"><span class="string">_</span> <span class="string">_</span> <span class="string">_____</span></div></pre></td></tr></table></figure></p>
 <hr>
-<h4 id="9-表格"><a href="#9-表格" class="headerlink" title="9. 表格"></a>9. 表格</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| Tables        | Are           | Cool  |</div><div class="line">| ------------- |:-------------:| -----:|</div><div class="line">| col 3 is      | right-aligned | 1600 |</div><div class="line">| col 2 is      | centered      |   12 |</div><div class="line">| zebra stripes | are neat      |    1 |</div></pre></td></tr></table></figure>
+<h4 id="9-表格"><a href="#9-表格" class="headerlink" title="9. 表格"></a>9. 表格</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="params">| Tables        |</span> Are           <span class="params">| Cool  |</span></div><div class="line"><span class="params">| ------------- |</span><span class="symbol">:-------------</span><span class="symbol">:|</span> -----<span class="symbol">:|</span></div><div class="line"><span class="params">| col 3 is      |</span> right-aligned <span class="params">| 1600 |</span></div><div class="line"><span class="params">| col 2 is      |</span> centered      <span class="params">|   12 |</span></div><div class="line"><span class="params">| zebra stripes |</span> are neat      <span class="params">|    1 |</span></div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -598,7 +598,7 @@
               alt="iwifigame" />
           
             <p class="site-author-name" itemprop="name">iwifigame</p>
-            <p class="site-description motion-element" itemprop="description">专注于棋牌游戏、人工智能、tensorflow、vim、中医。</p>
+            <p class="site-description motion-element" itemprop="description"></p>
         </div>
 
         <nav class="site-state motion-element">
