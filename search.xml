@@ -3,6 +3,31 @@
   
     
     <entry>
+      <title><![CDATA[Linux Windows Mac 终极文件互传 nitroshare]]></title>
+      <url>/linux_windows_mac_transfer_file/</url>
+      <content type="html"><![CDATA[<p>我们在不同电脑(Windows、linux、Mac)中工作时,总时不时地要传送文件到其它电脑。如果是两台电脑中都有qq,可以用它很好地解决这个问题。但现在qq越来越复杂庞大，而且必需登陆，登陆后，各种新闻弹出什么的非常烦。只是一个简单地传文件，用qq来解决没有这个必要。另一个方法就是把文件传到一些中转的地方，像网盘、邮箱等，但这一般要经过登陆、上传、下载三个步骤，也非常不方便和耗时间。</p>
+<p>这里介绍一个非常简单的方法，通过使用开源跨平台文件传输软件itroshare，你只需要安装完毕后，直接运行，就可以在内网中，随时随地互相发送文件了。它非赏小巧基本不占用系统资源而且不需要登陆，非常简单实用。</p>
+<p><img src="/linux_windows_mac_transfer_file/0.png" alt=""></p>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><p>打开<a href="https://nitroshare.net/" target="_blank" rel="external">nitroshare官网</a>，在各个平台下载相应的安装包安装即可。这里简单说明一下linux的安装(以ubuntu为例)，其它版本的安装，都参照官网教程即可。<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="built_in">get</span> install nitroshare</div><div class="line">sudo apt-<span class="built_in">add</span>-repository <span class="keyword">pp</span><span class="variable">a:george</span>-edison55/nitroshare</div><div class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></div><div class="line">sudo apt-<span class="built_in">get</span> install nitroshare</div></pre></td></tr></table></figure></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用非常简单，先两台电脑都运行nitroshare，这里必须都运行，它是通过内网中运行它的电脑来标识身份，如果不运行，则发送文件时，找不到对方。然后选择要发送的文件或者文件夹。最后选择目标电脑，点击发送即可。<br><img src="/linux_windows_mac_transfer_file/1.png" alt=""></p>
+]]></content>
+      
+        <categories>
+            
+            <category> linux </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Python 图表绘制 pyplot]]></title>
       <url>/python_draw_image/</url>
       <content type="html"><![CDATA[<p>介绍TensorFlow用到的一般的常用画图api。不详细介绍每个api的参数，只大概举例说明。pyplot可以画很多不同的图表，下图显示了其中的6种，这样不同种类图还有很多种，只要你能想到的，一般都能用pyplot画出来。<br><img src="/python_draw_image/1.png" alt="pyplot 图表举例"></p>
