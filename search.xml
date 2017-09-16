@@ -3,6 +3,58 @@
   
     
     <entry>
+      <title><![CDATA[Linux Windows Mac 终极鼠标共享 Synergy]]></title>
+      <url>/linux_windows_mac_share_mouse/</url>
+      <content type="html"><![CDATA[<p>Synergy 是我用的，目前为止支持平台最多的、使用最方便、最稳定的鼠标与键盘共享软件。我还使用过只支持windows平台的Mouse without Borders键鼠共享软件,这是微软出品的只支持windows平台，如果你只想在windows电脑之间共享键鼠，不防使用它。同时我还用过其它的，但已不记得名字了。总的来说，Synergy除却后面提到的版本难找的缺点，它是这一类软件中最好的。</p>
+<p>有了Synergy，从理论上来说，你可以用一套鼠标与键盘，同时控制多台电脑（理论上是最多15台）。同时它还支持剪贴板共享。也就是说你可以在不同的电脑之间，无逢地复制粘贴文字，这大大提高了工作效率。甚至它还支持鼠标拖拽来传送文件,但这个功能只支持windows与mac之间的传送。</p>
+<p>Synergy在官网下载时，需要付费。土豪可以直接购买，毕竟作者开发也不容易，并且购买的版本支持的功能更多，像什么加密等，Synergy如果从国内的下载站中去下载，要么是平台版本不全，如只有windows版，没有linux版或Mac版的；要么就是要Synergy的版号不同，而这可能造成键鼠无法共享。</p>
+<p>笔者经过千辛万苦帮大家找到了最新版的支持全平台的Synergy的下载地址，但由于头条不支持在文章中写外部网站的地址，请大家访问我的<a href="www.iwifigame.com">网站iwifigame点com</a>，找到这篇文章的最新版，在里面有Synergy的吐血大放送。如果大家觉得作者找软件，写文章辛苦了，也可以在该网站中，打赏一下。</p>
+<p><a href="https://sourceforge.net/projects/synergy-stable-builds/files/" target="_blank" rel="external">Synergy 下载</a><br><img src="/linux_windows_mac_share_mouse/0.png" alt=""><br><img src="/linux_windows_mac_share_mouse/1.png" alt=""></p>
+<h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h2><p>打开笔者提供的<a href="iwifigame.com">下载地址</a>，里面包括1.7.6到最新版的1.8.8。我们打开1.8.8，选择和你操作系统以及位数相对应的版本即可。其中名字中有x86的表示是32位系统，x64表示64位操作系统。在linux版本中，有deb和rpm安装包，你首先需要确认你的系统支持哪种安装包；同时linux安装包名中的i686表示32位系统，x86_64表示64位操作系统。</p>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><p>打开<a href="https://symless.com/synergy" target="_blank" rel="external">Synergy 官网</a> ，土豪直接下载即可。或者打开我的网站，下载免费版本。  </p>
+<p>下载后的Windows与Mac版本的，直接双击安装即可，非常方便。下面只介绍Linux版本ubuntu中的安装。<br>下载Synergy deb文件后（注意要下载和自己系统相对应的版本，有deb rpm 还有32位与64位之分），我下载的是32位的ubuntu使用的，名字是synergy-v1.8.8-stable-Linux-i686.deb。下载完成后，使用终端跳转到下载文件夹，执行下面的命令，即完成安装。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">dpkg</span> <span class="selector-tag">-i</span> <span class="selector-tag">synergy-v1</span><span class="selector-class">.8</span><span class="selector-class">.8-stable-Linux-i686</span><span class="selector-class">.deb</span></div></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>Synergy 的使用，要明确两个概念，分别是服务端与客户端，弄明白这两个概念了，后面的配置就非常简单。当每台电脑都运行Synergy时，可以选择自己是当服务端还是客户端。服务端的意思就是把配置为服务端的电脑的鼠标与键盘共享出去。客户端则通过与服务端连接，使用服务端的鼠标与键盘，它本地的键鼠则只能自己使用。</p>
+<p>Synergy的主界面如下。它的使用分三步走。<br><img src="/linux_windows_mac_share_mouse/main.png" alt=""></p>
+<ol>
+<li>基本设置，主要是设置电脑屏幕的名称。在之后的所有使用中，都是以电脑屏幕名称为中心的。  </li>
+</ol>
+<p>设置方法如下。选择编辑菜单中的设置，在弹出的设置窗口中，修改屏幕名称即可。例如，我把我的Windows电脑的屏幕名设为win，如下图。linux电脑也同样这样设置，名称设为linux。至此，电脑屏幕名称就设置好了。<br><img src="/linux_windows_mac_share_mouse/2.png" alt=""></p>
+<p>2.<br>设置服务端。我以Windows为服务端，linux为客户端为例，windows电脑在linux电脑的左边。<br>选中主界面上的Server方框，然后选择交互配置，再点击设置服务端按钮。<br><img src="/linux_windows_mac_share_mouse/3.png" alt=""><br>弹出如下对话框。<br><img src="/linux_windows_mac_share_mouse/4.png" alt=""><br>对话框中间有15个方格，每个方格中可以表示放入一块屏幕。从右上角拖拽显示器模样的图标到方格中，即完成了屏幕的添加。然后双击刚才添加屏幕，将屏幕名设置为第1步中指定的屏幕名称。由于有两台电脑要相互连接，因此，要添加两块屏幕，名称分别为win与linux。注意，这些屏幕的的相对位置对应现实中屏幕的位置。因为windows电脑在linux电脑的左边，因此win屏幕最好也设置在linux的左边，这样才可以无逢切换电脑。其它上下左右位置的屏幕也要这样设置。<br>这里要记下服务端的IP地址，它的值为Server下中的IP地址指定的加粗的部分，这里为192.168.1.100。</p>
+<ol>
+<li>设置客户端。选中主界面上的Client方框，然后在服务端IP中输入服务端的IP地址192.168.1.100（注意改成你自己的服务端地址，在第2步中可以查看）。<br><img src="/linux_windows_mac_share_mouse/5.png" alt=""></li>
+<li>启动服务端与客户端。分别点击主界面右下角的开始按钮即可。然后就可以在电脑间共享鼠标与键盘了，祝大家使用愉快。</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> linux </category>
+            
+            <category> windows </category>
+            
+            <category> mac </category>
+            
+            <category> synergy </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> windows </tag>
+            
+            <tag> mac </tag>
+            
+            <tag> synergy </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Linux Windows Mac 终极文件互传 nitroshare]]></title>
       <url>/linux_windows_mac_transfer_file/</url>
       <content type="html"><![CDATA[<p>我们在不同电脑(Windows、linux、Mac)中工作时,总时不时地要传送文件到其它电脑。如果是两台电脑中都有qq,可以用它很好地解决这个问题。但现在qq越来越复杂庞大，而且必需登陆，登陆后，各种新闻弹出什么的非常烦。只是一个简单地传文件，用qq来解决没有这个必要。另一个方法就是把文件传到一些中转的地方，像网盘、邮箱等，但这一般要经过登陆、上传、下载三个步骤，也非常不方便和耗时间。</p>
