@@ -98,15 +98,15 @@
 <meta name="description" content="TensorFlow中的数据叫做Tensor,中文名叫做张量。由于张量要表示任意类型的数据，如照片、语音等，那么普通的简单数据类型如整型、浮点数等就很难满足需求。自然而然就想到了组合型数据类型，如一维数组、多维数组、哈希表、字符串。理论上，这些组合型数据都可以满足表示任何数据的要求，唯一的不同只是谁更适合而以。TensorFlow其内部的运行机制（要进行大量矩阵运算）决定了它的数据类型为多维数">
 <meta name="keywords" content="TensorFlow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TensorFlow(二) 数据总结">
+<meta property="og:title" content="TensorFlow (二) 数据总结">
 <meta property="og:url" content="http://iwifigame.com/tensorflow_data_summary/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
 <meta property="og:description" content="TensorFlow中的数据叫做Tensor,中文名叫做张量。由于张量要表示任意类型的数据，如照片、语音等，那么普通的简单数据类型如整型、浮点数等就很难满足需求。自然而然就想到了组合型数据类型，如一维数组、多维数组、哈希表、字符串。理论上，这些组合型数据都可以满足表示任何数据的要求，唯一的不同只是谁更适合而以。TensorFlow其内部的运行机制（要进行大量矩阵运算）决定了它的数据类型为多维数">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://iwifigame.com/tensorflow_data_summary/tensors_flowing.gif">
-<meta property="og:updated_time" content="2017-09-19T03:29:46.592Z">
+<meta property="og:updated_time" content="2017-09-20T14:07:05.764Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TensorFlow(二) 数据总结">
+<meta name="twitter:title" content="TensorFlow (二) 数据总结">
 <meta name="twitter:description" content="TensorFlow中的数据叫做Tensor,中文名叫做张量。由于张量要表示任意类型的数据，如照片、语音等，那么普通的简单数据类型如整型、浮点数等就很难满足需求。自然而然就想到了组合型数据类型，如一维数组、多维数组、哈希表、字符串。理论上，这些组合型数据都可以满足表示任何数据的要求，唯一的不同只是谁更适合而以。TensorFlow其内部的运行机制（要进行大量矩阵运算）决定了它的数据类型为多维数">
 <meta name="twitter:image" content="http://iwifigame.com/tensorflow_data_summary/tensors_flowing.gif">
 
@@ -144,7 +144,7 @@
 
 
 
-  <title>TensorFlow(二) 数据总结 | 爱 wifi 游戏</title>
+  <title>TensorFlow (二) 数据总结 | 爱 wifi 游戏</title>
   
 
 
@@ -298,7 +298,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">TensorFlow(二) 数据总结</h2>
+          <h2 class="post-title" itemprop="name headline">TensorFlow (二) 数据总结</h2>
         
 
         <div class="post-meta">
@@ -350,7 +350,7 @@
 
           
           
-             <span id="/tensorflow_data_summary/" class="leancloud_visitors" data-flag-title="TensorFlow(二) 数据总结">
+             <span id="/tensorflow_data_summary/" class="leancloud_visitors" data-flag-title="TensorFlow (二) 数据总结">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -397,7 +397,7 @@
 <p>　　同时,TensorFlow还提供序列化张量与随机张量的初始化方法。</p>
 <h2 id="4-TensorFlow-变量"><a href="#4-TensorFlow-变量" class="headerlink" title="4. TensorFlow 变量"></a>4. TensorFlow 变量</h2><p>　　变量的意思就是可以改变的数据，在TensorFlow里，也同样是表达这个意思。但在TensorFlow中，哪些数据是要改变的？显尔见的，输入数据算一个，因为输入数据有很多，每个都基本不同。结果也是不断改变的，因此，输出数据也算一个，包括输入数据实际的结果与训练中输出的结果。那除了这两个外，还有什么是改变的呢？我们知道在TensorFlow中，有一种机制，不断的控制Tensor张量的流动，使其输出结果与我们的实际结果越来越近。TensorFlow的目的就是要通过学习，求得这个机制。这个机制它随着训练的样本数、训练的时间等不同而不同，因此，这种机制中，肯定有一种不断变化的数据来体现这种变化，则它也算一个要不断变化的数据。<br>　　输入、输出、TensorFlow学习机制这三个部分都有不断变化的数据，因此，理论上来说，都可以用变量来表示。但由于输入、输出的特殊性，其由训练样本直接初始化，因此，对它有特殊处理，使用一个名为placeholder占位符来表示。<strong>因此，TensorFlow中的变量特指深度学习机制中，控制输入到输出映射的可以变化的数据，这些变化数据随着训练，不断地改变，使输出的结果不断地向着正确的结果靠近。</strong><br>　　TensorFlow变量的作用，要求它有随时保存、读取的功能。因为我们训练了一段时间，中断了，我们可能想把中间训练的结果保存下来，方便下次接着这个地方继续训练。<br>　　在TensorFlow，变量是通过类来实现的，名字叫Variable。其初始化方法如下。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">tf.Variable.__init__(<span class="attribute">initial_value</span>=None, <span class="attribute">trainable</span>=<span class="literal">True</span>, <span class="attribute">collections</span>=None,</div><div class="line">    <span class="attribute">validate_shape</span>=<span class="literal">True</span>, <span class="attribute">caching_device</span>=None, <span class="attribute">name</span>=None, <span class="attribute">variable_def</span>=None,</div><div class="line">    <span class="attribute">dtype</span>=None, <span class="attribute">expected_shape</span>=None, <span class="attribute">import_scope</span>=None)</div><div class="line"></div><div class="line"><span class="comment"># 以有200个数字为0的一维常量初始化变量</span></div><div class="line">tf.Variable(tf.zeros([200]), <span class="attribute">name</span>=<span class="string">"biases"</span>)</div></pre></td></tr></table></figure></p>
 <h2 id="5-TensorFlow-占位变量"><a href="#5-TensorFlow-占位变量" class="headerlink" title="5. TensorFlow 占位变量"></a>5. TensorFlow 占位变量</h2><p>　　占位的意思就是这个位置我先占了，我现在可能不用，但我将来用。占位变量也是这个意思。<br>　　在TensorFlow中，哪些变量现在不用，但以后会用呢？训练的数据成千上万，每一条都不同。当然，我们可以自己设计一种机制，在学习的时候，依次读取这些数据，然后进行训练。但可能每个人要深度学习的目的不同，可能你要识别图片，我要识别语音，他要合成诗词等等，每个人都独立地写这个通用的读取训练数据的机制，对框架的使用者来说就非常不友好了。因此，这种通用的机制应该由框架来提供，事实上，TensorFlow也提供了这样的机制，而且设计的非常好。这种机制就是placeholder（占位变量）。<br>　　占位变量就是TensorFlow用来解决读取大量训练数据问题的机制。它允许你现在不用给它赋值，随着训练的开始，它会自动把训练数据喂给训练网络学习。其初始化方法如下。<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tf.placeholder(dtype, <span class="built_in">shape</span>=<span class="keyword">None</span>, <span class="keyword">name</span>=<span class="keyword">None</span>)</div><div class="line"></div><div class="line"># 创建一个<span class="number">2</span>维的024x1024的浮点数矩阵占位变量</div><div class="line">x = tf.placeholder(tf.float32, <span class="built_in">shape</span>=(<span class="number">1024</span>, <span class="number">1024</span>))</div></pre></td></tr></table></figure></p>
-<h2 id="6-TensorFlow-运行机制详解二"><a href="#6-TensorFlow-运行机制详解二" class="headerlink" title="6. TensorFlow 运行机制详解二"></a>6. TensorFlow 运行机制详解二</h2><p>　　TensorFlow运行机制如下图所示。这篇文章我们主要介绍了TensorFlow中的数据表示形式。接下来，将详细介绍这个图中的所有数据及其来源与变化。<br><img src="tensors_flowing.gif" alt="TensorFlow 运行机制"></p>
+<h2 id="6-TensorFlow-运行机制详解二"><a href="#6-TensorFlow-运行机制详解二" class="headerlink" title="6. TensorFlow 运行机制详解二"></a>6. TensorFlow 运行机制详解二</h2><p>　　TensorFlow运行机制如下图所示。这篇文章我们主要介绍了TensorFlow中的数据表示形式。接下来，将详细介绍这个图中的所有数据及其来源与变化。<br><img src="/tensorflow_data_summary/tensors_flowing.gif" alt="TensorFlow 运行机制"></p>
 <ol>
 <li>placeholder 占位变量。在输入input结点中负责喂给训练数据。</li>
 <li>Variable 变量。在这个图中有4个变量，分别为两个W，两个b。它们对TensorFlow的输出起着至关重要的作用。深度学习的目的就是要不断的修改这些变量的值，使输出与实际结果越来越近。</li>
@@ -422,15 +422,15 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="iwifigame WeChat Pay"/>
-        <p>微信打赏</p>
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="iwifigame 微信支付"/>
+        <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="iwifigame Alipay"/>
-        <p>支付宝打赏</p>
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="iwifigame 支付宝"/>
+        <p>支付宝</p>
       </div>
     
 
@@ -451,7 +451,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://iwifigame.com/tensorflow_data_summary/" title="TensorFlow(二) 数据总结">http://iwifigame.com/tensorflow_data_summary/</a>
+    <a href="http://iwifigame.com/tensorflow_data_summary/" title="TensorFlow (二) 数据总结">http://iwifigame.com/tensorflow_data_summary/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -479,8 +479,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/tensorflow_basic_understanding/" rel="next" title="TensorFlow(一) 基本理解">
-                <i class="fa fa-chevron-left"></i> TensorFlow(一) 基本理解
+              <a href="/tensorflow_basic_understanding/" rel="next" title="TensorFlow (一) 基本理解">
+                <i class="fa fa-chevron-left"></i> TensorFlow (一) 基本理解
               </a>
             
           </div>
@@ -584,7 +584,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -595,7 +595,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -662,7 +662,7 @@
   
 </div>
 
-<!--
+<!-- ����ʾhexo ��ע
 
   <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 

@@ -3,18 +3,63 @@
   
     
     <entry>
-      <title><![CDATA[TensorFlow LSTM 详解]]></title>
-      <url>/null/</url>
-      <content type="html"><![CDATA[<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias, input_size, state_is_tupe=Flase, activation=tanh)</span></div><div class="line">cell = tf.nn.rnn_cell.BasicLSTMCell(num_units, <span class="attribute">forget_bias</span>=1.0, <span class="attribute">input_size</span>=None, <span class="attribute">state_is_tupe</span>=Flase, <span class="attribute">activation</span>=tanh)</div><div class="line"><span class="comment">#num_units:图一中ht的维数，如果num_units=10,那么ht就是10维行向量</span></div><div class="line"><span class="comment">#forget_bias：还不清楚这个是干嘛的</span></div><div class="line"><span class="comment">#input_size:[batch_size, max_time, size]。假设要输入一句话，这句话的长度是不固定的，max_time就代表最长的那句话是多长，size表示你打算用多长的向量代表一个word，即embedding_size（embedding_size和size的值不一定要一样）</span></div><div class="line"><span class="comment">#state_is_tuple:true的话，返回的状态是一个tuple:(c=array([[]]), h=array([[]]):其中c代表Ct的最后时间的输出，h代表Ht最后时间的输出，h是等于最后一个时间的output的</span></div><div class="line"><span class="comment">#图三向上指的ht称为output</span></div><div class="line"><span class="comment">#此函数返回一个lstm_cell，即图一中的一个A</span></div></pre></td></tr></table></figure>
-]]></content>
+      <title><![CDATA[TensorFlow (五) 曲线拟合]]></title>
+      <url>/tensorflow_curve_fitting/</url>
+      <content type="html"><![CDATA[
+
+<p>前面几篇文章尽量用通俗的语言讲了TensorFlow的<a href="http://iwifigame.com/tensorflow_basic_understanding/">基本理解</a>、<a href="http://iwifigame.com/tensorflow_data_summary/">数据总结</a>、<a href="http://iwifigame.com/tensorflow_deep_understanding">深入理解</a>。接下来的将通过一个个实例，由浅入深，一步步介绍曲线模拟、手写数字识别简单版、手写数字识别卷积版、写中文诗递归神经网络版、手写数字识别LSTM等。文章中首先分析这些实例实现的深层原理，然后把统一可运行的代码放在最后，保证亲测可运行。这些文章所使用的TensorFlow版本是目前最新的0.12.0-rc1。<br>应该怎么样来写智能程序。相信我，从目前来看，对于大部分要通过学习来完成的事情，用机器学习来写比硬编码所有可能情况，真的是简单太多了。</p>
+<p>本文以曲线拟合为例子，详细说明基本的函数api，TensorFlow程序的基本结构，数据的坐标轴显示等。这个程序虽然看上去简单，但其充分直观地体现了机器学习的过程。</p>
+<h2 id="1-曲线拟合原理"><a href="#1-曲线拟合原理" class="headerlink" title="1. 曲线拟合原理"></a>1. 曲线拟合原理</h2><h2 id="2-数据生成、显示"><a href="#2-数据生成、显示" class="headerlink" title="2. 数据生成、显示"></a>2. 数据生成、显示</h2><h2 id="3-数据保存与还原"><a href="#3-数据保存与还原" class="headerlink" title="3. 数据保存与还原"></a>3. 数据保存与还原</h2><h2 id="4-训练过程设计"><a href="#4-训练过程设计" class="headerlink" title="4. 训练过程设计"></a>4. 训练过程设计</h2>]]></content>
       
+        <categories>
+            
+            <category> TensorFlow </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> TensorFlow </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[你真的懂冒泡(排序)吗]]></title>
+      <title><![CDATA[算法 (一) 你真的懂冒泡吗]]></title>
+      <url>/algorithms_bubble_sort/</url>
+      <content type="html"><![CDATA[<p>如果现在让你写一个冒泡排序，估计很多人都不能写出来。甚至对于其原理也只能支支唔唔，含糊不清，说个大概。不是说这个算法有多难，而是我们当时，看的时候记得，也懂了。但随着时间的推移，慢慢忘记了。很多知识都是这样。</p>
+<p>这篇文章的目的就是让你一生都记住冒泡排序，永远不忘记。让你在任何时间，任何地点，使用任何你会的语言，都能在十分钟之内写出正确的冒泡算法。</p>
+<h2 id="1-冒泡是什么"><a href="#1-冒泡是什么" class="headerlink" title="1. 冒泡是什么"></a>1. 冒泡是什么</h2><p>要想随时随地都记住什么是冒泡排序，使用死记硬背肯定是不行的，即使当时你理解了它，随着时间推移也可能不行。想想现在你还能不能清楚地记得它，就知道这个方法是行不通的。</p>
+<p>因此，我们需要一种记忆技巧，一种追本溯源方法，这里，我们直接思考冒泡的意思。冒泡是什么意思？这个简单，江里、湖里、杯子里的气泡，往水上冒，就叫冒泡。气泡越大，往上冒的速度就越快。</p>
+<h2 id="2-冒泡排序又是什么"><a href="#2-冒泡排序又是什么" class="headerlink" title="2. 冒泡排序又是什么"></a>2. 冒泡排序又是什么</h2><p>冒泡排序为什么叫冒泡排序，而不叫其它的？事物的名字，一般直接反应了事物的本质。这是我们取名时，自然而然想到的，最容易理解，最容易记忆的。像电脑、天空、太阳、人工智能、深度学习等等，太多太多反应了事物的本质，名字不是随便取的。</p>
+<p>因此，要记忆冒泡排序，肯定就得和冒泡这个自然现象联系起来。先看冒泡排序的 C 语言实现。如下。<br><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 对数组 arr 中的前 len 个数进行冒泡排序</span></div><div class="line">void bubble_sort(<span class="keyword">int</span> arr[], <span class="keyword">int</span> <span class="built_in">len</span>) &#123;</div><div class="line">	<span class="keyword">int</span> i, j, temp;</div><div class="line">    <span class="comment">// i标示了数组最后，已经排好位置的最大数。</span></div><div class="line">    <span class="comment">// 随着排序的进行，数组最后i个数不再需要考虑，已经排好了</span></div><div class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">len</span> - <span class="number">1</span>; i++)</div><div class="line">        <span class="comment">// 从最开始第0个数开始，如果当前数j比它后面的</span></div><div class="line">        <span class="comment">//数j+1大，则交换，即往后冒。直到数组最后没排好序的位置。</span></div><div class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="built_in">len</span> - <span class="number">1</span> - i; j++)</div><div class="line">			<span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</div><div class="line">				temp = arr[j];</div><div class="line">				arr[j] = arr[j + <span class="number">1</span>];</div><div class="line">				arr[j + <span class="number">1</span>] = temp;</div><div class="line">			&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>冒泡排序就是像自然中冒泡的现象一样，把数据排好序。解释如下。</p>
+<p>想象有一个直上直下的圆筒，圆筒中装满了水。水中竖直悬浮着大大小小的气泡，圆筒中每个位置有且只有一个气泡。气泡由于浮力的作用，会不断地往上浮。每次从最下面的气泡开始，如果这个气泡碰到上面比它小的气泡，它就和这个小的气泡交换位置；如果这个气泡碰到上面比它大的气泡，它就保持不动，然后那个大的气泡接替它，继续这样往上浮，直到碰到圆筒最上面，已经排好序了的都比它大的气泡为止。随着气泡们这样不断地上浮，最终圆筒中的气泡，会变成大气泡在上，小气泡在下的排好序的形式，冒泡排序完毕。可以看见，越大的气泡，越会快速地上升到圆筒的顶端，这正好和气泡越大，往上冒的速度越快的自然现象不谋而合。这又让你不得不佩服取名者的智慧。<br><img src="/algorithms_bubble_sort/0.jpg" alt=""></p>
+<p>一图胜千言。上面的解释，再结合下面的动态图，相信你会更加明了。相信在未来的某一天，你会一说冒泡排序，就会想到自然界中的冒泡现象，自然而然地写出冒泡排序算法。<br><img src="/algorithms_bubble_sort/1.gif" alt=""></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 算法 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[TensorFlow LSTM 详解]]></title>
       <url>/null/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias, input_size, state_is_tupe=Flase, activation=tanh)</span></div><div class="line">cell = tf.nn.rnn_cell.BasicLSTMCell(num_units, <span class="attribute">forget_bias</span>=1.0, <span class="attribute">input_size</span>=None, <span class="attribute">state_is_tupe</span>=Flase, <span class="attribute">activation</span>=tanh)</div><div class="line"><span class="comment">#num_units:图一中ht的维数，如果num_units=10,那么ht就是10维行向量</span></div><div class="line"><span class="comment">#forget_bias：还不清楚这个是干嘛的</span></div><div class="line"><span class="comment">#input_size:[batch_size, max_time, size]。假设要输入一句话，这句话的长度是不固定的，max_time就代表最长的那句话是多长，size表示你打算用多长的向量代表一个word，即embedding_size（embedding_size和size的值不一定要一样）</span></div><div class="line"><span class="comment">#state_is_tuple:true的话，返回的状态是一个tuple:(c=array([[]]), h=array([[]]):其中c代表Ct的最后时间的输出，h代表Ht最后时间的输出，h是等于最后一个时间的output的</span></div><div class="line"><span class="comment">#图三向上指的ht称为output</span></div><div class="line"><span class="comment">#此函数返回一个lstm_cell，即图一中的一个A</span></div></pre></td></tr></table></figure>
+]]></content>
       
         
     </entry>
@@ -25,7 +70,7 @@
       <content type="html"><![CDATA[<p>纸上得来终觉浅，觉知此事要躬行。从原理上说了TensorFlow 3 大篇（<a href="http://iwifigame.com/tensorflow_basic_understanding/">基本理解</a>，<a href="http://iwifigame.com/tensorflow_data_summary/">数据总结</a>，<a href="http://iwifigame.com/tensorflow_deep_understanding/">深入理解</a>），总感觉离它就是隔了那么一点点距离。就像你站在妹子面前，空有一堆武功，却不知如何施展。解决办法就是，把它安装好，好好体验一翻。</p>
 <p>本文以用户最多的操作系统 Windows 为例，只讲最简单的 CPU 安装方法，因为我们大部分人可能只是想先大概了解一下 TensorFlow。等大家安装完，使用一段时间后，对 TensorFlow 越来越熟悉后，可以尝试其它复杂的安装方法。而不是一上来，就卡在安装上。大部分人学习新技术，都死在了环境的安装上。有了环境，就可以体验式学习，学习的速度是有着质的飞越的。这就像学游泳，在岸上是永远学不会的，一脚踹下去，深藏功与名，才是正道。</p>
 <p>我们学习技术，可能是受以前生活的影响（电器稍微不注意就就坏），大部分人总怕一不小心就把电脑弄坏了。总小心翼翼地伺候着：不敢多装几个软件，怕磁盘满了；不敢胡乱折腾，怕电脑开不了机…。其实这也是学习技术的大忌。现在的电器不像以前了，大家使劲造吧，弄不坏的。软件可以装了又删；磁盘满了，可以清空；系统变慢了，可以优化一下，实在不行，可以上核武器，重装系统。目前为止，我还没有看见谁玩软件，能把电脑硬件弄坏的。我们需要这种放开手脚干的精神，这才是真正快速学技术的精神。不把电脑虐它个千万遍，怎对得起我3000大洋的血汗钱。</p>
-<h2 id="TensorFlow-官网"><a href="#TensorFlow-官网" class="headerlink" title="TensorFlow 官网"></a>TensorFlow 官网</h2><p>中国把人家官网都禁了，在国内无法正常访问。我不知道这算不算国家的自相矛盾。上层说要大力发展人工智能，却把最大的人工智能官网屏蔽。让你有时真想ctmd，哪个sb做的。不过，这种小事难不倒我们万能的程序员。 方法如下。</p>
+<h2 id="1-TensorFlow-官网"><a href="#1-TensorFlow-官网" class="headerlink" title="1. TensorFlow 官网"></a>1. TensorFlow 官网</h2><p>中国把人家官网都禁了，在国内无法正常访问。我不知道这算不算国家的自相矛盾。上层说要大力发展人工智能，却把最大的人工智能官网屏蔽。让你有时真想ctmd，哪个sb做的。不过，这种小事难不倒我们万能的程序员。 方法如下。</p>
 <ol>
 <li>修改 Windows hosts文件。什么？不懂什么是hosts，没事，做技术久了，自然就懂了。现在就当我没说，照着下面做就可以了。</li>
 </ol>
@@ -33,7 +78,7 @@
 <ol>
 <li>TensorFlow 官网能打开后，主页如下。里面有 TensorFlow 的第一手资料，从安装到实例、到 API 等等。刚开始，多看看里面的教程，把相关代码复制粘贴，运行一遍，然后给每行代码添加注释。一轮下来，我保证你们每个人都会从心底里说，机器学习太简单了！<br><img src="/tensorflow_windows_install/1.png" alt=""></li>
 </ol>
-<h2 id="TensorFlow-Windows-安装"><a href="#TensorFlow-Windows-安装" class="headerlink" title="TensorFlow Windows 安装"></a>TensorFlow Windows 安装</h2><p>最新的安装教程都能从官网上找到。下面是最新版最简单的 TensorFlow Windows CPU版，使用 Python pip 进行安装的教程。<br>从官网介绍来看，现在 TensorFlow 在 Windows 上只支持 64 位的 3.5 版本的 Python。如果你是好几年前的32位的电脑，那下面的内容就可以不看了。</p>
+<h2 id="2-TensorFlow-Windows-安装"><a href="#2-TensorFlow-Windows-安装" class="headerlink" title="2. TensorFlow Windows 安装"></a>2. TensorFlow Windows 安装</h2><p>最新的安装教程都能从官网上找到。下面是最新版最简单的 TensorFlow Windows CPU版，使用 Python pip 进行安装的教程。<br>从官网介绍来看，现在 TensorFlow 在 Windows 上只支持 64 位的 3.5 版本的 Python。如果你是好几年前的32位的电脑，那下面的内容就可以不看了。</p>
 <ol>
 <li><p>安装Pythone 3.5（<a href="https://www.python.org/downloads/release/python-352/" target="_blank" rel="external">点击官网下载</a>。我是不推荐 Anaconda 安装方法，主要原因就是包太大，400多M。而官网版本，我安装使用后，也没出现什么问题。 在最下面的文件中，选择x86_64位版本的windows安装包，安装即可。</p>
 </li>
@@ -123,13 +168,13 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Linux Windows Mac 终极文件互传 nitroshare]]></title>
+      <title><![CDATA[Linux Windows Mac 终极文件互传 Nitroshare]]></title>
       <url>/linux_windows_mac_transfer_file/</url>
       <content type="html"><![CDATA[<p>我们在不同电脑(Windows、linux、Mac)中工作时,总时不时地要传送文件到其它电脑。如果是两台电脑中都有qq,可以用它很好地解决这个问题。但现在qq越来越复杂庞大，而且必需登陆，登陆后，各种新闻弹出什么的非常烦。只是一个简单地传文件，用qq来解决没有这个必要。另一个方法就是把文件传到一些中转的地方，像网盘、邮箱等，但这一般要经过登陆、上传、下载三个步骤，也非常不方便和耗时间。</p>
 <p>这里介绍一个非常简单的方法，通过使用开源跨平台文件传输软件itroshare，你只需要安装完毕后，直接运行，就可以在内网中，随时随地互相发送文件了。它非赏小巧基本不占用系统资源而且不需要登陆，非常简单实用。</p>
 <p><img src="/linux_windows_mac_transfer_file/0.png" alt=""></p>
 <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><p>打开<a href="https://nitroshare.net/" target="_blank" rel="external">nitroshare官网</a>，在各个平台下载相应的安装包安装即可。这里简单说明一下linux的安装(以ubuntu为例)，其它版本的安装，都参照官网教程即可。<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="built_in">get</span> install nitroshare</div><div class="line">sudo apt-<span class="built_in">add</span>-repository <span class="keyword">pp</span><span class="variable">a:george</span>-edison55/nitroshare</div><div class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></div><div class="line">sudo apt-<span class="built_in">get</span> install nitroshare</div></pre></td></tr></table></figure></p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用非常简单，先两台电脑都运行nitroshare，这里必须都运行，它是通过内网中运行它的电脑来标识身份，如果不运行，则发送文件时，找不到对方。然后选择要发送的文件或者文件夹。最后选择目标电脑，点击发送即可。<br><img src="/linux_windows_mac_transfer_file/1.png" alt=""></p>
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h2><p>使用非常简单，先两台电脑都运行nitroshare，这里必须都运行，它是通过内网中运行它的电脑来标识身份，如果不运行，则发送文件时，找不到对方。然后选择要发送的文件或者文件夹。最后选择目标电脑，点击发送即可。<br><img src="/linux_windows_mac_transfer_file/1.png" alt=""></p>
 ]]></content>
       
         <categories>
@@ -148,7 +193,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Python 图表绘制 pyplot]]></title>
+      <title><![CDATA[Python 图表绘制 Pyplot]]></title>
       <url>/python_draw_image/</url>
       <content type="html"><![CDATA[<p>介绍TensorFlow用到的一般的常用画图api。不详细介绍每个api的参数，只大概举例说明。pyplot可以画很多不同的图表，下图显示了其中的6种，这样不同种类图还有很多种，只要你能想到的，一般都能用pyplot画出来。<br><img src="/python_draw_image/1.png" alt="pyplot 图表举例"></p>
 <h2 id="1-图表中显示中文"><a href="#1-图表中显示中文" class="headerlink" title="1. 图表中显示中文"></a>1. 图表中显示中文</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plt<span class="selector-class">.rcParams</span>[<span class="string">'font.sans-serif'</span>]=[<span class="string">'SimHei'</span>] #用来正常显示中文标签</div><div class="line">plt<span class="selector-class">.rcParams</span>[<span class="string">'axes.unicode_minus'</span>]=False #用来正常显示中文标签时的负号</div></pre></td></tr></table></figure>
@@ -178,14 +223,14 @@
     <entry>
       <title><![CDATA[TensorFlow stack 与 unstack 详细介绍]]></title>
       <url>/tensorflow_stack_and_unstack/</url>
-      <content type="html"><![CDATA[<h2 id="tf-stack"><a href="#tf-stack" class="headerlink" title="tf.stack()"></a>tf.stack()</h2><p><strong>tf.stack(values, axis=0, name=’stack’)</strong><br><strong>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。</strong></p>
+      <content type="html"><![CDATA[<h2 id="1-tf-stack"><a href="#1-tf-stack" class="headerlink" title="1. tf.stack()"></a>1. tf.stack()</h2><p><strong>tf.stack(values, axis=0, name=’stack’)</strong><br><strong>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。</strong></p>
 <p>假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。<br>如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。<br>如果轴axis=1，则转变后的张量的形状为(A, N, B, C)。<br>如果轴axis=2，则转变后的张量的形状为(A, B, N, C)。其它情况依次类推。  </p>
 <p>举例如下：<br>‘x’ is [1, 4]， 形状是(2)，维度为1<br>‘y’ is [2, 5]， 形状是(2)，维度为1<br>‘z’ is [3, 6]， 形状是(2)，维度为1<br>stack([x, y, z]) =&gt; [[1, 4], [2, 5], [3, 6]]  # axis的值默认为0。输出的形状为(3, 2)<br>stack([x, y, z], axis=1) =&gt; [[1, 2, 3], [4, 5, 6]] # axis的值为1。输出的形状为(2, 3)</p>
 <p>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]]，形状是(3,4)，维度为2<br>‘y’ is [[4,4,4,4],[5,5,5,5],[6,6,6,6]]，形状是(3,4)，维度为2<br>stack([x,y]) =&gt; [[[1,1,1,1],[2,2,2,2],[3,3,3,3]], [[4,4,4,4],[5,5,5,5],[6,6,6,6]]] # axis的值默认为0。输出的形状为(2, 3, 4)<br>stack([x,y],axis=1) =&gt; [[[1,1,1,1],[4,4,4,4]],[[2,2,2,2],[5,5,5,5]],[[3,3,3,3],[6,6,6,6]]] # axis的值为1。输出的形状为(3, 2, 4)<br>stack([x,y],axis=2) =&gt; [[[1,4],[1,4],[1,4],[1,4]],[[2,5],[2,5],[2,5],[2,5]],[[3,6],[3,6],[3,6],[3,6]]]# axis的值为2。输出的形状为(3, 4, 2)  </p>
 <p><strong>axis可这样理解：stack就是要将一组相同形状的张量提高一个维度。axis就是这些张量里，将axis指定的维度用所有这些张量数组代替。如axis=2，表示指定在第2个维度，原来的元素用整个张量数组里的元素代替，即从(A, B, C)转变为(A, B, N, C)</strong></p>
 <p><strong>参数:</strong><br>values: 一个有相同形状与数据类型的张量数组。<br>axis: 以轴axis为中心来转变的整数。默认是第一个维度即axis=0。支持负数。取值范围为[-(R+1), R+1)<br>name: 这个操作的名字（可选）<br><strong>返回:</strong><br>被提高一个维度后的张量。<br><strong>异常:</strong><br>ValueError: 如果轴axis超出范围[-(R+1), R+1).  </p>
 <hr>
-<h2 id="tf-unstack"><a href="#tf-unstack" class="headerlink" title="tf.unstack()"></a>tf.unstack()</h2><p><strong>tf.unstack(value, num=None, axis=0, name=’unstack’)<br>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R-1的张量。即将一组张量以指定的轴，减少一个维度。正好和stack()相反。</strong></p>
+<h2 id="2-tf-unstack"><a href="#2-tf-unstack" class="headerlink" title="2. tf.unstack()"></a>2. tf.unstack()</h2><p><strong>tf.unstack(value, num=None, axis=0, name=’unstack’)<br>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R-1的张量。即将一组张量以指定的轴，减少一个维度。正好和stack()相反。</strong></p>
 <p>将张量value分割成num个张量数组。如果num没有指定，则是根据张量value的形状来指定。如果value.shape[axis]不存在，则抛出ValueError的异常。</p>
 <p>假如一个张量的形状是(A, B, C, D)。<br>如果axis == 0，则输出的张量是value[i, :, :, :],i取值为[0,A)，每个输出的张量的形状为(B,C,D)。<br>如果axis == 1，则输出的张量是value[:, i, :, :],i取值为[0,B)，每个输出的张量的形状为(A,C,D)。<br>如果axis == 2，则输出的张量是value[:, :, i, :],i取值为[0,C)，每个输出的张量的形状为(A,B,D)。依次类推。  </p>
 <p>举例如下：<br>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]] # 形状是(3,4)，维度为2<br>unstack(x,axis=0) =&gt;以指定的维度0为轴，转变成3个形状为(4)张量[1,1,1,1],[2,2,2,2],[3,3,3,3]<br>unstack(x,axis=1) =&gt;以指定的维度1为轴，转变成4个形状为(3)张量[1,2,3],[1,2,3],[1,2,4],[1,2,3]  </p>
@@ -209,42 +254,18 @@
     </entry>
     
     <entry>
-      <title><![CDATA[TensorFlow(四) 曲线拟合]]></title>
-      <url>/tensorflow_curve_fitting/</url>
-      <content type="html"><![CDATA[
-
-<p>前面几篇文章尽量用通俗的语言讲了TensorFlow的<a href="http://iwifigame.com/tensorflow_basic_understanding/">基本理解</a>、<a href="http://iwifigame.com/tensorflow_data_summary/">数据总结</a>、<a href="http://iwifigame.com/tensorflow_deep_understanding">深入理解</a>。接下来的将通过一个个实例，由浅入深，一步步介绍曲线模拟、手写数字识别简单版、手写数字识别卷积版、写中文诗递归神经网络版、手写数字识别LSTM等。文章中首先分析这些实例实现的深层原理，然后把统一可运行的代码放在最后，保证亲测可运行。这些文章所使用的TensorFlow版本是目前最新的0.12.0-rc1。<br>应该怎么样来写智能程序。相信我，从目前来看，对于大部分要通过学习来完成的事情，用机器学习来写比硬编码所有可能情况，真的是简单太多了。</p>
-<p>本文以曲线拟合为例子，详细说明基本的函数api，TensorFlow程序的基本结构，数据的坐标轴显示等。这个程序虽然看上去简单，但其充分直观地体现了机器学习的过程。</p>
-<h2 id="曲线拟合原理"><a href="#曲线拟合原理" class="headerlink" title="曲线拟合原理"></a>曲线拟合原理</h2><h2 id="数据生成、显示"><a href="#数据生成、显示" class="headerlink" title="数据生成、显示"></a>数据生成、显示</h2><h2 id="数据保存与还原"><a href="#数据保存与还原" class="headerlink" title="数据保存与还原"></a>数据保存与还原</h2><h2 id="训练过程设计"><a href="#训练过程设计" class="headerlink" title="训练过程设计"></a>训练过程设计</h2>]]></content>
-      
-        <categories>
-            
-            <category> TensorFlow </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> TensorFlow </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[TensorFlow(三) 深入理解]]></title>
+      <title><![CDATA[TensorFlow (三) 深入理解]]></title>
       <url>/tensorflow_deep_understanding/</url>
       <content type="html"><![CDATA[<p>　　本文先不谈TensorFlow怎样通过深度学习来解决实际问题，而是先从设计的角度来说明如何设计深度学习框架。当然，这有些事后诸葛亮的味道，这里的假想设计都是从已知的资料中加入自己的一点点理解而来。</p>
-<h2 id="什么是深度学习"><a href="#什么是深度学习" class="headerlink" title="什么是深度学习"></a>什么是深度学习</h2><p>　　要解决一件事情，我们首先得知道事情是什么。要设计一个深度学习框架，首先就要弄明白什么是深度学习。抛开一切晦涩难懂的公式与证明，我们就用自己的话来说明什么是深度学习。<br>　　首先，我们分词。深度学习分成两个词深度与学习。深度，就是不要浮于表面，要深入事物的本质。学习，就是你本来不懂某个东西，通过学习这个活动你就懂了。<br>　　然后，我们合词，深度学习就是深度与学习的组合。意思就是深入事物的本质，学会某件事情。这里有两个方面的要求，一是要深入事物的本质，二是要学会。<br>　　深入事物的本质有很多种方法与角度。其中一种是分割的方法，把事物不断分割，直到分割到你觉得合适为止。就像你想弄明白世间万物是由什么组成的，你就可以不断地分割，越来越细，直到分子、原子、原子核、中子质子、夸克…<br><img src="/tensorflow_deep_understanding/0.jpg" alt="细分到原子、原子核、中子。质子、电子"><br>比如你只想知道为什么水会变成水蒸气，就把水分割到分子的水平就可以理解了；但当你想知道石油为什么燃烧会有水产生，可能你就得细分到分子、原子甚至原子核的地步了。另一种常用的方法可能就是推理的方法了。由某一个事物，基于严密的逻辑推理，认识另一个事物。比如，我们知道勾股定理，从直角三角形的两条边长度，我们可以推理出第三条边的长度。<br><img src="/tensorflow_deep_understanding/1.jpg" alt="勾股定理"><br>　　而对于学会，什么才是学会？小时候，对于历史，可能我们记住了，就是学会了。对于数学呢？会解相应的题目才算学会。因此，我们定义学会就是通过学习，在被要求完成的某件事上，能完成这件事到指定的程度。如对于历史，你对小学生的学会要求和对历史学研究生的学会要求肯定不同吧。</p>
-<h2 id="机器怎样深度学习"><a href="#机器怎样深度学习" class="headerlink" title="机器怎样深度学习"></a>机器怎样深度学习</h2><p>　　我们知道了什么是深度学习。机器和人天生的不同点决定了机器的学习方法与人的学习方法存在某些差异。别小看这些差异，正是这些差异，能让我们从根本上看清人与机器各自的擅长的领域。让机器去做它们比我们擅长的，我们做我们擅长的。而不是硬要去和机器比自己不擅长的领域，这比不赢也没必要，应该把机器当做我们的工具。时代的发展，就是机器不断替代人类擅长领域的发展。从体力劳动的不断被替换，到现在的部分脑力劳动的替换。发展到以后可能就是全部的替换，甚至机器在所有领域比我们都更擅长。<br>　　机器目前为止擅长的方面是动力、记忆、计算、不知疲倦。人相对机器来说，现在有些优点是机器无法比拟的，像逻辑推理与想象等。所以不要去和机器比谁力量大、记得多、算得快、谁更勤奋。而是要发挥你的聪明才智、发挥你的想象力、创造力去学和做机器不擅长的或者想办法让机器更聪明、更强壮。<br><img src="/tensorflow_deep_understanding/3.gif" alt="无人工厂"><br>　　我们知道深度学习是深入事物的本质，学会某件事情。深入事物有两种基本的方法，分别为分割与推理。由于现在机器还比较笨，不会推理，现在即使是会推理可能也只是表面上的会，假的会。因此，机器深度学习一般是通过分割来学习的。像我们要识别一张图片是狗还是猫。机器（当然这个算法由人来实现）把图片不断细分，直达像素级别，然后学习这些像素中的规律，把这种规律与是狗还是猫相对应起来。还有我们语音识别某一句话，假如是”你好”。机器则把音频中的波形数据不断分割，直到足够细，可以看成上上下下一个个的点。然后把这些点与语料库中的某些声音对应起来，从而识别出是你好。<br>　　因此，机器的深度学习，就是不断分割，找到规律，然后学会。要达到学会的目的，一条两条数据不行，你得给它大量数据。数据少，学到的只是某个特定的案例中的规律，离开这个特定的案例，机器就不会了，因为机器现在不像人一样，会推理学习。数据越多，学到的通用规律就越多，解决问题的正确性就越高。但案例即使够多，也无法穷尽所有可能性，因此，对于将来某些特定的案例，机器可能还是会出错，只是这种出错的概率会越来越低。因此，机器的深度学习就有一个衡量正确性的指标叫做错误率。它还有一个衡量错的程度的指标，这个指标有很多名字，如损失、交叉熵等。可以看出，机器学得越少，可能错得就越离谱。<br>　　在机器的深度学习中，最重要的就是要找到规律。以图像识别中最简单的数字识别来说，每一个分割到的像素点，怎样对应到0123456789？<br><img src="/tensorflow_deep_understanding/MNIST.png" alt="手写数字"><br><img src="/tensorflow_deep_understanding/MNIST-Matrix.png" alt="手写数字1的灰度像素值"><br>　　以1为例，图片中可以分为是1和不是1的部分。对于1中的像素点即图中不为0的像素点，我们会让这个像素点对于判断是1这个结果起正作用。对于不是1中的的像素点即为0的像素点，则对判断是1这个结果起负作用。那么这个正负作用应该怎样来体现？我们可以使每个像素对应一个权重b，正作用则b为正数，负作用b则为负数，数值越大，起的作用就越强。我们也可以让每个像素乘以一个数W,起正作用W为正数，负作用为负数，数值越大，作用也超强，越小，作用就越小。上面这两个是最简单的。复杂的呢也可以设计一些函数像像素的立方、像素的正弦值、像素的指数等等这些都可以。但一般选择这些函数要保证它的输出值有正有负，连续。有正有负能体现正负作用；连续能保证作用无穷变化。又由于一般用于机器学习的数据成千上万，要做的运算相当多，因此，一般选用最简单的乘W和加b来体现这种正负作用。下图为机器深度学习后，每个像素点对识别为数字0到9的正负作用示意图，其中蓝色为起正作用的像素点，红色则表示起反作用。<br><img src="/tensorflow_deep_understanding/softmax-weights.png" alt="数字的正负作用示意图"><br>　　假设事物不断分割到一个元素x，则这种正负作用就可以表示为 Wx+b。这是一个线性函数，即使我们不断把这些线性函数线性的组合，其最终还是一个线性函数，则只能学到那些线性的规律。但是事物的规律千变万化，因此我们就想要一种方法，使其能体现这种变化。也就等价于要使正负作用最终能以曲线的形式体现。如下图，其中的每一个点可以看成元素x的取值分布，其蓝黄两色分别对应两个要学习的结果如是1还是不是1，是2还是不是2。深度学习的目的就是要学习这种分布规律，找到一种把两种颜色区分开的方法。对于图1中的点，用Wx+b的很容易就区分开，只要从对角线划一条直线就可以了，也就是学习到W的值可能为-1，b为0。但是对于图2、3、4中的点，则没有那么简单，甚至不能用Wx+b的加减变化来区分这些点。</p>
+<h2 id="1-什么是深度学习"><a href="#1-什么是深度学习" class="headerlink" title="1. 什么是深度学习"></a>1. 什么是深度学习</h2><p>　　要解决一件事情，我们首先得知道事情是什么。要设计一个深度学习框架，首先就要弄明白什么是深度学习。抛开一切晦涩难懂的公式与证明，我们就用自己的话来说明什么是深度学习。<br>　　首先，我们分词。深度学习分成两个词深度与学习。深度，就是不要浮于表面，要深入事物的本质。学习，就是你本来不懂某个东西，通过学习这个活动你就懂了。<br>　　然后，我们合词，深度学习就是深度与学习的组合。意思就是深入事物的本质，学会某件事情。这里有两个方面的要求，一是要深入事物的本质，二是要学会。<br>　　深入事物的本质有很多种方法与角度。其中一种是分割的方法，把事物不断分割，直到分割到你觉得合适为止。就像你想弄明白世间万物是由什么组成的，你就可以不断地分割，越来越细，直到分子、原子、原子核、中子质子、夸克…<br><img src="/tensorflow_deep_understanding/0.jpg" alt="细分到原子、原子核、中子。质子、电子"><br>比如你只想知道为什么水会变成水蒸气，就把水分割到分子的水平就可以理解了；但当你想知道石油为什么燃烧会有水产生，可能你就得细分到分子、原子甚至原子核的地步了。另一种常用的方法可能就是推理的方法了。由某一个事物，基于严密的逻辑推理，认识另一个事物。比如，我们知道勾股定理，从直角三角形的两条边长度，我们可以推理出第三条边的长度。<br><img src="/tensorflow_deep_understanding/1.jpg" alt="勾股定理"><br>　　而对于学会，什么才是学会？小时候，对于历史，可能我们记住了，就是学会了。对于数学呢？会解相应的题目才算学会。因此，我们定义学会就是通过学习，在被要求完成的某件事上，能完成这件事到指定的程度。如对于历史，你对小学生的学会要求和对历史学研究生的学会要求肯定不同吧。</p>
+<h2 id="2-机器怎样深度学习"><a href="#2-机器怎样深度学习" class="headerlink" title="2. 机器怎样深度学习"></a>2. 机器怎样深度学习</h2><p>　　我们知道了什么是深度学习。机器和人天生的不同点决定了机器的学习方法与人的学习方法存在某些差异。别小看这些差异，正是这些差异，能让我们从根本上看清人与机器各自的擅长的领域。让机器去做它们比我们擅长的，我们做我们擅长的。而不是硬要去和机器比自己不擅长的领域，这比不赢也没必要，应该把机器当做我们的工具。时代的发展，就是机器不断替代人类擅长领域的发展。从体力劳动的不断被替换，到现在的部分脑力劳动的替换。发展到以后可能就是全部的替换，甚至机器在所有领域比我们都更擅长。<br>　　机器目前为止擅长的方面是动力、记忆、计算、不知疲倦。人相对机器来说，现在有些优点是机器无法比拟的，像逻辑推理与想象等。所以不要去和机器比谁力量大、记得多、算得快、谁更勤奋。而是要发挥你的聪明才智、发挥你的想象力、创造力去学和做机器不擅长的或者想办法让机器更聪明、更强壮。<br><img src="/tensorflow_deep_understanding/3.gif" alt="无人工厂"><br>　　我们知道深度学习是深入事物的本质，学会某件事情。深入事物有两种基本的方法，分别为分割与推理。由于现在机器还比较笨，不会推理，现在即使是会推理可能也只是表面上的会，假的会。因此，机器深度学习一般是通过分割来学习的。像我们要识别一张图片是狗还是猫。机器（当然这个算法由人来实现）把图片不断细分，直达像素级别，然后学习这些像素中的规律，把这种规律与是狗还是猫相对应起来。还有我们语音识别某一句话，假如是”你好”。机器则把音频中的波形数据不断分割，直到足够细，可以看成上上下下一个个的点。然后把这些点与语料库中的某些声音对应起来，从而识别出是你好。<br>　　因此，机器的深度学习，就是不断分割，找到规律，然后学会。要达到学会的目的，一条两条数据不行，你得给它大量数据。数据少，学到的只是某个特定的案例中的规律，离开这个特定的案例，机器就不会了，因为机器现在不像人一样，会推理学习。数据越多，学到的通用规律就越多，解决问题的正确性就越高。但案例即使够多，也无法穷尽所有可能性，因此，对于将来某些特定的案例，机器可能还是会出错，只是这种出错的概率会越来越低。因此，机器的深度学习就有一个衡量正确性的指标叫做错误率。它还有一个衡量错的程度的指标，这个指标有很多名字，如损失、交叉熵等。可以看出，机器学得越少，可能错得就越离谱。<br>　　在机器的深度学习中，最重要的就是要找到规律。以图像识别中最简单的数字识别来说，每一个分割到的像素点，怎样对应到0123456789？<br><img src="/tensorflow_deep_understanding/MNIST.png" alt="手写数字"><br><img src="/tensorflow_deep_understanding/MNIST-Matrix.png" alt="手写数字1的灰度像素值"><br>　　以1为例，图片中可以分为是1和不是1的部分。对于1中的像素点即图中不为0的像素点，我们会让这个像素点对于判断是1这个结果起正作用。对于不是1中的的像素点即为0的像素点，则对判断是1这个结果起负作用。那么这个正负作用应该怎样来体现？我们可以使每个像素对应一个权重b，正作用则b为正数，负作用b则为负数，数值越大，起的作用就越强。我们也可以让每个像素乘以一个数W,起正作用W为正数，负作用为负数，数值越大，作用也超强，越小，作用就越小。上面这两个是最简单的。复杂的呢也可以设计一些函数像像素的立方、像素的正弦值、像素的指数等等这些都可以。但一般选择这些函数要保证它的输出值有正有负，连续。有正有负能体现正负作用；连续能保证作用无穷变化。又由于一般用于机器学习的数据成千上万，要做的运算相当多，因此，一般选用最简单的乘W和加b来体现这种正负作用。下图为机器深度学习后，每个像素点对识别为数字0到9的正负作用示意图，其中蓝色为起正作用的像素点，红色则表示起反作用。<br><img src="/tensorflow_deep_understanding/softmax-weights.png" alt="数字的正负作用示意图"><br>　　假设事物不断分割到一个元素x，则这种正负作用就可以表示为 Wx+b。这是一个线性函数，即使我们不断把这些线性函数线性的组合，其最终还是一个线性函数，则只能学到那些线性的规律。但是事物的规律千变万化，因此我们就想要一种方法，使其能体现这种变化。也就等价于要使正负作用最终能以曲线的形式体现。如下图，其中的每一个点可以看成元素x的取值分布，其蓝黄两色分别对应两个要学习的结果如是1还是不是1，是2还是不是2。深度学习的目的就是要学习这种分布规律，找到一种把两种颜色区分开的方法。对于图1中的点，用Wx+b的很容易就区分开，只要从对角线划一条直线就可以了，也就是学习到W的值可能为-1，b为0。但是对于图2、3、4中的点，则没有那么简单，甚至不能用Wx+b的加减变化来区分这些点。</p>
 <p><img src="/tensorflow_deep_understanding/devide.jpg" alt=""><br>　　怎样区分上图中2、3、4的点？如果不能模拟出曲线基本是不可能的。我们可以把正负作用用元素的指数、三角函数等这些来替换Wx+b中的x，就变成了Wsin(x)+b等等。这种方法，当然可以很好地解决我们的问题。但是，机器学习的过程是通过比较输出的结果与实际的结果之间的差异，来优化控制参数。而这种优化方法一般是通过向最快的优化方向前进的，这就要求通过计算来求出这个最快优化方向。因为我们不可能把所有方向都试一篇（变化方向无穷多个）然后看结果是变好了还是变差了。而是应该直接计算出一个当前看起来最好的方向，直接优化参数值，这样能大大减少运算时间。优化方向的选择就对应了求导的过程。而指数与三角函数等，对导数天然的不友好性，如求导公式复杂、可能不能简单的加减、多个元素组合后更加难求值以及无法用数学证明其最佳方向在哪等等，因此就不用元素的指数与三角函数这类表达式来定义正负作用。<br>　　由此，只剩下了简单的Wx+b来表示正负作用，怎样来区分2、3、4？假设A=Wx+b，我们可以对A的值再选一个函数来求值，只要A的形式是曲线，那就能模拟了。假设这条曲线的函数为g(A)。那对于上面提到与导数的友好性要求应该怎样解决？因为如果g(A)不好求导、或求导后，不能各个元素加减等，则和上面的指数与三角函数并没有本质的区别。因此，g(A)的选择就非常重要，不是所有函数都可以。g(A)一般要满足以下几个要求才行。</p>
 <ol>
 <li>非线性。如果它是线性的，则g(A)与Wx+b本质是一样的，无法模拟曲线。</li>
 <li>可导性。要通过计算求得最做好的变化方向，必须要求导。</li>
 <li>导数方便计算且导数易于加减计算等。<br>现在常用的g(A)如下。g(A)在深度学习中，有一个通用的名字叫做激活函数(Activation Function)。只要g(A)是下图中曲线形式，就能模拟任何曲线，因此就能很好的区分图2，3，4中的点。<br><img src="/tensorflow_deep_understanding/Activation Function.png" alt="激活函数"></li>
 </ol>
-<h2 id="TensorFlow怎样深度学习"><a href="#TensorFlow怎样深度学习" class="headerlink" title="TensorFlow怎样深度学习"></a>TensorFlow怎样深度学习</h2><p>　　TensorFlow的深度学习过程也和上面说的大同小异(其实上文就是通过学习TensorFlow而来)。</p>
+<h2 id="3-TensorFlow怎样深度学习"><a href="#3-TensorFlow怎样深度学习" class="headerlink" title="3. TensorFlow怎样深度学习"></a>3. TensorFlow怎样深度学习</h2><p>　　TensorFlow的深度学习过程也和上面说的大同小异(其实上文就是通过学习TensorFlow而来)。</p>
 <ol>
 <li>首先把每个数据分割，进行处理，找到这些分割后的数据与数值的一一对应关系，我们假设某个分割点对应的数值为x。图像可能分割到像素点、声音分割到一个个波形点、文本分割成一个个字词。然后把这些数据表示成特定的数值。图像中像素点的RGB值直接可以用做x、波形点可以根据离中轨的距离表示为x、文本则要把每一个字词对应到数字表示为x。</li>
 <li>找到合适的函数表达分割后的数值x与输出结果正负作用的关系f(x)。这里有两部分。第一部分是A=Wx+b。第二部分为激活函数g(A)。即f(x) = g(Wx + b)。</li>
@@ -270,7 +291,7 @@
     <entry>
       <title><![CDATA[skynet(一) 启动]]></title>
       <url>/skynet_bootstrap/</url>
-      <content type="html"><![CDATA[<h2 id="skynet-结点"><a href="#skynet-结点" class="headerlink" title="skynet 结点"></a>skynet 结点</h2><h2 id="skynet-启动流程"><a href="#skynet-启动流程" class="headerlink" title="skynet 启动流程"></a>skynet 启动流程</h2><h2 id="skynet-配置文件"><a href="#skynet-配置文件" class="headerlink" title="skynet 配置文件"></a>skynet 配置文件</h2><p>skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。</p>
+      <content type="html"><![CDATA[<h2 id="1-skynet-结点"><a href="#1-skynet-结点" class="headerlink" title="1. skynet 结点"></a>1. skynet 结点</h2><h2 id="2-skynet-启动流程"><a href="#2-skynet-启动流程" class="headerlink" title="2. skynet 启动流程"></a>2. skynet 启动流程</h2><h2 id="3-skynet-配置文件"><a href="#3-skynet-配置文件" class="headerlink" title="3. skynet 配置文件"></a>3. skynet 配置文件</h2><p>skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。</p>
 <p>skynet 节点通过运行 skynet 主程序启动，必须在启动命令行传入一个 Config 文件名作为启动参数。skynet 会读取这个 config 文件获得启动需要的参数。</p>
 <p>第一个启动的服务是 logger ，它负责记录之后的服务中的 log 输出。logger 是一个简单的 C 服务，skynet_error 这个 C API 会把字符串发送给它。在 config 文件中，logger 配置项可以配置 log 输出的文件名，默认是 nil ，表示输出到标准输出。</p>
 <p>bootstrap 这个配置项关系着 skynet 运行的第二个服务。通常通过这个服务把整个系统启动起来。默认的 bootstrap 配置项为 “snlua bootstrap” ，这意味着，skynet 会启动 snlua 这个服务，并将 bootstrap 作为参数传给它。snlua 是 lua 沙盒服务，bootstrap 会根据配置的 luaservice 匹配到最终的 lua 脚本。如果按默认配置，这个脚本应该是 service/bootstrap.lua 。</p>
@@ -338,7 +359,7 @@ skynet.exit()
     </entry>
     
     <entry>
-      <title><![CDATA[TensorFlow(二) 数据总结]]></title>
+      <title><![CDATA[TensorFlow (二) 数据总结]]></title>
       <url>/tensorflow_data_summary/</url>
       <content type="html"><![CDATA[<p>　　TensorFlow中的数据叫做Tensor,中文名叫做张量。由于张量要表示任意类型的数据，如照片、语音等，那么普通的简单数据类型如整型、浮点数等就很难满足需求。自然而然就想到了组合型数据类型，如一维数组、多维数组、哈希表、字符串。理论上，这些组合型数据都可以满足表示任何数据的要求，唯一的不同只是谁更适合而以。TensorFlow其内部的运行机制（要进行大量矩阵运算）决定了它的数据类型为多维数组。多维数组与矩阵天然的相似性，为数值计算提供了诸多方便。<br>　　下面分别介绍TensorFlow常用的几种数据类型：常量、变量、占位变量。它们都不是单个的数据，如一个整数，而是指多维数组，如数据类型为整数的2行2列的多维数组。</p>
 <h2 id="1-Tensor-表示形式"><a href="#1-Tensor-表示形式" class="headerlink" title="1. Tensor 表示形式"></a>1. Tensor 表示形式</h2><p>　　Tensor张量的通用的简单表示形式为[T1,T2,T3…Tn]或者T1，其中T可以是TensorFlow指定的数据类型中的数字，或者由中括号括起来的元素。如下。<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">3</span> 特殊情况，标量张量</div><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] 这里的T1为<span class="number">1</span>，T2为<span class="number">2</span>，T3为<span class="number">3</span></div><div class="line">[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]] 这里的T1则为[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]，T2则为[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</div><div class="line">[[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]],[[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]],[[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]]</div></pre></td></tr></table></figure></p>
@@ -379,7 +400,7 @@ skynet.exit()
     </entry>
     
     <entry>
-      <title><![CDATA[TensorFlow(一) 基本理解]]></title>
+      <title><![CDATA[TensorFlow (一) 基本理解]]></title>
       <url>/tensorflow_basic_understanding/</url>
       <content type="html"><![CDATA[<h2 id="1-TensorFlow-名词解释"><a href="#1-TensorFlow-名词解释" class="headerlink" title="1. TensorFlow 名词解释"></a>1. TensorFlow 名词解释</h2><ol>
 <li>Tensor 是数据在TensorFlow中的约定的表示形式。就如图片在硬盘上有jpg，png等特定的表示形式一样。Tensor被设计成可以表示任何数据，它的内部实际上是一个多维数组，可以根据需要来设计。就如图片你可以是4维的数组[batch, height, width, channels]，也可以是2维的[width, height]。数据的形式完全由你自己根据需要来定，自由度非常大。</li>
@@ -447,10 +468,10 @@ skynet.exit()
     <entry>
       <title><![CDATA[中医之我思]]></title>
       <url>/think_in_Chinese_medicine/</url>
-      <content type="html"><![CDATA[<h2 id="阴阳五行学说"><a href="#阴阳五行学说" class="headerlink" title="阴阳五行学说"></a>阴阳五行学说</h2><p>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
-<h2 id="中医发展原理"><a href="#中医发展原理" class="headerlink" title="中医发展原理"></a>中医发展原理</h2><p>中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。在这个由经验方法发展起来的中医体系中，人们为了解释其治病的机理，而想出了各种理论体系，像什么阴阳、八纲、六经、脏腑、经络、三焦、卫气营血等等。每个理论体系都很正确，因为他们由经验而总结而来，却不能准确得像西医那样。而每个人由于学习的经验不同，就又造成了每个人对同一个病人的治病方法又不同。随着科技的发展，中医肯定最终能发展如西医一样，用精确的解释来说明其治病的原理，而不像现在这样模模糊糊，形而上学。<br>中医以阴阳为根，这是一种很重要的思想。世间万物都可归结为阴阳。非阴即阳，非阳即阴。这是一个大的概念。如温度分高低，就就是阳、低就是阴；高度分高低，高就是阳，低就是阴；动静中，动即阳，静则阴，如此等等。它把事物分成两个对立变化的方面。这两个方面在变化的过程中，随着阴生阳长或阳生阴长而产生无数种中间状态。当然，根据常识，阴阳的最中间的状态也比较重要。像六经中的少阳、厥阴等。<br>八纲为阴阳、表里、寒热、虚实，也根于阴阳。它将人身体的状态从不同的方面来分阴阳。要注意这里的表里、寒热、虚实与普通的相似又不同的地方。</p>
-<h2 id="中医治病机理"><a href="#中医治病机理" class="headerlink" title="中医治病机理"></a>中医治病机理</h2><p>中医理论根由阴阳。治病则在药。经过几千年的发展，中医对药积累了无数的经验，经过组方，完成了方证对应。也对人体病的发展有了很多经验积累，病的传变、好坏。通过对这些经验的总结，而完成了中医的治病方法。因此，中医可以治病，关键是能不能在总结的经验中，找到或者推断出治那个病的理法方药。</p>
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>肺主气，在肺为气，在外为卫。心主血，在心为血，在外为营。</p>
+      <content type="html"><![CDATA[<h2 id="1-阴阳五行学说"><a href="#1-阴阳五行学说" class="headerlink" title="1. 阴阳五行学说"></a>1. 阴阳五行学说</h2><p>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
+<h2 id="2-中医发展原理"><a href="#2-中医发展原理" class="headerlink" title="2. 中医发展原理"></a>2. 中医发展原理</h2><p>中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。在这个由经验方法发展起来的中医体系中，人们为了解释其治病的机理，而想出了各种理论体系，像什么阴阳、八纲、六经、脏腑、经络、三焦、卫气营血等等。每个理论体系都很正确，因为他们由经验而总结而来，却不能准确得像西医那样。而每个人由于学习的经验不同，就又造成了每个人对同一个病人的治病方法又不同。随着科技的发展，中医肯定最终能发展如西医一样，用精确的解释来说明其治病的原理，而不像现在这样模模糊糊，形而上学。<br>中医以阴阳为根，这是一种很重要的思想。世间万物都可归结为阴阳。非阴即阳，非阳即阴。这是一个大的概念。如温度分高低，就就是阳、低就是阴；高度分高低，高就是阳，低就是阴；动静中，动即阳，静则阴，如此等等。它把事物分成两个对立变化的方面。这两个方面在变化的过程中，随着阴生阳长或阳生阴长而产生无数种中间状态。当然，根据常识，阴阳的最中间的状态也比较重要。像六经中的少阳、厥阴等。<br>八纲为阴阳、表里、寒热、虚实，也根于阴阳。它将人身体的状态从不同的方面来分阴阳。要注意这里的表里、寒热、虚实与普通的相似又不同的地方。</p>
+<h2 id="3-中医治病机理"><a href="#3-中医治病机理" class="headerlink" title="3. 中医治病机理"></a>3. 中医治病机理</h2><p>中医理论根由阴阳。治病则在药。经过几千年的发展，中医对药积累了无数的经验，经过组方，完成了方证对应。也对人体病的发展有了很多经验积累，病的传变、好坏。通过对这些经验的总结，而完成了中医的治病方法。因此，中医可以治病，关键是能不能在总结的经验中，找到或者推断出治那个病的理法方药。</p>
+<h2 id="4-其它"><a href="#4-其它" class="headerlink" title="4. 其它"></a>4. 其它</h2><p>肺主气，在肺为气，在外为卫。心主血，在心为血，在外为营。</p>
 ]]></content>
       
         <categories>
@@ -471,7 +492,7 @@ skynet.exit()
     <entry>
       <title><![CDATA[loader Pomelo 研究]]></title>
       <url>/loader_pomelo_study/</url>
-      <content type="html"><![CDATA[<h2 id="基本类库"><a href="#基本类库" class="headerlink" title="基本类库"></a>基本类库</h2><ol>
+      <content type="html"><![CDATA[<h2 id="1-基本类库"><a href="#1-基本类库" class="headerlink" title="1. 基本类库"></a>1. 基本类库</h2><ol>
 <li>should: test framework agnostic BDD-style assertions</li>
 <li>mocha: simple, flexible, fun test framework</li>
 <li>express: Fast, unopinionated, minimalist web framework</li>
@@ -494,7 +515,7 @@ skynet.exit()
 <li>node-zookeeper-client: A pure Javascript ZooKeeper client for Node.js.</li>
 <li>webkit-devtools-agent: Webkit devtools agent that leverages remote debugging and profiling of nodejs applications using the built-in webkit inspector.</li>
 </ol>
-<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><h3 id="1-dao-模块"><a href="#1-dao-模块" class="headerlink" title="1. dao 模块"></a>1. dao 模块</h3><p>通过通用的sql语句,查询相关信息,再通过回调方法,返回调用函数.</p>
+<h2 id="2-模块"><a href="#2-模块" class="headerlink" title="2. 模块"></a>2. 模块</h2><h3 id="2-1-dao-模块"><a href="#2-1-dao-模块" class="headerlink" title="2.1 dao 模块"></a>2.1 dao 模块</h3><p>通过通用的sql语句,查询相关信息,再通过回调方法,返回调用函数.</p>
 ]]></content>
       
         <categories>
@@ -592,7 +613,7 @@ skynet.exit()
     <entry>
       <title><![CDATA[Git 实用干货总结（附异地私有Git仓库实现办法）]]></title>
       <url>/git_private_repo_and_multi_ssh_key/</url>
-      <content type="html"><![CDATA[<h2 id="网盘-Git-实现异地、免费、安全、私有的版本管理"><a href="#网盘-Git-实现异地、免费、安全、私有的版本管理" class="headerlink" title="网盘+Git 实现异地、免费、安全、私有的版本管理"></a>网盘+Git 实现异地、免费、安全、私有的版本管理</h2><p>相信很多人都想拥有自己的私有版本管理平台，无论是文档管理还是代码管理，都是非常方<br>便的。如果用Github的私有仓库，每年的支出都是一笔不小的费用，而且Github有些地方网<br>络访问速度慢；而如果用Github的免费版本，那就私密安全性又得不到保证。 另外如果自己<br>搭建Git服务器，对于普通大众来说又没有必要，况且又耗时费力而不讨好。</p>
+      <content type="html"><![CDATA[<h2 id="1-网盘-Git-实现异地、免费、安全、私有的版本管理"><a href="#1-网盘-Git-实现异地、免费、安全、私有的版本管理" class="headerlink" title="1. 网盘+Git 实现异地、免费、安全、私有的版本管理"></a>1. 网盘+Git 实现异地、免费、安全、私有的版本管理</h2><p>相信很多人都想拥有自己的私有版本管理平台，无论是文档管理还是代码管理，都是非常方<br>便的。如果用Github的私有仓库，每年的支出都是一笔不小的费用，而且Github有些地方网<br>络访问速度慢；而如果用Github的免费版本，那就私密安全性又得不到保证。 另外如果自己<br>搭建Git服务器，对于普通大众来说又没有必要，况且又耗时费力而不讨好。</p>
 <p>这里一种非常好的替代方法就是在网盘中创建Git仓库，然后利用网盘来进行仓库的同步。<br>从而实现多地、免费、安全、私有的版本管理。在使用的过程中，只要保证网盘的同步即可。<br>比如在工作的地方，把代码或文档更新到同步盘中；回到家中，打开同步盘，它会自动同步。<br>然后再用Git更新即可。这样就保证了各个地方的版本同步而且又方便安全。</p>
 <p>具体的操作方法如下：</p>
 <ol>
@@ -611,15 +632,15 @@ skynet.exit()
 <figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">git clone F:/weiyun/repo/test</div><div class="line">```  </div><div class="line">![](<span class="number">1.</span>png)</div><div class="line"></div><div class="line">通过上述步骤，一个异地、免费、安全、私有的版本管理系统就搭建好了。</div><div class="line"></div><div class="line">对于Git提交中生成很多小文件从而影响网盘同步效率的问题，可以在同步盘的Git仓库中执行 如下命令中的任何一个来解决：</div><div class="line">* `git repack -d` 命令,它会将git仓库中所有没有打包的碎片文件打包到一个大的文件中,</div><div class="line">从而大大减少仓库下objects文件夹中碎片文件的数量。</div><div class="line">* `git repack -a -d` 命令，它会将所有的文件（包括已打包的）打包到一个文件中,这会生成</div><div class="line">一个新的文件。这个命令要**慎用**,因为它会增加网盘的同步负担（已同步的文件相当于要重新同步）.</div><div class="line">* `git gc` 等价于 `git repack -a -d`。</div><div class="line"></div><div class="line">最后，给大家一个自动将所有Git仓库小文件打包的脚本（[gitbat.bat](gitbat.bat)）：</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>@echo off<br>for /d %%i in (*) do @echo. &amp;&amp;@echo ——————————————————– &amp;&amp;@echo %%i &amp;&amp;@cd %cd%\%%i &amp;&amp;@git repack -d<br>pause<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">比如在你的同步盘F:\weiyun\repo中，有很多你的Git仓库a、b、c...。那么在F:\weiyun\repo 中，创建gitbat.bat文件，然后把上面的内容复制到里面。以后每个月执行一下该脚本即可， 则所有以前提交生成的小文件都会利用命令`git repack -d`打包。</div><div class="line">![](<span class="number">2.</span>png)</div><div class="line"></div><div class="line">## Git Key 管理</div><div class="line">#### ssh key 生成。使用如下命令：</div></pre></td></tr></table></figure></p>
+<p>@echo off<br>for /d %%i in (*) do @echo. &amp;&amp;@echo ——————————————————– &amp;&amp;@echo %%i &amp;&amp;@cd %cd%\%%i &amp;&amp;@git repack -d<br>pause<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">比如在你的同步盘F:\weiyun\repo中，有很多你的Git仓库a、b、c...。那么在F:\weiyun\repo 中，创建gitbat.bat文件，然后把上面的内容复制到里面。以后每个月执行一下该脚本即可， 则所有以前提交生成的小文件都会利用命令`git repack -d`打包。</div><div class="line">![](<span class="number">2.</span>png)</div><div class="line"></div><div class="line">## <span class="number">2.</span> Git Key 管理</div><div class="line">#### ssh key 生成。使用如下命令：</div></pre></td></tr></table></figure></p>
 <p>ssh-keygen -t rsa -C iwifigame@126.com -f ~/.ssh/iwifigame<br>ssh-keygen -t rsa -C liyongjin2009@gmail.com -f ~/.ssh/liyongjin<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#### Git 自动使用多个 ssh key(以**Github**为例)</div><div class="line"><span class="number">1.</span> 生成ssh key.</div></pre></td></tr></table></figure></p>
 <p>ssh-keygen -t rsa -C iwifigame@126.com -f ~/.ssh/iwifigame<br>ssh-keygen -t rsa -C liyongjin2009@gmail.com -f ~/.ssh/liyongjin<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">2. </span>在Github中添加ssh key,具体方法可以百度搜索下，很简单。</div><div class="line"><span class="bullet">3. </span>在~/.ssh/目录下新建config文件，用于配置各个公私钥相对应的主机.内容如下:</div></pre></td></tr></table></figure></p>
 <p>Host liyongjin<br>Hostname github.com<br>User liyongjin<br>IdentityFile ~/.ssh/liyongjin<br>Host iwifigame<br>HostName github.com<br>User iwifigames<br>IdentityFile ~/.ssh/iwifigame<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">4</span>. 测试连接情况<span class="comment">(**可跳过**)</span>。以`ssh -T git@Host`的形式测试。Host为上面config文件里定义的Host 名字。如：</div></pre></td></tr></table></figure></p>
 <p>ssh -T git@liyongjin<br>ssh -T git@iwifigame<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">5. 修改**<span class="selector-tag">git</span>仓库地址**。将@后的<span class="keyword">github</span>.<span class="keyword">com</span>改为<span class="keyword">config</span>文件里<span class="keyword">Host</span>定义的地址。如下：</div></pre></td></tr></table></figure></p>
-<p>git clone git@github.com:iwifigame/vimrc.git    改为<br>git clone git@iwifigame:iwifigame/vimrc.git<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Git会根据config中的配置，使用其中Hostname指定的服务器地址与dentityFile指定的 私钥来进行版本管理。从而达到使用多个 ssh key 的目的。</div><div class="line">6. 其它配置。如果你使用**smartgit**，则要在菜单edit/preference中，选中Authentication 选项下的Use<span class="built_in"> system </span>SSH clinet。才可以使用多个ssh key。其它Git软件应该也要做相应的处理， 才能使用系统默认的ssh client。  </div><div class="line">![](3.png)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## Git 版本管理</span></div><div class="line"><span class="comment">#### 远程版本提交撤销。有两个方法，如下。</span></div><div class="line">1. 撤销最后的一个版本(**注意版本安全，可能引起别人版本错误**)。</div></pre></td></tr></table></figure></p>
+<p>git clone git@github.com:iwifigame/vimrc.git    改为<br>git clone git@iwifigame:iwifigame/vimrc.git<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Git会根据config中的配置，使用其中Hostname指定的服务器地址与dentityFile指定的 私钥来进行版本管理。从而达到使用多个 ssh key 的目的。</div><div class="line">6. 其它配置。如果你使用**smartgit**，则要在菜单edit/preference中，选中Authentication 选项下的Use<span class="built_in"> system </span>SSH clinet。才可以使用多个ssh key。其它Git软件应该也要做相应的处理， 才能使用系统默认的ssh client。  </div><div class="line">![](3.png)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## 3. Git 版本管理</span></div><div class="line"><span class="comment">#### 远程版本提交撤销。有两个方法，如下。</span></div><div class="line">1. 撤销最后的一个版本(**注意版本安全，可能引起别人版本错误**)。</div></pre></td></tr></table></figure></p>
 <p>git reset –hard HEAD~1<br>git push -f<br><figure class="highlight coq"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">2.</span> 使用<span class="built_in">revert</span>命令（更安全的做法）。相当于重新提交一个指定版本的反修改。</div></pre></td></tr></table></figure></p>
 <p>git revert HEAD<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#### 只克隆最近的一个版本。</div><div class="line">对于大型仓库，这个命令能大大减少网络、硬盘、 **时间**等资源的使用。命令如下：</div></pre></td></tr></table></figure></p>
-<p>git clone –depth=1<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">## Git 常见问题处理</div><div class="line">#### 文件换行符问题（LF转成CRLF错误）。有如下两种处理办法：</div><div class="line">1. 一劳永逸的方法。打开  **~/.gitconfig** 文件，设置**safecrlf**为false。</div></pre></td></tr></table></figure></p>
+<p>git clone –depth=1<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">## 4. Git 常见问题处理</div><div class="line">#### 文件换行符问题（LF转成CRLF错误）。有如下两种处理办法：</div><div class="line">1. 一劳永逸的方法。打开  **~/.gitconfig** 文件，设置**safecrlf**为false。</div></pre></td></tr></table></figure></p>
 <p>[core]<br>       autocrlf = input<br>       safecrlf = false<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">2. 另一种方法。就是用vim打开该文件，</div><div class="line">执行`<span class="builtin-name">set</span> <span class="attribute">ff</span>=dos` 或者 `<span class="builtin-name">set</span> <span class="attribute">fileformat</span>=dos`，这两个命令的区别只是一个是简写的形式。</div><div class="line">它的作用是将文件的格式设置为dos格式，即windows下的格式。</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## Git 其它</span></div><div class="line">* 使用TortoiseGit，如果出现如下错误：</div></pre></td></tr></table></figure></p>
 <p>isconnected no supported authentication methods available(server sent: publickey，<br>keyboard interactive<br>```<br>则按如下的步骤解决：</p>
 <pre><code>1. 找到TortoiseGit -&gt; Settings -&gt; Network
@@ -656,23 +677,23 @@ skynet.exit()
     <entry>
       <title><![CDATA[Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程]]></title>
       <url>/hexo_from_build_to_github_pages_and_domain/</url>
-      <content type="html"><![CDATA[<h2 id="Hexo-简介"><a href="#Hexo-简介" class="headerlink" title="Hexo 简介"></a>Hexo 简介</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br>简单的说，就是Hexo可以根据你写的Markdown文章，生成一个个好看的静态网页。然后，你可以把这些静态网页托管在你的服务器（如github pages、阿里云等）或者Hexo中，别人就可以通过你配置的网址，访问你写的文章。</p>
-<h2 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h2><p>安装 Hexo 需要安装下面两个程序。</p>
+      <content type="html"><![CDATA[<h2 id="1-Hexo-简介"><a href="#1-Hexo-简介" class="headerlink" title="1. Hexo 简介"></a>1. Hexo 简介</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br>简单的说，就是Hexo可以根据你写的Markdown文章，生成一个个好看的静态网页。然后，你可以把这些静态网页托管在你的服务器（如github pages、阿里云等）或者Hexo中，别人就可以通过你配置的网址，访问你写的文章。</p>
+<h2 id="2-Hexo-安装"><a href="#2-Hexo-安装" class="headerlink" title="2. Hexo 安装"></a>2. Hexo 安装</h2><p>安装 Hexo 需要安装下面两个程序。</p>
 <ul>
 <li>Node.js</li>
 <li>Git</li>
 </ul>
 <p>安装完毕后，只要使用 npm 即可完成 Hexo 的安装。打开命令行界面，执行下面的命令：<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-<span class="keyword">cli</span></div></pre></td></tr></table></figure></p>
 <p>如果npm安装的速度太慢，这是由于npm镜像在国外的缘故。可按如下方法解决：<br>npm config set key value 命令，设置npm指定的镜像地址,这里设置为淘宝的地址。<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm config <span class="keyword">set</span> registry <span class="comment">https:</span>//<span class="comment">registry.npm.taobao.org</span> </div><div class="line">npm <span class="comment">info underscore</span> （这个只是为了检验上面的设置命令是否成功，若成功，会返回<span class="comment">[</span>指定包<span class="comment">]</span>的信息）</div></pre></td></tr></table></figure></p>
-<h2 id="Hexo-建站"><a href="#Hexo-建站" class="headerlink" title="Hexo 建站"></a>Hexo 建站</h2><p>Hexo 安装完成后，打开命令行，切换到要建站的文件夹必须是空的文件夹，要不命令出错。执行下列命令，将会建站一个基本的Hexo站点。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm <span class="keyword">install</span></div></pre></td></tr></table></figure></p>
+<h2 id="3-Hexo-建站"><a href="#3-Hexo-建站" class="headerlink" title="3. Hexo 建站"></a>3. Hexo 建站</h2><p>Hexo 安装完成后，打开命令行，切换到要建站的文件夹必须是空的文件夹，要不命令出错。执行下列命令，将会建站一个基本的Hexo站点。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm <span class="keyword">install</span></div></pre></td></tr></table></figure></p>
 <p>运行界面如下。如果出现 “Start blogging with Hexo!” 字样，就代表安装成功了。<br><img src="/hexo_from_build_to_github_pages_and_domain/1_0.png" alt=""><br>Hexo 安装成功后，文件夹结构如下。其中node_modules里面放的是node模块，基本不用去管；scaffolds里面放的是文章模版文件，当你使用Hexo新建文章时，将使用这些模版创建文件；source中放着所有你写的文章;themes中放置着网站的主题，主题负责整个网站的显示样式，可以在网上找到各种样式的主题，如Next,uno,yilia等。<br><img src="/hexo_from_build_to_github_pages_and_domain/1_1.png" alt=""><br>至此，Hexo 就建站完毕，非常简单。执行下面的两条命令，可以先预览一下建站效果。<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">generate</span></div><div class="line">hexo server</div></pre></td></tr></table></figure></p>
 <p>这两条命令的执行效果如下，可以通过 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>访问建好的网站。<br><img src="/hexo_from_build_to_github_pages_and_domain/1_2.png" alt=""><br><img src="/hexo_from_build_to_github_pages_and_domain/1_3.png" alt=""></p>
-<h2 id="Hexo-基本配置"><a href="#Hexo-基本配置" class="headerlink" title="Hexo 基本配置"></a>Hexo 基本配置</h2><p>Hexo 的基本配置文件为你建站的文件夹中的_config.yml文件。在该文件中，可以设置网站的标题、语言（中文、英语等)、时区等；也可以设置网站的网址；还有其它如目录、文章、分类、标签、日期模式等。当然，比较重要的一个配置是设置Hexo的主题。<br>Hexo 的主题设置方法（以Next主题为例）如下。在Hexo网站文件夹下，执行命令：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/iissnan/hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></div></pre></td></tr></table></figure></p>
+<h2 id="4-Hexo-基本配置"><a href="#4-Hexo-基本配置" class="headerlink" title="4. Hexo 基本配置"></a>4. Hexo 基本配置</h2><p>Hexo 的基本配置文件为你建站的文件夹中的_config.yml文件。在该文件中，可以设置网站的标题、语言（中文、英语等)、时区等；也可以设置网站的网址；还有其它如目录、文章、分类、标签、日期模式等。当然，比较重要的一个配置是设置Hexo的主题。<br>Hexo 的主题设置方法（以Next主题为例）如下。在Hexo网站文件夹下，执行命令：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/iissnan/hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></div></pre></td></tr></table></figure></p>
 <p>也可以直接下载Next文件，放在themes/next下。与所有 Hexo 主题启用的模式一样。 当 克隆/下载 完成后，打开 站点配置文件_config.yml， 找到 theme 字段，并将其值更改为 next。如下。<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: <span class="keyword">next</span></div></pre></td></tr></table></figure></p>
 <p>到此，NexT 主题安装完成。最好使用<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">hexo clean</span></div></pre></td></tr></table></figure></p>
 <p>来清除 Hexo 的缓存。最后，就可以通过执行下面两条命令，查看主题效果。在主题的配置文件/themes/next/_config.yml中，可以配置markdown中的代码样式（如代码采用黑色背景）、网站logo、导航栏样式与位置、百度统计等。<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">generate</span></div><div class="line">hexo server</div></pre></td></tr></table></figure></p>
 <p><img src="/hexo_from_build_to_github_pages_and_domain/1_4.png" alt=""><br>在_config.yml中，可以设置将Hexo生成的静态页面部署到指定的服务器中，如github。但是，在我的使用过程中，有各种奇怪的问题，因此，不推荐配置该选项，推荐使用本文中Hexo github 配置章节中的方法。</p>
-<h2 id="Hexo-github-配置"><a href="#Hexo-github-配置" class="headerlink" title="Hexo github 配置"></a>Hexo github 配置</h2><p>Hexo 建站完毕后，可以在本地服务器上查看自己写的文章，但是我们一般想随时随地随人都可以查看我们的文章。当然，我匀可以把Hexo托管到云服务器上，但是更方便的做法是把它托管到github pages上，既省钱又方便。过程如下。</p>
+<h2 id="5-Hexo-github-配置"><a href="#5-Hexo-github-配置" class="headerlink" title="5. Hexo github 配置"></a>5. Hexo github 配置</h2><p>Hexo 建站完毕后，可以在本地服务器上查看自己写的文章，但是我们一般想随时随地随人都可以查看我们的文章。当然，我匀可以把Hexo托管到云服务器上，但是更方便的做法是把它托管到github pages上，既省钱又方便。过程如下。</p>
 <ol>
 <li>创建github pages。打开<a href="https://github.com/" target="_blank" rel="external">github官网</a>,注册账号。然后创建一个仓库，仓库的名字为username.github.io。username为你注册时的用户名。这个仓库是特殊约定的，因此就决定了每个帐号只能有一个仓库来创建github pages。创建完成后，你就可以通过<a href="http://username.github.io" target="_blank" rel="external">http://username.github.io</a> 来访问这个网站。<br><img src="/hexo_from_build_to_github_pages_and_domain/1_5.png" alt=""></li>
 <li>克隆github pages仓库到Hexo网站的deploy文件夹中。这里面用到了一个github多用户名技巧，当你有多个github账号时，非常实用，请参考我的另一篇文章<a href="">1. 网盘+Git 实现异地、免费、安全、私有的版本管理</a><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git<span class="variable">@hiOlive</span><span class="symbol">:hiOlive/hiolive</span>.github.io.git deploy</div></pre></td></tr></table></figure>
@@ -681,7 +702,7 @@ skynet.exit()
 <p>将我们之前创建的repo克隆到本地，新建一个目录叫做.deploy用于存放克隆的代码。</p>
 <p>创建一个deploy脚本文件</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">echo</span> off</div><div class="line">cp -R public/* <span class="keyword">deploy</span></div><div class="line"><span class="keyword">cd</span> <span class="keyword">deploy</span></div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"update"</span></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-<h2 id="github-自定义域名"><a href="#github-自定义域名" class="headerlink" title="github 自定义域名"></a>github 自定义域名</h2><h2 id="Hexo-写文章"><a href="#Hexo-写文章" class="headerlink" title="Hexo 写文章"></a>Hexo 写文章</h2><h4 id="写文章配置"><a href="#写文章配置" class="headerlink" title="写文章配置"></a>写文章配置</h4><p>打开站点配置文件，修改如下地方。<br>new_post_name: :year-:month-:day-:title.md # File name of new posts<br>post_asset_folder: true  # 在post中使用资源文件，在使用hexo n 文件时，会同步创建同名资源文件夹。</p>
+<h2 id="6-github-自定义域名"><a href="#6-github-自定义域名" class="headerlink" title="6. github 自定义域名"></a>6. github 自定义域名</h2><h2 id="7-Hexo-写文章"><a href="#7-Hexo-写文章" class="headerlink" title="7. Hexo 写文章"></a>7. Hexo 写文章</h2><h4 id="写文章配置"><a href="#写文章配置" class="headerlink" title="写文章配置"></a>写文章配置</h4><p>打开站点配置文件，修改如下地方。<br>new_post_name: :year-:month-:day-:title.md # File name of new posts<br>post_asset_folder: true  # 在post中使用资源文件，在使用hexo n 文件时，会同步创建同名资源文件夹。</p>
 <h4 id="方便地插入图片"><a href="#方便地插入图片" class="headerlink" title="方便地插入图片"></a>方便地插入图片</h4><ol>
 <li><p>安装hexo-asset-image库，在Hexo目录下执行命令：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install https:<span class="regexp">//gi</span>thub.com<span class="regexp">/CodeFalling/</span>hexo-asset-image --save</div></pre></td></tr></table></figure>

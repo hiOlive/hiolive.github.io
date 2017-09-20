@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="TensorFlow," />
+  <meta name="keywords" content="算法," />
 
 
 
@@ -95,18 +95,21 @@
 
 
 
-<meta name="description" content="1. tf.stack()tf.stack(values, axis=0, name=’stack’)以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。 假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。如果轴axis=1，则转变后的张量的形状为">
-<meta name="keywords" content="TensorFlow">
+<meta name="description" content="如果现在让你写一个冒泡排序，估计很多人都不能写出来。甚至对于其原理也只能支支唔唔，含糊不清，说个大概。不是说这个算法有多难，而是我们当时，看的时候记得，也懂了。但随着时间的推移，慢慢忘记了。很多知识都是这样。 这篇文章的目的就是让你一生都记住冒泡排序，永远不忘记。让你在任何时间，任何地点，使用任何你会的语言，都能在十分钟之内写出正确的冒泡算法。 1. 冒泡是什么要想随时随地都记住什么是冒泡排序，使">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TensorFlow stack 与 unstack 详细介绍">
-<meta property="og:url" content="http://iwifigame.com/tensorflow_stack_and_unstack/index.html">
+<meta property="og:title" content="算法 (一) 你真的懂冒泡吗">
+<meta property="og:url" content="http://iwifigame.com/algorithms_bubble_sort/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="1. tf.stack()tf.stack(values, axis=0, name=’stack’)以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。 假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。如果轴axis=1，则转变后的张量的形状为">
+<meta property="og:description" content="如果现在让你写一个冒泡排序，估计很多人都不能写出来。甚至对于其原理也只能支支唔唔，含糊不清，说个大概。不是说这个算法有多难，而是我们当时，看的时候记得，也懂了。但随着时间的推移，慢慢忘记了。很多知识都是这样。 这篇文章的目的就是让你一生都记住冒泡排序，永远不忘记。让你在任何时间，任何地点，使用任何你会的语言，都能在十分钟之内写出正确的冒泡算法。 1. 冒泡是什么要想随时随地都记住什么是冒泡排序，使">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-20T14:21:24.178Z">
+<meta property="og:image" content="http://iwifigame.com/algorithms_bubble_sort/0.jpg">
+<meta property="og:image" content="http://iwifigame.com/algorithms_bubble_sort/1.gif">
+<meta property="og:updated_time" content="2017-09-20T15:56:01.744Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TensorFlow stack 与 unstack 详细介绍">
-<meta name="twitter:description" content="1. tf.stack()tf.stack(values, axis=0, name=’stack’)以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。 假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。如果轴axis=1，则转变后的张量的形状为">
+<meta name="twitter:title" content="算法 (一) 你真的懂冒泡吗">
+<meta name="twitter:description" content="如果现在让你写一个冒泡排序，估计很多人都不能写出来。甚至对于其原理也只能支支唔唔，含糊不清，说个大概。不是说这个算法有多难，而是我们当时，看的时候记得，也懂了。但随着时间的推移，慢慢忘记了。很多知识都是这样。 这篇文章的目的就是让你一生都记住冒泡排序，永远不忘记。让你在任何时间，任何地点，使用任何你会的语言，都能在十分钟之内写出正确的冒泡算法。 1. 冒泡是什么要想随时随地都记住什么是冒泡排序，使">
+<meta name="twitter:image" content="http://iwifigame.com/algorithms_bubble_sort/0.jpg">
 
 
 
@@ -136,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://iwifigame.com/tensorflow_stack_and_unstack/"/>
+  <link rel="canonical" href="http://iwifigame.com/algorithms_bubble_sort/"/>
 
 
 
 
 
-  <title>TensorFlow stack 与 unstack 详细介绍 | 爱 wifi 游戏</title>
+  <title>算法 (一) 你真的懂冒泡吗 | 爱 wifi 游戏</title>
   
 
 
@@ -279,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/tensorflow_stack_and_unstack/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/algorithms_bubble_sort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -296,7 +299,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">TensorFlow stack 与 unstack 详细介绍</h2>
+          <h2 class="post-title" itemprop="name headline">算法 (一) 你真的懂冒泡吗</h2>
         
 
         <div class="post-meta">
@@ -308,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T06:58:00+08:00">
-                2017-09-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T22:26:28+08:00">
+                2017-09-20
               </time>
             
 
@@ -331,8 +334,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TensorFlow/" itemprop="url" rel="index">
-                    <span itemprop="name">TensorFlow</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -348,7 +351,7 @@
 
           
           
-             <span id="/tensorflow_stack_and_unstack/" class="leancloud_visitors" data-flag-title="TensorFlow stack 与 unstack 详细介绍">
+             <span id="/algorithms_bubble_sort/" class="leancloud_visitors" data-flag-title="算法 (一) 你真的懂冒泡吗">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -379,19 +382,15 @@
       
 
       
-        <h2 id="1-tf-stack"><a href="#1-tf-stack" class="headerlink" title="1. tf.stack()"></a>1. tf.stack()</h2><p><strong>tf.stack(values, axis=0, name=’stack’)</strong><br><strong>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R+1的张量。即将一组张量以指定的轴，提高一个维度。</strong></p>
-<p>假设要转变的张量数组的长度为N,其中的每个张量的形状为(A, B, C)。<br>如果轴axis=0，则转变后的张量的形状为(N, A, B, C)。<br>如果轴axis=1，则转变后的张量的形状为(A, N, B, C)。<br>如果轴axis=2，则转变后的张量的形状为(A, B, N, C)。其它情况依次类推。  </p>
-<p>举例如下：<br>‘x’ is [1, 4]， 形状是(2)，维度为1<br>‘y’ is [2, 5]， 形状是(2)，维度为1<br>‘z’ is [3, 6]， 形状是(2)，维度为1<br>stack([x, y, z]) =&gt; [[1, 4], [2, 5], [3, 6]]  # axis的值默认为0。输出的形状为(3, 2)<br>stack([x, y, z], axis=1) =&gt; [[1, 2, 3], [4, 5, 6]] # axis的值为1。输出的形状为(2, 3)</p>
-<p>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]]，形状是(3,4)，维度为2<br>‘y’ is [[4,4,4,4],[5,5,5,5],[6,6,6,6]]，形状是(3,4)，维度为2<br>stack([x,y]) =&gt; [[[1,1,1,1],[2,2,2,2],[3,3,3,3]], [[4,4,4,4],[5,5,5,5],[6,6,6,6]]] # axis的值默认为0。输出的形状为(2, 3, 4)<br>stack([x,y],axis=1) =&gt; [[[1,1,1,1],[4,4,4,4]],[[2,2,2,2],[5,5,5,5]],[[3,3,3,3],[6,6,6,6]]] # axis的值为1。输出的形状为(3, 2, 4)<br>stack([x,y],axis=2) =&gt; [[[1,4],[1,4],[1,4],[1,4]],[[2,5],[2,5],[2,5],[2,5]],[[3,6],[3,6],[3,6],[3,6]]]# axis的值为2。输出的形状为(3, 4, 2)  </p>
-<p><strong>axis可这样理解：stack就是要将一组相同形状的张量提高一个维度。axis就是这些张量里，将axis指定的维度用所有这些张量数组代替。如axis=2，表示指定在第2个维度，原来的元素用整个张量数组里的元素代替，即从(A, B, C)转变为(A, B, N, C)</strong></p>
-<p><strong>参数:</strong><br>values: 一个有相同形状与数据类型的张量数组。<br>axis: 以轴axis为中心来转变的整数。默认是第一个维度即axis=0。支持负数。取值范围为[-(R+1), R+1)<br>name: 这个操作的名字（可选）<br><strong>返回:</strong><br>被提高一个维度后的张量。<br><strong>异常:</strong><br>ValueError: 如果轴axis超出范围[-(R+1), R+1).  </p>
-<hr>
-<h2 id="2-tf-unstack"><a href="#2-tf-unstack" class="headerlink" title="2. tf.unstack()"></a>2. tf.unstack()</h2><p><strong>tf.unstack(value, num=None, axis=0, name=’unstack’)<br>以指定的轴axis，将一个维度为R的张量数组转变成一个维度为R-1的张量。即将一组张量以指定的轴，减少一个维度。正好和stack()相反。</strong></p>
-<p>将张量value分割成num个张量数组。如果num没有指定，则是根据张量value的形状来指定。如果value.shape[axis]不存在，则抛出ValueError的异常。</p>
-<p>假如一个张量的形状是(A, B, C, D)。<br>如果axis == 0，则输出的张量是value[i, :, :, :],i取值为[0,A)，每个输出的张量的形状为(B,C,D)。<br>如果axis == 1，则输出的张量是value[:, i, :, :],i取值为[0,B)，每个输出的张量的形状为(A,C,D)。<br>如果axis == 2，则输出的张量是value[:, :, i, :],i取值为[0,C)，每个输出的张量的形状为(A,B,D)。依次类推。  </p>
-<p>举例如下：<br>‘x’ is [[1,1,1,1],[2,2,2,2],[3,3,3,3]] # 形状是(3,4)，维度为2<br>unstack(x,axis=0) =&gt;以指定的维度0为轴，转变成3个形状为(4)张量[1,1,1,1],[2,2,2,2],[3,3,3,3]<br>unstack(x,axis=1) =&gt;以指定的维度1为轴，转变成4个形状为(3)张量[1,2,3],[1,2,3],[1,2,4],[1,2,3]  </p>
-<p><strong>axis可这样理解：unstack就是要将一个张量降低为低一个维度的张量数组。axis就是将axis指定的维度，用所有这个张量里同维度的数据代替。 </strong></p>
-<p><strong>参数:</strong><br>value: 一个将要被降维的维度大于0的张量。<br>num: 整数。指定的维度axis的长度。如果设置为None(默认值),将自动求值。<br>axis: 整数.以轴axis指定的维度来转变 默认是第一个维度即axis=0。支持负数。取值范围为[-R, R)<br>name: 这个操作的名字（可选）<br><strong>返回:</strong><br>从张量value降维后的张量数组。<br><strong>异常:</strong><br>ValueError: 如果num没有指定并且无法求出来。<br>ValueError: 如果axis超出范围 [-R, R)。  </p>
+        <p>如果现在让你写一个冒泡排序，估计很多人都不能写出来。甚至对于其原理也只能支支唔唔，含糊不清，说个大概。不是说这个算法有多难，而是我们当时，看的时候记得，也懂了。但随着时间的推移，慢慢忘记了。很多知识都是这样。</p>
+<p>这篇文章的目的就是让你一生都记住冒泡排序，永远不忘记。让你在任何时间，任何地点，使用任何你会的语言，都能在十分钟之内写出正确的冒泡算法。</p>
+<h2 id="1-冒泡是什么"><a href="#1-冒泡是什么" class="headerlink" title="1. 冒泡是什么"></a>1. 冒泡是什么</h2><p>要想随时随地都记住什么是冒泡排序，使用死记硬背肯定是不行的，即使当时你理解了它，随着时间推移也可能不行。想想现在你还能不能清楚地记得它，就知道这个方法是行不通的。</p>
+<p>因此，我们需要一种记忆技巧，一种追本溯源方法，这里，我们直接思考冒泡的意思。冒泡是什么意思？这个简单，江里、湖里、杯子里的气泡，往水上冒，就叫冒泡。气泡越大，往上冒的速度就越快。</p>
+<h2 id="2-冒泡排序又是什么"><a href="#2-冒泡排序又是什么" class="headerlink" title="2. 冒泡排序又是什么"></a>2. 冒泡排序又是什么</h2><p>冒泡排序为什么叫冒泡排序，而不叫其它的？事物的名字，一般直接反应了事物的本质。这是我们取名时，自然而然想到的，最容易理解，最容易记忆的。像电脑、天空、太阳、人工智能、深度学习等等，太多太多反应了事物的本质，名字不是随便取的。</p>
+<p>因此，要记忆冒泡排序，肯定就得和冒泡这个自然现象联系起来。先看冒泡排序的 C 语言实现。如下。<br><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 对数组 arr 中的前 len 个数进行冒泡排序</span></div><div class="line">void bubble_sort(<span class="keyword">int</span> arr[], <span class="keyword">int</span> <span class="built_in">len</span>) &#123;</div><div class="line">	<span class="keyword">int</span> i, j, temp;</div><div class="line">    <span class="comment">// i标示了数组最后，已经排好位置的最大数。</span></div><div class="line">    <span class="comment">// 随着排序的进行，数组最后i个数不再需要考虑，已经排好了</span></div><div class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">len</span> - <span class="number">1</span>; i++)</div><div class="line">        <span class="comment">// 从最开始第0个数开始，如果当前数j比它后面的</span></div><div class="line">        <span class="comment">//数j+1大，则交换，即往后冒。直到数组最后没排好序的位置。</span></div><div class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="built_in">len</span> - <span class="number">1</span> - i; j++)</div><div class="line">			<span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</div><div class="line">				temp = arr[j];</div><div class="line">				arr[j] = arr[j + <span class="number">1</span>];</div><div class="line">				arr[j + <span class="number">1</span>] = temp;</div><div class="line">			&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>冒泡排序就是像自然中冒泡的现象一样，把数据排好序。解释如下。</p>
+<p>想象有一个直上直下的圆筒，圆筒中装满了水。水中竖直悬浮着大大小小的气泡，圆筒中每个位置有且只有一个气泡。气泡由于浮力的作用，会不断地往上浮。每次从最下面的气泡开始，如果这个气泡碰到上面比它小的气泡，它就和这个小的气泡交换位置；如果这个气泡碰到上面比它大的气泡，它就保持不动，然后那个大的气泡接替它，继续这样往上浮，直到碰到圆筒最上面，已经排好序了的都比它大的气泡为止。随着气泡们这样不断地上浮，最终圆筒中的气泡，会变成大气泡在上，小气泡在下的排好序的形式，冒泡排序完毕。可以看见，越大的气泡，越会快速地上升到圆筒的顶端，这正好和气泡越大，往上冒的速度越快的自然现象不谋而合。这又让你不得不佩服取名者的智慧。<br><img src="/algorithms_bubble_sort/0.jpg" alt=""></p>
+<p>一图胜千言。上面的解释，再结合下面的动态图，相信你会更加明了。相信在未来的某一天，你会一说冒泡排序，就会想到自然界中的冒泡现象，自然而然地写出冒泡排序算法。<br><img src="/algorithms_bubble_sort/1.gif" alt=""></p>
 
       
     </div>
@@ -441,7 +440,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://iwifigame.com/tensorflow_stack_and_unstack/" title="TensorFlow stack 与 unstack 详细介绍">http://iwifigame.com/tensorflow_stack_and_unstack/</a>
+    <a href="http://iwifigame.com/algorithms_bubble_sort/" title="算法 (一) 你真的懂冒泡吗">http://iwifigame.com/algorithms_bubble_sort/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -456,7 +455,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+            <a href="/tags/算法/" rel="tag"># 算法</a>
           
         </div>
       
@@ -469,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/tensorflow_deep_understanding/" rel="next" title="TensorFlow (三) 深入理解">
-                <i class="fa fa-chevron-left"></i> TensorFlow (三) 深入理解
+              <a href="/null/" rel="next" title="TensorFlow LSTM 详解">
+                <i class="fa fa-chevron-left"></i> TensorFlow LSTM 详解
               </a>
             
           </div>
@@ -479,8 +478,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/python_draw_image/" rel="prev" title="Python 图表绘制 Pyplot">
-                Python 图表绘制 Pyplot <i class="fa fa-chevron-right"></i>
+              <a href="/tensorflow_curve_fitting/" rel="prev" title="TensorFlow (五) 曲线拟合">
+                TensorFlow (五) 曲线拟合 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -620,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-tf-stack"><span class="nav-text">1. tf.stack()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-tf-unstack"><span class="nav-text">2. tf.unstack()</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-冒泡是什么"><span class="nav-text">1. 冒泡是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-冒泡排序又是什么"><span class="nav-text">2. 冒泡排序又是什么</span></a></li></ol></div>
             
 
           </div>

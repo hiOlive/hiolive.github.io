@@ -98,14 +98,14 @@
 <meta name="description" content="前面几篇文章尽量用通俗的语言讲了TensorFlow的基本理解、数据总结、深入理解。接下来的将通过一个个实例，由浅入深，一步步介绍曲线模拟、手写数字识别简单版、手写数字识别卷积版、写中文诗递归神经网络版、手写数字识别LSTM等。文章中首先分析这些实例实现的深层原理，然后把统一可运行的代码放在最后，保证亲测可运行。这些文章所使用的TensorFlow版本是目前最新的0.12.0-rc1。应该怎么">
 <meta name="keywords" content="TensorFlow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TensorFlow(四) 曲线拟合">
+<meta property="og:title" content="TensorFlow (五) 曲线拟合">
 <meta property="og:url" content="http://iwifigame.com/tensorflow_curve_fitting/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
 <meta property="og:description" content="前面几篇文章尽量用通俗的语言讲了TensorFlow的基本理解、数据总结、深入理解。接下来的将通过一个个实例，由浅入深，一步步介绍曲线模拟、手写数字识别简单版、手写数字识别卷积版、写中文诗递归神经网络版、手写数字识别LSTM等。文章中首先分析这些实例实现的深层原理，然后把统一可运行的代码放在最后，保证亲测可运行。这些文章所使用的TensorFlow版本是目前最新的0.12.0-rc1。应该怎么">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-19T03:29:46.656Z">
+<meta property="og:updated_time" content="2017-09-20T14:29:24.397Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TensorFlow(四) 曲线拟合">
+<meta name="twitter:title" content="TensorFlow (五) 曲线拟合">
 <meta name="twitter:description" content="前面几篇文章尽量用通俗的语言讲了TensorFlow的基本理解、数据总结、深入理解。接下来的将通过一个个实例，由浅入深，一步步介绍曲线模拟、手写数字识别简单版、手写数字识别卷积版、写中文诗递归神经网络版、手写数字识别LSTM等。文章中首先分析这些实例实现的深层原理，然后把统一可运行的代码放在最后，保证亲测可运行。这些文章所使用的TensorFlow版本是目前最新的0.12.0-rc1。应该怎么">
 
 
@@ -142,7 +142,7 @@
 
 
 
-  <title>TensorFlow(四) 曲线拟合 | 爱 wifi 游戏</title>
+  <title>TensorFlow (五) 曲线拟合 | 爱 wifi 游戏</title>
   
 
 
@@ -296,7 +296,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">TensorFlow(四) 曲线拟合</h2>
+          <h2 class="post-title" itemprop="name headline">TensorFlow (五) 曲线拟合</h2>
         
 
         <div class="post-meta">
@@ -308,8 +308,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T19:05:12+08:00">
-                2017-09-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T22:27:00+08:00">
+                2017-09-20
               </time>
             
 
@@ -348,7 +348,7 @@
 
           
           
-             <span id="/tensorflow_curve_fitting/" class="leancloud_visitors" data-flag-title="TensorFlow(四) 曲线拟合">
+             <span id="/tensorflow_curve_fitting/" class="leancloud_visitors" data-flag-title="TensorFlow (五) 曲线拟合">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -383,7 +383,7 @@
 
 <p>前面几篇文章尽量用通俗的语言讲了TensorFlow的<a href="http://iwifigame.com/tensorflow_basic_understanding/">基本理解</a>、<a href="http://iwifigame.com/tensorflow_data_summary/">数据总结</a>、<a href="http://iwifigame.com/tensorflow_deep_understanding">深入理解</a>。接下来的将通过一个个实例，由浅入深，一步步介绍曲线模拟、手写数字识别简单版、手写数字识别卷积版、写中文诗递归神经网络版、手写数字识别LSTM等。文章中首先分析这些实例实现的深层原理，然后把统一可运行的代码放在最后，保证亲测可运行。这些文章所使用的TensorFlow版本是目前最新的0.12.0-rc1。<br>应该怎么样来写智能程序。相信我，从目前来看，对于大部分要通过学习来完成的事情，用机器学习来写比硬编码所有可能情况，真的是简单太多了。</p>
 <p>本文以曲线拟合为例子，详细说明基本的函数api，TensorFlow程序的基本结构，数据的坐标轴显示等。这个程序虽然看上去简单，但其充分直观地体现了机器学习的过程。</p>
-<h2 id="曲线拟合原理"><a href="#曲线拟合原理" class="headerlink" title="曲线拟合原理"></a>曲线拟合原理</h2><h2 id="数据生成、显示"><a href="#数据生成、显示" class="headerlink" title="数据生成、显示"></a>数据生成、显示</h2><h2 id="数据保存与还原"><a href="#数据保存与还原" class="headerlink" title="数据保存与还原"></a>数据保存与还原</h2><h2 id="训练过程设计"><a href="#训练过程设计" class="headerlink" title="训练过程设计"></a>训练过程设计</h2>
+<h2 id="1-曲线拟合原理"><a href="#1-曲线拟合原理" class="headerlink" title="1. 曲线拟合原理"></a>1. 曲线拟合原理</h2><h2 id="2-数据生成、显示"><a href="#2-数据生成、显示" class="headerlink" title="2. 数据生成、显示"></a>2. 数据生成、显示</h2><h2 id="3-数据保存与还原"><a href="#3-数据保存与还原" class="headerlink" title="3. 数据保存与还原"></a>3. 数据保存与还原</h2><h2 id="4-训练过程设计"><a href="#4-训练过程设计" class="headerlink" title="4. 训练过程设计"></a>4. 训练过程设计</h2>
       
     </div>
     
@@ -403,15 +403,15 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="iwifigame WeChat Pay"/>
-        <p>微信打赏</p>
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="iwifigame 微信支付"/>
+        <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="iwifigame Alipay"/>
-        <p>支付宝打赏</p>
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="iwifigame 支付宝"/>
+        <p>支付宝</p>
       </div>
     
 
@@ -432,7 +432,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://iwifigame.com/tensorflow_curve_fitting/" title="TensorFlow(四) 曲线拟合">http://iwifigame.com/tensorflow_curve_fitting/</a>
+    <a href="http://iwifigame.com/tensorflow_curve_fitting/" title="TensorFlow (五) 曲线拟合">http://iwifigame.com/tensorflow_curve_fitting/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -460,8 +460,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/tensorflow_deep_understanding/" rel="next" title="TensorFlow(三) 深入理解">
-                <i class="fa fa-chevron-left"></i> TensorFlow(三) 深入理解
+              <a href="/algorithms_bubble_sort/" rel="next" title="算法 (一) 你真的懂冒泡吗">
+                <i class="fa fa-chevron-left"></i> 算法 (一) 你真的懂冒泡吗
               </a>
             
           </div>
@@ -469,10 +469,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/tensorflow_stack_and_unstack/" rel="prev" title="TensorFlow stack 与 unstack 详细介绍">
-                TensorFlow stack 与 unstack 详细介绍 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -565,7 +561,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -576,7 +572,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -611,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#曲线拟合原理"><span class="nav-text">曲线拟合原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据生成、显示"><span class="nav-text">数据生成、显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据保存与还原"><span class="nav-text">数据保存与还原</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练过程设计"><span class="nav-text">训练过程设计</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-曲线拟合原理"><span class="nav-text">1. 曲线拟合原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数据生成、显示"><span class="nav-text">2. 数据生成、显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数据保存与还原"><span class="nav-text">3. 数据保存与还原</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-训练过程设计"><span class="nav-text">4. 训练过程设计</span></a></li></ol></div>
             
 
           </div>
@@ -643,7 +639,7 @@
   
 </div>
 
-<!--
+<!-- ����ʾhexo ��ע
 
   <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 

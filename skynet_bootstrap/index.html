@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="skynet 结点skynet 启动流程skynet 配置文件skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。 skynet 节点通过运行 skynet 主程序启动，必须在启动命令行传入一个 Config 文件名作为启动参数。skynet 会读取这个 config 文件获得启动需要的参数。 第一个启动的服务是 logger ，它">
+<meta name="description" content="1. skynet 结点2. skynet 启动流程3. skynet 配置文件skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。 skynet 节点通过运行 skynet 主程序启动，必须在启动命令行传入一个 Config 文件名作为启动参数。skynet 会读取这个 config 文件获得启动需要的参数。 第一个启动的服务是">
 <meta name="keywords" content="skynet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="skynet(一) 启动">
 <meta property="og:url" content="http://iwifigame.com/skynet_bootstrap/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="skynet 结点skynet 启动流程skynet 配置文件skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。 skynet 节点通过运行 skynet 主程序启动，必须在启动命令行传入一个 Config 文件名作为启动参数。skynet 会读取这个 config 文件获得启动需要的参数。 第一个启动的服务是 logger ，它">
+<meta property="og:description" content="1. skynet 结点2. skynet 启动流程3. skynet 配置文件skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。 skynet 节点通过运行 skynet 主程序启动，必须在启动命令行传入一个 Config 文件名作为启动参数。skynet 会读取这个 config 文件获得启动需要的参数。 第一个启动的服务是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-19T03:29:46.656Z">
+<meta property="og:updated_time" content="2017-09-20T14:20:44.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="skynet(一) 启动">
-<meta name="twitter:description" content="skynet 结点skynet 启动流程skynet 配置文件skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。 skynet 节点通过运行 skynet 主程序启动，必须在启动命令行传入一个 Config 文件名作为启动参数。skynet 会读取这个 config 文件获得启动需要的参数。 第一个启动的服务是 logger ，它">
+<meta name="twitter:description" content="1. skynet 结点2. skynet 启动流程3. skynet 配置文件skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。 skynet 节点通过运行 skynet 主程序启动，必须在启动命令行传入一个 Config 文件名作为启动参数。skynet 会读取这个 config 文件获得启动需要的参数。 第一个启动的服务是">
 
 
 
@@ -379,7 +379,7 @@
       
 
       
-        <h2 id="skynet-结点"><a href="#skynet-结点" class="headerlink" title="skynet 结点"></a>skynet 结点</h2><h2 id="skynet-启动流程"><a href="#skynet-启动流程" class="headerlink" title="skynet 启动流程"></a>skynet 启动流程</h2><h2 id="skynet-配置文件"><a href="#skynet-配置文件" class="headerlink" title="skynet 配置文件"></a>skynet 配置文件</h2><p>skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。</p>
+        <h2 id="1-skynet-结点"><a href="#1-skynet-结点" class="headerlink" title="1. skynet 结点"></a>1. skynet 结点</h2><h2 id="2-skynet-启动流程"><a href="#2-skynet-启动流程" class="headerlink" title="2. skynet 启动流程"></a>2. skynet 启动流程</h2><h2 id="3-skynet-配置文件"><a href="#3-skynet-配置文件" class="headerlink" title="3. skynet 配置文件"></a>3. skynet 配置文件</h2><p>skynet 由一个或多个进程构成，每个进程被称为一个 skynet 节点。本文描述了 skynet 节点的启动流程。</p>
 <p>skynet 节点通过运行 skynet 主程序启动，必须在启动命令行传入一个 Config 文件名作为启动参数。skynet 会读取这个 config 文件获得启动需要的参数。</p>
 <p>第一个启动的服务是 logger ，它负责记录之后的服务中的 log 输出。logger 是一个简单的 C 服务，skynet_error 这个 C API 会把字符串发送给它。在 config 文件中，logger 配置项可以配置 log 输出的文件名，默认是 nil ，表示输出到标准输出。</p>
 <p>bootstrap 这个配置项关系着 skynet 运行的第二个服务。通常通过这个服务把整个系统启动起来。默认的 bootstrap 配置项为 “snlua bootstrap” ，这意味着，skynet 会启动 snlua 这个服务，并将 bootstrap 作为参数传给它。snlua 是 lua 沙盒服务，bootstrap 会根据配置的 luaservice 匹配到最终的 lua 脚本。如果按默认配置，这个脚本应该是 service/bootstrap.lua 。</p>
@@ -449,15 +449,15 @@ skynet.exit()
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="iwifigame WeChat Pay"/>
-        <p>微信打赏</p>
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="iwifigame 微信支付"/>
+        <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="iwifigame Alipay"/>
-        <p>支付宝打赏</p>
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="iwifigame 支付宝"/>
+        <p>支付宝</p>
       </div>
     
 
@@ -506,8 +506,8 @@ skynet.exit()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/tensorflow_data_summary/" rel="next" title="TensorFlow(二) 数据总结">
-                <i class="fa fa-chevron-left"></i> TensorFlow(二) 数据总结
+              <a href="/tensorflow_data_summary/" rel="next" title="TensorFlow (二) 数据总结">
+                <i class="fa fa-chevron-left"></i> TensorFlow (二) 数据总结
               </a>
             
           </div>
@@ -516,8 +516,8 @@ skynet.exit()
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/tensorflow_deep_understanding/" rel="prev" title="TensorFlow(三) 深入理解">
-                TensorFlow(三) 深入理解 <i class="fa fa-chevron-right"></i>
+              <a href="/tensorflow_deep_understanding/" rel="prev" title="TensorFlow (三) 深入理解">
+                TensorFlow (三) 深入理解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -611,7 +611,7 @@ skynet.exit()
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -622,7 +622,7 @@ skynet.exit()
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -657,7 +657,7 @@ skynet.exit()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#skynet-结点"><span class="nav-text">skynet 结点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#skynet-启动流程"><span class="nav-text">skynet 启动流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#skynet-配置文件"><span class="nav-text">skynet 配置文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-skynet-结点"><span class="nav-text">1. skynet 结点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-skynet-启动流程"><span class="nav-text">2. skynet 启动流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-skynet-配置文件"><span class="nav-text">3. skynet 配置文件</span></a></li></ol></div>
             
 
           </div>
@@ -689,7 +689,7 @@ skynet.exit()
   
 </div>
 
-<!--
+<!-- ����ʾhexo ��ע
 
   <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
