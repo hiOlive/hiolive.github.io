@@ -4,6 +4,71 @@
 
     
   <url>
+    <loc>http://iwifigame.com/tensorflow_windows_install/</loc>
+    <lastmod>2017-09-20T13:33:27.707Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow (四) Windows 安装</title>
+        <pubTime>2017-09-19T13:11:22.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/null/</loc>
+    <lastmod>2017-09-20T08:48:38.156Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow LSTM 详解</title>
+        <pubTime>2017-09-20T08:48:12.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/null/</loc>
+    <lastmod>2017-09-20T08:45:27.652Z</lastmod>
+    <data>
+        <display>
+        <title>你真的懂冒泡(排序)吗</title>
+        <pubTime>2017-09-20T03:35:37.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/null/</loc>
+    <lastmod>2017-09-19T13:09:00.737Z</lastmod>
+    <data>
+        <display>
+        <title>Linux 超神之路之 First Blood 安装篇</title>
+        <pubTime>2017-09-19T13:09:00.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://iwifigame.com/linux_windows_mac_share_mouse/</loc>
     <lastmod>2017-09-17T01:40:12.335Z</lastmod>
     <data>
@@ -338,19 +403,4 @@
 
     
     
-    
-  <url>
-    <loc>http://iwifigame.com/undefined/</loc>
-    <lastmod>2017-08-31T13:03:12.947Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2017-08-31T13:03:12.946Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>

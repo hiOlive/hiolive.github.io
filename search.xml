@@ -3,6 +3,73 @@
   
     
     <entry>
+      <title><![CDATA[TensorFlow LSTM 详解]]></title>
+      <url>/null/</url>
+      <content type="html"><![CDATA[<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias, input_size, state_is_tupe=Flase, activation=tanh)</span></div><div class="line">cell = tf.nn.rnn_cell.BasicLSTMCell(num_units, <span class="attribute">forget_bias</span>=1.0, <span class="attribute">input_size</span>=None, <span class="attribute">state_is_tupe</span>=Flase, <span class="attribute">activation</span>=tanh)</div><div class="line"><span class="comment">#num_units:图一中ht的维数，如果num_units=10,那么ht就是10维行向量</span></div><div class="line"><span class="comment">#forget_bias：还不清楚这个是干嘛的</span></div><div class="line"><span class="comment">#input_size:[batch_size, max_time, size]。假设要输入一句话，这句话的长度是不固定的，max_time就代表最长的那句话是多长，size表示你打算用多长的向量代表一个word，即embedding_size（embedding_size和size的值不一定要一样）</span></div><div class="line"><span class="comment">#state_is_tuple:true的话，返回的状态是一个tuple:(c=array([[]]), h=array([[]]):其中c代表Ct的最后时间的输出，h代表Ht最后时间的输出，h是等于最后一个时间的output的</span></div><div class="line"><span class="comment">#图三向上指的ht称为output</span></div><div class="line"><span class="comment">#此函数返回一个lstm_cell，即图一中的一个A</span></div></pre></td></tr></table></figure>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[你真的懂冒泡(排序)吗]]></title>
+      <url>/null/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[TensorFlow (四) Windows 安装]]></title>
+      <url>/tensorflow_windows_install/</url>
+      <content type="html"><![CDATA[<p>纸上得来终觉浅，觉知此事要躬行。从原理上说了TensorFlow 3 大篇（<a href="http://iwifigame.com/tensorflow_basic_understanding/">基本理解</a>，<a href="http://iwifigame.com/tensorflow_data_summary/">数据总结</a>，<a href="http://iwifigame.com/tensorflow_deep_understanding/">深入理解</a>），总感觉离它就是隔了那么一点点距离。就像你站在妹子面前，空有一堆武功，却不知如何施展。解决办法就是，把它安装好，好好体验一翻。</p>
+<p>本文以用户最多的操作系统 Windows 为例，只讲最简单的 CPU 安装方法，因为我们大部分人可能只是想先大概了解一下 TensorFlow。等大家安装完，使用一段时间后，对 TensorFlow 越来越熟悉后，可以尝试其它复杂的安装方法。而不是一上来，就卡在安装上。大部分人学习新技术，都死在了环境的安装上。有了环境，就可以体验式学习，学习的速度是有着质的飞越的。这就像学游泳，在岸上是永远学不会的，一脚踹下去，深藏功与名，才是正道。</p>
+<p>我们学习技术，可能是受以前生活的影响（电器稍微不注意就就坏），大部分人总怕一不小心就把电脑弄坏了。总小心翼翼地伺候着：不敢多装几个软件，怕磁盘满了；不敢胡乱折腾，怕电脑开不了机…。其实这也是学习技术的大忌。现在的电器不像以前了，大家使劲造吧，弄不坏的。软件可以装了又删；磁盘满了，可以清空；系统变慢了，可以优化一下，实在不行，可以上核武器，重装系统。目前为止，我还没有看见谁玩软件，能把电脑硬件弄坏的。我们需要这种放开手脚干的精神，这才是真正快速学技术的精神。不把电脑虐它个千万遍，怎对得起我3000大洋的血汗钱。</p>
+<h2 id="TensorFlow-官网"><a href="#TensorFlow-官网" class="headerlink" title="TensorFlow 官网"></a>TensorFlow 官网</h2><p>中国把人家官网都禁了，在国内无法正常访问。我不知道这算不算国家的自相矛盾。上层说要大力发展人工智能，却把最大的人工智能官网屏蔽。让你有时真想ctmd，哪个sb做的。不过，这种小事难不倒我们万能的程序员。 方法如下。</p>
+<ol>
+<li>修改 Windows hosts文件。什么？不懂什么是hosts，没事，做技术久了，自然就懂了。现在就当我没说，照着下面做就可以了。</li>
+</ol>
+<p>打开C:\Windows\System32\drivers\etc中的host文件. 添加如下内容，保存，OK 搞定。打开<a href="https://www.tensorflow.org" target="_blank" rel="external">TensorFlow官网</a>，测试一下。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">64<span class="selector-class">.233</span><span class="selector-class">.188</span><span class="selector-class">.121</span>  <span class="selector-tag">www</span><span class="selector-class">.tensorflow</span><span class="selector-class">.org</span></div></pre></td></tr></table></figure></p>
+<ol>
+<li>TensorFlow 官网能打开后，主页如下。里面有 TensorFlow 的第一手资料，从安装到实例、到 API 等等。刚开始，多看看里面的教程，把相关代码复制粘贴，运行一遍，然后给每行代码添加注释。一轮下来，我保证你们每个人都会从心底里说，机器学习太简单了！<br><img src="/tensorflow_windows_install/1.png" alt=""></li>
+</ol>
+<h2 id="TensorFlow-Windows-安装"><a href="#TensorFlow-Windows-安装" class="headerlink" title="TensorFlow Windows 安装"></a>TensorFlow Windows 安装</h2><p>最新的安装教程都能从官网上找到。下面是最新版最简单的 TensorFlow Windows CPU版，使用 Python pip 进行安装的教程。<br>从官网介绍来看，现在 TensorFlow 在 Windows 上只支持 64 位的 3.5 版本的 Python。如果你是好几年前的32位的电脑，那下面的内容就可以不看了。</p>
+<ol>
+<li><p>安装Pythone 3.5（<a href="https://www.python.org/downloads/release/python-352/" target="_blank" rel="external">点击官网下载</a>。我是不推荐 Anaconda 安装方法，主要原因就是包太大，400多M。而官网版本，我安装使用后，也没出现什么问题。 在最下面的文件中，选择x86_64位版本的windows安装包，安装即可。</p>
+</li>
+<li><p>安装 TensorFlow。打开命令行，输入如下命令，等待安装，大概几十M（妈的，以前我还以为TensorFlow至少得几百M）,安装就完成了。非常简单。这是截止到2017年9月19日，最新版的安装方法。如果以后TensorFlow更新了，请大家访问官网，查找最新版的安装办法。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install --upgrade https:<span class="regexp">//</span>storage.googleapis.com<span class="regexp">/tensorflow/</span>windows<span class="regexp">/cpu/</span>tensorflow-<span class="number">0.12</span>.<span class="number">0</span>rc1-cp35-cp35m-win_amd64.whl</div></pre></td></tr></table></figure>
+</li>
+<li><p>测试。开始体验了。打开命令行，照着下面命令来输。如果一切结果正常，恭喜你，TensorFlow 环境搭建完毕。大家开始使劲造吧。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> python</span></div><div class="line">...</div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; import tensorflow as tf</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; hello = tf.constant(<span class="string">'Hello, TensorFlow!'</span>)</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; sess = tf.Session()</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(sess.run(hello))</span></div><div class="line">Hello, TensorFlow!</div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; a = tf.constant(10)</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; b = tf.constant(32)</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(sess.run(a + b))</span></div><div class="line">42</div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> TensorFlow </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> TensorFlow </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Linux 超神之路之 First Blood 安装篇]]></title>
+      <url>/null/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Linux Windows Mac 终极鼠标共享 Synergy]]></title>
       <url>/linux_windows_mac_share_mouse/</url>
       <content type="html"><![CDATA[<p>Synergy 是我用的，目前为止支持平台最多的、使用最方便、最稳定的鼠标与键盘共享软件。我还使用过只支持windows平台的Mouse without Borders键鼠共享软件,这是微软出品的只支持windows平台，如果你只想在windows电脑之间共享键鼠，不防使用它。同时我还用过其它的，但已不记得名字了。总的来说，Synergy除却后面提到的版本难找的缺点，它是这一类软件中最好的。<br><img src="/linux_windows_mac_share_mouse/0.png" alt=""></p>
@@ -670,15 +737,6 @@ skynet.exit()
             <tag> web </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>/undefined/</url>
-      <content type="html"><![CDATA[<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias, input_size, state_is_tupe=Flase, activation=tanh)</span></div><div class="line">cell = tf.nn.rnn_cell.BasicLSTMCell(num_units, <span class="attribute">forget_bias</span>=1.0, <span class="attribute">input_size</span>=None, <span class="attribute">state_is_tupe</span>=Flase, <span class="attribute">activation</span>=tanh)</div><div class="line"><span class="comment">#num_units:图一中ht的维数，如果num_units=10,那么ht就是10维行向量</span></div><div class="line"><span class="comment">#forget_bias：还不清楚这个是干嘛的</span></div><div class="line"><span class="comment">#input_size:[batch_size, max_time, size]。假设要输入一句话，这句话的长度是不固定的，max_time就代表最长的那句话是多长，size表示你打算用多长的向量代表一个word，即embedding_size（embedding_size和size的值不一定要一样）</span></div><div class="line"><span class="comment">#state_is_tuple:true的话，返回的状态是一个tuple:(c=array([[]]), h=array([[]]):其中c代表Ct的最后时间的输出，h代表Ht最后时间的输出，h是等于最后一个时间的output的</span></div><div class="line"><span class="comment">#图三向上指的ht称为output</span></div><div class="line"><span class="comment">#此函数返回一个lstm_cell，即图一中的一个A</span></div></pre></td></tr></table></figure>
-]]></content>
-      
         
     </entry>
     
