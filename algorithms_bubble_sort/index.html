@@ -105,7 +105,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://iwifigame.com/algorithms_bubble_sort/0.jpg">
 <meta property="og:image" content="http://iwifigame.com/algorithms_bubble_sort/1.gif">
-<meta property="og:updated_time" content="2017-09-20T15:56:01.744Z">
+<meta property="og:updated_time" content="2017-09-22T16:11:08.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法 (一) 你真的懂冒泡吗">
 <meta name="twitter:description" content="如果现在让你写一个冒泡排序，估计很多人都不能写出来。甚至对于其原理也只能支支唔唔，含糊不清，说个大概。不是说这个算法有多难，而是我们当时，看的时候记得，也懂了。但随着时间的推移，慢慢忘记了。很多知识都是这样。 这篇文章的目的就是让你一生都记住冒泡排序，永远不忘记。让你在任何时间，任何地点，使用任何你会的语言，都能在十分钟之内写出正确的冒泡算法。 1. 冒泡是什么要想随时随地都记住什么是冒泡排序，使">
@@ -389,8 +389,8 @@
 <h2 id="2-冒泡排序又是什么"><a href="#2-冒泡排序又是什么" class="headerlink" title="2. 冒泡排序又是什么"></a>2. 冒泡排序又是什么</h2><p>冒泡排序为什么叫冒泡排序，而不叫其它的？事物的名字，一般直接反应了事物的本质。这是我们取名时，自然而然想到的，最容易理解，最容易记忆的。像电脑、天空、太阳、人工智能、深度学习等等，太多太多反应了事物的本质，名字不是随便取的。</p>
 <p>因此，要记忆冒泡排序，肯定就得和冒泡这个自然现象联系起来。先看冒泡排序的 C 语言实现。如下。<br><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 对数组 arr 中的前 len 个数进行冒泡排序</span></div><div class="line">void bubble_sort(<span class="keyword">int</span> arr[], <span class="keyword">int</span> <span class="built_in">len</span>) &#123;</div><div class="line">	<span class="keyword">int</span> i, j, temp;</div><div class="line">    <span class="comment">// i标示了数组最后，已经排好位置的最大数。</span></div><div class="line">    <span class="comment">// 随着排序的进行，数组最后i个数不再需要考虑，已经排好了</span></div><div class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">len</span> - <span class="number">1</span>; i++)</div><div class="line">        <span class="comment">// 从最开始第0个数开始，如果当前数j比它后面的</span></div><div class="line">        <span class="comment">//数j+1大，则交换，即往后冒。直到数组最后没排好序的位置。</span></div><div class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="built_in">len</span> - <span class="number">1</span> - i; j++)</div><div class="line">			<span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</div><div class="line">				temp = arr[j];</div><div class="line">				arr[j] = arr[j + <span class="number">1</span>];</div><div class="line">				arr[j + <span class="number">1</span>] = temp;</div><div class="line">			&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>冒泡排序就是像自然中冒泡的现象一样，把数据排好序。解释如下。</p>
-<p>想象有一个直上直下的圆筒，圆筒中装满了水。水中竖直悬浮着大大小小的气泡，圆筒中每个位置有且只有一个气泡。气泡由于浮力的作用，会不断地往上浮。每次从最下面的气泡开始，如果这个气泡碰到上面比它小的气泡，它就和这个小的气泡交换位置；如果这个气泡碰到上面比它大的气泡，它就保持不动，然后那个大的气泡接替它，继续这样往上浮，直到碰到圆筒最上面，已经排好序了的都比它大的气泡为止。随着气泡们这样不断地上浮，最终圆筒中的气泡，会变成大气泡在上，小气泡在下的排好序的形式，冒泡排序完毕。可以看见，越大的气泡，越会快速地上升到圆筒的顶端，这正好和气泡越大，往上冒的速度越快的自然现象不谋而合。这又让你不得不佩服取名者的智慧。<br><img src="/algorithms_bubble_sort/0.jpg" alt=""></p>
-<p>一图胜千言。上面的解释，再结合下面的动态图，相信你会更加明了。相信在未来的某一天，你会一说冒泡排序，就会想到自然界中的冒泡现象，自然而然地写出冒泡排序算法。<br><img src="/algorithms_bubble_sort/1.gif" alt=""></p>
+<p>想象有一个直上直下的圆筒，圆筒中装满了水。水中竖直悬浮着大大小小的气泡，圆筒中每个位置有且只有一个气泡。气泡由于浮力的作用，会不断地往上浮。每次从最下面的气泡开始，如果这个气泡碰到上面比它小的气泡，它就和这个小的气泡交换位置；如果这个气泡碰到上面比它大的气泡，它就保持不动，然后那个大的气泡接替它，继续这样往上浮，直到碰到圆筒最上面，已经排好序了的都比它大的气泡为止。随着气泡们这样不断地上浮，最终圆筒中的气泡，会变成大气泡在上，小气泡在下的排好序的形式，冒泡排序完毕。可以看见，越大的气泡，越会快速地上升到圆筒的顶端，这正好和气泡越大，往上冒的速度越快的自然现象不谋而合。这又让你不得不佩服取名者的智慧。<br><img src="0.jpg" alt=""></p>
+<p>一图胜千言。上面的解释，再结合下面的动态图，相信你会更加明了。相信在未来的某一天，你会一说冒泡排序，就会想到自然界中的冒泡现象，自然而然地写出冒泡排序算法。<br><img src="1.gif" alt=""></p>
 
       
     </div>
@@ -468,7 +468,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/tensorflow_lstm/" rel="next" title="TensorFlow LSTM 详解">
+              <a href="/null/" rel="next" title="TensorFlow LSTM 详解">
                 <i class="fa fa-chevron-left"></i> TensorFlow LSTM 详解
               </a>
             
