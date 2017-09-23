@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta name="description" content="12345678#tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias, input_size, state_is_tupe=Flase, activation=tanh)cell = tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias=1.0, input_size=None, state_is">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 超神之路之 First Blood 安装篇">
+<meta property="og:title" content="TensorFlow LSTM 详解">
 <meta property="og:url" content="http://iwifigame.com/null/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta property="og:description" content="12345678#tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias, input_size, state_is_tupe=Flase, activation=tanh)cell = tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias=1.0, input_size=None, state_is">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-20T08:54:25.388Z">
+<meta property="og:updated_time" content="2017-09-20T08:54:25.392Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 超神之路之 First Blood 安装篇">
-<meta name="twitter:description" content="专注于棋牌游戏、人工智能、tensorflow、vim、中医。">
+<meta name="twitter:title" content="TensorFlow LSTM 详解">
+<meta name="twitter:description" content="12345678#tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias, input_size, state_is_tupe=Flase, activation=tanh)cell = tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias=1.0, input_size=None, state_is">
 
 
 
@@ -141,7 +141,7 @@
 
 
 
-  <title>Linux 超神之路之 First Blood 安装篇 | 爱 wifi 游戏</title>
+  <title>TensorFlow LSTM 详解 | 爱 wifi 游戏</title>
   
 
 
@@ -295,7 +295,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Linux 超神之路之 First Blood 安装篇</h2>
+          <h2 class="post-title" itemprop="name headline">TensorFlow LSTM 详解</h2>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-19T21:09:00+08:00">
-                2017-09-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T16:48:12+08:00">
+                2017-09-20
               </time>
             
 
@@ -325,7 +325,7 @@
 
           
           
-             <span id="/null/" class="leancloud_visitors" data-flag-title="Linux 超神之路之 First Blood 安装篇">
+             <span id="/null/" class="leancloud_visitors" data-flag-title="TensorFlow LSTM 详解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -356,7 +356,8 @@
       
 
       
-        
+        <figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#tf.nn.rnn_cell.BasicLSTMCell(num_units, forget_bias, input_size, state_is_tupe=Flase, activation=tanh)</span></div><div class="line">cell = tf.nn.rnn_cell.BasicLSTMCell(num_units, <span class="attribute">forget_bias</span>=1.0, <span class="attribute">input_size</span>=None, <span class="attribute">state_is_tupe</span>=Flase, <span class="attribute">activation</span>=tanh)</div><div class="line"><span class="comment">#num_units:图一中ht的维数，如果num_units=10,那么ht就是10维行向量</span></div><div class="line"><span class="comment">#forget_bias：还不清楚这个是干嘛的</span></div><div class="line"><span class="comment">#input_size:[batch_size, max_time, size]。假设要输入一句话，这句话的长度是不固定的，max_time就代表最长的那句话是多长，size表示你打算用多长的向量代表一个word，即embedding_size（embedding_size和size的值不一定要一样）</span></div><div class="line"><span class="comment">#state_is_tuple:true的话，返回的状态是一个tuple:(c=array([[]]), h=array([[]]):其中c代表Ct的最后时间的输出，h代表Ht最后时间的输出，h是等于最后一个时间的output的</span></div><div class="line"><span class="comment">#图三向上指的ht称为output</span></div><div class="line"><span class="comment">#此函数返回一个lstm_cell，即图一中的一个A</span></div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -405,7 +406,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://iwifigame.com/null/" title="Linux 超神之路之 First Blood 安装篇">http://iwifigame.com/null/</a>
+    <a href="http://iwifigame.com/null/" title="TensorFlow LSTM 详解">http://iwifigame.com/null/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -427,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/linux_windows_mac_share_mouse/" rel="next" title="Linux Windows Mac 终极鼠标共享 Synergy">
-                <i class="fa fa-chevron-left"></i> Linux Windows Mac 终极鼠标共享 Synergy
+              <a href="/tensorflow_windows_install/" rel="next" title="TensorFlow (四) Windows 安装">
+                <i class="fa fa-chevron-left"></i> TensorFlow (四) Windows 安装
               </a>
             
           </div>
@@ -437,8 +438,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/tensorflow_windows_install/" rel="prev" title="TensorFlow (四) Windows 安装">
-                TensorFlow (四) Windows 安装 <i class="fa fa-chevron-right"></i>
+              <a href="/algorithms_bubble_sort/" rel="prev" title="算法 (一) 你真的懂冒泡吗">
+                算法 (一) 你真的懂冒泡吗 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -512,7 +513,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
