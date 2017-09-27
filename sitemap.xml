@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://iwifigame.com/tensorflow_curve_fitting/</loc>
+    
+    <lastmod>2017-09-27T10:50:25.054Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/python_draw_image/</loc>
+    
+    <lastmod>2017-09-26T08:41:28.774Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/linux_expert_install/</loc>
+    
+    <lastmod>2017-09-25T10:54:29.551Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/linux_install_summary/</loc>
+    
+    <lastmod>2017-09-25T10:52:01.818Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://iwifigame.com/tensorflow_lstm/</loc>
     
     <lastmod>2017-09-20T16:10:24.891Z</lastmod>
@@ -9,23 +37,9 @@
   </url>
   
   <url>
-    <loc>http://iwifigame.com/linux_be_expert_install/</loc>
-    
-    <lastmod>2017-09-20T16:10:06.765Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://iwifigame.com/algorithms_bubble_sort/</loc>
     
     <lastmod>2017-09-20T15:56:01.744Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/tensorflow_curve_fitting/</loc>
-    
-    <lastmod>2017-09-20T14:29:24.397Z</lastmod>
     
   </url>
   
@@ -82,13 +96,6 @@
     <loc>http://iwifigame.com/git_private_repo_and_multi_ssh_key/</loc>
     
     <lastmod>2017-09-20T14:18:03.240Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/python_draw_image/</loc>
-    
-    <lastmod>2017-09-20T14:15:10.167Z</lastmod>
     
   </url>
   
