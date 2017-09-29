@@ -4,8 +4,53 @@
 
     
   <url>
+    <loc>http://iwifigame.com/tensorflow_mnist_data/</loc>
+    <lastmod>2017-09-29T10:20:20.107Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow MNIST 手写数字数据集详解</title>
+        <pubTime>2017-09-29T07:55:34.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+        <tag>MNIST</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+             
+              <breadCrumb title="MNIST" url="http://iwifigame.com/categories/TensorFlow/MNIST/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/tensorflow_minst_easy/</loc>
+    <lastmod>2017-09-28T10:30:56.271Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow (六) 图像识别简单版</title>
+        <pubTime>2017-09-28T10:27:52.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://iwifigame.com/tensorflow_curve_fitting/</loc>
-    <lastmod>2017-09-27T10:50:25.054Z</lastmod>
+    <lastmod>2017-09-28T10:28:10.007Z</lastmod>
     <data>
         <display>
         <title>TensorFlow (五) 曲线拟合</title>
@@ -24,48 +69,8 @@
 
     
   <url>
-    <loc>http://iwifigame.com/python_draw_image/</loc>
-    <lastmod>2017-09-26T08:41:28.774Z</lastmod>
-    <data>
-        <display>
-        <title>Python 图表绘制 Pyplot</title>
-        <pubTime>2017-09-11T13:44:30.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-        <tag>pyplot</tag>
-         
-         
-           
-             
-              <breadCrumb title="pyplot" url="http://iwifigame.com/categories/pyplot/"/>
-          
-             
-              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/pyplot/TensorFlow/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iwifigame.com/linux_expert_install/</loc>
-    <lastmod>2017-09-25T10:54:29.551Z</lastmod>
-    <data>
-        <display>
-        <title>Linux 超神之路之 First Blood 安装篇</title>
-        <pubTime>2017-09-19T13:09:00.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://iwifigame.com/linux_install_summary/</loc>
-    <lastmod>2017-09-25T10:52:01.818Z</lastmod>
+    <lastmod>2017-09-28T10:17:40.958Z</lastmod>
     <data>
         <display>
         <title>Linux 安装过程总结</title>
@@ -84,8 +89,8 @@
 
     
   <url>
-    <loc>http://iwifigame.com/tensorflow_lstm/</loc>
-    <lastmod>2017-09-20T16:10:24.891Z</lastmod>
+    <loc>http://iwifigame.com/null/</loc>
+    <lastmod>2017-09-28T10:17:40.943Z</lastmod>
     <data>
         <display>
         <title>TensorFlow LSTM 详解</title>
@@ -93,6 +98,46 @@
         
          
            
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/linux_install/</loc>
+    <lastmod>2017-09-28T10:17:40.938Z</lastmod>
+    <data>
+        <display>
+        <title>Linux 超神之路之 First Blood 安装篇</title>
+        <pubTime>2017-09-19T13:09:00.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/python_draw_image/</loc>
+    <lastmod>2017-09-28T10:17:40.934Z</lastmod>
+    <data>
+        <display>
+        <title>Python 图表绘制 Pyplot</title>
+        <pubTime>2017-09-11T13:44:30.000Z</pubTime>
+        
+        <tag>pyplot</tag>
+         
+        <tag>python 画图</tag>
+         
+         
+           
+             
+              <breadCrumb title="pyplot" url="http://iwifigame.com/categories/pyplot/"/>
+          
+             
+              <breadCrumb title="python 画图" url="http://iwifigame.com/categories/pyplot/python-%E7%94%BB%E5%9B%BE/"/>
+          
         </display>
     </data>
     </url>

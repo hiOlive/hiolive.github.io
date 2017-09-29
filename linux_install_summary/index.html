@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="启动盘制作。下载Universal USB Installer。在选项的第4步中，Set a persistent file size for storing changes.设为0。我有一次就是因没没有先0,制作的启动盘不能用。 安装的过程中，不联网，不更新。 安装方式。有清空数据，硬盘上所有数据都清空；有保留原系统，添加一个系统；整个盘安装；其它，可以指定安装位置。要选其它安装方式，可以指定">
+<meta name="description" content="1. 系统安装 启动盘制作。下载Universal USB Installer。在选项的第4步中，Set a persistent file size for storing changes.设为0。我有一次就是因没没有先0,制作的启动盘不能用。   安装的过程中，不联网，不更新。 安装方式。有清空数据，硬盘上所有数据都清空；有保留原系统，添加一个系统；整个盘安装；其它，可以指定安装位置。要选其它">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 安装过程总结">
 <meta property="og:url" content="http://iwifigame.com/linux_install_summary/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="启动盘制作。下载Universal USB Installer。在选项的第4步中，Set a persistent file size for storing changes.设为0。我有一次就是因没没有先0,制作的启动盘不能用。 安装的过程中，不联网，不更新。 安装方式。有清空数据，硬盘上所有数据都清空；有保留原系统，添加一个系统；整个盘安装；其它，可以指定安装位置。要选其它安装方式，可以指定">
+<meta property="og:description" content="1. 系统安装 启动盘制作。下载Universal USB Installer。在选项的第4步中，Set a persistent file size for storing changes.设为0。我有一次就是因没没有先0,制作的启动盘不能用。   安装的过程中，不联网，不更新。 安装方式。有清空数据，硬盘上所有数据都清空；有保留原系统，添加一个系统；整个盘安装；其它，可以指定安装位置。要选其它">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-25T10:52:01.818Z">
+<meta property="og:updated_time" content="2017-09-28T10:17:40.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 安装过程总结">
-<meta name="twitter:description" content="启动盘制作。下载Universal USB Installer。在选项的第4步中，Set a persistent file size for storing changes.设为0。我有一次就是因没没有先0,制作的启动盘不能用。 安装的过程中，不联网，不更新。 安装方式。有清空数据，硬盘上所有数据都清空；有保留原系统，添加一个系统；整个盘安装；其它，可以指定安装位置。要选其它安装方式，可以指定">
+<meta name="twitter:description" content="1. 系统安装 启动盘制作。下载Universal USB Installer。在选项的第4步中，Set a persistent file size for storing changes.设为0。我有一次就是因没没有先0,制作的启动盘不能用。   安装的过程中，不联网，不更新。 安装方式。有清空数据，硬盘上所有数据都清空；有保留原系统，添加一个系统；整个盘安装；其它，可以指定安装位置。要选其它">
 
 
 
@@ -379,39 +379,42 @@
       
 
       
-        <ol>
+        <h2 id="1-系统安装"><a href="#1-系统安装" class="headerlink" title="1. 系统安装"></a>1. 系统安装</h2><ol>
 <li>启动盘制作。下载Universal USB Installer。在选项的第4步中，Set a persistent file size for storing changes.设为0。我有一次就是因没没有先0,制作的启动盘不能用。</li>
+</ol>
+<ul>
 <li>安装的过程中，不联网，不更新。</li>
 <li>安装方式。有清空数据，硬盘上所有数据都清空；有保留原系统，添加一个系统；整个盘安装；其它，可以指定安装位置。要选其它安装方式，可以指定哪些盘格式化，哪些盘数据保存，从而可以保留上个系统的用户数据。</li>
 <li>在下面boot，不要去先/boot的位置，直接默认硬盘就行。我有一次就是选了，导致启动不了。</li>
-<li>更新系统。</li>
-<li>显卡驱动修改。系统默认使用的是开源的nvidia显卡驱动。可以安装官网驱动，但不是简单的通过界面改选安装。这样会造成无法启动或者自动重复登陆的问题。正确的安装方式是，先卸载原有驱动，再安装。</li>
-<li>鼠标共享，用同版本的synergy.</li>
-<li>跨电脑传文件用Nitroshare.</li>
-<li>快速启动。用Launchy。</li>
-<li>zsh 安装。oh my zsh 安装。autojump, kill, ls </li>
-<li>文件浏览器 pantheon。</li>
-<li>vim 编译。如果不能编译，查找是哪个模块的问题，从而通过配置减去它。我编译的时候就说perl有问题，把perl相关不配置，编译通过。</li>
-<li>vim 字体。 curiver new 不正常，暂使用其它字体解决。</li>
-<li>chrome 安装。安装谷歌同步助手，同步所有插件。</li>
+<li>更新系统。可以不更新。更新后，我编译安装vim时，有些模块不能用。</li>
+<li>显卡驱动修改。系统默认使用的是开源的nvidia显卡驱动。可以安装官网驱动，但不是简单的通过界面改选安装。这样会造成无法启动或者自动重复登陆的问题。正确的安装方式是，先卸载原有驱动，再安装。<br>如果显卡驱动不修改，会有dashboard 显示异常的情况或者会卡住的情况。</li>
+</ul>
+<h2 id="2-系统配置"><a href="#2-系统配置" class="headerlink" title="2. 系统配置"></a>2. 系统配置</h2><ol>
 <li>hosts 修改成github上的。可以访问很多国外的网站与服务。</li>
-<li>输入法使用对中文支持更好的 fcitx</li>
-<li>卸载不要的程序。配置阿里源。tweek tool , dconf editor</li>
-<li>解压程序用 peazip.</li>
-<li>git 图形界面用 smartgit.</li>
-<li>cpu, mem, net用 monitor indicator.</li>
-<li>创建系统还原点。</li>
-<li>安装xfce桌面系统。</li>
-<li>tmux， oh my tmux 安装。 安装tmux-yank解决复制粘贴问题</li>
-<li>安装screenkey 显示按键。</li>
-<li>安装tilda 终端，f1从上面拉下来，很方便。</li>
-<li>安装cairo dock。skippy-xd</li>
-<li>swap 设置</li>
-<li>vim start folder 设置</li>
+</ol>
+<ul>
+<li>terminal 修改快捷键在菜单里设置。</li>
 <li>sudo unable to resole host linux .在host 中添加hostname 127.0.0.1</li>
 <li>源，清楚。直接在gui中清除即可 </li>
-</ol>
-<h2 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h2>
+<li>输入法使用对中文支持更好的 fcitx<br>System Settings  –&gt;  Language Support，输入法框架选择fcitx。<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install fcitx fcitx-<span class="keyword">table</span>-wubi</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>安装完之后重启。才能显示fcitx输入框架。添加输入法时，要勾选显示全部语言。<br>如果五笔，输入标点符号不能自动上屏，可以切换到搜狐拼音输入法里，设置。</p>
+<ul>
+<li><p>swap 设置  </p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat <span class="regexp">/proc/</span>sys<span class="regexp">/vm/</span>swappiness</div></pre></td></tr></table></figure>
+</li>
+<li><p>无线无法自动连接，要关闭无线再打开，才能连接。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">sudo<span class="built_in"> service </span>network-manager restart</div><div class="line">ifconfig wlan0 down</div><div class="line">ifconfig wlan0 up</div><div class="line">iwconfig</div><div class="line">ifconfig</div><div class="line"></div><div class="line"><span class="comment"># 显示网卡硬件信息</span></div><div class="line">sudo lshw -class network</div><div class="line"></div><div class="line">lspci -vvnn | grep Network</div><div class="line">lspci -vvnn | grep -A 9<span class="built_in"> Network </span>| grep Kernel</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>零时修改:<br>sudo sysctl vm.swappiness=10<br>永久修改:<br>sudo nano /etc/sysctl.conf<br>添加下面的内容到上面的配置文件中:<br>vm.swappiness=10<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">## 3. 软件安装</div><div class="line">3. 卸载不要的程序。配置阿里源。先不配置，先试用一段时间，再看。</div><div class="line">* tweek tool , dconf editor。先不安装。</div><div class="line">* 鼠标共享，用同版本的synergy.</div><div class="line">* 跨电脑传文件用Nitroshare.</div></pre></td></tr></table></figure></p>
+<p>sudo apt-get install nitroshare<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">* 快速启动。用Launchy。可以不安装，使用win键，很方便。</div><div class="line">* zsh 安装。oh my zsh 安装。autojump, kill, <span class="keyword">ls</span> </div><div class="line">* cat <span class="string">/etc/shells</span>  <span class="comment"># 查看已安裝的shell</span></div><div class="line">* chsh -s <span class="string">/bin/zsh</span> <span class="comment"># 修改默认shell</span></div><div class="line">* sudo apt-get install autojump  <span class="comment"># 安装autojump. 并添加下行到.zshrc</span></div></pre></td></tr></table></figure></p>
+<p>[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; . ~/.autojump/etc/profile.d/autojump.sh<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">* 文件浏览器 pantheon。可以不安装，安装它需要安装很多其它东西。要</div><div class="line">* vim 编译。如果不能编译，查找是哪个模块的问题，从而通过配置减去它。我编译的时候就说perl有问题，把perl相关不配置，编译通过。</div><div class="line">* vim 字体。 curiver<span class="built_in"> new </span>不正常，暂使用其它字体解决。现在又正常了，重装系统后正常。</div><div class="line">* chrome 安装。安装谷歌同步助手，同步所有插件。</div><div class="line"></div><div class="line">* 解压程序用 peazip。这个先不装，系统自带的可以满足使用。</div><div class="line">* git 图形界面用 smartgit.</div><div class="line">* cpu, mem, net用<span class="built_in"> monitor </span>indicator.这个方法显示网速有问题</div><div class="line">只显示网速，用 netspeed</div></pre></td></tr></table></figure></p>
+<p>sudo add-apt-repository ppa:nilarimogard/webupd8<br>sudo apt-get update<br>sudo apt-get install indicator-netspeed<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">* </span>创建系统还原点。这个不用。它的还原点只是对/home文件的备份。</div><div class="line"><span class="bullet">* </span>安装xfce桌面系统。这个暂不用。显卡驱动安装后，显示正常。</div><div class="line"><span class="bullet">* </span>tmux， oh my tmux 安装。 安装tmux-yank解决复制粘贴问题。</div><div class="line">它解决了一个分屏的方案。但是复制粘贴很麻烦。</div><div class="line"><span class="bullet">* </span>安装screenkey 显示按键。这个先不装，直接用alt+tab就可以</div><div class="line"><span class="bullet">* </span>安装tilda 终端，f1从上面拉下来，很方便。并设置开机自动启动。并且用win+123可以快速切换应用。</div><div class="line"><span class="bullet">* </span>安装cairo dock。skippy-xd。先不装。系统自带的很方便。</div><div class="line"><span class="bullet">* </span>vim start folder 设置</div><div class="line"><span class="bullet">* </span>jdk install</div><div class="line"><span class="bullet">* </span>hexo install</div></pre></td></tr></table></figure></p>
+<p>sudo apt-get install npm<br>sudo apt-get install nodejs-legacy<br>sudo apt-get install nodejs<br>sudo npm install hexo-cli -g</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>hexo init blog<br>cd blog<br>npm install<br>hexo server<br>```</p>
+<h2 id="4-试用且不安装"><a href="#4-试用且不安装" class="headerlink" title="4. 试用且不安装"></a>4. 试用且不安装</h2>
       
     </div>
     
@@ -498,6 +501,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/tensorflow_minst_easy/" rel="prev" title="TensorFlow (六) 图像识别简单版">
+                TensorFlow (六) 图像识别简单版 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -578,7 +585,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -600,7 +607,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -635,7 +642,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#todo"><span class="nav-text">todo</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-系统安装"><span class="nav-text">1. 系统安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-系统配置"><span class="nav-text">2. 系统配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-试用且不安装"><span class="nav-text">4. 试用且不安装</span></a></li></ol></div>
             
 
           </div>

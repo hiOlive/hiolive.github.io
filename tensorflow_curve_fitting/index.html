@@ -95,13 +95,13 @@
 
 
 
-<meta name="description" content="前面几篇文章尽量用通俗的语言讲了TensorFlow的基本理解、数据总结、深入理解。接下来的将通过一个个实战用例、由浅入深、分门别类、一步步详细介绍曲线模拟、图片识别简单版、图片识别卷积版、AI写诗、图片识别LSTM等。 每篇文章会先分析这些实例实现的深层原理（为什么这样做？这样做的好处是什么？…），像前3篇文章一样，这些都尽量用通俗的语言简化出来。然后放上注释详细可运行的代码，保证写明白代码运行">
+<meta name="description" content="前面几篇文章尽量用通俗的语言讲了TensorFlow的基本理解、数据总结、深入理解。接下来的将通过一个个实战用例、由浅入深、分门别类、一步步详细介绍曲线模拟、图像识别简单版、图像识别卷积版、AI写诗、图像识别LSTM等。 每篇文章会先分析这些实例实现的深层原理（为什么这样做？这样做的好处是什么？…），像前3篇文章一样，这些都尽量用通俗的语言简化出来。然后放上注释详细可运行的代码，保证写明白代码运行">
 <meta name="keywords" content="TensorFlow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow (五) 曲线拟合">
 <meta property="og:url" content="http://iwifigame.com/tensorflow_curve_fitting/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="前面几篇文章尽量用通俗的语言讲了TensorFlow的基本理解、数据总结、深入理解。接下来的将通过一个个实战用例、由浅入深、分门别类、一步步详细介绍曲线模拟、图片识别简单版、图片识别卷积版、AI写诗、图片识别LSTM等。 每篇文章会先分析这些实例实现的深层原理（为什么这样做？这样做的好处是什么？…），像前3篇文章一样，这些都尽量用通俗的语言简化出来。然后放上注释详细可运行的代码，保证写明白代码运行">
+<meta property="og:description" content="前面几篇文章尽量用通俗的语言讲了TensorFlow的基本理解、数据总结、深入理解。接下来的将通过一个个实战用例、由浅入深、分门别类、一步步详细介绍曲线模拟、图像识别简单版、图像识别卷积版、AI写诗、图像识别LSTM等。 每篇文章会先分析这些实例实现的深层原理（为什么这样做？这样做的好处是什么？…），像前3篇文章一样，这些都尽量用通俗的语言简化出来。然后放上注释详细可运行的代码，保证写明白代码运行">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://iwifigame.com/tensorflow_curve_fitting/curve_data.png">
 <meta property="og:image" content="http://iwifigame.com/tensorflow_curve_fitting/curve_fitting_test.png">
@@ -110,10 +110,10 @@
 <meta property="og:image" content="http://iwifigame.com/tensorflow_curve_fitting/curve_data.png">
 <meta property="og:image" content="http://iwifigame.com/tensorflow_curve_fitting/cur_fitting_train.gif">
 <meta property="og:image" content="http://iwifigame.com/tensorflow_curve_fitting/curve_fitting_test.png">
-<meta property="og:updated_time" content="2017-09-27T10:50:25.054Z">
+<meta property="og:updated_time" content="2017-09-28T10:28:10.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow (五) 曲线拟合">
-<meta name="twitter:description" content="前面几篇文章尽量用通俗的语言讲了TensorFlow的基本理解、数据总结、深入理解。接下来的将通过一个个实战用例、由浅入深、分门别类、一步步详细介绍曲线模拟、图片识别简单版、图片识别卷积版、AI写诗、图片识别LSTM等。 每篇文章会先分析这些实例实现的深层原理（为什么这样做？这样做的好处是什么？…），像前3篇文章一样，这些都尽量用通俗的语言简化出来。然后放上注释详细可运行的代码，保证写明白代码运行">
+<meta name="twitter:description" content="前面几篇文章尽量用通俗的语言讲了TensorFlow的基本理解、数据总结、深入理解。接下来的将通过一个个实战用例、由浅入深、分门别类、一步步详细介绍曲线模拟、图像识别简单版、图像识别卷积版、AI写诗、图像识别LSTM等。 每篇文章会先分析这些实例实现的深层原理（为什么这样做？这样做的好处是什么？…），像前3篇文章一样，这些都尽量用通俗的语言简化出来。然后放上注释详细可运行的代码，保证写明白代码运行">
 <meta name="twitter:image" content="http://iwifigame.com/tensorflow_curve_fitting/curve_data.png">
 
 
@@ -387,7 +387,7 @@
       
 
       
-        <p>前面几篇文章尽量用通俗的语言讲了TensorFlow的<a href="http://iwifigame.com/tensorflow_basic_understanding/">基本理解</a>、<a href="http://iwifigame.com/tensorflow_data_summary/">数据总结</a>、<a href="http://iwifigame.com/tensorflow_deep_understanding">深入理解</a>。接下来的将通过一个个实战用例、由浅入深、分门别类、一步步详细介绍曲线模拟、图片识别简单版、图片识别卷积版、AI写诗、图片识别LSTM等。</p>
+        <p>前面几篇文章尽量用通俗的语言讲了TensorFlow的<a href="http://iwifigame.com/tensorflow_basic_understanding/">基本理解</a>、<a href="http://iwifigame.com/tensorflow_data_summary/">数据总结</a>、<a href="http://iwifigame.com/tensorflow_deep_understanding">深入理解</a>。接下来的将通过一个个实战用例、由浅入深、分门别类、一步步详细介绍曲线模拟、图像识别简单版、图像识别卷积版、AI写诗、图像识别LSTM等。</p>
 <p>每篇文章会先分析这些实例实现的深层原理（为什么这样做？这样做的好处是什么？…），像前3篇文章一样，这些都尽量用通俗的语言简化出来。然后放上注释详细可运行的代码，保证写明白代码运行机制，且保证每一行代码都经过不断地修改与优化。最后附上代码运行过程展示，尽量使用图片、动态图等方式说明机器一步步学习的过程。</p>
 <p>这些文章所使用的TensorFlow版本是目前最新的0.12.0-rc1也就是通常所说的1.2版本，如无必要，以后不再说明使用版本情况。</p>
 <p>从前面几篇系列文章，我们知道用机器学习来完成某些事情，比直接通过硬编码来完成，其工作量直接从编码转移到了数据的收集。这大大减少了程序员编码的负担。这种变化就像工业革命一样，解放了人的体力劳动；而人工智能则是解放了脑力劳动。这个革命之后，当人体之外的体力与脑力都被替代了，必由外而向内革命，让人自身变得更强、更聪明、更长寿；同时也向地球之外，不断探索。所以乔布斯遗嘱，让他的后代去从事生物方面的事业，不得不说是远见。现在正是脑力劳动大量被替代的过程。先从机器容易从事的、简单的开始，一步步、全部替代。这是时代发展的必然，这也是我们有生之年可见的未来。</p>
@@ -583,7 +583,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -605,7 +605,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

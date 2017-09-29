@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="TensorFlow,MNIST," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="学习编程语言，一般都以输出 Hello Wrold! 为第一个例子。MNIST 手写数字识别和 Hello World!一样，是机器学习中大家公认的第一个例子。但是有时，我们对 MNIST 这个专有名词 云里雾里，不知它到底是个什么东西。本文详细介绍MNIST是什么、有什么用、由哪些部分组成、数据结构是什么，最后用python把MNIST画出来，方便大家对它有一个直观认识。 1. MNIST 是什">
+<meta name="keywords" content="TensorFlow,MNIST">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow MNIST 手写数字数据集详解">
+<meta property="og:url" content="http://iwifigame.com/tensorflow_mnist_data/index.html">
+<meta property="og:site_name" content="爱 wifi 游戏">
+<meta property="og:description" content="学习编程语言，一般都以输出 Hello Wrold! 为第一个例子。MNIST 手写数字识别和 Hello World!一样，是机器学习中大家公认的第一个例子。但是有时，我们对 MNIST 这个专有名词 云里雾里，不知它到底是个什么东西。本文详细介绍MNIST是什么、有什么用、由哪些部分组成、数据结构是什么，最后用python把MNIST画出来，方便大家对它有一个直观认识。 1. MNIST 是什">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://iwifigame.com/tensorflow_mnist_data/1.png">
+<meta property="og:image" content="http://iwifigame.com/tensorflow_mnist_data/2.png">
+<meta property="og:image" content="http://iwifigame.com/tensorflow_mnist_data/4.png">
+<meta property="og:image" content="http://iwifigame.com/tensorflow_mnist_data/3.gif">
+<meta property="og:updated_time" content="2017-09-29T10:20:20.107Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TensorFlow MNIST 手写数字数据集详解">
+<meta name="twitter:description" content="学习编程语言，一般都以输出 Hello Wrold! 为第一个例子。MNIST 手写数字识别和 Hello World!一样，是机器学习中大家公认的第一个例子。但是有时，我们对 MNIST 这个专有名词 云里雾里，不知它到底是个什么东西。本文详细介绍MNIST是什么、有什么用、由哪些部分组成、数据结构是什么，最后用python把MNIST画出来，方便大家对它有一个直观认识。 1. MNIST 是什">
+<meta name="twitter:image" content="http://iwifigame.com/tensorflow_mnist_data/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://iwifigame.com/tensorflow_mnist_data/"/>
+
+
+
+
+
+  <title>TensorFlow MNIST 手写数字数据集详解 | 爱 wifi 游戏</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79aef6896eb90dbc14242b196015b9e9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">爱 wifi 游戏</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/tensorflow_mnist_data/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iwifigame">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱 wifi 游戏">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">TensorFlow MNIST 手写数字数据集详解</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-29T15:55:34+08:00">
+                2017-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index">
+                    <span itemprop="name">TensorFlow</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow/MNIST/" itemprop="url" rel="index">
+                    <span itemprop="name">MNIST</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/tensorflow_mnist_data/" class="leancloud_visitors" data-flag-title="TensorFlow MNIST 手写数字数据集详解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>学习编程语言，一般都以输出 Hello Wrold! 为第一个例子。MNIST 手写数字识别和 Hello World!一样，是机器学习中大家公认的第一个例子。但是有时，我们对 MNIST 这个专有名词 云里雾里，不知它到底是个什么东西。本文详细介绍MNIST是什么、有什么用、由哪些部分组成、数据结构是什么，最后用python把MNIST画出来，方便大家对它有一个直观认识。</p>
+<h2 id="1-MNIST-是什么"><a href="#1-MNIST-是什么" class="headerlink" title="1. MNIST 是什么"></a>1. MNIST 是什么</h2><p>MNIST 是 Mixed National Institute of Standards and Technology database 的缩写，中文意思为混合美国国家标准与技术研究所数据库。MNIST的实际用途与它的名字基本无关联，你就把它当作一个专有名词看待就行了。</p>
+<p>MNIST 是一个手写数字数据集，这个数据集中存储了很多不同人手写的0到9的数字。在这个数据集中，它的格式是经过处理了的。包括头部信息和每一张手写数字图片的像素灰度值信息。</p>
+<h2 id="2-MNIST-作用"><a href="#2-MNIST-作用" class="headerlink" title="2. MNIST 作用"></a>2. MNIST 作用</h2><p>MNIST 的作用就是为你提供各种各样的手写数字，省去你收集手写数字、整理数字、格式化数字集等非常繁琐的工作。你可以用这个数据集来做各种你想做的事，比如你可以简单地看看别人写的数字是什么样的；或者用它来训练一个人工智能来识别数字，训练出来后，你可以用这个AI来识别银行支票、识别车牌、高考改卷等等。</p>
+<h2 id="3-MNIST-组成"><a href="#3-MNIST-组成" class="headerlink" title="3. MNIST 组成"></a>3. MNIST 组成</h2><p>MNIST主要由两部分组成，一部分是训练数据集，一部分是测试数据集，总共有4个文件，如下图。它们都可以在网站<a href="http://yann.lecun.com/exdb/mnist/上下载。" target="_blank" rel="external">http://yann.lecun.com/exdb/mnist/上下载。</a><br><img src="/tensorflow_mnist_data/1.png" alt=""></p>
+<p>训练数据集有两个文件，分别为 train-images-idx3-ubyte.gz、train-labels-idx1-ubyte.gz。测试数据集也是两个文件，分别为 t10k-images-idx3-ubyte.gz、t10k-labels-idx1-ubyte.gz。两个数据集中，文件名中有images的是包含了手写数字图片的数据；有labels的是数字标签数据，标示了和images文件中对应索引位置的手写数字图片是数字几。</p>
+<h2 id="4-MNIST-数据格式"><a href="#4-MNIST-数据格式" class="headerlink" title="4. MNIST 数据格式"></a>4. MNIST 数据格式</h2><p>手写数字图片数据集格式如下。位移n表示解压后数据文件中第n位字节；字节数m表示位移n开始后的m个字节是一个整体，表示各种属性或图片数据。值表示第n位字节开始后的m个字节，表示的整型数值，这里的数据都是大端字节。</p>
+<table>
+<thead>
+<tr>
+<th>位移n</th>
+<th>字节数m</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>4</td>
+<td>2051</td>
+<td>魔法数字值，没什么作用，可能就是起版本号作用</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>60000</td>
+<td>手写数字图片数量</td>
+</tr>
+<tr>
+<td>8</td>
+<td>4</td>
+<td>28</td>
+<td>每张手写数字图片中像素的行数</td>
+</tr>
+<tr>
+<td>12</td>
+<td>4</td>
+<td>28</td>
+<td>每张手写数字图片中像素的列数</td>
+</tr>
+<tr>
+<td>16</td>
+<td>784</td>
+<td>b0,b2,b3…b783</td>
+<td>第1张手写数字图片中每个像素的值</td>
+</tr>
+<tr>
+<td>800</td>
+<td>784</td>
+<td>b0,b2,b3…b783</td>
+<td>第2张手写数字图片中每个像素的值</td>
+</tr>
+<tr>
+<td>1584</td>
+<td>784</td>
+<td>b0,b2,b3…b783</td>
+<td>第3张手写数字图片中每个像素的值</td>
+</tr>
+<tr>
+<td>…</td>
+<td>784</td>
+<td>b0,b2,b3…b783</td>
+<td>每n张手写数字图片中每个像素的值，总共60000张</td>
+</tr>
+</tbody>
+</table>
+<p>手写数字图片中的数据为每个像素的灰度值。0表示白色，255表示黑色，中间的值则表示黑的程度，如128可能就表示灰色。如MNIST数据集中第一张图片5的数值如下图。<br><img src="/tensorflow_mnist_data/2.png" alt=""></p>
+<p>手写数据标签数据集格式如下。</p>
+<table>
+<thead>
+<tr>
+<th>位移n</th>
+<th>字节数m</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>4</td>
+<td>2051</td>
+<td>魔法数字值，没什么作用，可能就是起版本号作用</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>60000</td>
+<td>手写数字标签数量，和图片数量相对应</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1</td>
+<td>L</td>
+<td>第1张手写数字图片对应的数字值，如L=5表示第一张图片对应的数字是5</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1</td>
+<td>L</td>
+<td>第2张手写数字图片对应的数字值</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1</td>
+<td>L</td>
+<td>第3张手写数字图片对应的数字值</td>
+</tr>
+<tr>
+<td>…</td>
+<td>1</td>
+<td>L</td>
+<td>第n张手写数字图片对应的数字值</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-MNIST-python-显示"><a href="#5-MNIST-python-显示" class="headerlink" title="5. MNIST python 显示"></a>5. MNIST python 显示</h2><p>根据上面MNIST的数据格式，可以用任何你喜欢的编程语言，把里面的数据读取出来，并显示在界面上。这里，我用python实现了一个读取器。它的功能为读取数据集中的图片数据与标签数据，并把读出的数字图片显示在界面上。如下图，可以通过界面下方的左右两个导航箭头，切换要显示的数字图片。<br><img src="/tensorflow_mnist_data/4.png" alt=""><br>读出的图片如下。<br><img src="/tensorflow_mnist_data/3.gif" alt=""><br>详细代码如下。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> struct</div><div class="line"><span class="keyword">import</span> gzip</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">from</span> matplotlib.backend_bases <span class="keyword">import</span> NavigationToolbar2</div><div class="line"></div><div class="line"><span class="comment"># plt 设置正常显示中文</span></div><div class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>]=[<span class="string">'SimHei'</span>] <span class="comment">#用来正常显示中文标签</span></div><div class="line"></div><div class="line"><span class="comment"># 添加按钮的前进，后退，主页按钮事件</span></div><div class="line"><span class="comment"># 可以用它们导航查看所有图片</span></div><div class="line">imageIndex = <span class="number">0</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_home</span><span class="params">(self, *args, **kwargs)</span>:</span></div><div class="line">    <span class="keyword">global</span> imageIndex</div><div class="line">    imageIndex = <span class="number">0</span></div><div class="line">    showImagesByIndex(imageIndex)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_back</span><span class="params">(self, *args, **kwargs)</span>:</span></div><div class="line">    <span class="keyword">global</span> imageIndex</div><div class="line">    imageIndex -= <span class="number">6</span></div><div class="line">    showImagesByIndex(imageIndex)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_forward</span><span class="params">(self, *args, **kwargs)</span>:</span></div><div class="line">    <span class="keyword">global</span> imageIndex</div><div class="line">    imageIndex += <span class="number">6</span></div><div class="line">    showImagesByIndex(imageIndex)</div><div class="line"></div><div class="line">NavigationToolbar2.home = new_home</div><div class="line">NavigationToolbar2.back = new_back</div><div class="line">NavigationToolbar2.forward = new_forward</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 读取压缩文件gz中的内容</span></div><div class="line">labelsFileName = <span class="string">'/tmp/tensorflow/mnist/input_data/train-labels-idx1-ubyte.gz'</span></div><div class="line">labelsGzipFile = gzip.open(labelsFileName, <span class="string">'rb'</span>)</div><div class="line">labelsBuf = labelsGzipFile.read()</div><div class="line"></div><div class="line"><span class="comment"># 读取标签头信息</span></div><div class="line"><span class="comment"># '&gt;II' 表示大端字节，读取2个int型数据，即8个字节的头</span></div><div class="line">magic, numLabels= struct.unpack_from(<span class="string">'&gt;II'</span> , labelsBuf, <span class="number">0</span>)</div><div class="line">print(<span class="string">'标签魔法数字: '</span>, magic, <span class="string">'标签数: '</span>, numLabels)</div><div class="line"></div><div class="line"><span class="comment"># 得到指定索引位置的标签</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getLabelByIndex</span><span class="params">(index)</span>:</span></div><div class="line">    label = struct.unpack_from(<span class="string">'&gt;B'</span>, labelsBuf, index + <span class="number">8</span>)</div><div class="line">    <span class="keyword">return</span> label[<span class="number">0</span>]</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 读取压缩文件gz中的内容到imagesBuf中</span></div><div class="line">imagesFileName = <span class="string">'/tmp/tensorflow/mnist/input_data/train-images-idx3-ubyte.gz'</span></div><div class="line">imagesGzipFile = gzip.open(imagesFileName, <span class="string">'rb'</span>)</div><div class="line">imagesBuf = imagesGzipFile.read()</div><div class="line"></div><div class="line"><span class="comment"># 读取数字图片头信息</span></div><div class="line">magic, numImages , numRows , numColumns = struct.unpack_from(<span class="string">'&gt;IIII'</span> , imagesBuf, <span class="number">0</span>)</div><div class="line">print(<span class="string">'图片魔法数字: '</span>, magic, <span class="string">'数字图片数: '</span>, numImages, <span class="string">', 图片像素行数: '</span>, numRows, <span class="string">', 图片像素列数: '</span>, numColumns)</div><div class="line">numPixels = numRows * numColumns</div><div class="line">fmtPixels = <span class="string">'&gt;'</span> + str(numPixels) + <span class="string">'B'</span></div><div class="line">headSize = struct.calcsize(<span class="string">'&gt;IIII'</span>) <span class="comment"># 计算头大小，也就是16</span></div><div class="line"></div><div class="line"><span class="comment"># 当index超出范围[0-numImages)时,将它转换成正确的index</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getCorrectIndex</span><span class="params">(index)</span>:</span></div><div class="line">    <span class="keyword">if</span> index &lt; <span class="number">0</span> <span class="keyword">or</span> index &gt;= numImages:</div><div class="line">        index = index % numImages</div><div class="line">    <span class="keyword">return</span> index</div><div class="line"></div><div class="line"><span class="comment"># 得到指定索引位置的标签与图片</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getImageByIndex</span><span class="params">(index)</span>:</span></div><div class="line">    index = getCorrectIndex(index)</div><div class="line">    imgData = struct.unpack_from(fmtPixels, imagesBuf, index * numPixels + headSize)</div><div class="line">    imgData = np.array(imgData)</div><div class="line">    image = imgData.reshape(numRows, numColumns)</div><div class="line"></div><div class="line">    label = getLabelByIndex(index)</div><div class="line">    <span class="keyword">return</span> index, label, image,</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">printImageData</span><span class="params">(index)</span>:</span></div><div class="line">    print(<span class="string">'第 %d 张图片数据如下:'</span> % index)</div><div class="line">    index, label, image = getImageByIndex(index)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(numRows):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(numColumns):</div><div class="line">            print(<span class="string">'%4d'</span> % image[i][j], end=<span class="string">""</span>)</div><div class="line">        print(<span class="string">'\n'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">showImagesByIndex</span><span class="params">(index)</span>:</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">6</span>):</div><div class="line">        indexOfImage, labelOfImage, numberImage = getImageByIndex(index + i)</div><div class="line">        axes = plt.subplot(<span class="number">2</span>, <span class="number">3</span>, i + <span class="number">1</span>)     <span class="comment">#将窗口分割</span></div><div class="line">        plt.imshow(numberImage, cmap = plt.cm.gray_r)</div><div class="line">        plt.title(<span class="string">'第'</span> + str(indexOfImage) + <span class="string">'张, 数字为:'</span> + str(labelOfImage))</div><div class="line">        axes.set_xticks([])</div><div class="line">        axes.set_yticks([])</div><div class="line">    plt.legend()</div><div class="line">    plt.show()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">saveImagesByIndex</span><span class="params">(index)</span>:</span></div><div class="line">    plt.clf()</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">6</span>):</div><div class="line">        indexOfImage, labelOfImage, numberImage = getImageByIndex(index + i)</div><div class="line">        axes = plt.subplot(<span class="number">2</span>, <span class="number">3</span>, i + <span class="number">1</span>)     <span class="comment">#将窗口分割</span></div><div class="line">        plt.imshow(numberImage, cmap = plt.cm.gray_r)</div><div class="line">        plt.title(<span class="string">'第'</span> + str(indexOfImage) + <span class="string">'张, 数字为:'</span> + str(labelOfImage))</div><div class="line">        axes.set_xticks([])</div><div class="line">        axes.set_yticks([])</div><div class="line">    plt.savefig(<span class="string">'mnist'</span> + str(index) + <span class="string">'.png'</span>, dpi=<span class="number">200</span>)</div><div class="line"></div><div class="line"><span class="comment"># 打印第0张图片数所</span></div><div class="line">printImageData(<span class="number">0</span>)</div><div class="line"></div><div class="line"><span class="comment"># 保存前36张手写数据图片</span></div><div class="line"><span class="comment">#  for i in range(6):</span></div><div class="line">    <span class="comment">#  saveImagesByIndex(i * 6)</span></div><div class="line"></div><div class="line"><span class="comment"># 显示前6张图片数据</span></div><div class="line">showImagesByIndex(imageIndex)</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢，您的支持是我过坑的动力！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="iwifigame 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="iwifigame 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    iwifigame
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://iwifigame.com/tensorflow_mnist_data/" title="TensorFlow MNIST 手写数字数据集详解">http://iwifigame.com/tensorflow_mnist_data/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+          
+            <a href="/tags/MNIST/" rel="tag"># MNIST</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/tensorflow_minst_easy/" rel="next" title="TensorFlow (六) 图像识别简单版">
+                <i class="fa fa-chevron-left"></i> TensorFlow (六) 图像识别简单版
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDY5OC83MjUz"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.png"
+              alt="iwifigame" />
+          
+            <p class="site-author-name" itemprop="name">iwifigame</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-MNIST-是什么"><span class="nav-text">1. MNIST 是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-MNIST-作用"><span class="nav-text">2. MNIST 作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-MNIST-组成"><span class="nav-text">3. MNIST 组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-MNIST-数据格式"><span class="nav-text">4. MNIST 数据格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-MNIST-python-显示"><span class="nav-text">5. MNIST python 显示</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iwifigame</span>
+
+  
+</div>
+
+<!-- ����ʾhexo ��ע
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Ju0g9TyWNmr28UUi493xOsxG-gzGzoHsz", "p5CLocEvdKWa1SAXkH9Lcd68");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
