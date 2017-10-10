@@ -4,8 +4,48 @@
 
     
   <url>
+    <loc>http://iwifigame.com/tensorflow_model_save_use/</loc>
+    <lastmod>2017-10-10T08:04:13.990Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow 模型保存与应用详解</title>
+        <pubTime>2017-10-04T00:20:53.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/python_learn_tips/</loc>
+    <lastmod>2017-10-05T10:09:23.719Z</lastmod>
+    <data>
+        <display>
+        <title>Python 学习集锦</title>
+        <pubTime>2017-10-01T08:23:38.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://iwifigame.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://iwifigame.com/tensorflow_mnist_data/</loc>
-    <lastmod>2017-09-29T10:20:20.107Z</lastmod>
+    <lastmod>2017-10-04T12:04:41.403Z</lastmod>
     <data>
         <display>
         <title>TensorFlow MNIST 手写数字数据集详解</title>
@@ -30,7 +70,7 @@
     
   <url>
     <loc>http://iwifigame.com/tensorflow_minst_easy/</loc>
-    <lastmod>2017-09-28T10:30:56.271Z</lastmod>
+    <lastmod>2017-10-04T12:04:41.395Z</lastmod>
     <data>
         <display>
         <title>TensorFlow (六) 图像识别简单版</title>
@@ -49,28 +89,8 @@
 
     
   <url>
-    <loc>http://iwifigame.com/tensorflow_curve_fitting/</loc>
-    <lastmod>2017-09-28T10:28:10.007Z</lastmod>
-    <data>
-        <display>
-        <title>TensorFlow (五) 曲线拟合</title>
-        <pubTime>2017-09-20T14:27:00.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-         
-           
-             
-              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://iwifigame.com/linux_install_summary/</loc>
-    <lastmod>2017-09-28T10:17:40.958Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.198Z</lastmod>
     <data>
         <display>
         <title>Linux 安装过程总结</title>
@@ -89,8 +109,48 @@
 
     
   <url>
+    <loc>http://iwifigame.com/algorithms_bubble_sort/</loc>
+    <lastmod>2017-10-04T01:55:30.174Z</lastmod>
+    <data>
+        <display>
+        <title>算法 (一) 你真的懂冒泡吗</title>
+        <pubTime>2017-09-20T14:26:28.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法" url="http://iwifigame.com/categories/%E7%AE%97%E6%B3%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/tensorflow_curve_fitting/</loc>
+    <lastmod>2017-10-04T01:55:30.171Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow (五) 曲线拟合</title>
+        <pubTime>2017-09-20T14:27:00.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://iwifigame.com/null/</loc>
-    <lastmod>2017-09-28T10:17:40.943Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.168Z</lastmod>
     <data>
         <display>
         <title>TensorFlow LSTM 详解</title>
@@ -104,8 +164,28 @@
 
     
   <url>
+    <loc>http://iwifigame.com/tensorflow_windows_install/</loc>
+    <lastmod>2017-10-04T01:55:30.165Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow (四) Windows 安装</title>
+        <pubTime>2017-09-19T13:11:22.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://iwifigame.com/linux_install/</loc>
-    <lastmod>2017-09-28T10:17:40.938Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.161Z</lastmod>
     <data>
         <display>
         <title>Linux 超神之路之 First Blood 安装篇</title>
@@ -119,8 +199,28 @@
 
     
   <url>
+    <loc>http://iwifigame.com/linux_windows_mac_transfer_file/</loc>
+    <lastmod>2017-10-04T01:55:30.153Z</lastmod>
+    <data>
+        <display>
+        <title>Linux Windows Mac 终极文件互传 Nitroshare</title>
+        <pubTime>2017-09-13T15:38:34.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://iwifigame.com/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://iwifigame.com/python_draw_image/</loc>
-    <lastmod>2017-09-28T10:17:40.934Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.141Z</lastmod>
     <data>
         <display>
         <title>Python 图表绘制 Pyplot</title>
@@ -144,68 +244,8 @@
 
     
   <url>
-    <loc>http://iwifigame.com/algorithms_bubble_sort/</loc>
-    <lastmod>2017-09-20T15:56:01.744Z</lastmod>
-    <data>
-        <display>
-        <title>算法 (一) 你真的懂冒泡吗</title>
-        <pubTime>2017-09-20T14:26:28.000Z</pubTime>
-        
-        <tag>算法</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法" url="http://iwifigame.com/categories/%E7%AE%97%E6%B3%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iwifigame.com/tensorflow_windows_install/</loc>
-    <lastmod>2017-09-20T14:22:09.650Z</lastmod>
-    <data>
-        <display>
-        <title>TensorFlow (四) Windows 安装</title>
-        <pubTime>2017-09-19T13:11:22.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-         
-           
-             
-              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iwifigame.com/linux_windows_mac_transfer_file/</loc>
-    <lastmod>2017-09-20T14:21:42.937Z</lastmod>
-    <data>
-        <display>
-        <title>Linux Windows Mac 终极文件互传 Nitroshare</title>
-        <pubTime>2017-09-13T15:38:34.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://iwifigame.com/categories/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://iwifigame.com/tensorflow_stack_and_unstack/</loc>
-    <lastmod>2017-09-20T14:21:24.178Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.127Z</lastmod>
     <data>
         <display>
         <title>TensorFlow stack 与 unstack 详细介绍</title>
@@ -225,7 +265,7 @@
     
   <url>
     <loc>http://iwifigame.com/skynet_bootstrap/</loc>
-    <lastmod>2017-09-20T14:20:44.802Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.112Z</lastmod>
     <data>
         <display>
         <title>skynet(一) 启动</title>
@@ -244,8 +284,68 @@
 
     
   <url>
+    <loc>http://iwifigame.com/tensorflow_deep_understanding/</loc>
+    <lastmod>2017-10-04T01:55:30.098Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow (三) 深入理解</title>
+        <pubTime>2017-09-06T10:47:48.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/tensorflow_data_summary/</loc>
+    <lastmod>2017-10-04T01:55:30.094Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow (二) 数据总结</title>
+        <pubTime>2017-09-05T00:34:25.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iwifigame.com/tensorflow_basic_understanding/</loc>
+    <lastmod>2017-10-04T01:55:30.074Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow (一) 基本理解</title>
+        <pubTime>2017-09-04T02:18:07.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://iwifigame.com/think_in_Chinese_medicine/</loc>
-    <lastmod>2017-09-20T14:20:16.321Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.059Z</lastmod>
     <data>
         <display>
         <title>中医之我思</title>
@@ -265,7 +365,7 @@
     
   <url>
     <loc>http://iwifigame.com/loader_pomelo_study/</loc>
-    <lastmod>2017-09-20T14:19:26.273Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.051Z</lastmod>
     <data>
         <display>
         <title>loader Pomelo 研究</title>
@@ -285,7 +385,7 @@
     
   <url>
     <loc>http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/</loc>
-    <lastmod>2017-09-20T14:18:54.760Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.037Z</lastmod>
     <data>
         <display>
         <title>Hexo一条龙：从建站到托管到Github Pages到最后域名绑定的详细教程</title>
@@ -311,7 +411,7 @@
     
   <url>
     <loc>http://iwifigame.com/git_private_repo_and_multi_ssh_key/</loc>
-    <lastmod>2017-09-20T14:18:03.240Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.023Z</lastmod>
     <data>
         <display>
         <title>Git 实用干货总结（附异地私有Git仓库实现办法）</title>
@@ -332,66 +432,6 @@
           
              
               <breadCrumb title="github" url="http://iwifigame.com/categories/git/github/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iwifigame.com/tensorflow_basic_understanding/</loc>
-    <lastmod>2017-09-20T14:07:35.813Z</lastmod>
-    <data>
-        <display>
-        <title>TensorFlow (一) 基本理解</title>
-        <pubTime>2017-09-04T02:18:07.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-         
-           
-             
-              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iwifigame.com/tensorflow_data_summary/</loc>
-    <lastmod>2017-09-20T14:07:05.764Z</lastmod>
-    <data>
-        <display>
-        <title>TensorFlow (二) 数据总结</title>
-        <pubTime>2017-09-05T00:34:25.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-         
-           
-             
-              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iwifigame.com/tensorflow_deep_understanding/</loc>
-    <lastmod>2017-09-20T14:06:51.020Z</lastmod>
-    <data>
-        <display>
-        <title>TensorFlow (三) 深入理解</title>
-        <pubTime>2017-09-06T10:47:48.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-         
-           
-             
-              <breadCrumb title="TensorFlow" url="http://iwifigame.com/categories/TensorFlow/"/>
           
         </display>
     </data>

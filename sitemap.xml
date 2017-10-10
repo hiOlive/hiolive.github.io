@@ -2,135 +2,149 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://iwifigame.com/tensorflow_model_save_use/</loc>
+    
+    <lastmod>2017-10-10T08:04:13.990Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/python_learn_tips/</loc>
+    
+    <lastmod>2017-10-05T10:09:23.719Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://iwifigame.com/tensorflow_mnist_data/</loc>
     
-    <lastmod>2017-09-29T10:20:20.107Z</lastmod>
+    <lastmod>2017-10-04T12:04:41.403Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://iwifigame.com/tensorflow_minst_easy/</loc>
     
-    <lastmod>2017-09-28T10:30:56.271Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/tensorflow_curve_fitting/</loc>
-    
-    <lastmod>2017-09-28T10:28:10.007Z</lastmod>
+    <lastmod>2017-10-04T12:04:41.395Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://iwifigame.com/linux_install_summary/</loc>
     
-    <lastmod>2017-09-28T10:17:40.958Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/null/</loc>
-    
-    <lastmod>2017-09-28T10:17:40.943Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/linux_install/</loc>
-    
-    <lastmod>2017-09-28T10:17:40.938Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/python_draw_image/</loc>
-    
-    <lastmod>2017-09-28T10:17:40.934Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.198Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://iwifigame.com/algorithms_bubble_sort/</loc>
     
-    <lastmod>2017-09-20T15:56:01.744Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.174Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/tensorflow_curve_fitting/</loc>
+    
+    <lastmod>2017-10-04T01:55:30.171Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/null/</loc>
+    
+    <lastmod>2017-10-04T01:55:30.168Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://iwifigame.com/tensorflow_windows_install/</loc>
     
-    <lastmod>2017-09-20T14:22:09.650Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.165Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/linux_install/</loc>
+    
+    <lastmod>2017-10-04T01:55:30.161Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://iwifigame.com/linux_windows_mac_transfer_file/</loc>
     
-    <lastmod>2017-09-20T14:21:42.937Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.153Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/python_draw_image/</loc>
+    
+    <lastmod>2017-10-04T01:55:30.141Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://iwifigame.com/tensorflow_stack_and_unstack/</loc>
     
-    <lastmod>2017-09-20T14:21:24.178Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.127Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://iwifigame.com/skynet_bootstrap/</loc>
     
-    <lastmod>2017-09-20T14:20:44.802Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/think_in_Chinese_medicine/</loc>
-    
-    <lastmod>2017-09-20T14:20:16.321Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/loader_pomelo_study/</loc>
-    
-    <lastmod>2017-09-20T14:19:26.273Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/</loc>
-    
-    <lastmod>2017-09-20T14:18:54.760Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/git_private_repo_and_multi_ssh_key/</loc>
-    
-    <lastmod>2017-09-20T14:18:03.240Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/tensorflow_basic_understanding/</loc>
-    
-    <lastmod>2017-09-20T14:07:35.813Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iwifigame.com/tensorflow_data_summary/</loc>
-    
-    <lastmod>2017-09-20T14:07:05.764Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.112Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://iwifigame.com/tensorflow_deep_understanding/</loc>
     
-    <lastmod>2017-09-20T14:06:51.020Z</lastmod>
+    <lastmod>2017-10-04T01:55:30.098Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/tensorflow_data_summary/</loc>
+    
+    <lastmod>2017-10-04T01:55:30.094Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/tensorflow_basic_understanding/</loc>
+    
+    <lastmod>2017-10-04T01:55:30.074Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/think_in_Chinese_medicine/</loc>
+    
+    <lastmod>2017-10-04T01:55:30.059Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/loader_pomelo_study/</loc>
+    
+    <lastmod>2017-10-04T01:55:30.051Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/hexo_from_build_to_github_pages_and_domain/</loc>
+    
+    <lastmod>2017-10-04T01:55:30.037Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iwifigame.com/git_private_repo_and_multi_ssh_key/</loc>
+    
+    <lastmod>2017-10-04T01:55:30.023Z</lastmod>
     
   </url>
   

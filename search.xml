@@ -3,6 +3,73 @@
   
     
     <entry>
+      <title><![CDATA[TensorFlow 模型保存与应用详解]]></title>
+      <url>/tensorflow_model_save_use/</url>
+      <content type="html"><![CDATA[<p>机器学习训练模型花费的时间一般都比较长，而机器学习是一个渐进的过程，因此，在训练的过程中进行模型的保存就重要。有时我们训练了一段很长的时间，如果突然断电等这些突发情况发生，如果没有即时备份，则又得重头开始训练。做好备份与恢复能大大提高我们模型训练的稳定性与效率。当然，备份也不能太频繁，太频繁也会降低训练效率。因此，在备份与训练效率之间的平衡也比较重要。</p>
+<h2 id="1-模型保存与恢复"><a href="#1-模型保存与恢复" class="headerlink" title="1. 模型保存与恢复"></a>1. 模型保存与恢复</h2><p>TensorFlow 使用 Saver 类来进行模型的保存与恢复，它的作用就是保存与恢复变量。Saver 封装了很多实用方法来完成它的功能。例如它会自动管理备份文件以节省磁盘空间；也可以设置训练多长时间，保存一下备份文件。Saver 的构造函数如下。两个主要的方法分别为保存 save 与恢复 restore。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">tf.train.Saver.__init__(<span class="attribute">var_list</span>=None, <span class="attribute">reshape</span>=<span class="literal">False</span>, <span class="attribute">sharded</span>=<span class="literal">False</span>, <span class="attribute">max_to_keep</span>=5, <span class="attribute">keep_checkpoint_every_n_hours</span>=10000.0, <span class="attribute">name</span>=None, <span class="attribute">restore_sequentially</span>=<span class="literal">False</span>, <span class="attribute">saver_def</span>=None, <span class="attribute">builder</span>=None, <span class="attribute">defer_build</span>=<span class="literal">False</span>, <span class="attribute">allow_empty</span>=<span class="literal">False</span>, <span class="attribute">write_version</span>=2, <span class="attribute">pad_step_number</span>=<span class="literal">False</span>)</div><div class="line">在Saver的构造函数中，设置这些参数，则可以很方便地实现上面提到的功能。</div><div class="line">如：</div><div class="line">max_to_keep 可以设置最多保存多少个备份文件，如果超出了，则最早的因为已经没有用了，就会被删除。</div><div class="line">keep_checkpoint_every_n_hours 则可以让你设置训练多少个小时备份一下。</div><div class="line"></div><div class="line">tf.train.Saver.save(sess, save_path, <span class="attribute">global_step</span>=None, <span class="attribute">latest_filename</span>=None, <span class="attribute">meta_graph_suffix</span>=<span class="string">'meta'</span>, <span class="attribute">write_meta_graph</span>=<span class="literal">True</span>, <span class="attribute">write_state</span>=<span class="literal">True</span>)</div><div class="line">备份。返回备份文件名字。如果 global_step 设置了，则会将它添加在备份名字的最后。</div><div class="line"></div><div class="line">tf.train.Saver.restore(sess, save_path)</div><div class="line">恢复。</div></pre></td></tr></table></figure></p>
+<p>一个通用的例子如下：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"><span class="meta"># 创建一个 Saver，来保存variables中指定的变量</span></div><div class="line">saver = tf.train.Saver(...variables...)</div><div class="line"><span class="meta"># 加载训练模型并开始训练。每1000次训练备份一次</span></div><div class="line">sess = tf.Session()</div><div class="line"><span class="keyword">for</span> <span class="keyword">step</span> <span class="keyword">in</span> xrange(<span class="number">1000000</span>):</div><div class="line">    sess.<span class="built_in">run</span>(..training_op..)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">step</span> % <span class="number">1000</span> == <span class="number">0</span>:</div><div class="line">        <span class="meta"># 将step保存在备份文件的名字中，好区分备份文件。</span></div><div class="line">        <span class="meta"># 每次备份的名字为 my-model-step</span></div><div class="line">        saver.save(sess, <span class="string">'my-model'</span>, global_step=<span class="keyword">step</span>) ==&gt; filename: <span class="string">'my-model-0'</span></div></pre></td></tr></table></figure></p>
+<h2 id="2-模型应用"><a href="#2-模型应用" class="headerlink" title="2. 模型应用"></a>2. 模型应用</h2><p>模型训练结束后，会保存备份文件。当要应用模型时，可以先恢复模型，然后直接根据模型，计算出结果即可。<br>注意，在应用模型时，要把输入数据转成和训练数据相应的数据结构与类型。如对于手写数据识别，你应该把要识别的数字图片先经过预处理，转成28x28的的形式，再提交给训练好的模型使用。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> TensorFlow </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> TensorFlow </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Python 学习集锦]]></title>
+      <url>/python_learn_tips/</url>
+      <content type="html"><![CDATA[<h2 id="1-语法基本"><a href="#1-语法基本" class="headerlink" title="1. 语法基本"></a>1. 语法基本</h2><ol>
+<li><p>数组切分</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arr = <span class="string">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span></div><div class="line">arr<span class="string">[:4]</span> =&gt; <span class="string">[0, 1, 2, 3]</span></div><div class="line">arr<span class="string">[4:]</span> =&gt; <span class="string">[4, 5, 6, 7, 8, 9]</span></div><div class="line">arr<span class="string">[4:6]</span> =&gt; <span class="string">[4, 5]</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>fake_image = [1] + [0] * 9 =&gt; [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]</p>
+</li>
+<li>[1 for _ in xrange(10)]  =&gt; [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]</li>
+<li><p>数组遍历</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">for item <span class="keyword">in</span> <span class="keyword">sequence</span>:</div><div class="line">  <span class="built_in">print</span> item</div><div class="line">for <span class="built_in">index</span> <span class="keyword">in</span> <span class="built_in">range</span>(len(<span class="keyword">sequence</span>)):</div><div class="line">  <span class="built_in">print</span> <span class="built_in">index</span>,<span class="keyword">sequence</span>[<span class="built_in">index</span>]</div><div class="line">for <span class="built_in">index</span>, item <span class="keyword">in</span> enumerate(<span class="keyword">sequence</span>):</div><div class="line">  <span class="built_in">print</span> <span class="built_in">index</span>, item</div></pre></td></tr></table></figure>
+</li>
+<li><p>字典遍历</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">dict=&#123;<span class="string">"a"</span>:<span class="string">"apple"</span>,<span class="string">"b"</span>:<span class="string">"banana"</span>,<span class="string">"o"</span>:<span class="string">"orange"</span>&#125; </div><div class="line"> </div><div class="line"><span class="builtin-name">print</span> <span class="string">"##########dict######################"</span> </div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> dict: </div><div class="line">  <span class="builtin-name">print</span> <span class="string">"dict[%s]="</span> % i,dict[i] </div><div class="line"> </div><div class="line"><span class="keyword">for</span> (k,v) <span class="keyword">in</span>  dict.items(): </div><div class="line">  <span class="builtin-name">print</span> <span class="string">"dict[%s]="</span> % k,v </div><div class="line"> </div><div class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> dict.iteritems(): </div><div class="line">  <span class="builtin-name">print</span> <span class="string">"dict[%s]="</span> % k,v </div><div class="line"> </div><div class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> zip(dict.iterkeys(),dict.itervalues()): </div><div class="line">  <span class="builtin-name">print</span> <span class="string">"dict[%s]="</span> % k,v</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="2-类库基本"><a href="#2-类库基本" class="headerlink" title="2. 类库基本"></a>2. 类库基本</h2><ol>
+<li>xrange() 函数用法与 range 完全相同，所不同的是生成的不是一个数组，而是一个生成器。xrange不会直接生成一个list，而是每次调用返回其中的一个值 </li>
+<li>判断文件是否存在。<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import <span class="keyword">os</span></div><div class="line"><span class="keyword">os</span>.path.exists(dirOrFile) <span class="comment"># 可以同时判断文件或者文件夹，当文件夹和文件名字一样时，会误判</span></div><div class="line"><span class="keyword">os</span>.path.isFile(file) <span class="comment"># 只判断文件是否存在</span></div><div class="line"><span class="keyword">os</span>.path.isdir(dir) <span class="comment"># 只判断文件夹是否存在</span></div><div class="line"></div><div class="line"><span class="comment"># 下面两个，当要创建的目录有同名字的文件时，无法创建文件夹</span></div><div class="line"><span class="keyword">os</span>.mkdir(dir) <span class="comment"># 只创建一个目录</span></div><div class="line"><span class="keyword">os</span>.makedirs(dir) <span class="comment"># 级联创建目录</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="2-常见问题"><a href="#2-常见问题" class="headerlink" title="2. 常见问题"></a>2. 常见问题</h2><ol>
+<li>如果要使用pip,注意将安装目录下的Scripts目录添加到环境变量中.</li>
+<li>python 3 安装后,如果用pip安装文件,可能会提示安装visual c++ 14.用python 2,则没有这个问题,因为安装了vs 2013.</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> python </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[TensorFlow MNIST 手写数字数据集详解]]></title>
       <url>/tensorflow_mnist_data/</url>
       <content type="html"><![CDATA[<p>学习编程语言，一般都以输出 Hello Wrold! 为第一个例子。MNIST 手写数字识别和 Hello World!一样，是机器学习中大家公认的第一个例子。但是有时，我们对 MNIST 这个专有名词 云里雾里，不知它到底是个什么东西。本文详细介绍MNIST是什么、有什么用、由哪些部分组成、数据结构是什么，最后用python把MNIST画出来，方便大家对它有一个直观认识。</p>
@@ -147,7 +214,9 @@
     <entry>
       <title><![CDATA[TensorFlow (六) 图像识别简单版]]></title>
       <url>/tensorflow_minst_easy/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<p>视觉信息是人信息的主要获取来源，其次是听觉、触觉、嗅觉、味觉。它们的占比大致情况如下：视觉87%，听觉7%，触觉3%，嗅觉2%，味觉1%。差不多百分之九十的信息是通过视觉处理的。因此，让机器可以看，是人工智能的一个重大方向。当解决了这个问题时，生活中很多事情就可以在它的基础上，用机器来解决。首当其冲的是安保；然后就是机器可以自动驾驶，和驾驶有关的则也会被取代；小偷犯罪份子估计也得更加小心，天天有一个眼睛在天上看着你，无处可逃等等。从人类百分之九十的信息来源于视觉，简单类比，将来，至少百分之九十的事情可以通过机器来完成。</p>
+<p>现在的机器视觉应该还是处在开始阶段，和人类或者动物的视觉还相差很远。</p>
+<h2 id="MNIST-数据处理"><a href="#MNIST-数据处理" class="headerlink" title="MNIST 数据处理"></a>MNIST 数据处理</h2><h2 id="图像识别模型"><a href="#图像识别模型" class="headerlink" title="图像识别模型"></a>图像识别模型</h2><h2 id="图像识别损失函数"><a href="#图像识别损失函数" class="headerlink" title="图像识别损失函数"></a>图像识别损失函数</h2><h2 id="图像识别损失函数-1"><a href="#图像识别损失函数-1" class="headerlink" title="图像识别损失函数"></a>图像识别损失函数</h2>]]></content>
       
         <categories>
             

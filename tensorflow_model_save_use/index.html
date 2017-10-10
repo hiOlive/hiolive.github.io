@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="中医," />
+  <meta name="keywords" content="TensorFlow," />
 
 
 
@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="1. 阴阳五行学说金木水火土,相生相克.肝木,心火,脾土,肺金,肾水. 2. 中医发展原理中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗">
-<meta name="keywords" content="中医">
+<meta name="description" content="机器学习训练模型花费的时间一般都比较长，而机器学习是一个渐进的过程，因此，在训练的过程中进行模型的保存就重要。有时我们训练了一段很长的时间，如果突然断电等这些突发情况发生，如果没有即时备份，则又得重头开始训练。做好备份与恢复能大大提高我们模型训练的稳定性与效率。当然，备份也不能太频繁，太频繁也会降低训练效率。因此，在备份与训练效率之间的平衡也比较重要。 1. 模型保存与恢复TensorFlow 使">
+<meta name="keywords" content="TensorFlow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="中医之我思">
-<meta property="og:url" content="http://iwifigame.com/think_in_Chinese_medicine/index.html">
+<meta property="og:title" content="TensorFlow 模型保存与应用详解">
+<meta property="og:url" content="http://iwifigame.com/tensorflow_model_save_use/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="1. 阴阳五行学说金木水火土,相生相克.肝木,心火,脾土,肺金,肾水. 2. 中医发展原理中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗">
+<meta property="og:description" content="机器学习训练模型花费的时间一般都比较长，而机器学习是一个渐进的过程，因此，在训练的过程中进行模型的保存就重要。有时我们训练了一段很长的时间，如果突然断电等这些突发情况发生，如果没有即时备份，则又得重头开始训练。做好备份与恢复能大大提高我们模型训练的稳定性与效率。当然，备份也不能太频繁，太频繁也会降低训练效率。因此，在备份与训练效率之间的平衡也比较重要。 1. 模型保存与恢复TensorFlow 使">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-04T01:55:30.059Z">
+<meta property="og:updated_time" content="2017-10-10T08:04:13.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="中医之我思">
-<meta name="twitter:description" content="1. 阴阳五行学说金木水火土,相生相克.肝木,心火,脾土,肺金,肾水. 2. 中医发展原理中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗">
+<meta name="twitter:title" content="TensorFlow 模型保存与应用详解">
+<meta name="twitter:description" content="机器学习训练模型花费的时间一般都比较长，而机器学习是一个渐进的过程，因此，在训练的过程中进行模型的保存就重要。有时我们训练了一段很长的时间，如果突然断电等这些突发情况发生，如果没有即时备份，则又得重头开始训练。做好备份与恢复能大大提高我们模型训练的稳定性与效率。当然，备份也不能太频繁，太频繁也会降低训练效率。因此，在备份与训练效率之间的平衡也比较重要。 1. 模型保存与恢复TensorFlow 使">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://iwifigame.com/think_in_Chinese_medicine/"/>
+  <link rel="canonical" href="http://iwifigame.com/tensorflow_model_save_use/"/>
 
 
 
 
 
-  <title>中医之我思 | 爱 wifi 游戏</title>
+  <title>TensorFlow 模型保存与应用详解 | 爱 wifi 游戏</title>
   
 
 
@@ -279,7 +279,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/think_in_Chinese_medicine/">
+    <link itemprop="mainEntityOfPage" href="http://iwifigame.com/tensorflow_model_save_use/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwifigame">
@@ -296,7 +296,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">中医之我思</h2>
+          <h2 class="post-title" itemprop="name headline">TensorFlow 模型保存与应用详解</h2>
         
 
         <div class="post-meta">
@@ -308,8 +308,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-02T10:39:17+08:00">
-                2017-09-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-04T08:20:53+08:00">
+                2017-10-04
               </time>
             
 
@@ -331,8 +331,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/中医/" itemprop="url" rel="index">
-                    <span itemprop="name">中医</span>
+                  <a href="/categories/TensorFlow/" itemprop="url" rel="index">
+                    <span itemprop="name">TensorFlow</span>
                   </a>
                 </span>
 
@@ -348,7 +348,7 @@
 
           
           
-             <span id="/think_in_Chinese_medicine/" class="leancloud_visitors" data-flag-title="中医之我思">
+             <span id="/tensorflow_model_save_use/" class="leancloud_visitors" data-flag-title="TensorFlow 模型保存与应用详解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -379,10 +379,10 @@
       
 
       
-        <h2 id="1-阴阳五行学说"><a href="#1-阴阳五行学说" class="headerlink" title="1. 阴阳五行学说"></a>1. 阴阳五行学说</h2><p>金木水火土,相生相克.<br>肝木,心火,脾土,肺金,肾水.</p>
-<h2 id="2-中医发展原理"><a href="#2-中医发展原理" class="headerlink" title="2. 中医发展原理"></a>2. 中医发展原理</h2><p>中医现在为什么难发展，其中一个原因，我想是因为中医无法像西医那样，找到看得见摸得着的方便验证的理论方法。中医是一门根据经验效果发展起来的科学。它的理论体系是为了方便学习、记忆、使用而创建的工具体系，而不是真正的原理体系。但是不了解真正的原理，并不妨碍其学习、使用。就像你有一个万能工具，有必要知道他的真正原理吗，用就是了。在这个由经验方法发展起来的中医体系中，人们为了解释其治病的机理，而想出了各种理论体系，像什么阴阳、八纲、六经、脏腑、经络、三焦、卫气营血等等。每个理论体系都很正确，因为他们由经验而总结而来，却不能准确得像西医那样。而每个人由于学习的经验不同，就又造成了每个人对同一个病人的治病方法又不同。随着科技的发展，中医肯定最终能发展如西医一样，用精确的解释来说明其治病的原理，而不像现在这样模模糊糊，形而上学。<br>中医以阴阳为根，这是一种很重要的思想。世间万物都可归结为阴阳。非阴即阳，非阳即阴。这是一个大的概念。如温度分高低，就就是阳、低就是阴；高度分高低，高就是阳，低就是阴；动静中，动即阳，静则阴，如此等等。它把事物分成两个对立变化的方面。这两个方面在变化的过程中，随着阴生阳长或阳生阴长而产生无数种中间状态。当然，根据常识，阴阳的最中间的状态也比较重要。像六经中的少阳、厥阴等。<br>八纲为阴阳、表里、寒热、虚实，也根于阴阳。它将人身体的状态从不同的方面来分阴阳。要注意这里的表里、寒热、虚实与普通的相似又不同的地方。</p>
-<h2 id="3-中医治病机理"><a href="#3-中医治病机理" class="headerlink" title="3. 中医治病机理"></a>3. 中医治病机理</h2><p>中医理论根由阴阳。治病则在药。经过几千年的发展，中医对药积累了无数的经验，经过组方，完成了方证对应。也对人体病的发展有了很多经验积累，病的传变、好坏。通过对这些经验的总结，而完成了中医的治病方法。因此，中医可以治病，关键是能不能在总结的经验中，找到或者推断出治那个病的理法方药。</p>
-<h2 id="4-其它"><a href="#4-其它" class="headerlink" title="4. 其它"></a>4. 其它</h2><p>肺主气，在肺为气，在外为卫。心主血，在心为血，在外为营。</p>
+        <p>机器学习训练模型花费的时间一般都比较长，而机器学习是一个渐进的过程，因此，在训练的过程中进行模型的保存就重要。有时我们训练了一段很长的时间，如果突然断电等这些突发情况发生，如果没有即时备份，则又得重头开始训练。做好备份与恢复能大大提高我们模型训练的稳定性与效率。当然，备份也不能太频繁，太频繁也会降低训练效率。因此，在备份与训练效率之间的平衡也比较重要。</p>
+<h2 id="1-模型保存与恢复"><a href="#1-模型保存与恢复" class="headerlink" title="1. 模型保存与恢复"></a>1. 模型保存与恢复</h2><p>TensorFlow 使用 Saver 类来进行模型的保存与恢复，它的作用就是保存与恢复变量。Saver 封装了很多实用方法来完成它的功能。例如它会自动管理备份文件以节省磁盘空间；也可以设置训练多长时间，保存一下备份文件。Saver 的构造函数如下。两个主要的方法分别为保存 save 与恢复 restore。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">tf.train.Saver.__init__(<span class="attribute">var_list</span>=None, <span class="attribute">reshape</span>=<span class="literal">False</span>, <span class="attribute">sharded</span>=<span class="literal">False</span>, <span class="attribute">max_to_keep</span>=5, <span class="attribute">keep_checkpoint_every_n_hours</span>=10000.0, <span class="attribute">name</span>=None, <span class="attribute">restore_sequentially</span>=<span class="literal">False</span>, <span class="attribute">saver_def</span>=None, <span class="attribute">builder</span>=None, <span class="attribute">defer_build</span>=<span class="literal">False</span>, <span class="attribute">allow_empty</span>=<span class="literal">False</span>, <span class="attribute">write_version</span>=2, <span class="attribute">pad_step_number</span>=<span class="literal">False</span>)</div><div class="line">在Saver的构造函数中，设置这些参数，则可以很方便地实现上面提到的功能。</div><div class="line">如：</div><div class="line">max_to_keep 可以设置最多保存多少个备份文件，如果超出了，则最早的因为已经没有用了，就会被删除。</div><div class="line">keep_checkpoint_every_n_hours 则可以让你设置训练多少个小时备份一下。</div><div class="line"></div><div class="line">tf.train.Saver.save(sess, save_path, <span class="attribute">global_step</span>=None, <span class="attribute">latest_filename</span>=None, <span class="attribute">meta_graph_suffix</span>=<span class="string">'meta'</span>, <span class="attribute">write_meta_graph</span>=<span class="literal">True</span>, <span class="attribute">write_state</span>=<span class="literal">True</span>)</div><div class="line">备份。返回备份文件名字。如果 global_step 设置了，则会将它添加在备份名字的最后。</div><div class="line"></div><div class="line">tf.train.Saver.restore(sess, save_path)</div><div class="line">恢复。</div></pre></td></tr></table></figure></p>
+<p>一个通用的例子如下：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"><span class="meta"># 创建一个 Saver，来保存variables中指定的变量</span></div><div class="line">saver = tf.train.Saver(...variables...)</div><div class="line"><span class="meta"># 加载训练模型并开始训练。每1000次训练备份一次</span></div><div class="line">sess = tf.Session()</div><div class="line"><span class="keyword">for</span> <span class="keyword">step</span> <span class="keyword">in</span> xrange(<span class="number">1000000</span>):</div><div class="line">    sess.<span class="built_in">run</span>(..training_op..)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">step</span> % <span class="number">1000</span> == <span class="number">0</span>:</div><div class="line">        <span class="meta"># 将step保存在备份文件的名字中，好区分备份文件。</span></div><div class="line">        <span class="meta"># 每次备份的名字为 my-model-step</span></div><div class="line">        saver.save(sess, <span class="string">'my-model'</span>, global_step=<span class="keyword">step</span>) ==&gt; filename: <span class="string">'my-model-0'</span></div></pre></td></tr></table></figure></p>
+<h2 id="2-模型应用"><a href="#2-模型应用" class="headerlink" title="2. 模型应用"></a>2. 模型应用</h2><p>模型训练结束后，会保存备份文件。当要应用模型时，可以先恢复模型，然后直接根据模型，计算出结果即可。<br>注意，在应用模型时，要把输入数据转成和训练数据相应的数据结构与类型。如对于手写数据识别，你应该把要识别的数字图片先经过预处理，转成28x28的的形式，再提交给训练好的模型使用。</p>
 
       
     </div>
@@ -432,7 +432,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://iwifigame.com/think_in_Chinese_medicine/" title="中医之我思">http://iwifigame.com/think_in_Chinese_medicine/</a>
+    <a href="http://iwifigame.com/tensorflow_model_save_use/" title="TensorFlow 模型保存与应用详解">http://iwifigame.com/tensorflow_model_save_use/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -447,7 +447,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/中医/" rel="tag"># 中医</a>
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
           
         </div>
       
@@ -460,8 +460,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/loader_pomelo_study/" rel="next" title="loader Pomelo 研究">
-                <i class="fa fa-chevron-left"></i> loader Pomelo 研究
+              <a href="/python_learn_tips/" rel="next" title="Python 学习集锦">
+                <i class="fa fa-chevron-left"></i> Python 学习集锦
               </a>
             
           </div>
@@ -469,10 +469,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/tensorflow_install/" rel="prev" title="Tensorflow安装">
-                Tensorflow安装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -611,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-阴阳五行学说"><span class="nav-text">1. 阴阳五行学说</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-中医发展原理"><span class="nav-text">2. 中医发展原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-中医治病机理"><span class="nav-text">3. 中医治病机理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-其它"><span class="nav-text">4. 其它</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-模型保存与恢复"><span class="nav-text">1. 模型保存与恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-模型应用"><span class="nav-text">2. 模型应用</span></a></li></ol></div>
             
 
           </div>
