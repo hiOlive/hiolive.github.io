@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="机器学习训练模型花费的时间一般都比较长，而机器学习是一个渐进的过程，因此，在训练的过程中进行模型的保存就重要。有时我们训练了一段很长的时间，如果突然断电等这些突发情况发生，如果没有即时备份，则又得重头开始训练。做好备份与恢复能大大提高我们模型训练的稳定性与效率。当然，备份也不能太频繁，太频繁也会降低训练效率。因此，在备份与训练效率之间的平衡也比较重要。 1. 模型保存与恢复TensorFlow 使">
+<meta name="description" content="机器学习花费的时间一般都比较长，因此模型的保存与恢复就很重要。有时我们训练了一段很长的时间，如果突然断电等突发情况，如果没有保存，那么又得重新训练。做好备份与恢复能大大提高我们模型训练的稳定性与效率。当然，备份也不能太频繁，太频繁也会降低训练效率。因此，在备份与训练效率之间的平衡也比较重要。 模型保存与恢复TensorFlow 使用 Saver 类来进行模型的保存与恢复，它的作用就是保存与恢复变量">
 <meta name="keywords" content="TensorFlow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow 模型保存与应用详解">
 <meta property="og:url" content="http://iwifigame.com/tensorflow_model_save_use/index.html">
 <meta property="og:site_name" content="爱 wifi 游戏">
-<meta property="og:description" content="机器学习训练模型花费的时间一般都比较长，而机器学习是一个渐进的过程，因此，在训练的过程中进行模型的保存就重要。有时我们训练了一段很长的时间，如果突然断电等这些突发情况发生，如果没有即时备份，则又得重头开始训练。做好备份与恢复能大大提高我们模型训练的稳定性与效率。当然，备份也不能太频繁，太频繁也会降低训练效率。因此，在备份与训练效率之间的平衡也比较重要。 1. 模型保存与恢复TensorFlow 使">
+<meta property="og:description" content="机器学习花费的时间一般都比较长，因此模型的保存与恢复就很重要。有时我们训练了一段很长的时间，如果突然断电等突发情况，如果没有保存，那么又得重新训练。做好备份与恢复能大大提高我们模型训练的稳定性与效率。当然，备份也不能太频繁，太频繁也会降低训练效率。因此，在备份与训练效率之间的平衡也比较重要。 模型保存与恢复TensorFlow 使用 Saver 类来进行模型的保存与恢复，它的作用就是保存与恢复变量">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-10T08:04:13.990Z">
+<meta property="og:updated_time" content="2017-12-12T03:30:51.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow 模型保存与应用详解">
-<meta name="twitter:description" content="机器学习训练模型花费的时间一般都比较长，而机器学习是一个渐进的过程，因此，在训练的过程中进行模型的保存就重要。有时我们训练了一段很长的时间，如果突然断电等这些突发情况发生，如果没有即时备份，则又得重头开始训练。做好备份与恢复能大大提高我们模型训练的稳定性与效率。当然，备份也不能太频繁，太频繁也会降低训练效率。因此，在备份与训练效率之间的平衡也比较重要。 1. 模型保存与恢复TensorFlow 使">
+<meta name="twitter:description" content="机器学习花费的时间一般都比较长，因此模型的保存与恢复就很重要。有时我们训练了一段很长的时间，如果突然断电等突发情况，如果没有保存，那么又得重新训练。做好备份与恢复能大大提高我们模型训练的稳定性与效率。当然，备份也不能太频繁，太频繁也会降低训练效率。因此，在备份与训练效率之间的平衡也比较重要。 模型保存与恢复TensorFlow 使用 Saver 类来进行模型的保存与恢复，它的作用就是保存与恢复变量">
 
 
 
@@ -379,10 +379,10 @@
       
 
       
-        <p>机器学习训练模型花费的时间一般都比较长，而机器学习是一个渐进的过程，因此，在训练的过程中进行模型的保存就重要。有时我们训练了一段很长的时间，如果突然断电等这些突发情况发生，如果没有即时备份，则又得重头开始训练。做好备份与恢复能大大提高我们模型训练的稳定性与效率。当然，备份也不能太频繁，太频繁也会降低训练效率。因此，在备份与训练效率之间的平衡也比较重要。</p>
-<h2 id="1-模型保存与恢复"><a href="#1-模型保存与恢复" class="headerlink" title="1. 模型保存与恢复"></a>1. 模型保存与恢复</h2><p>TensorFlow 使用 Saver 类来进行模型的保存与恢复，它的作用就是保存与恢复变量。Saver 封装了很多实用方法来完成它的功能。例如它会自动管理备份文件以节省磁盘空间；也可以设置训练多长时间，保存一下备份文件。Saver 的构造函数如下。两个主要的方法分别为保存 save 与恢复 restore。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">tf.train.Saver.__init__(<span class="attribute">var_list</span>=None, <span class="attribute">reshape</span>=<span class="literal">False</span>, <span class="attribute">sharded</span>=<span class="literal">False</span>, <span class="attribute">max_to_keep</span>=5, <span class="attribute">keep_checkpoint_every_n_hours</span>=10000.0, <span class="attribute">name</span>=None, <span class="attribute">restore_sequentially</span>=<span class="literal">False</span>, <span class="attribute">saver_def</span>=None, <span class="attribute">builder</span>=None, <span class="attribute">defer_build</span>=<span class="literal">False</span>, <span class="attribute">allow_empty</span>=<span class="literal">False</span>, <span class="attribute">write_version</span>=2, <span class="attribute">pad_step_number</span>=<span class="literal">False</span>)</div><div class="line">在Saver的构造函数中，设置这些参数，则可以很方便地实现上面提到的功能。</div><div class="line">如：</div><div class="line">max_to_keep 可以设置最多保存多少个备份文件，如果超出了，则最早的因为已经没有用了，就会被删除。</div><div class="line">keep_checkpoint_every_n_hours 则可以让你设置训练多少个小时备份一下。</div><div class="line"></div><div class="line">tf.train.Saver.save(sess, save_path, <span class="attribute">global_step</span>=None, <span class="attribute">latest_filename</span>=None, <span class="attribute">meta_graph_suffix</span>=<span class="string">'meta'</span>, <span class="attribute">write_meta_graph</span>=<span class="literal">True</span>, <span class="attribute">write_state</span>=<span class="literal">True</span>)</div><div class="line">备份。返回备份文件名字。如果 global_step 设置了，则会将它添加在备份名字的最后。</div><div class="line"></div><div class="line">tf.train.Saver.restore(sess, save_path)</div><div class="line">恢复。</div></pre></td></tr></table></figure></p>
+        <p>机器学习花费的时间一般都比较长，因此模型的保存与恢复就很重要。有时我们训练了一段很长的时间，如果突然断电等突发情况，如果没有保存，那么又得重新训练。做好备份与恢复能大大提高我们模型训练的稳定性与效率。当然，备份也不能太频繁，太频繁也会降低训练效率。因此，在备份与训练效率之间的平衡也比较重要。</p>
+<h2 id="模型保存与恢复"><a href="#模型保存与恢复" class="headerlink" title="模型保存与恢复"></a>模型保存与恢复</h2><p>TensorFlow 使用 Saver 类来进行模型的保存与恢复，它的作用就是保存与恢复变量。Saver 封装了很多实用方法来完成它的功能。例如它会自动管理备份文件以节省磁盘空间；也可以设置训练多长时间，保存一下备份文件。Saver 的构造函数如下。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">tf.train.Saver.__init__(<span class="attribute">var_list</span>=None, <span class="attribute">reshape</span>=<span class="literal">False</span>, <span class="attribute">sharded</span>=<span class="literal">False</span>, <span class="attribute">max_to_keep</span>=5, <span class="attribute">keep_checkpoint_every_n_hours</span>=10000.0, <span class="attribute">name</span>=None, <span class="attribute">restore_sequentially</span>=<span class="literal">False</span>, <span class="attribute">saver_def</span>=None, <span class="attribute">builder</span>=None, <span class="attribute">defer_build</span>=<span class="literal">False</span>, <span class="attribute">allow_empty</span>=<span class="literal">False</span>, <span class="attribute">write_version</span>=2, <span class="attribute">pad_step_number</span>=<span class="literal">False</span>)</div><div class="line">在Saver的构造函数中，设置这些参数，则可以很方便地实现上面提到的功能。</div><div class="line">如：</div><div class="line">max_to_keep 可以设置最多保存多少个备份文件，如果超出了，则最早的因为已经没有用了，就会被删除。</div><div class="line">keep_checkpoint_every_n_hours 则可以让你设置训练多少个小时备份一下。</div><div class="line"></div><div class="line">tf.train.Saver.save(sess, save_path, <span class="attribute">global_step</span>=None, <span class="attribute">latest_filename</span>=None, <span class="attribute">meta_graph_suffix</span>=<span class="string">'meta'</span>, <span class="attribute">write_meta_graph</span>=<span class="literal">True</span>, <span class="attribute">write_state</span>=<span class="literal">True</span>)</div><div class="line">备份。返回备份文件名字。如果 global_step 设置了，则会将它添加在备份名字的最后。</div><div class="line"></div><div class="line">tf.train.Saver.restore(sess, save_path)</div><div class="line">恢复。</div></pre></td></tr></table></figure></p>
 <p>一个通用的例子如下：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"><span class="meta"># 创建一个 Saver，来保存variables中指定的变量</span></div><div class="line">saver = tf.train.Saver(...variables...)</div><div class="line"><span class="meta"># 加载训练模型并开始训练。每1000次训练备份一次</span></div><div class="line">sess = tf.Session()</div><div class="line"><span class="keyword">for</span> <span class="keyword">step</span> <span class="keyword">in</span> xrange(<span class="number">1000000</span>):</div><div class="line">    sess.<span class="built_in">run</span>(..training_op..)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">step</span> % <span class="number">1000</span> == <span class="number">0</span>:</div><div class="line">        <span class="meta"># 将step保存在备份文件的名字中，好区分备份文件。</span></div><div class="line">        <span class="meta"># 每次备份的名字为 my-model-step</span></div><div class="line">        saver.save(sess, <span class="string">'my-model'</span>, global_step=<span class="keyword">step</span>) ==&gt; filename: <span class="string">'my-model-0'</span></div></pre></td></tr></table></figure></p>
-<h2 id="2-模型应用"><a href="#2-模型应用" class="headerlink" title="2. 模型应用"></a>2. 模型应用</h2><p>模型训练结束后，会保存备份文件。当要应用模型时，可以先恢复模型，然后直接根据模型，计算出结果即可。<br>注意，在应用模型时，要把输入数据转成和训练数据相应的数据结构与类型。如对于手写数据识别，你应该把要识别的数字图片先经过预处理，转成28x28的的形式，再提交给训练好的模型使用。</p>
+<h2 id="模型应用"><a href="#模型应用" class="headerlink" title="模型应用"></a>模型应用</h2><p>模型训练结束后，会保存备份文件。当要应用模型时，可以先恢复模型，然后直接根据模型，计算出结果即可。</p>
 
       
     </div>
@@ -470,6 +470,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/lua_learn_tips/" rel="prev" title="Lua 学习集锦">
+                Lua 学习集锦 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -550,7 +554,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -561,7 +565,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -572,7 +576,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -607,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-模型保存与恢复"><span class="nav-text">1. 模型保存与恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-模型应用"><span class="nav-text">2. 模型应用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型保存与恢复"><span class="nav-text">模型保存与恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型应用"><span class="nav-text">模型应用</span></a></li></ol></div>
             
 
           </div>
@@ -630,7 +634,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
